@@ -8,33 +8,137 @@
 </head>
 
    <body>
-    <div class="t-cover__filter">
-    </div>
     <header>
-        <div class="city-selector">
-            <span>ВЫБОР ГОРОДА</span>
+        <div class="logo-container">
             <img height="100px" src="img/login/body/germes.png" alt="">
         </div>
-        <div class="nav_search">
-        <nav>
-            <a href="#catalog">КАТАЛОГ</a>
-            <a href="#delivery">ДОСТАВКА</a>
-            <a href="#guarantee">ГАРАНТИЯ</a>
-            <a href="#order-status">СТАТУС ЗАКАЗА</a>
-            <a href="#shops">МАГАЗИНЫ</a>
-            <a href="#account">АККАУНТ/ВХОД</a>
-        </nav>
-        <div class="search-container">
-            <input type="text" placeholder="Что вы ищете?">
-            <button>Поиск</button>
+
+
+        
+        <div class="nav-and-search">
+            <nav>
+                <a href="#catalog">КАТАЛОГ</a>
+                <a href="#delevery">ДОСТАВКА</a>
+                <a href="#garant">ГАРАНТИЯ</a>
+                <a href="#shops">МАГАЗИНЫ</a>
+                <a href="#about_us">О НАС</a>
+                
+            </nav>
+            <div class="search-container">
+                <input type="text" placeholder="Поиск...">
+ 
+            </div>
         </div>
-    </div>
+        <div class="icons">
+            <a href="#heart">
+                <img height="30px" src="heart.png"></a>
+            <a href="#shopping"><img height="30px" src="shopping-cart.png"></a>
+            <a href="#user"> <img height="35px" src="user.png"></a>
+            
+           
+        </div>
+    
     </header>
        
-    
+    <div class="custom-dropdown">
+        <div class="filters">
+            <div class="dropdown-header">
+                <span>Цена, руб.</span>
+                <img height="20px" src="angle-down.svg" class="arrow">
+            </div>
+            <div class="dropdown-content-price">
+                      <!-- Поля для ввода диапазона цен -->
+            <div class="price-range">
+                <input type="number" id="min-price" placeholder="От">
+                <input type="number" id="max-price" placeholder="До">
+            </div>
+            
+            </div>
+        </div>
+        <div class="filters">
+            <div class="dropdown-header">
+                <span>Изделие</span>
+                <img height="20px" src="angle-down.svg">
+            </div>
+            <div class="dropdown-content-izdelie">
+     
+            </div>
+        </div>
+        <div class="filters">
+            <div class="dropdown-header">
+                <span>Конфигурация</span>
+                <img height="20px" src="angle-down.svg">
+            </div>
+            <div class="dropdown-content">
+
+            </div>
+        </div>
+        <div class="filters">
+            <div class="dropdown-header">
+                <span>Механизмы</span>
+                <img height="20px" src="angle-down.svg">
+            </div>
+            <div class="dropdown-content">
+
+            </div>
+        </div>
+        <div class="filters">
+            <div class="dropdown-header">
+                <span>Общий габарит, см</span>
+                <img height="20px" src="angle-down.svg">
+            </div>
+            <div class="dropdown-content">
+
+            </div>
+        </div>
+        <div class="filters">
+            <div class="dropdown-header">
+                <span>Глубина, см</span>
+                <img height="20px" src="angle-down.svg">
+            </div>
+            <div class="dropdown-content">
+
+            </div>
+        </div>
+    </div>    
 
     <footer>
-        <h1 >Мебельная фабрика "Гермес Плюс"</h1>
-    </footer>
+        <div class="clientFooterClass" id="clientFooter">
+        <div class="footerInf">
+            
+            <div class="forClients">
+                <h1 >Клиентам</h1>
+                <a href="#delevery">ДОСТАВКА</a>
+                <a href="#garant">ГАРАНТИЯ</a>
+                <a href="#shops">МАГАЗИНЫ</a>
+                <a href="#sroki">CРОКИ ИЗГОТОВЛЕНИЯ</a>
+                <a href="#status">СТАТУС ЗАКАЗА</a>
+            </div>
+            <div class="aboutCompany">
+                <h1 >О фабрике</h1>
+                <a href="#about_us">О НАС</a>
+                <a href="#pay">ПОЛИТИКА ОПЛАТЫ</a>
+                <a href="#contacts">КОНТАКТЫ</a>
+                <a href="#adress">АДРЕС ФАБРИКИ</a>
+                
+            </div>
+            <div class="catalog">
+                <h1 >Каталог</h1>
+                <a href="#sofas">ДИВАНЫ</a>
+                <a href="#stulya">СТУЛЬЯ</a>
+                <a href="#kresla">КРЕСЛА</a>
+            </div>
+            <div class="massage">
+                <h1>+7 (494) 270-65-01</h1>
+                <img height="30px" src="whatsapp.png">
+            </div>
+
+
+        </div>
+    </div>
+    
+    
+    </div>
+    <script src="catalog.js"></script>
     </body>
 </html>
