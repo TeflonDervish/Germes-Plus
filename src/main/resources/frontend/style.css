@@ -249,8 +249,9 @@ nav {
     height: 27px;
 }
 .search-container input:focus {
-    border: #FD880B;
+    border-color: #FD880B;
     padding-left: 20px;
+    outline: none;
   }
 
   .search-container input::placeholder{
@@ -270,6 +271,7 @@ nav {
 
 .search-container button:hover {
     background-color: #2980b9; /* Цвет фона кнопки при наведении */
+    
 }
 
 header .group1 {
