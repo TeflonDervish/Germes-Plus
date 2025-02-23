@@ -22,14 +22,27 @@
 
         
         <div class="nav-and-search">
-            <nav>
-                <a href="#catalog">КАТАЛОГ</a>
-                <a href="#delevery">ДОСТАВКА</a>
-                <a href="#garant">ГАРАНТИЯ</a>
-                <a href="#shops">МАГАЗИНЫ</a>
-                <a href="#about_us">О НАС</a>
-                
-            </nav>
+            <div class="clientHeaderClass" id="clientHeader">
+                <nav>
+                    <a href="#catalog">КАТАЛОГ</a>
+                    <a href="#delevery">ДОСТАВКА</a>
+                    <a href="#garant">ГАРАНТИЯ</a>
+                    <a href="#shops">МАГАЗИНЫ</a>
+                    <a href="#about_us">О НАС</a>
+                    
+                </nav>
+            </div>
+            <div class="partnerHeaderClass hidden" id="partnerHeader">
+                <nav>
+               
+                    <a href="#catalog">КАТАЛОГ</a>
+                    <a href="#delevery">ПУНКТЫ ВЫДАЧИ</a>
+                    <a href="#garant">ГАРАНТИЯ</a>
+                    <a href="#shops">СРОКИ ПОСТАВКИ</a>
+                    <a href="#about_us">О НАС</a>
+                    
+                </nav>
+            </div>
             <div class="search-container">
                 <input type="text" placeholder="Поиск...">
  
@@ -56,7 +69,7 @@
             
             <div class="form-container">
                 <div class=" redistr">
-                    <label >Регистрация</label><br>
+                    <label >Вход</label><br>
                     <label class="toggle-switch">
                         <input type="checkbox" id="roleSwitch">
                         <span class="slider">
@@ -74,57 +87,24 @@
                     <label>Номер телефона:<br>
                         <input type="tel" id="phone" name="phone" placeholder="+7 (XXX) XXX-XX-XX" required>
                     </label>
-                    <label>Почта:<br>
-                        <input type="email" id="email" name="email" placeholder="example@example.com" required>
-                    </label>
 
-                    <label>Имя:<br>
-                        <input type="text" id="first-name" name="first-name" placeholder="Введите ваше имя" required>
-                    </label>
-                    <label>Фамилия:<br>
-                        <input type="text" id="last-name" name="last-name" placeholder="Введите вашу фамилию" required>
-                    </label>
-                    <div class="input-group">
-                        <label for="city">Город:</label><br>
-                        <input type="text" id="city" name="city" placeholder="Начните вводить город" list="city-list" required>
-                        <datalist id="city-list">
-                          <option value="Уфа">
-                          <option value="Салават">
-                          <option value="Кумертау">
-                          <option value="Оренбург">
-                          <option value="Стерлитамак">
-                            <option value="Нефтекамск">
-                        </datalist>
-                      </div>
                     <label>Пароль:<br>
                         <input type="password" id="password" name="password" placeholder="Введите пароль" required>
                     </label>
-                    <label>Повторите пароль:<br>
-                        <input type="password" id="secondPassword" name="secondPassword" placeholder="Повторите пароль" required>
-                    </label>
-                    <button>Зарегистрироваться</button>
+                    <button>Войти</button>
                 </form>
 
                 <form id="partnerForm" class="hidden">
 
-                    <label>Номер телефона:<br>
-                        <input type="tel" id="phone" name="phone" placeholder="+7 (XXX) XXX-XX-XX" required>
-                    </label>
                     <label>Почта:<br>
                         <input type="email" id="email" name="email" placeholder="example@example.com" required>
-                    </label>
-
-                    <label>Наименование организации:<br>
-                        <input type="text" id="first-name" name="first-name" placeholder="Введите наименование организации" required>
                     </label>
             
                     <label>Пароль:<br>
                         <input type="password" id="password" name="password" placeholder="Введите пароль" required>
                     </label>
-                    <label>Повторите пароль:<br>
-                        <input type="password" id="secondPassword" name="secondPassword" placeholder="Повторите пароль" required>
-                    </label>
-                    <button>Зарегистрироваться</button>
+
+                    <button>Войти</button>
                 </form>
             </div>
         </div>
