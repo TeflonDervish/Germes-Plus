@@ -19,10 +19,27 @@ document.addEventListener('click', function () {
 });
 
 // Останавливаем всплытие события для инпутов
-const inputs = document.querySelectorAll('.dropdown-content-price input');
+const inputs = document.querySelectorAll('.dropdown-content');
 inputs.forEach(input => {
     input.addEventListener('click', function (event) {
         event.stopPropagation();
     });
 });
 
+
+
+
+
+document.querySelector('#toggle-filters').addEventListener('click', function() {
+    const filtersContent = document.querySelector('.filt_all');
+    const arrow = document.querySelector('.arrow');
+  
+    // Переключаем видимость контента
+    filtersContent.classList.toggle('open');
+  
+    // Вращаем стрелку (опционально)
+    if (arrow) {
+      arrow.classList.toggle('rotate');
+    }
+  });
+  
