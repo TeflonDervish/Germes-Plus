@@ -5,8 +5,16 @@
 
 html, body {
     height: 100%; 
+    min-height: 100vh;
 }
-
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Минимальная высота на весь экран */
+  }
+main {
+    flex: 1; /* Основной контент растягивается, чтобы занять оставшееся пространство */
+  }
 
 header {
     display: flex;
@@ -155,8 +163,8 @@ header nav a:active {
 footer {
     background-color: #28315077; /* Полупрозрачный фон */
     color: white;
-    position: relative;
-    bottom: 0;
+    
+    
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
     width: 100%;
@@ -219,8 +227,6 @@ footer a:hover {
 
 
 
-
-
 /* Основные стили для выпадающего списка */
 .custom-dropdown {
     position: relative;
@@ -228,17 +234,15 @@ footer a:hover {
 ;
 align-content: center;
 justify-content: center;
-    padding: 20px  0;
-    gap: 40px;
+    padding: 30px  0;
+    gap: 35px;
     width: 100%;
-    grid-template-columns: 220px 220px 220px 220px 220px 220px;
-    
+    /* grid-template-columns: 220px 220px 220px 220px 220px 220px; */
+    grid-template-columns: repeat(6, 220px);
 }
 
 .custom-dropdown_filt{
     grid-column: 1/2;
-
-
 }
 
 .custom-dropdown_sort{
@@ -250,23 +254,33 @@ justify-content: center;
 }
 .cleanFilt button{
     height: 100%;
-    width: 100%;
+    width: 240px;
     border-radius: 25px;
     border: 1px solid rgba(79, 128, 0, 0);
     font-size: 16px;
     cursor: pointer;
+    background-color: #14182c28;
+    color: rgb(0, 0, 0);
+    transition:  0.3s ease, transform 0.3s ease;
     
+}
+
+.cleanFilt button:hover {
+    /* background: linear-gradient(135deg, #5616a0, #123081);  */
+    transform: translateY(-2px); 
+}
+
+.cleanFilt button:active {
+    transform: translateY(0);
 }
 
 
 .filt_all{
-   
     display: none;
     grid-template-columns: repeat(6, 220px); /* 3 колонки внутри .filt-all */
-    gap: 40px; /* Отступы между элементами внутри .filt-all */
-     
-        
+    gap: 35px; /* Отступы между элементами внутри .filt-all */ 
 }
+
 
   
 .filt_all.open {
@@ -286,24 +300,20 @@ justify-content: center;
     padding-right: 10px;
 }
 
-
-
-
-
-
-
 .filters{
     width: 240px;
     height: 40px;
-
     border: 1px solid rgba(79, 128, 0, 0);
-
     border-radius: 30px;
-    background-color: #22222c0e;
+    background-color: #14182c28;
     cursor: pointer;
     position: relative;
-
+    color: rgb(0, 0, 0);
+    
 }
+
+
+
 
 
 .dropdown-content{
@@ -313,7 +323,7 @@ justify-content: center;
     top: 100%;
     left: 0px;
     width: 100%;
-    background-color: #fff;
+    background-color: white;
     border: 1px solid #000000;
     
     border-radius: 15px;
@@ -332,8 +342,6 @@ justify-content: center;
 .filters.active .arrow {
     transform: scaleY(-1);
 }
-
-
 
 
 /* Поля для ввода диапазона цен */
@@ -359,21 +367,12 @@ justify-content: center;
     font-size: 14px;
 }
 
-
-
-
-
-/*---------------------- фильтры для изделя--------*/
-
 .checkboxForFilters{/* ДЛЯ ЧЕКБОКСОВ ---------------------------------------------------------------------------------------------------*/
     padding: 20px;
     display: grid ;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
 }
-
-
-
 
 /*---------------------- КАТАЛОГ--------*/
 
@@ -384,9 +383,11 @@ justify-content: center;
 align-content: center;
 justify-content: center;
     padding: 30px 0;
-    gap: 200px;
+    gap: 30px 60px;
     width: 100%;
-    grid-template-columns: 350px 350px 350px ;
+    /* grid-template-columns: 350px 350px 350px ; */
+    grid-template-columns: repeat(4, 350px);
+    margin: 0 20px;
 }
 
 .product{
@@ -402,6 +403,19 @@ justify-content: center;
     gap: 9px;
     text-decoration: none;
     color: #000000;
+    transition: color 0.3s ease;
+}
+
+.product a:hover {
+    color: #0d1258;
+    transform: scale(1.05);
+    transition: transform .5s;
+}
+
+.product a:active {
+    color: #0d1258;
+    transform: scale(0.95);
+    transition: transform .5s;
 }
 
 .product p{
@@ -409,19 +423,32 @@ justify-content: center;
     color: #000000a2;
 }
 
-.product button{
-    background-color: #283150dc;
-    color: white;
-    height: 35px;
-    width: 250px;
-    border-radius: 25px;
-    font-size: 15px;
-    cursor:pointer;
-    
+.product button {
+    padding: 12px;
+    margin-top: 10px;
+    background: #192042af; 
+    color: white; 
+    border: none;
+    border-radius: 25px; 
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer; 
+    transition:  0.3s ease, transform 0.3s ease; 
+}
 
+.product button:hover {
+    background: linear-gradient(135deg, #5616a0, #123081); 
+    transform: translateY(-2px); 
+}
+
+.product button:active {
+    transform: translateY(0);
 }
 .product img{
-
-    height: 250px;
-    
+    height: 200px;
 }
+
+
+
+
+
