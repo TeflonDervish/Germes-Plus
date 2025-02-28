@@ -155,7 +155,7 @@ header nav a:active {
 footer {
     background-color: #28315077; /* Полупрозрачный фон */
     color: white;
-    position: fixed;
+    position: relative;
     bottom: 0;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
@@ -224,23 +224,62 @@ footer a:hover {
 /* Основные стили для выпадающего списка */
 .custom-dropdown {
     position: relative;
-    display: flex
-    ;
-        align-items: center;
-        flex-direction: row;
-        
-        justify-content: center;
-        padding: 20px 0;
-        gap: 40px;
-    width: 100%; /* Ширина прямоугольника */
+    display: grid
+;
+align-content: center;
+justify-content: center;
+    padding: 20px  0;
+    gap: 40px;
+    width: 100%;
+    grid-template-columns: 220px 220px 220px 220px 220px 220px;
+    
 }
+
+.custom-dropdown_filt{
+    grid-column: 1/2;
+
+
+}
+
+.custom-dropdown_sort{
+    grid-column: 6;
+}
+
+.cleanFilt{
+    grid-column: 2/3;
+}
+.cleanFilt button{
+    height: 100%;
+    width: 100%;
+    border-radius: 25px;
+    border: 1px solid rgba(79, 128, 0, 0);
+    font-size: 16px;
+    cursor: pointer;
+    
+}
+
+
+.filt_all{
+   
+    display: none;
+    grid-template-columns: repeat(6, 220px); /* 3 колонки внутри .filt-all */
+    gap: 40px; /* Отступы между элементами внутри .filt-all */
+     
+        
+}
+
+  
+.filt_all.open {
+    display: grid; /* Показываем обёртку */
+  }
 
 /* Заголовок выпадающего списка */
 .dropdown-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 8px 12px;
+    align-items: flex-end;
+    padding: 9px 12px;
+    
 }
 
 .filters img{
@@ -250,19 +289,24 @@ footer a:hover {
 
 
 
+
+
+
 .filters{
-    width: 220px;
-    border-color: black ;
-    border: 1px solid;
-    border-radius: 25px;
-    background-color: #fff;
+    width: 240px;
+    height: 40px;
+
+    border: 1px solid rgba(79, 128, 0, 0);
+
+    border-radius: 30px;
+    background-color: #22222c0e;
     cursor: pointer;
     position: relative;
 
 }
 
-/* ФИЛЬТР НА ЦЕНУ ----------------------------------------------------*/
-.dropdown-content-price {
+
+.dropdown-content{
     display: none; /* Скрыто по умолчанию */
     position: absolute;
     margin-top: 10px;
@@ -271,6 +315,7 @@ footer a:hover {
     width: 100%;
     background-color: #fff;
     border: 1px solid #000000;
+    
     border-radius: 15px;
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     z-index: 1;
@@ -281,7 +326,7 @@ footer a:hover {
     transition: transform 0.3s ease; /* Анимация поворота */
 }
 
-.filters.active .dropdown-content-price {
+.filters.active .dropdown-content {
     display: block; /* Показываем содержимое */
 }
 .filters.active .arrow {
@@ -315,3 +360,68 @@ footer a:hover {
 }
 
 
+
+
+
+/*---------------------- фильтры для изделя--------*/
+
+.checkboxForFilters{/* ДЛЯ ЧЕКБОКСОВ ---------------------------------------------------------------------------------------------------*/
+    padding: 20px;
+    display: grid ;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+
+
+
+/*---------------------- КАТАЛОГ--------*/
+
+.magazine{
+    position: relative;
+    display: grid
+;
+align-content: center;
+justify-content: center;
+    padding: 30px 0;
+    gap: 200px;
+    width: 100%;
+    grid-template-columns: 350px 350px 350px ;
+}
+
+.product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.product a{
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    text-decoration: none;
+    color: #000000;
+}
+
+.product p{
+    font-size: 14px;
+    color: #000000a2;
+}
+
+.product button{
+    background-color: #283150dc;
+    color: white;
+    height: 35px;
+    width: 250px;
+    border-radius: 25px;
+    font-size: 15px;
+    cursor:pointer;
+    
+
+}
+.product img{
+
+    height: 250px;
+    
+}
