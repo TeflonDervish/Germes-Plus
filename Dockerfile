@@ -2,8 +2,8 @@ FROM amazoncorretto:17
 
 WORKDIR /app
 
-COPY ./target .
+COPY target/germesplus-0.0.1-SNAPSHOT.jar germes-plus.jar
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "germesplus-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "germes-plus.jar"]
