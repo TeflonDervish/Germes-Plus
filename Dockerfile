@@ -8,7 +8,8 @@ COPY .mvn .mvn
 
 COPY src ./src
 
-RUN ./mvnw package -DskipTests
+RUN ./mvnw package
+#-DskipTests
 
 EXPOSE 8080
 
