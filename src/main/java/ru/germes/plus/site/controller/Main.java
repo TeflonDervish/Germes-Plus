@@ -17,4 +17,9 @@ public class Main {
     public String getRegistration(Model model) {
         return "registration.html";
     }
+
+    @GetMapping("/catalog")
+    public String getCatalog(Model model) {
+        return "catalog.html";
+    }
 }

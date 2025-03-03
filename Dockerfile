@@ -1,17 +1,9 @@
-from amazoncorretto:17
+FROM amazoncorretto:17
 
-workdir /app
+WORKDIR /app
 
-COPY pom.xml .
-COPY mvnw .
-COPY .mvn .mvn
-
-RUN chmod +x mvnw  # Даем права на выполнение
-
-COPY src ./src
-
-RUN ./mvnw package -DskipTests
+COPY ./target .
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "target/germesplus-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "germesplus-0.0.1-SNAPSHOT.jar"]
