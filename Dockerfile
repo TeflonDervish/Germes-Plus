@@ -6,6 +6,8 @@ COPY pom.xml .
 COPY mvnw .
 COPY .mvn .mvn
 
+RUN chmod +x mvnw  # Даем права на выполнение
+
 COPY src ./src
 
 RUN ./mvnw package -DskipTests
