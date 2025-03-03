@@ -3,7 +3,7 @@ server:
 
 spring:
     datasource:
-        url: jdbc:mysql://212.192.217.207:3306/germesplus
+        url: jdbc:mysql://localhost:3306/germesplus
         username: server
         password: server
         driver-class-name: com.mysql.cj.jdbc.Driver
