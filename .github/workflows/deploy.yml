@@ -13,16 +13,16 @@ jobs:
 
     steps:
       - name: Deploy to server
-        uses: shimataro/ssh-key-action@v2
+        uses: easingthemes/ssh-deploy@v2.2.0
         with:
-           host: ${{ secrets.SSH_HOST }}
-           username: ${{ secrets.SSH_USER }}
-           password: ${{ secrets.SSH_PASSWORD }} 
-           command: |
-              sudo docker stop germes-plus || true
-              sudo docker rm germes-plus || true
-              sudo docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/germes-plus:latest
-              sudo docker run -d \
-                --name germes-plus \
-                -p 8080:8080 \
-                ${{ secrets.DOCKER_HUB_USERNAME }}/germes-plus:latest
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_USER: ${{ secrets.SSH_USER }}
+          REMOTE_PASSWORD: ${{ secrets.SSH_PASSWORD }}  # Используем пароль
+          COMMAND: |
+            sudo docker stop germes-plus || true
+            sudo docker rm germes-plus || true
+            sudo docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/germes-plus:latest
+            sudo docker run -d \
+              --name germes-plus \
+              -p 8080:8080 \
+              ${{ secrets.DOCKER_HUB_USERNAME }}/germes-plus:latest
