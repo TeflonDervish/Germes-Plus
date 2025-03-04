@@ -53,16 +53,16 @@ header {
     display: flex;
     flex-direction: column; /* Картинка и текст друг под другом */
     align-items: center; /* Центрирование по горизонтали */
-    gap: 10px; /* Расстояние между картинкой и текстом */
+    gap: 10px; 
 }
 
 
 
 .nav-and-search {
     display: flex;
-    flex-direction: column; /* Нав меню и строка поиска друг под другом */
-    align-items: center; /* Центрирование по горизонтали */
-    gap: 20px; /* Расстояние между нав меню и строкой поиска */
+    flex-direction: column; 
+    align-items: center; 
+    gap: 20px; 
     width: 100%;
 }
 
@@ -102,23 +102,21 @@ nav {
   }
 
   .search-container input::placeholder{
-    /* padding-left: 10px; */
     color:#f3eaea7a
 }
 
 .search-container button {
-    padding: 5px 10px; /* Отступы внутри кнопки */
+    padding: 5px 10px; 
     border: none; /* Убираем границу */
-    background-color: #3498db; /* Цвет фона кнопки */
-    color: white; /* Цвет текста кнопки */
-    border-radius: 5px; /* Скругление углов */
-    cursor: pointer; /* Курсор в виде указателя */
-    font-size: 14px; /* Размер текста */
+    background-color: #3498db; 
+    color: white; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 14px; 
 }
 
 .search-container button:hover {
-    background-color: #2980b9; /* Цвет фона кнопки при наведении */
-    
+    background-color: #2980b9; 
 }
 
 header .group1 {
@@ -162,9 +160,7 @@ header nav a:active {
 
 footer {
     background-color: #28315077; /* Полупрозрачный фон */
-    color: white;
-    
-    
+    color: white;    
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
     width: 100%;
@@ -172,8 +168,6 @@ footer {
     height: 250px; 
     margin-top: auto;
     flex-shrink: 0;
-
-
 }
 
 
@@ -236,14 +230,11 @@ footer a:hover {
 /* Основные стили для выпадающего списка */
 .custom-dropdown {
     position: relative;
-    display: grid
-;
-align-content: center;
-justify-content: center;
+    display: grid;
+    align-content: center;
+    justify-content: center;
     padding: 30px  130px;
     gap: 20px;
-    /* width: 100%; */
-    /* grid-template-columns: 220px 220px 220px 220px 220px 220px; */
     grid-template-columns: repeat(6, 1fr);
 }
 
@@ -270,11 +261,9 @@ justify-content: center;
     color: rgb(0, 0, 0);
     transition:  0.3s ease, transform 0.3s ease;
     padding: 9px 12px;
-    
 }
 
 .cleanFilt button:hover {
-    /* background: linear-gradient(135deg, #5616a0, #123081);  */
     transform: translateY(-2px); 
 }
 
@@ -285,8 +274,8 @@ justify-content: center;
 
 .filt_all{
     display: none;
-    grid-template-columns: repeat(6, 1fr); /* 3 колонки внутри .filt-all */
-    gap: 20px; /* Отступы между элементами внутри .filt-all */ 
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 20px; 
     grid-column: 1/7;
 }
 
@@ -294,7 +283,7 @@ justify-content: center;
   
 .filt_all.open {
     display: grid; /* Показываем обёртку */
-  }
+}
 
 
 
@@ -304,7 +293,6 @@ justify-content: center;
     justify-content: space-between;
     align-items: flex-end;
     padding: 9px 12px;
-    
 }
 
 .filters img{
@@ -312,19 +300,13 @@ justify-content: center;
 }
 
 .filters{
-    /* width: 240px;
-    height: 40px; */
     border: 1px solid rgba(79, 128, 0, 0);
     border-radius: 30px;
     background-color: #14182c28;
     cursor: pointer;
     position: relative;
     color: rgb(0, 0, 0);
-    
 }
-
-
-
 
 
 .dropdown-content{
@@ -333,9 +315,9 @@ justify-content: center;
     margin-top: 10px;
     top: 100%;
     left: 0px;
-    /* width: 100%; */
-    background-color: white;
-    border: 1px solid #000000;
+    width: 100%;
+    background-color: #ffffff;
+    border: 2px solid #1f253d75;
     
     border-radius: 15px;
     z-index: 1;
@@ -357,7 +339,6 @@ justify-content: center;
 /* Поля для ввода диапазона цен */
 .price-range {
     display: flex;
-
     gap: 10px;
     margin: 10px;
 }
@@ -365,7 +346,7 @@ justify-content: center;
 .price-range input {
     width: 50%;
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #1f253d75;
     border-radius: 20px;
     font-size: 14px;
 }
@@ -377,12 +358,64 @@ justify-content: center;
     font-size: 14px;
 }
 
+.sort-flex{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+.sort-flex button{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border: 0px solid #1f253d75;
+    font-size: 16px;
+    cursor: pointer;
+    background-color:  #ffffff48;
+    color: rgb(0, 0, 0);
+    transition:  0.3s ease, transform 0.3s ease;
+    padding: 9px 0;
+}
+
+.sort-flex button:hover {
+    background: linear-gradient(135deg, #aeacaf3b, #5f647252); 
+    transform: translateY(-0.1px); 
+}
+
+.sort-flex button:active {
+    transform: translateY(0);
+}
 .checkboxForFilters{/* ДЛЯ ЧЕКБОКСОВ ---------------------------------------------------------------------------------------------------*/
-    padding: 20px;
+    padding: 20px 80px;
     display: grid ;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
+    
 }
+
+
+
+.checkboxForFilters input[type="checkbox"] {
+    
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .checkboxForFilters input[type="checkbox"]:hover {
+    border-color: #226aa5;
+    box-shadow: 0 0 8px rgba(13, 56, 92, 0.5);
+  }
+  
+  .checkboxForFilters input[type="checkbox"]:checked {
+    background-color: #3c96e0be;
+    border-color: #266ba370;
+  }
+  
+  
 
 /*---------------------- КАТАЛОГ--------*/
 
@@ -392,7 +425,7 @@ justify-content: center;
 ;
 align-content: center;
 justify-content: center;
-    padding: 30px  130px;
+    padding: 50px  130px;
     gap: 30px 60px;
     grid-template-columns: repeat(4, 1fr);
     margin: 0 20px;
@@ -460,3 +493,9 @@ justify-content: center;
 
 
 
+  
+ 
+  
+
+  
+  
