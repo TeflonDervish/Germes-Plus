@@ -23,6 +23,7 @@ jobs:
             sudo docker rm germes-plus || true
             sudo docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/germes-plus:latest
             sudo docker run -d \
+              --restart always
               --name germes-plus \
               -p 8080:8080 \
               ${{ secrets.DOCKER_HUB_USERNAME }}/germes-plus:latest
