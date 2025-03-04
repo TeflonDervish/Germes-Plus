@@ -2,7 +2,7 @@ name: Deploy docker image on server
 
 on:
   workflow_run:
-    workflows: ["Docker Build and Push"]
+    workflows: ["Docker Image CI"]
     types:
       - completed
 
