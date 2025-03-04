@@ -1,0 +1,29 @@
+name: Deploy docker image on server
+
+on:
+  workflow_run:
+    workflows: ["Docker Build and Push"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          #known_hosts: ${{ secrets.KNOWN_HOSTS }}
+          script: |
+            sudo docker stop germes-plus || true
+            sudo docker rm germes-plus || true
+            sudo docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/germes-plus:latest
+            sudo docker run -d \
+              --name germes-plus \
+              -p 8080:8080 \
+              ${{ secrets.DOCKER_HUB_USERNAME }}/germes-plus:latest
