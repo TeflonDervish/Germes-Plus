@@ -1,0 +1,29 @@
+name: Deploy docker image on server
+
+on:
+  workflow_run:
+    workflows: ["Docker Image CI"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - name: Deploy to server
+        uses: easingthemes/ssh-deploy@v2.2.0
+        with:
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_USER: ${{ secrets.SSH_USER }}
+          REMOTE_PASSWORD: ${{ secrets.SSH_PASSWORD }}  # Используем пароль
+          COMMAND: |
+            sudo docker stop germes-plus || true
+            sudo docker rm germes-plus || true
+            sudo docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/germes-plus:latest
+            sudo docker run -d \
+              --restart always
+              --name germes-plus \
+              -p 8080:8080 \
+              ${{ secrets.DOCKER_HUB_USERNAME }}/germes-plus:latest

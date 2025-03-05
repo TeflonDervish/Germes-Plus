@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ru.germes.plus</groupId>
-	<artifactId>site</artifactId>
+	<artifactId>germesplus</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>site</name>
+	<name>germesplus</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
