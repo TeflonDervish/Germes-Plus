@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{style/LoginAndRegistr.css}">
     
     <title>Document</title>
 </head>
@@ -16,11 +16,8 @@
     </div>
     <header>
         <div class="logo-container">
-            <img height="100px" th:src="@{img/login/body/germes.png}" alt="">
+            <img height="100px" th:src="@{img/body/forLoginRegistration/germes.png}" alt="">
         </div>
-
-
-        
         <div class="nav-and-search">
             <nav>
                 <a href="#catalog">КАТАЛОГ</a>
@@ -28,7 +25,6 @@
                 <a href="#garant">ГАРАНТИЯ</a>
                 <a href="#shops">МАГАЗИНЫ</a>
                 <a href="#about_us">О НАС</a>
-                
             </nav>
             <div class="search-container">
                 <input type="text" placeholder="Поиск...">
@@ -37,23 +33,19 @@
         </div>
         <div class="icons">
             <a href="#heart">
-                <img height="30px" th:src="@{img/login/header/heart.png}"></a>
-            <a href="#shopping"><img height="30px" th:src="@{img/login/header/shopping-cart.png}"></a>
-            <a href="#user"> <img height="35px" th:src="@{img/login/header/user.png}"></a>
-            
-           
+                <img height="30px" th:src="@{img/header/heart.png}"></a>
+            <a href="#shopping"><img height="30px" th:src="@{img/header/shopping-cart.png}"></a>
+            <a href="#user"> <img height="35px" th:src="@{img/header/user.png}"></a>
         </div>
-    
     </header>
        
     <div class = "grid">
         <div class="germes">
-        <img height="550px" th:src="@{img/login/body/germes.png}" alt="">
+        <img height="550px" th:src="@{img/body/forLoginRegistration/germes.png}" alt="">
         <h1>Гермес-Плюс</h1>
         <h2>Ваш надёжный партнёр в создании идеального интерьера</h2>
         </div>
         <div class = "bodyPage">
-            
             <div class="form-container">
                 <div class=" redistr">
                     <label >Регистрация</label><br>
@@ -65,11 +57,12 @@
                         </span>
                       </label>
                 </div>
+
                 <form id="clientForm">
                     <label>Номер телефона:<br>
                         <input type="tel" id="phone" name="phone" placeholder="+7 (XXX) XXX-XX-XX" required>
                     </label>
-                    <label>registrationПочта:<br>
+                    <label>Почта:<br>
                         <input type="email" id="email" name="email" placeholder="example@example.com" required>
                     </label>
 
@@ -101,7 +94,6 @@
                 </form>
 
                 <form id="partnerForm" class="hidden">
-
                     <label>Номер телефона:<br>
                         <input type="tel" id="phone" name="phone" placeholder="+7 (XXX) XXX-XX-XX" required>
                     </label>
@@ -128,7 +120,6 @@
     <footer>
         <div class="clientFooterClass" id="clientFooter">
         <div class="footerInf">
-            
             <div class="forClients">
                 <h1 >Клиентам</h1>
                 <a href="#delevery">ДОСТАВКА</a>
@@ -143,7 +134,6 @@
                 <a href="#pay">ПОЛИТИКА ОПЛАТЫ</a>
                 <a href="#contacts">КОНТАКТЫ</a>
                 <a href="#adress">АДРЕС ФАБРИКИ</a>
-                
             </div>
             <div class="catalog">
                 <h1 >Каталог</h1>
@@ -153,10 +143,8 @@
             </div>
             <div class="massage">
                 <h1>+7 (494) 270-65-01</h1>
-                <img height="30px" th:src="@{/img/login/footer/whatsapp.png}">
+                <img height="30px" th:src="@{img/footer/whatsapp.png}">
             </div>
-
-
         </div>
     </div>
     <div class="partnerFooterClass hidden" id="partnerFooter">
@@ -187,13 +175,11 @@
             <div class="massage">
                 
                 <h1>+7 (494) 270-65-01</h1>
-                <img height="30px" th:src="@{/img/login/footer/whatsapp.png}">
+                <img height="30px" th:src="@{img/footer/whatsapp.png}">
             </div>
-
-
         </div>
     </div>
     </footer>
-    <script th:src="@{/scripts/registration.js}"></script>
+    <script th:src="@{scripts/registration.js}"></script>
     </body>
 </html>
