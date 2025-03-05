@@ -1,0 +1,454 @@
+* {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+    height: 100%; 
+    min-height: 100vh;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Минимальная высота на весь экран */
+  }
+main {
+    flex: 1; /* Основной контент растягивается, чтобы занять оставшееся пространство */
+  }
+
+header {
+    display: flex;
+    align-items:flex-end ; /* В￼
+    ыравнивает элементы по вертикали */
+    background-color: #283150;
+    color: white;
+    padding: 5px 20px 25px 20px;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    width: calc(100% - 40px); 
+    /* background-image: -webkit-linear-gradient(top, rgba(9, 47, 51, 0.8), rgba(8, 29, 31, 0.7)); */
+    z-index: 2; 
+}
+
+.icons{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.icons a:hover{
+
+    color: #1abc9c;
+    transform: scale(1.1);
+    transition: transform .5s;
+}
+
+.icons a:active {
+    color: #1abc9c;
+    transform: scale(0.9);
+    transition: transform .5s;
+}
+
+
+.logo-container {
+    display: flex;
+    flex-direction: column; /* Картинка и текст друг под другом */
+    align-items: center; /* Центрирование по горизонтали */
+    gap: 10px; /* Расстояние между картинкой и текстом */
+}
+
+
+
+.nav-and-search {
+    display: flex;
+    flex-direction: column; /* Нав меню и строка поиска друг под другом */
+    align-items: center; /* Центрирование по горизонтали */
+    gap: 20px; /* Расстояние между нав меню и строкой поиска */
+    width: 100%;
+}
+
+
+nav {
+    display: flex;
+    
+    gap: 45px; /* Расстояние между ссылками */
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Расстояние между полем ввода и кнопкой */
+    width: 90%;
+}
+
+.search-container img{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.search-container input {
+    padding: 5px 20px; /* Отступы внутри поля ввода */
+    border: 2px solid #fd880b71; /* Граница поля ввода */
+    border-radius: 25px; /* Скругление углов */
+    font-size: 18px; /* Размер текста */
+    width: 100%;
+    background-color: #283150;
+    color: azure;
+    height: 27px;
+}
+.search-container input:focus {
+    border-color: #FD880B;
+    padding-left: 20px;
+    outline: none;
+  }
+
+  .search-container input::placeholder{
+    /* padding-left: 10px; */
+    color:#f3eaea7a
+}
+
+.search-container button {
+    padding: 5px 10px; /* Отступы внутри кнопки */
+    border: none; /* Убираем границу */
+    background-color: #3498db; /* Цвет фона кнопки */
+    color: white; /* Цвет текста кнопки */
+    border-radius: 5px; /* Скругление углов */
+    cursor: pointer; /* Курсор в виде указателя */
+    font-size: 14px; /* Размер текста */
+}
+
+.search-container button:hover {
+    background-color: #2980b9; /* Цвет фона кнопки при наведении */
+    
+}
+
+header .group1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 29px;
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    background-color: rgba(44, 62, 80, 0);
+}
+
+header nav {
+    margin-top: 13px;
+    align-items: center;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #1abc9c;
+    transform: scale(1.1);
+    transition: transform .5s;
+}
+
+header nav a:active {
+    color: #1abc9c;
+    transform: scale(0.9);
+    transition: transform .5s;
+}
+
+
+footer {
+    background-color: #28315077; /* Полупрозрачный фон */
+    color: white;
+    
+    
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
+    width: 100%;
+    /* background-image: -webkit-linear-gradient(top, rgba(9, 47, 51, 0.8), rgba(8, 29, 31, 0.7));  */
+    height: 250px; 
+    margin-top: auto;
+    flex-shrink: 0;
+
+
+}
+
+
+.footerInf {
+    display: grid;
+    grid-template-columns: 20% 20% 20% auto;
+    padding: 20px ;
+}
+
+footer h1{
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+footer a{
+    font-size: 15px;
+    padding-bottom: 15px;
+    color: white;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #0d5042;
+}
+.forClients{
+    display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+}
+
+.aboutCompany{
+    display: flex
+    ;
+        flex-direction: column;
+        align-items: flex-start;
+}
+
+.catalog{
+    display: flex
+    ;
+        flex-direction: column;
+        align-items: flex-start;
+}
+
+.massage{
+    display: flex
+    ;
+        flex-direction: column;
+        align-items: flex-end;
+}
+
+
+
+/* Основные стили для выпадающего списка */
+.custom-dropdown {
+    position: relative;
+    display: grid
+;
+align-content: center;
+justify-content: center;
+    padding: 30px  0;
+    gap: 35px;
+    width: 100%;
+    /* grid-template-columns: 220px 220px 220px 220px 220px 220px; */
+    grid-template-columns: repeat(6, 220px);
+}
+
+.custom-dropdown_filt{
+    grid-column: 1/2;
+}
+
+.custom-dropdown_sort{
+    grid-column: 6;
+}
+
+.cleanFilt{
+    grid-column: 2/3;
+}
+.cleanFilt button{
+    height: 100%;
+    width: 240px;
+    border-radius: 25px;
+    border: 1px solid rgba(79, 128, 0, 0);
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #14182c28;
+    color: rgb(0, 0, 0);
+    transition:  0.3s ease, transform 0.3s ease;
+    
+}
+
+.cleanFilt button:hover {
+    /* background: linear-gradient(135deg, #5616a0, #123081);  */
+    transform: translateY(-2px); 
+}
+
+.cleanFilt button:active {
+    transform: translateY(0);
+}
+
+
+.filt_all{
+    display: none;
+    grid-template-columns: repeat(6, 220px); /* 3 колонки внутри .filt-all */
+    gap: 35px; /* Отступы между элементами внутри .filt-all */ 
+}
+
+
+  
+.filt_all.open {
+    display: grid; /* Показываем обёртку */
+  }
+
+/* Заголовок выпадающего списка */
+.dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 9px 12px;
+    
+}
+
+.filters img{
+    padding-right: 10px;
+}
+
+.filters{
+    width: 240px;
+    height: 40px;
+    border: 1px solid rgba(79, 128, 0, 0);
+    border-radius: 30px;
+    background-color: #14182c28;
+    cursor: pointer;
+    position: relative;
+    color: rgb(0, 0, 0);
+    
+}
+
+
+
+
+
+.dropdown-content{
+    display: none; /* Скрыто по умолчанию */
+    position: absolute;
+    margin-top: 10px;
+    top: 100%;
+    left: 0px;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #000000;
+    
+    border-radius: 15px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    z-index: 1;
+    
+}
+
+.arrow {
+    transition: transform 0.3s ease; /* Анимация поворота */
+}
+
+.filters.active .dropdown-content {
+    display: block; /* Показываем содержимое */
+}
+.filters.active .arrow {
+    transform: scaleY(-1);
+}
+
+
+/* Поля для ввода диапазона цен */
+.price-range {
+    display: flex;
+
+    gap: 10px;
+    margin: 10px;
+}
+
+.price-range input {
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 14px;
+}
+.price-range input ::placeholder {
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.checkboxForFilters{/* ДЛЯ ЧЕКБОКСОВ ---------------------------------------------------------------------------------------------------*/
+    padding: 20px;
+    display: grid ;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/*---------------------- КАТАЛОГ--------*/
+
+.magazine{
+    position: relative;
+    display: grid
+;
+align-content: center;
+justify-content: center;
+    padding: 30px 0;
+    gap: 30px 60px;
+    width: 100%;
+    /* grid-template-columns: 350px 350px 350px ; */
+    grid-template-columns: repeat(4, 350px);
+    margin: 0 20px;
+}
+
+.product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.product a{
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    text-decoration: none;
+    color: #000000;
+    transition: color 0.3s ease;
+}
+
+.product a:hover {
+    color: #0d1258;
+    transform: scale(1.05);
+    transition: transform .5s;
+}
+
+.product a:active {
+    color: #0d1258;
+    transform: scale(0.95);
+    transition: transform .5s;
+}
+
+.product p{
+    font-size: 14px;
+    color: #000000a2;
+}
+
+.product button {
+    padding: 12px;
+    margin-top: 10px;
+    background: #192042af; 
+    color: white; 
+    border: none;
+    border-radius: 25px; 
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer; 
+    transition:  0.3s ease, transform 0.3s ease; 
+}
+
+.product button:hover {
+    background: linear-gradient(135deg, #5616a0, #123081); 
+    transform: translateY(-2px); 
+}
+
+.product button:active {
+    transform: translateY(0);
+}
+.product img{
+    height: 200px;
+}
+
+
+
+
+
