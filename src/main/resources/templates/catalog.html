@@ -34,214 +34,225 @@
 
     </header>
 
-    <div class="custom-dropdown center">
+        <div class="custom-dropdown center">
 
-        <div class="filters">
-            <div class="dropdown-header">
-                <span>Цена, руб.</span>
-                <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
-            </div>
-            <div class="dropdown-content">
-                <div class="price-range">
-                    <input type="number" id="min-price" placeholder="От">
-                    <input type="number" id="max-price" placeholder="До">
+            <div class="filters">
+                <div class="dropdown-header">
+                    <span>Цена, руб.</span>
+                    <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
                 </div>
+                <div class="dropdown-content">
+                    <div class="price-range">
+                        <input type="number" id="min-price" placeholder="От">
+                        <input type="number" id="max-price" placeholder="До">
+                    </div>
 
-            </div>
-        </div>
-        <div class="filters">
-            <div class="dropdown-header">
-                <span>Изделие</span>
-                <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
-            </div>
-            <div class="dropdown-content">
-                <div class="checkboxForFilters">
-                    <input type="checkbox" id="sofas">
-                    <label for = "sofas">Диваны</label>
-
-                    <input type="checkbox" id="sofas">
-                    <label for = "sofas">Стулья</label>
-
-                    <input type="checkbox" id="sofas">
-                    <label for = "sofas">Кресла</label>
-
-                    <input type="checkbox" id="sofas">
-                    <label for = "sofas">Пуфы</label>
                 </div>
             </div>
-        </div>
-        <div class="filters">
-            <div class="dropdown-header">
-                <span>Конфигурация</span>
-                <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
-            </div>
-            <div class="dropdown-content">
-                <div class="checkboxForFilters">
-                    <input type="checkbox" id="sofas">
-                    <label for = "sofas">Диваны</label>
+            <div class="filters">
+                <div class="dropdown-header">
+                    <span>Изделие</span>
+                    <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                </div>
+                <div class="dropdown-content">
+                    <div class="checkboxForFilters">
+                        <input type="checkbox" id="sofas">
+                        <label for = "sofas">Диваны</label>
 
-                    <input type="checkbox" id="sofas">
-                    <label for = "sofas">Стулья</label>
+                        <input type="checkbox" id="sofas">
+                        <label for = "sofas">Стулья</label>
 
-                    <input type="checkbox" id="sofas">
-                    <label for = "sofas">Кресла</label>
+                        <input type="checkbox" id="sofas">
+                        <label for = "sofas">Кресла</label>
 
-                    <input type="checkbox" id="sofas">
-                    <label for = "sofas">Пуфы</label>
+                        <input type="checkbox" id="sofas">
+                        <label for = "sofas">Пуфы</label>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="filters">
-            <div class="dropdown-header">
-                <span>Механизмы</span>
-                <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
-            </div>
-            <div class="dropdown-content">
-                <div class="checkboxForFilters">
-                    <input type="checkbox" id="sofas">
-                    <label for = "sofas">Диваны</label>
+            <div class="filters">
+                <div class="dropdown-header">
+                    <span>Конфигурация</span>
+                    <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                </div>
+                <div class="dropdown-content">
+                    <div class="checkboxForFilters">
+                        <input type="checkbox" id="sofas">
+                        <label for = "sofas">Угловой</label>
 
-                    <input type="checkbox" id="sofas">
-                    <label for = "sofas">Стулья</label>
+                        <input type="checkbox" id="sofas">
+                        <label for = "sofas">П-образный</label>
 
-                    <input type="checkbox" id="sofas">
-                    <label for = "sofas">Кресла</label>
-
-                    <input type="checkbox" id="sofas">
-                    <label for = "sofas">Пуфы</label>
+                        <input type="checkbox" id="sofas">
+                        <label for = "sofas">Прямой</label>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="filters">
-            <div class="dropdown-header">
-                <span>Общий габарит, см</span>
-                <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
-            </div>
-            <div class="dropdown-content">
-                <div class="price-range">
-                    <input type="number" id="min-price" placeholder="От">
-                    <input type="number" id="max-price" placeholder="До">
+            <div class="filters">
+                <div class="dropdown-header">
+                    <span>Механизмы</span>
+                    <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                </div>
+                <div class="dropdown-content">
+                    <div class="checkboxForFilters">
+                        <input type="checkbox" id="sofas">
+                        <label for = "sofas">Трансформер</label>
+
+                        <input type="checkbox" id="sofas">
+                        <label for = "sofas">Еврокнижка</label>
+
+                        <input type="checkbox" id="sofas">
+                        <label for = "sofas">Книжка</label>
+
+                        <input type="checkbox" id="sofas">
+                        <label for = "sofas">Тройной-выкатной</label>
+
+                        <input type="checkbox" id="sofas">
+                        <label for = "sofas">Аккордеон</label>
+
+                        <input type="checkbox" id="sofas">
+                        <label for = "sofas">Дельфин</label>
+
+                        <input type="checkbox" id="sofas">
+                        <label for = "sofas">Тик-так</label>
+
+                        <input type="checkbox" id="sofas">
+                        <label for = "sofas">Клик-кляк</label>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="filters">
-            <div class="dropdown-header" >
-                <span>Глубина, см</span>
-                <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
-            </div>
-            <div class="dropdown-content">
-                <div class="price-range">
-                    <input type="number" id="min-price" placeholder="От">
-                    <input type="number" id="max-price" placeholder="До">
+            <div class="filters">
+                <div class="dropdown-header">
+                    <span>Общий габарит, см</span>
+                    <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                </div>
+                <div class="dropdown-content">
+                    <div class="price-range">
+                        <input type="number" id="min-price" placeholder="От">
+                        <input type="number" id="max-price" placeholder="До">
+                    </div>
                 </div>
             </div>
-        </div>
-
-
-
-        <div class="filt_all">
-        <div class="filters" >
-            <div class="dropdown-header">
-                <span>Цена, руб.</span>
-                <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
-            </div>
-            <div class="dropdown-content">
-                      <!-- Поля для ввода диапазона цен -->
-                <div class="price-range">
-                    <input type="number" id="min-price" placeholder="От">
-                    <input type="number" id="max-price" placeholder="До">
+            <div class="filters">
+                <div class="dropdown-header" >
+                    <span>Глубина, см</span>
+                    <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                </div>
+                <div class="dropdown-content">
+                    <div class="price-range">
+                        <input type="number" id="min-price" placeholder="От">
+                        <input type="number" id="max-price" placeholder="До">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="filters">
-            <div class="dropdown-header">
-                <span>Изделие</span>
-                <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
-            </div>
-            <div class="dropdown-content">
-                <div class="checkboxForFilters">
-                    <input type="checkbox" id="sofas">
-                    <label for = "sofas">Диваны</label>
 
-                    <input type="checkbox" id="sofas">
-                    <label for = "sofas">Стулья</label>
 
-                    <input type="checkbox" id="sofas">
-                    <label for = "sofas">Кресла</label>
 
-                    <input type="checkbox" id="sofas">
-                    <label for = "sofas">Пуфы</label>
+            <div class="filt_all">
+                <div class="filters" >
+                    <div class="dropdown-header">
+                        <span>Длина спального места, см</span>
+                        <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                    </div>
+                    <div class="dropdown-content">
+                        <!-- Поля для ввода диапазона цен -->
+                        <div class="price-range">
+                            <input type="number" id="min-price" placeholder="От">
+                            <input type="number" id="max-price" placeholder="До">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filters" >
+                    <div class="dropdown-header">
+                        <span>Ширина спального места, см</span>
+                        <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                    </div>
+                    <div class="dropdown-content">
+                        <!-- Поля для ввода диапазона цен -->
+                        <div class="price-range">
+                            <input type="number" id="min-price" placeholder="От">
+                            <input type="number" id="max-price" placeholder="До">
+                        </div>
+                    </div>
+                </div>
+                <div class="filters">
+                    <div class="dropdown-header">
+                        <span>Наполнение</span>
+                        <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="checkboxForFilters">
+                            <input type="checkbox" id="sofas">
+                            <label for = "sofas">Независимый пружинный блок</label>
+
+                            <input type="checkbox" id="sofas">
+                            <label for = "sofas">ППУ</label>
+
+                            <input type="checkbox" id="sofas">
+                            <label for = "sofas">Пружина - змейка</label>
+
+                            <input type="checkbox" id="sofas">
+                            <label for = "sofas">Премиум наполнитель ELAX</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="filters">
+                    <div class="dropdown-header">
+                        <span>Наличие подлокотников</span>
+                        <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="checkboxForFilters">
+                            <input type="checkbox" id="sofas">
+                            <label for = "sofas">С подлокотниками</label>
+
+                            <input type="checkbox" id="sofas">
+                            <label for = "sofas">Без подлокотников</label>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="filters">
+                    <div class="dropdown-header">
+                        <span>Наличие бельевого ящика</span>
+                        <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="checkboxForFilters">
+                            <input type="checkbox" id="sofas">
+                            <label for = "sofas">С ящиком</label>
+
+                            <input type="checkbox" id="sofas">
+                            <label for = "sofas">Без ящика</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="filters">
+                    <div class="dropdown-header">
+                        <span>Высота посадки, см</span>
+                        <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="price-range">
+                            <input type="number" id="min-price" placeholder="От">
+                            <input type="number" id="max-price" placeholder="До">
+                        </div>
+                    </div>
+                </div>
+                <div class="filters">
+                    <div class="dropdown-header" >
+                        <span>Глубина сидушки, см</span>
+                        <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="price-range">
+                            <input type="number" id="min-price" placeholder="От">
+                            <input type="number" id="max-price" placeholder="До">
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="filters">
-            <div class="dropdown-header">
-                <span>Конфигурация</span>
-                <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
-            </div>
-            <div class="dropdown-content">
-                <div class="checkboxForFilters">
-                    <input type="checkbox" id="sofas">
-                    <label for = "sofas">Диваны</label>
-
-                    <input type="checkbox" id="sofas">
-                    <label for = "sofas">Стулья</label>
-
-                    <input type="checkbox" id="sofas">
-                    <label for = "sofas">Кресла</label>
-
-                    <input type="checkbox" id="sofas">
-                    <label for = "sofas">Пуфы</label>
-                </div>
-            </div>
-        </div>
-        <div class="filters">
-            <div class="dropdown-header">
-                <span>Механизмы</span>
-                <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
-            </div>
-            <div class="dropdown-content">
-                <div class="checkboxForFilters">
-                    <input type="checkbox" id="sofas">
-                    <label for = "sofas">Диваны</label>
-
-                    <input type="checkbox" id="sofas">
-                    <label for = "sofas">Стулья</label>
-
-                    <input type="checkbox" id="sofas">
-                    <label for = "sofas">Кресла</label>
-
-                    <input type="checkbox" id="sofas">
-                    <label for = "sofas">Пуфы</label>
-                </div>
-            </div>
-        </div>
-        <div class="filters">
-            <div class="dropdown-header">
-                <span>Общий габарит, см</span>
-                <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
-            </div>
-            <div class="dropdown-content">
-                <div class="price-range">
-                    <input type="number" id="min-price" placeholder="От">
-                    <input type="number" id="max-price" placeholder="До">
-                </div>
-            </div>
-        </div>
-        <div class="filters">
-            <div class="dropdown-header" >
-                <span>Глубина, см</span>
-                <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
-            </div>
-            <div class="dropdown-content">
-                <div class="price-range">
-                    <input type="number" id="min-price" placeholder="От">
-                    <input type="number" id="max-price" placeholder="До">
-                </div>
-            </div>
-        </div>
-    </div>
-
         <div class="custom-dropdown_filt">
             <div class="filters">
                 <div class="dropdown-header" id="toggle-filters">
@@ -261,7 +272,7 @@
                     <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
                 </div>
                 <div class="dropdown-content">
-                    <div class="sort-flex">
+                    <div class="price-range">
                         <button>Сначала дешевле</button>
                         <button>Сначала дороже</button>
                     </div>
