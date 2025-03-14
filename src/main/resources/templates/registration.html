@@ -4,126 +4,131 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" th:href="@{.../style/LoginAndRegistr.css}">
-    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" th:href="@{style/LoginAndRegistr.css}">
+
     <title>Document</title>
 </head>
 
-   <body>
-    <div class="t-cover__filter">
+<body>
+<div class="t-cover__filter">
+</div>
+<header>
+    <div class="logo-container">
+        <img height="100px" th:src="@{img/body/forLoginRegistration/germes.png}" alt="">
     </div>
-    <header>
-        <div class="logo-container">
-            <img height="100px" th:src="@{img/body/forLoginRegistration/germes.png}" alt="">
+    <div class="nav-and-search">
+        <nav>
+            <a href="#catalog">КАТАЛОГ</a>
+            <a href="#delevery">ДОСТАВКА</a>
+            <a href="#garant">ГАРАНТИЯ</a>
+            <a href="#shops">МАГАЗИНЫ</a>
+            <a href="#about_us">О НАС</a>
+        </nav>
+        <div class="search-container">
+            <input type="text" placeholder="Поиск...">
+
         </div>
-        <div class="nav-and-search">
-            <nav>
-                <a href="#catalog">КАТАЛОГ</a>
-                <a href="#delevery">ДОСТАВКА</a>
-                <a href="#garant">ГАРАНТИЯ</a>
-                <a href="#shops">МАГАЗИНЫ</a>
-                <a href="#about_us">О НАС</a>
-            </nav>
-            <div class="search-container">
-                <input type="text" placeholder="Поиск...">
- 
-            </div>
-        </div>
-        <div class="icons">
-            <a href="#heart">
-                <img height="30px" th:src="@{img/header/heart.png}"></a>
-            <a href="#shopping"><img height="30px" th:src="@{img/header/shopping-cart.png}"></a>
-            <a href="#user"> <img height="35px" th:src="@{img/header/user.png}"></a>
-        </div>
-    </header>
-       
-    <div class = "grid">
-        <div class="germes">
+    </div>
+    <div class="icons">
+        <a href="#heart">
+            <img height="30px" th:src="@{img/header/heart.png}"></a>
+        <a href="#shopping"><img height="30px" th:src="@{img/header/shopping-cart.png}"></a>
+        <a href="#user"> <img height="35px" th:src="@{img/header/user.png}"></a>
+    </div>
+</header>
+
+<div class="grid">
+    <div class="germes">
         <img height="550px" th:src="@{img/body/forLoginRegistration/germes.png}" alt="">
         <h1>Гермес-Плюс</h1>
         <h2>Ваш надёжный партнёр в создании идеального интерьера</h2>
-        </div>
-        <div class = "bodyPage">
-            <div class="form-container">
-                <div class=" redistr">
-                    <label >Регистрация</label><br>
-                    <label class="toggle-switch">
-                        <input type="checkbox" id="roleSwitch">
-                        <span class="slider">
+    </div>
+    <div class="bodyPage">
+        <div class="form-container">
+            <div class=" redistr">
+                <label>Регистрация</label><br>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="roleSwitch">
+                    <span class="slider">
                           <span class="text no">Клиент</span>
                           <span class="text yes">Партнер</span>
                         </span>
-                      </label>
-                </div>
-
-                <form id="clientForm">
-                    <label>Номер телефона:<br>
-                        <input type="tel" id="phone" name="phone" placeholder="+7 (XXX) XXX-XX-XX" required>
-                    </label>
-                    <label>Почта:<br>
-                        <input type="email" id="email" name="email" placeholder="example@example.com" required>
-                    </label>
-
-                    <label>Имя:<br>
-                        <input type="text" id="first-name" name="first-name" placeholder="Введите ваше имя" required>
-                    </label>
-                    <label>Фамилия:<br>
-                        <input type="text" id="last-name" name="last-name" placeholder="Введите вашу фамилию" required>
-                    </label>
-                    <div class="input-group">
-                        <label for="city">Город:</label><br>
-                        <input type="text" id="city" name="city" placeholder="Начните вводить город" list="city-list" required>
-                        <datalist id="city-list">
-                          <option value="Уфа">
-                          <option value="Салават">
-                          <option value="Кумертау">
-                          <option value="Оренбург">
-                          <option value="Стерлитамак">
-                            <option value="Нефтекамск">
-                        </datalist>
-                      </div>
-                    <label>Пароль:<br>
-                        <input type="password" id="password" name="password" placeholder="Введите пароль" required>
-                    </label>
-                    <label>Повторите пароль:<br>
-                        <input type="password" id="secondPassword" name="secondPassword" placeholder="Повторите пароль" required>
-                    </label>
-                    <button>Зарегистрироваться</button>
-                    <a href="#login">Войти</a>
-                </form>
-
-                <form id="partnerForm" class="hidden">
-                    <label>Номер телефона:<br>
-                        <input type="tel" id="phone" name="phone" placeholder="+7 (XXX) XXX-XX-XX" required>
-                    </label>
-                    <label>Почта:<br>
-                        <input type="email" id="email" name="email" placeholder="example@example.com" required>
-                    </label>
-
-                    <label>Наименование организации:<br>
-                        <input type="text" id="first-name" name="first-name" placeholder="Введите наименование организации" required>
-                    </label>
-            
-                    <label>Пароль:<br>
-                        <input type="password" id="password" name="password" placeholder="Введите пароль" required>
-                    </label>
-                    <label>Повторите пароль:<br>
-                        <input type="password" id="secondPassword" name="secondPassword" placeholder="Повторите пароль" required>
-                    </label>
-                    <button>Зарегистрироваться</button>
-                    <a href="#login">Войти</a>
-                </form>
+                </label>
             </div>
+
+            <form id="clientForm">
+                <label>Номер телефона:<br>
+                    <input type="tel" id="phone" name="phone" placeholder="+7 (XXX) XXX-XX-XX" required>
+                </label>
+                <label>Почта:<br>
+                    <input type="email" id="email" name="email" placeholder="example@example.com" required>
+                </label>
+
+                <label>Имя:<br>
+                    <input type="text" id="first-name" name="first-name" placeholder="Введите ваше имя" required>
+                </label>
+                <label>Фамилия:<br>
+                    <input type="text" id="last-name" name="last-name" placeholder="Введите вашу фамилию" required>
+                </label>
+                <div class="input-group">
+                    <label for="city">Город:</label><br>
+                    <input type="text" id="city" name="city" placeholder="Начните вводить город" list="city-list"
+                           required>
+                    <datalist id="city-list">
+                        <option value="Уфа">
+                        <option value="Салават">
+                        <option value="Кумертау">
+                        <option value="Оренбург">
+                        <option value="Стерлитамак">
+                        <option value="Нефтекамск">
+                    </datalist>
+                </div>
+                <label>Пароль:<br>
+                    <input type="password" id="password" name="password" placeholder="Введите пароль" required>
+                </label>
+                <label>Повторите пароль:<br>
+                    <input type="password" id="secondPassword" name="secondPassword" placeholder="Повторите пароль"
+                           required>
+                </label>
+                <button>Зарегистрироваться</button>
+                <a href="#login">Войти</a>
+            </form>
+
+            <form id="partnerForm" class="hidden">
+                <label>Номер телефона:<br>
+                    <input type="tel" id="phone" name="phone" placeholder="+7 (XXX) XXX-XX-XX" required>
+                </label>
+                <label>Почта:<br>
+                    <input type="email" id="email" name="email" placeholder="example@example.com" required>
+                </label>
+
+                <label>Наименование организации:<br>
+                    <input type="text" id="first-name" name="first-name" placeholder="Введите наименование организации"
+                           required>
+                </label>
+
+                <label>Пароль:<br>
+                    <input type="password" id="password" name="password" placeholder="Введите пароль" required>
+                </label>
+                <label>Повторите пароль:<br>
+                    <input type="password" id="secondPassword" name="secondPassword" placeholder="Повторите пароль"
+                           required>
+                </label>
+                <button>Зарегистрироваться</button>
+                <a href="#login">Войти</a>
+            </form>
         </div>
     </div>
-    
-    <footer>
-        <div class="clientFooterClass" id="clientFooter">
+</div>
+
+<footer>
+    <div class="clientFooterClass" id="clientFooter">
         <div class="footerInf">
             <div class="forClients">
-                <h1 >Клиентам</h1>
+                <h1>Клиентам</h1>
                 <a href="#delevery">ДОСТАВКА</a>
                 <a href="#garant">ГАРАНТИЯ</a>
                 <a href="#shops">МАГАЗИНЫ</a>
@@ -131,14 +136,14 @@
                 <a href="#status">СТАТУС ЗАКАЗА</a>
             </div>
             <div class="aboutCompany">
-                <h1 >О фабрике</h1>
+                <h1>О фабрике</h1>
                 <a href="#about_us">О НАС</a>
                 <a href="#pay">ПОЛИТИКА ОПЛАТЫ</a>
                 <a href="#contacts">КОНТАКТЫ</a>
                 <a href="#adress">АДРЕС ФАБРИКИ</a>
             </div>
             <div class="catalog">
-                <h1 >Каталог</h1>
+                <h1>Каталог</h1>
                 <a href="#sofas">ДИВАНЫ</a>
                 <a href="#stulya">СТУЛЬЯ</a>
                 <a href="#kresla">КРЕСЛА</a>
@@ -151,37 +156,37 @@
     </div>
     <div class="partnerFooterClass hidden" id="partnerFooter">
         <div class="footerInf">
-            
+
             <div class="forClients">
-                <h1 >Партнерам</h1>
+                <h1>Партнерам</h1>
                 <a href="#delevery">ПУНКТЫ ВЫДАЧИ ЗАКАЗОВ</a>
                 <a href="#garant">ГАРАНТИЯ</a>
                 <a href="#sroki">CРОКИ ПОСТАВКИ</a>
                 <a href="#status">СТАТУС ЗАКАЗА</a>
             </div>
             <div class="aboutCompany">
-                <h1 >О фабрике</h1>
+                <h1>О фабрике</h1>
                 <a href="#about_us">О НАС</a>
                 <a href="#pay">ПОЛИТИКА ОПЛАТЫ</a>
                 <a href="#contacts">КОНТАКТЫ</a>
                 <a href="#adress">АДРЕС ФАБРИКИ</a>
-                
+
             </div>
             <div class="catalog">
-                <h1 >Каталог</h1>
+                <h1>Каталог</h1>
                 <a href="#tkani">ТКАНИ</a>
                 <a href="#karkasi">КАРКАСЫ</a>
                 <a href="#napolnitely">НАПОЛНИТЕЛИ</a>
                 <a href="#mechanismy">МЕХАНИЗМЫ</a>
             </div>
             <div class="massage">
-                
+
                 <h1>+7 (494) 270-65-01</h1>
                 <img height="30px" th:src="@{img/footer/whatsapp.png}">
             </div>
         </div>
     </div>
-    </footer>
-    <script th:src="@{scripts/registration.js}"></script>
-    </body>
+</footer>
+<script th:src="@{scripts/registration.js}"></script>
+</body>
 </html>
