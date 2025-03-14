@@ -1,25 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/style/card.css">
+
+    <link rel="stylesheet" th:href="@{style/card.css}">
+
+
     <title>Document</title>
 </head>
 
-   <body>
-    <div class="wrapper">
+<body>
+<div class="wrapper">
     <header>
         <div class="logo-container">
-            <img height="100px" src="../static/img/body/forLoginRegistration/germes.png" alt="">
+            <img height="100px" th:src="@{img/body/forLoginRegistration/germes.png}" alt="">
+
         </div>
 
         <div class="nav-and-search">
             <nav>
                 <a href="#catalog">КАТАЛОГ</a>
-                <a href="#delevery">ПУНКТЫ ВЫДАЧИ</a>
+                <a href="#delevery">ДОСТАВКА</a>
                 <a href="#garant">ГАРАНТИЯ</a>
-                <a href="#shops">СРОКИ ПОСТАВКИ</a>
+                <a href="#shops">МАГАЗИНЫ</a>
                 <a href="#about_us">О НАС</a>
             </nav>
             <div class="search-container">
@@ -27,43 +31,206 @@
             </div>
         </div>
         <div class="icons">
-            <a href="#heart"><img height="30px" src="../static/img/header/heart.png"></a>
-            <a href="#shopping"><img height="30px" src="../static/img/header/shopping-cart.png"></a>
-            <a href="#user"> <img height="35px" src="../static/img/header/user.png"></a>
+
+            <a href="#heart"><img height="30px" th:src="@{img/header/heart.png}"></a>
+            <a href="#shopping"><img height="30px" th:src="@{img/header/shopping-cart.png}"></a>
+            <a href="#user"> <img height="35px" th:src="@{img/header/user.png}"></a>
+
         </div>
-    
+
     </header>
+
+    <div class="cardForSofa">
+
+
+        <div class="gallery">
+            <div class="gallery-images">
+                <img th:src="@{img/body/forCatalog/sofa.jpg}" alt="Image 1" class="active">
+                <img th:src="@{img/body/forCatalog/sofa.jpg}" alt="Image 2">
+
+            </div>
+
+            <button class="gallery-button prev-button">&lt;</button>
+            <button class="gallery-button next-button">&gt;</button>
+        </div>
+
+
+        <div class="bodyPage">
+            <label id="nameSofa">Диван "Лорд"</label>
+            <div class="articul-rating">
+                <div class="articul">
+                    <label id="articul">Артикул:</label>
+                    <label id="articul-nubmer">2340565</label>
+                </div>
+
+                <div class="review-rating">★★★★★</div>
+
+            </div>
+            <label id="character">Характеристики модели</label><br>
+            <div class="form-container">
+                <div class="aboutForSofa">
+                    <label>Конфигурация: <label class="inputs" id="konfigure"> прямой</label>
+
+                    </label>
+                </div>
+                <div class="aboutForSofa">
+                    <label>Механизм: <label class="inputs" id="mechanism">еврокнижка</label>
+
+                    </label>
+                </div>
+                <div class="aboutForSofa">
+                    <label>Наполнение: <label class="inputs" id="napolnitel">независимые пружины</label>
+
+                    </label>
+                </div>
+                <div class="aboutForSofa">
+                    <label>Основа: <label class="inputs" id="osnovanie">металлический каркас</label>
+
+                    </label>
+                </div>
+                <div class="aboutForSofa">
+                    <label>Общие габариты: <label class="inputs" id="gabarites">2200 см * 1000 см</label>
+                    </label>
+                </div>
+                <div class="aboutForSofa">
+                    <label>Спальное место: <label class="inputs" id="sleepPlace">1900 см * 1600 см</label>
+                    </label>
+                </div>
+
+                <div class="aboutForSofa">
+                    <label>Короб: <label class="inputs" id="korob">присутсвует</label>
+                    </label>
+                </div>
+                <div class="aboutForSofa">
+                    <label>Подлокотники: <label class="inputs" id="podl">мягкие, 15 см</label>
+                    </label>
+                </div>
+
+                <div class="aboutForSofa">
+                    <label>Высота посадки: <label class="inputs" id="posadka">70 см</label>
+                    </label>
+                </div>
+
+                <div class="aboutForSofa">
+                    <label>Глубина сидушки: <label class="inputs" id="sidushka">75 см</label>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="price">
+            <label id="price">53 500 руб.</label>
+            <button id="korzina">Добавить в корзину</button>
+            <button id="heart"><img height="30px" th:src="@{img/header/heart.png}"></button>
+        </div>
+
+        <div class="tabs">
+            <div class="tab-buttons">
+                <button class="tab-button active" data-tab="tab1">ОПИСАНИЕ ТОВАРА</button>
+                <button class="tab-button" data-tab="tab2">ГАРАНТИЯ</button>
+                <button class="tab-button" data-tab="tab3">ДОСТАВКА</button>
+                <button class="tab-button" data-tab="tab4">УСЛОВИЯ ВОЗВРАТА</button>
+            </div>
+
+            <!-- Контент вкладок -->
+            <div class="tab-content">
+                <div id="tab1" class="tab-pane active">
+                    Крутой диван
+                </div>
+                <div id="tab2" class="tab-pane">
+                    Гарнтия пожизненная
+                </div>
+                <div id="tab3" class="tab-pane">
+                    Доставка лям
+                </div>
+                <div id="tab4" class="tab-pane">
+                    Отказы не принимаются
+                </div>
+            </div>
+        </div>
+
+
+        <div class="reviews">
+            <h2>Отзывы</h2>
+            <div class="average-rating">
+                Рейтинг: <span id="averageRating">5</span>/5
+            </div>
+
+            <div class="reviews-list">
+                <div class="review">
+                    <div class="review-author">Иван Иванов</div>
+                    <div class="review-rating">★★★★★</div>
+                    <div class="review-text">Отличный продукт! Всё работает как надо.</div>
+                    <div class="review-photo">
+                        <img th:src="@{img/body/forCatalog/sofa.jpg}" alt="Фотографии">
+                    </div>
+                    <div class="review-date">01.10.2023</div>
+                </div>
+                <div class="review">
+                    <div class="review-author">Мария Петрова</div>
+                    <div class="review-rating">★★★★★</div>
+                    <div class="review-text">Очень довольна покупкой. Рекомендую!</div>
+                    <div class="review-photo">
+                        <img th:src="@{img/body/forCatalog/sofa.jpg}" alt="Фотографии">
+                        <img th:src="@{img/body/forCatalog/sofa.jpg}" alt="Фотографии">
+                    </div>
+                    <div class="review-date">25.09.2023</div>
+                </div>
+
+            </div>
+
+            <form class="review-form">
+                <h3>Оставить отзыв</h3>
+                <textarea id="review" placeholder="Ваш отзыв" required></textarea>
+                <input type="file" id="photo" accept="image/*">
+                <div class="rating">
+                    <label>Оценка:</label>
+                    <div class="stars">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <input type="hidden" id="rating" name="rating" value="0" required>
+                </div>
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+
+    </div>
+
     <footer>
         <div class="clientFooterClass" id="clientFooter">
-        <div class="footerInf">
-            <div class="forClients">
-                <h1 >Клиентам</h1>
-                <a href="#delevery">ДОСТАВКА</a>
-                <a href="#garant">ГАРАНТИЯ</a>
-                <a href="#shops">МАГАЗИНЫ</a>
-                <a href="#sroki">CРОКИ ИЗГОТОВЛЕНИЯ</a>
-                <a href="#status">СТАТУС ЗАКАЗА</a>
+            <div class="footerInf">
+                <div class="forClients">
+                    <h1>Клиентам</h1>
+                    <a href="#delevery">ДОСТАВКА</a>
+                    <a href="#garant">ГАРАНТИЯ</a>
+                    <a href="#shops">МАГАЗИНЫ</a>
+                    <a href="#sroki">CРОКИ ИЗГОТОВЛЕНИЯ</a>
+                    <a href="#status">СТАТУС ЗАКАЗА</a>
+                </div>
+                <div class="aboutCompany">
+                    <h1>О фабрике</h1>
+                    <a href="#about_us">О НАС</a>
+                    <a href="#pay">ПОЛИТИКА ОПЛАТЫ</a>
+                    <a href="#contacts">КОНТАКТЫ</a>
+                    <a href="#adress">АДРЕС ФАБРИКИ</a>
+                </div>
+                <div class="catalog">
+                    <h1>Каталог</h1>
+                    <a href="#sofas">ДИВАНЫ</a>
+                    <a href="#stulya">СТУЛЬЯ</a>
+                    <a href="#kresla">КРЕСЛА</a>
+                </div>
+                <div class="massage">
+                    <h1>+7 (494) 270-65-01</h1>
+                    <img height="30px" th:src="@{img/footer/whatsapp.png}">
+                </div>
             </div>
-            <div class="aboutCompany">
-                <h1 >О фабрике</h1>
-                <a href="#about_us">О НАС</a>
-                <a href="#pay">ПОЛИТИКА ОПЛАТЫ</a>
-                <a href="#contacts">КОНТАКТЫ</a>
-                <a href="#adress">АДРЕС ФАБРИКИ</a>
-            </div>
-            <div class="catalog">
-                <h1 >Каталог</h1>
-                <a href="#sofas">ДИВАНЫ</a>
-                <a href="#stulya">СТУЛЬЯ</a>
-                <a href="#kresla">КРЕСЛА</a>
-            </div>
-            <div class="massage">
-                <h1>+7 (494) 270-65-01</h1>
-                <img height="30px" src="../static/img/footer/whatsapp.png">
-            </div>
-        </div>
     </footer>
 
-    <script src="scripts/catalog.js"></script>
-    </body>
+    <script th:src="@{scripts/card.js}"></script>
+</body>
 </html>

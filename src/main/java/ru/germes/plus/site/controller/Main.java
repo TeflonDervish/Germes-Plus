@@ -3,7 +3,6 @@ package ru.germes.plus.site.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class Main {
@@ -21,5 +20,10 @@ public class Main {
     @GetMapping("/catalog")
     public String getCatalog(Model model) {
         return "catalog.html";
+    }
+
+    @GetMapping("/sofa")
+    public String getSofa(Model model) {
+        return "cardForSofa.html";
     }
 }
