@@ -7,6 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class Main {
 
+    @GetMapping
+    public String main() {
+        return "redirect:/login";
+    }
+
     @GetMapping("/login")
     public String getLogin(Model model) {
         return "login.html";
