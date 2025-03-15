@@ -17,5 +17,9 @@ public class ProductForIndividual {
     private Long id;
 
     private String name;
+    private String price;
+    private String size;
+
+    private String url;
 
 }

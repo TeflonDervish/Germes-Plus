@@ -12,20 +12,7 @@ public class Main {
         return "redirect:/login";
     }
 
-    @GetMapping("/login")
-    public String getLogin(Model model) {
-        return "login.html";
-    }
 
-    @GetMapping("/register")
-    public String getRegistration(Model model) {
-        return "registration.html";
-    }
-
-    @GetMapping("/catalog")
-    public String getCatalog(Model model) {
-        return "catalog.html";
-    }
 
     @GetMapping("/sofa")
     public String getSofa(Model model) {

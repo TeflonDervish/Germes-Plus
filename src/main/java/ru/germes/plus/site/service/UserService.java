@@ -7,11 +7,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import ru.germes.plus.site.exceptions.UserNotFoundException;
 import ru.germes.plus.site.model.persons.IndividualPerson;
 import ru.germes.plus.site.repository.IndividualPeronRepository;
-
-import java.util.Optional;
 
 @Slf4j
 @Service
