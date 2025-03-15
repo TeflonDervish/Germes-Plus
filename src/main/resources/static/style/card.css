@@ -367,6 +367,7 @@ label.inputs{
     flex-direction: row;
     align-content: center;
     gap:15px
+    align-items: center;
 }
 
 .price label{
@@ -376,7 +377,7 @@ label.inputs{
 
 .price  #korzina {
     padding: 10px;
-    height: 90%;
+    height: 45px;
     width: 200px;
     background: #192042af; 
     color: white; 
@@ -399,8 +400,8 @@ label.inputs{
 
 .price #heart {
     padding: 8px;
-    height: 90%;
-    width: 10%;
+    height: 45px;
+    width: 45px;
     /* margin-top: 10px; */
     background: #192042af; 
     color: white; 
