@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{style/catalog.css}"/>
+    <link rel="stylesheet" th:href="@{/style/catalog.css}"/>
     <title>Document</title>
 </head>
 
@@ -11,7 +11,7 @@
 <div class="wrapper">
     <header>
         <div class="logo-container">
-            <img height="100px" th:src="@{img/body/forLoginRegistration/germes.png}" alt="">
+            <img height="100px" th:src="@{/img/body/forLoginRegistration/germes.png}" alt="">
         </div>
 
         <div class="nav-and-search">
@@ -27,9 +27,9 @@
             </div>
         </div>
         <div class="icons">
-            <a href="#heart"><img height="30px" th:src="@{img/header/heart.png}"></a>
-            <a href="#shopping"><img height="30px" th:src="@{img/header/shopping-cart.png}"></a>
-            <a href="#user"> <img height="35px" th:src="@{img/header/user.png}"></a>
+            <a href="#heart"><img height="30px" th:src="@{/img/header/heart.png}"></a>
+            <a href="#shopping"><img height="30px" th:src="@{/img/header/shopping-cart.png}"></a>
+            <a href="#user"> <img height="35px" th:src="@{/img/header/user.png}"></a>
         </div>
 
     </header>
@@ -39,7 +39,7 @@
         <div class="filters">
             <div class="dropdown-header">
                 <span>Цена, руб.</span>
-                <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                <img height="20px" th:src="@{/img/body/forCatalog/angle-down.svg}" class="arrow">
             </div>
             <div class="dropdown-content">
                 <div class="price-range">
@@ -53,7 +53,7 @@
         <div class="filters">
             <div class="dropdown-header">
                 <span>Конфигурация</span>
-                <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                <img height="20px" th:src="@{/img/body/forCatalog/angle-down.svg}" class="arrow">
             </div>
             <div class="dropdown-content">
                 <div class="checkboxForFilters">
@@ -71,7 +71,7 @@
         <div class="filters">
             <div class="dropdown-header">
                 <span>Механизмы</span>
-                <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                <img height="20px" th:src="@{/img/body/forCatalog/angle-down.svg}" class="arrow">
             </div>
             <div class="dropdown-content">
                 <div class="checkboxForFilters">
@@ -104,7 +104,7 @@
         <div class="filters">
             <div class="dropdown-header">
                 <span>Общий габарит, см</span>
-                <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                <img height="20px" th:src="@{/img/body/forCatalog/angle-down.svg}" class="arrow">
             </div>
             <div class="dropdown-content">
                 <div class="price-range">
@@ -116,7 +116,7 @@
         <div class="filters">
             <div class="dropdown-header">
                 <span>Глубина, см</span>
-                <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                <img height="20px" th:src="@{/img/body/forCatalog/angle-down.svg}" class="arrow">
             </div>
             <div class="dropdown-content">
                 <div class="price-range">
@@ -131,7 +131,7 @@
             <div class="filters">
                 <div class="dropdown-header">
                     <span>Длина спального места, см</span>
-                    <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                    <img height="20px" th:src="@{/img/body/forCatalog/angle-down.svg}" class="arrow">
                 </div>
                 <div class="dropdown-content">
                     <!-- Поля для ввода диапазона цен -->
@@ -145,7 +145,7 @@
             <div class="filters">
                 <div class="dropdown-header">
                     <span>Ширина спального места, см</span>
-                    <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                    <img height="20px" th:src="@{/img/body/forCatalog/angle-down.svg}" class="arrow">
                 </div>
                 <div class="dropdown-content">
                     <!-- Поля для ввода диапазона цен -->
@@ -158,7 +158,7 @@
             <div class="filters">
                 <div class="dropdown-header">
                     <span>Наполнение</span>
-                    <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                    <img height="20px" th:src="@{/img/body/forCatalog/angle-down.svg}" class="arrow">
                 </div>
                 <div class="dropdown-content">
                     <div class="checkboxForFilters">
@@ -179,7 +179,7 @@
             <div class="filters">
                 <div class="dropdown-header">
                     <span>Наличие подлокотников</span>
-                    <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                    <img height="20px" th:src="@{/img/body/forCatalog/angle-down.svg}" class="arrow">
                 </div>
                 <div class="dropdown-content">
                     <div class="checkboxForFilters">
@@ -195,7 +195,7 @@
             <div class="filters">
                 <div class="dropdown-header">
                     <span>Наличие бельевого ящика</span>
-                    <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                    <img height="20px" th:src="@{/img/body/forCatalog/angle-down.svg}" class="arrow">
                 </div>
                 <div class="dropdown-content">
                     <div class="checkboxForFilters">
@@ -210,7 +210,7 @@
             <div class="filters">
                 <div class="dropdown-header">
                     <span>Высота посадки, см</span>
-                    <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                    <img height="20px" th:src="@{/img/body/forCatalog/angle-down.svg}" class="arrow">
                 </div>
                 <div class="dropdown-content">
                     <div class="price-range">
@@ -222,7 +222,7 @@
             <div class="filters">
                 <div class="dropdown-header">
                     <span>Глубина сидушки, см</span>
-                    <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                    <img height="20px" th:src="@{/img/body/forCatalog/angle-down.svg}" class="arrow">
                 </div>
                 <div class="dropdown-content">
                     <div class="price-range">
@@ -236,7 +236,7 @@
             <div class="filters">
                 <div class="dropdown-header" id="toggle-filters">
                     <span>Расширенные фильтры</span>
-                    <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                    <img height="20px" th:src="@{/img/body/forCatalog/angle-down.svg}" class="arrow">
                 </div>
             </div>
 
@@ -248,7 +248,7 @@
             <div class="filters">
                 <div class="dropdown-header">
                     <span>Сортировка</span>
-                    <img height="20px" th:src="@{img/body/forCatalog/angle-down.svg}" class="arrow">
+                    <img height="20px" th:src="@{/img/body/forCatalog/angle-down.svg}" class="arrow">
                 </div>
                 <div class="dropdown-content">
                     <div class="sort">
@@ -263,7 +263,7 @@
     <div class="magazine center">
         <div class="product" th:each="products : ${products}">
             <a th:href="@{/sofa/{id}(id=${products.id})}">
-                <img th:src="${products.url}">
+                <img th:src="${products.url}" width="230px" height="300px">
                 <h2 th:text="${products.name}">Диван "Лорд"</h2>
                 <p th:text="${products.size}">2400*1000</p>
                 <h3 th:text="${products.price}">50.000 руб.</h3>
@@ -299,11 +299,11 @@
             </div>
             <div class="massage">
                 <h1>+7 (494) 270-65-01</h1>
-                <img height="30px" th:src="@{img/footer/whatsapp.png}">
+                <img height="30px" th:src="@{/img/footer/whatsapp.png}">
             </div>
         </div>
 </footer>
 
-<script th:src="@{scripts/catalog.js}"></script>
+<script th:src="@{/scripts/catalog.js}"></script>
 </body>
 </html>

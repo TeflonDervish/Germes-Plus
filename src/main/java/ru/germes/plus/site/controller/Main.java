@@ -12,10 +12,4 @@ public class Main {
         return "redirect:/login";
     }
 
-
-
-    @GetMapping("/sofa")
-    public String getSofa(Model model) {
-        return "cardForSofa.html";
-    }
 }

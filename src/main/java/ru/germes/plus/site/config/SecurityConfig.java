@@ -20,6 +20,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/register", "/register-individual",
                                 "/login", "/login-individual",
+                                "/catalog",
                                 "/style/**", "/scripts/**", "/img/**").permitAll()
                         .anyRequest().authenticated()
                 )

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" th:href="@{style/card.css}">
+    <link rel="stylesheet" th:href="@{/style/card.css}">
 
 
     <title>Document</title>
@@ -14,7 +14,7 @@
 <div class="wrapper ">
     <header>
         <div class="logo-container">
-            <img height="100px" th:src="@{img/body/forLoginRegistration/germes.png}" alt="">
+            <img height="100px" th:src="@{/img/body/forLoginRegistration/germes.png}" alt="">
 
         </div>
 
@@ -32,9 +32,9 @@
         </div>
         <div class="icons">
 
-            <a href="#heart"><img height="30px" th:src="@{img/header/heart.png}"></a>
-            <a href="#shopping"><img height="30px" th:src="@{img/header/shopping-cart.png}"></a>
-            <a href="#user"> <img height="35px" th:src="@{img/header/user.png}"></a>
+            <a href="#heart"><img height="30px" th:src="@{/img/header/heart.png}"></a>
+            <a href="#shopping"><img height="30px" th:src="@{/img/header/shopping-cart.png}"></a>
+            <a href="#user"> <img height="35px" th:src="@{/img/header/user.png}"></a>
 
         </div>
 
@@ -45,8 +45,7 @@
 
         <div class="gallery">
             <div class="gallery-images">
-                <img th:src="@{img/body/forCatalog/divanchik.jpg}" alt="Image 1" class="active">
-                <img th:src="@{img/body/forCatalog/sofa.jpg}" alt="Image 2">
+                <img th:src="${url}" alt="Image 1" class="active">
 
             </div>
 
@@ -56,7 +55,7 @@
 
 
         <div class="bodyPage">
-            <label id="nameSofa">Диван "Лорд"</label>
+            <label id="nameSofa" th:text="${name}">Диван "Лорд"</label>
             <div class="articul-rating">
                 <div class="articul">
                     <label id="articul">Артикул:</label>
@@ -119,9 +118,9 @@
         </div>
 
         <div class="price">
-            <label id="price">53 500 руб.</label>
+            <label id="price" th:text="${price}">53 500 руб.</label>
             <button id="korzina">Добавить в корзину</button>
-            <button id="heart"><img height="30px" th:src="@{img/header/heart.png}"></button>
+            <button id="heart"><img height="30px" th:src="@{/img/header/heart.png}"></button>
         </div>
 
         <div class="tabs">
@@ -162,7 +161,7 @@
                     <div class="review-rating">★★★★★</div>
                     <div class="review-text">Отличный продукт! Всё работает как надо.</div>
                     <div class="review-photo">
-                        <img th:src="@{img/body/forCatalog/sofa.jpg}" alt="Фотографии">
+                        <img th:src="@{/img/body/forCatalog/sofa.jpg}" alt="Фотографии">
                     </div>
                     <div class="review-date">01.10.2023</div>
                 </div>
@@ -171,8 +170,8 @@
                     <div class="review-rating">★★★★★</div>
                     <div class="review-text">Очень довольна покупкой. Рекомендую!</div>
                     <div class="review-photo">
-                        <img th:src="@{img/body/forCatalog/sofa.jpg}" alt="Фотографии">
-                        <img th:src="@{img/body/forCatalog/sofa.jpg}" alt="Фотографии">
+                        <img th:src="@{/img/body/forCatalog/sofa.jpg}" alt="Фотографии">
+                        <img th:src="@{/img/body/forCatalog/sofa.jpg}" alt="Фотографии">
                     </div>
                     <div class="review-date">25.09.2023</div>
                 </div>
@@ -226,11 +225,11 @@
                 </div>
                 <div class="massage">
                     <h1>+7 (494) 270-65-01</h1>
-                    <img height="30px" th:src="@{img/footer/whatsapp.png}">
+                    <img height="30px" th:src="@{/img/footer/whatsapp.png}">
                 </div>
             </div>
     </footer>
-
-    <script th:src="@{scripts/card.js}"></script>
+</div>
+    <script th:src="@{/scripts/card.js}"></script>
 </body>
 </html>
