@@ -22,6 +22,7 @@ public class ProductForIndividual {
     private String size;
 
     private String article;
+    private String description;
 
     @Column(columnDefinition = "json")
     private String characteristics;
