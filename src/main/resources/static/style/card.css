@@ -362,11 +362,10 @@ label.inputs{
 }
 
 .price{
-    display: flex
-;
+    display: flex;
     flex-direction: row;
     align-content: center;
-    gap:15px
+    gap:15px;
     align-items: center;
 }
 
