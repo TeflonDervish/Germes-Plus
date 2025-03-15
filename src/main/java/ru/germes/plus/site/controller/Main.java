@@ -17,7 +17,7 @@ public class Main {
         return "login.html";
     }
 
-    @GetMapping("/registration")
+    @GetMapping("/register")
     public String getRegistration(Model model) {
         return "registration.html";
     }
