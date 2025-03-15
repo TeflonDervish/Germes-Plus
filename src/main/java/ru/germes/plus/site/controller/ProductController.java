@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import ru.germes.plus.site.model.products.ProductForIndividual;
 import ru.germes.plus.site.service.ProductForIndividualService;
+import ru.germes.plus.site.utils.Util;
 
 @Controller
 public class ProductController {
@@ -23,6 +24,8 @@ public class ProductController {
         model.addAttribute("url", productForIndividual.getUrl());
         model.addAttribute("name", productForIndividual.getName());
         model.addAttribute("price", productForIndividual.getPrice());
+
+        model.addAttribute("map", ProductForIndividualService.getCharacteristicFromJson(productForIndividual.getCharacteristics()));
 
         return "cardForSofa.html";
     }

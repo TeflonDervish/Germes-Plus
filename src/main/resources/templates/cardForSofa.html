@@ -67,53 +67,11 @@
             </div>
             <label id="character">Характеристики модели</label><br>
             <div class="form-container">
-                <div class="aboutForSofa">
-                    <label>Конфигурация: <label class="inputs" id="konfigure"> прямой</label>
-
-                    </label>
-                </div>
-                <div class="aboutForSofa">
-                    <label>Механизм: <label class="inputs" id="mechanism">еврокнижка</label>
-
-                    </label>
-                </div>
-                <div class="aboutForSofa">
-                    <label>Наполнение: <label class="inputs" id="napolnitel">независимые пружины</label>
-
-                    </label>
-                </div>
-                <div class="aboutForSofa">
-                    <label>Основа: <label class="inputs" id="osnovanie">металлический каркас</label>
-
-                    </label>
-                </div>
-                <div class="aboutForSofa">
-                    <label>Общие габариты: <label class="inputs" id="gabarites">2200 см * 1000 см</label>
-                    </label>
-                </div>
-                <div class="aboutForSofa">
-                    <label>Спальное место: <label class="inputs" id="sleepPlace">1900 см * 1600 см</label>
-                    </label>
+                <div class="aboutForSofa" th:each="map : ${map}">
+                    <label th:text="${map.key}"></label>
+                    <label th:text="${map.value}" class="inputs"></label>
                 </div>
 
-                <div class="aboutForSofa">
-                    <label>Короб: <label class="inputs" id="korob">присутсвует</label>
-                    </label>
-                </div>
-                <div class="aboutForSofa">
-                    <label>Подлокотники: <label class="inputs" id="podl">мягкие, 15 см</label>
-                    </label>
-                </div>
-
-                <div class="aboutForSofa">
-                    <label>Высота посадки: <label class="inputs" id="posadka">70 см</label>
-                    </label>
-                </div>
-
-                <div class="aboutForSofa">
-                    <label>Глубина сидушки: <label class="inputs" id="sidushka">75 см</label>
-                    </label>
-                </div>
             </div>
         </div>
 
