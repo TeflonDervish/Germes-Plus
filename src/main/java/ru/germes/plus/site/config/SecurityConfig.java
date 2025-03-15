@@ -21,6 +21,7 @@ public class SecurityConfig {
                         .requestMatchers("/register", "/register-individual",
                                 "/login", "/login-individual",
                                 "/catalog",
+                                "/sofa/**",
                                 "/style/**", "/scripts/**", "/img/**").permitAll()
                         .anyRequest().authenticated()
                 )

@@ -92,7 +92,7 @@
             <!-- Контент вкладок -->
             <div class="tab-content">
                 <div id="tab1" class="tab-pane active">
-                    Крутой диван
+                    <span th:text="${description}"></span>
                 </div>
                 <div id="tab2" class="tab-pane">
                     Гарнтия пожизненная
@@ -186,6 +186,7 @@
                     <img height="30px" th:src="@{/img/footer/whatsapp.png}">
                 </div>
             </div>
+        </div>
     </footer>
 </div>
     <script th:src="@{/scripts/card.js}"></script>

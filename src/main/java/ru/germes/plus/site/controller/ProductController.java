@@ -27,6 +27,7 @@ public class ProductController {
 
         model.addAttribute("map", ProductForIndividualService.getCharacteristicFromJson(productForIndividual.getCharacteristics()));
         model.addAttribute("article", productForIndividual.getArticle());
+        model.addAttribute("description", productForIndividual.getDescription());
         return "cardForSofa.html";
     }
 }
