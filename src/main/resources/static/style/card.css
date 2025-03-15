@@ -222,19 +222,22 @@ footer a:hover {
 
 
 .center{
-    padding-left: calc(50%-300px);
-    padding-right: calc(50%-300px);
+    padding-left: calc(50% - 600px);
+    padding-right: calc(50% - 600px);
 }
 
 
 
 
 .cardForSofa{
-    padding: 100px 250px;
+position: relative;
+    padding-top: 100px;
+    padding-bottom: 50px;
     display: grid;
     grid-template-columns: repeat(2,1fr);
     justify-items: start;
     justify-content: start;
+    align-content: center;
     gap: 25px 150px;
 }
 
@@ -440,12 +443,13 @@ label.inputs{
 .tab-buttons {
     display: flex;
     height: 60px;
+    justify-content: space-between;
     /* box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);  */
 }
 
 .tab-button {
     padding: 10px 20px;
-    width: 250px;
+    width: 100%;
     cursor: pointer;
     /* border: none; */
     border-bottom: 2px solid #6e6e6e;
@@ -527,21 +531,24 @@ label.inputs{
 .review-author {
     font-weight: bold;
     margin-bottom: 5px;
+    font-size: 20px;
 }
+
 
 .review-text {
     margin-bottom: 5px;
+    font-size:18px;
 }
 
 .review-photo img {
-    max-width: 20%;
+    max-width: 25%;
     height: auto;
     border-radius: 5px;
     margin-top: 10px;
 }
 
 .review-date {
-    font-size: 0.9em;
+    font-size: 1.2em;
     color: #777;
 }
 
@@ -561,7 +568,7 @@ label.inputs{
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 25px;
-    font-size: 1em;
+    font-size: 1.2em;
 }
 
 .review-form textarea {
@@ -574,12 +581,12 @@ label.inputs{
 .review-form button {
     padding: 10px;
     height: 90%;
-    width: 200px;
+    width: 250px;
     background: #192042af; 
     color: white; 
     border: none;
     border-radius: 25px; 
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 500;
     cursor: pointer; 
     transition:  0.3s ease, transform 0.3s ease; 
@@ -602,7 +609,7 @@ label.inputs{
 
 .review-rating {
     color: #ffc107; /* Золотой цвет для звезд */
-    font-size: 1.2em;
+    font-size: 25px;
     margin-bottom: 5px;
 }
 
@@ -610,10 +617,11 @@ label.inputs{
     display: flex;
     gap: 5px;
     margin-bottom: 10px;
+
 }
 
 .rating .star {
-    font-size: 24px;
+    font-size: 30px;
     color: #ccc; /* Серый цвет для неактивных звезд */
     cursor: pointer;
     transition: color 0.2s ease;
