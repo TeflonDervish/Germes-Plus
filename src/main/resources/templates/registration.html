@@ -59,7 +59,7 @@
                 </label>
             </div>
 
-            <form id="clientForm">
+            <form id="clientForm" th:action="@{/register-individual}" method="post">
                 <label>Номер телефона:<br>
                     <input type="tel" id="phone" name="phone" placeholder="+7 (XXX) XXX-XX-XX" required>
                 </label>
@@ -68,10 +68,10 @@
                 </label>
 
                 <label>Имя:<br>
-                    <input type="text" id="first-name" name="first-name" placeholder="Введите ваше имя" required>
+                    <input type="text" id="first-name" name="name" placeholder="Введите ваше имя" required>
                 </label>
                 <label>Фамилия:<br>
-                    <input type="text" id="last-name" name="last-name" placeholder="Введите вашу фамилию" required>
+                    <input type="text" id="lastName" name="surname" placeholder="Введите вашу фамилию" required>
                 </label>
                 <div class="input-group">
                     <label for="city">Город:</label><br>
@@ -93,11 +93,11 @@
                     <input type="password" id="secondPassword" name="secondPassword" placeholder="Повторите пароль"
                            required>
                 </label>
-                <button>Зарегистрироваться</button>
-                <a href="#login">Войти</a>
+                <button type="submit">Зарегистрироваться</button>
+                <a th:href="@{/login}">Войти</a>
             </form>
 
-            <form id="partnerForm" class="hidden">
+            <form id="partnerForm" class="hidden" th:action="@{/register}" method="post">
                 <label>Номер телефона:<br>
                     <input type="tel" id="phone" name="phone" placeholder="+7 (XXX) XXX-XX-XX" required>
                 </label>
@@ -117,8 +117,8 @@
                     <input type="password" id="secondPassword" name="secondPassword" placeholder="Повторите пароль"
                            required>
                 </label>
-                <button>Зарегистрироваться</button>
-                <a href="#login">Войти</a>
+                <button type="submit">Зарегистрироваться</button>
+                <a th:href="@{/register}">Зарегистрироваться</a>
             </form>
         </div>
     </div>

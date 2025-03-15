@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 //TODO: Сделать в формате nosql добавить поля документации (гарантия, инструкция)
 
 @Data
@@ -17,5 +18,14 @@ public class ProductForIndividual {
     private Long id;
 
     private String name;
+    private String price;
+    private String size;
+
+    private String article;
+
+    @Column(columnDefinition = "json")
+    private String characteristics;
+
+    private String url;
 
 }

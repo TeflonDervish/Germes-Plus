@@ -7,7 +7,7 @@ spring:
         username: ${DATABASE_USERNAME:server}
         password: ${DATABASE_PASSWORD:server}
         driver-class-name: com.mysql.cj.jdbc.Driver
-    #   initialization-mode: always
+        #   initialization-mode: always
         data: classpath:sql/data.sql
 
     jpa:
@@ -18,3 +18,10 @@ spring:
             hibernate:
                 format_sql: true
                 dialect: org.hibernate.dialect.MySQLDialect
+                transaction:
+                    jta:
+                        platform: default
+
+logging:
+    level:
+        root: INFO
