@@ -189,6 +189,27 @@ form button:active {
     transform: translateY(0);
 }
 
+.form-a{
+    font-size: 20px;
+    display: flex;
+    color: white;
+    text-decoration: none;
+    justify-content: space-around;
+    transition: color 0.3s ease;
+}
+
+.form-a:hover {
+    color: #1abc9c;
+    transform: scale(1.1);
+    transition: transform .5s;
+}
+
+.form-a:active {
+    color: #1abc9c;
+    transform: scale(0.9);
+    transition: transform .5s;
+}
+
 .hidden {
     display: none;
   }
