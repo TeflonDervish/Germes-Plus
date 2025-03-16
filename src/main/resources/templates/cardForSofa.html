@@ -20,7 +20,7 @@
 
         <div class="nav-and-search">
             <nav>
-                <a href="#catalog">КАТАЛОГ</a>
+                <a th:href="@{/catalog}">КАТАЛОГ</a>
                 <a href="#delevery">ДОСТАВКА</a>
                 <a href="#garant">ГАРАНТИЯ</a>
                 <a href="#shops">МАГАЗИНЫ</a>
@@ -45,7 +45,7 @@
 
         <div class="gallery">
             <div class="gallery-images">
-                <img th:src="${url}" alt="Image 1" class="active">
+                <img class="active" th:each="url : ${urls}" th:src="${url}" alt="Image 1">
 
             </div>
 
