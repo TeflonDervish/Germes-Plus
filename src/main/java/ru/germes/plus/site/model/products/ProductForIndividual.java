@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 
 //TODO: Сделать в формате nosql добавить поля документации (гарантия, инструкция)
 
@@ -27,6 +29,9 @@ public class ProductForIndividual {
     @Column(columnDefinition = "json")
     private String characteristics;
 
-    private String url;
+    @ElementCollection
+    @CollectionTable(name="urls", joinColumns = @JoinColumn(name="id"))
+    @Column(name = "urls")
+    private List<String> urls;
 
 }

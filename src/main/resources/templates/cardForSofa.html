@@ -45,7 +45,7 @@
 
         <div class="gallery">
             <div class="gallery-images">
-                <img th:src="${url}" alt="Image 1" class="active">
+                <img class="active" th:each="url : ${urls}" th:src="${url}" alt="Image 1">
 
             </div>
 

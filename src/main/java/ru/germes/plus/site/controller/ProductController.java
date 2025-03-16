@@ -21,7 +21,7 @@ public class ProductController {
     public String getSofa(@PathVariable Long id,
                           Model model) {
         ProductForIndividual productForIndividual = productForIndividualService.getById(id);
-        model.addAttribute("url", productForIndividual.getUrl());
+        model.addAttribute("url", productForIndividual.getUrls().get(0));
         model.addAttribute("name", productForIndividual.getName());
         model.addAttribute("price", productForIndividual.getPrice());
 
