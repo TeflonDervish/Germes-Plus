@@ -24,6 +24,7 @@ public class ProductForIndividual {
     private String size;
 
     private String article;
+    @Lob
     private String description;
 
     @Column(columnDefinition = "json")
