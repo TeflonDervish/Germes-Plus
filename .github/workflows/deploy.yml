@@ -17,7 +17,7 @@ jobs:
         with:
           REMOTE_HOST: ${{ secrets.SSH_HOST }}
           REMOTE_USER: ${{ secrets.SSH_USER }}
-          REMOTE_PASSWORD: ${{ secrets.SSH_PASSWORD }}  # Используем пароль
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}  # Используем пароль
           COMMAND: |
             sudo docker stop germes-plus || true
             sudo docker rm germes-plus || true
