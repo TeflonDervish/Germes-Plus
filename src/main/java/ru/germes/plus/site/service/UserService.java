@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import ru.germes.plus.site.model.persons.IndividualPerson;
 import ru.germes.plus.site.repository.IndividualPeronRepository;
 
-@Slf4j
 @Service
 public class UserService implements UserDetailsService  {
     @Autowired
@@ -30,6 +29,5 @@ public class UserService implements UserDetailsService  {
         newIndividualPerson.setEmail(individualPerson.getEmail());
         newIndividualPerson.setPassword(passwordEncoder.encode(individualPerson.getPassword()));
         individualPeronRepository.save(newIndividualPerson);
-        log.info("Зарегистрирован пользователь: {}", individualPerson);
     }
 }
