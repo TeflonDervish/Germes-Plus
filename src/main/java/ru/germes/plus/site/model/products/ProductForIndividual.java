@@ -79,12 +79,12 @@ public class ProductForIndividual {
         this.characteristics = characteristics;
     }
 
-    public String getUrl() {
-        return url;
+    public List<String> getUrls() {
+        return urls;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setUrl(List<String> urls) {
+        this.urls = urls;
     }
 
     private String article;
