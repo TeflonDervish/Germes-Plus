@@ -283,12 +283,20 @@ position: relative;
 .gallery-images img {
     
     width: 500px;
-    height: 500px;
+    height: 400px;
     display: none;
 }
 
 .gallery-images img.active {
     display: block;
+}
+
+.tab-pane{
+    font-size:18px;
+    margin-bottom: 5px;
+    display: none;
+     line-height: 1.5;
+     text-indent: 2em;
 }
 
 .gallery-button {
@@ -339,23 +347,25 @@ position: relative;
 }
 
 .form-container {
-    display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+    display: grid;
+    grid-template-column: repeat(2,1fr);
+
         gap: 10px;
 }
 
 .form-container label{
+grid-column: 1/2;
     font-size: 20px;
     color: #000000a8;
 }
 
-.aboutForSofa{
+/*.aboutForSofa{
     display: flex;
     flex-direction: row;
     gap: 30px;
-}
+}*/
 label.inputs{
+grid column:2/3;
     width: auto;
     color: #000000;
     font-size: 19px;
@@ -477,9 +487,7 @@ label.inputs{
     border-top: none;
 }
 
-.tab-pane {
-    display: none;
-}
+
 
 .tab-pane.active {
     display: block;
