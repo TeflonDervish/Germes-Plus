@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="myAccount.css">
+
+
+    <title>Document</title>
+</head>
+
+<body>
+<div class="wrapper">
+    <header>
+        <div class="logo-container">
+            <img height="100px" th:src="@{/img/body/forLoginRegistration/germes.png}" alt="">
+
+        </div>
+
+        <div class="nav-and-search">
+            <nav>
+                <a th:href="@{/catalog}">КАТАЛОГ</a>
+                <a href="#delevery">ДОСТАВКА</a>
+                <a href="#garant">ГАРАНТИЯ</a>
+                <a href="#shops">МАГАЗИНЫ</a>
+                <a href="#about_us">О НАС</a>
+            </nav>
+            <div class="search-container">
+                <input type="text" placeholder="Поиск...">
+            </div>
+        </div>
+        <div class="icons">
+
+            <a href="#heart"><img height="30px" th:src="@{/img/header/heart.png}"></a>
+            <a href="#shopping"><img height="30px" th:src="@{/img/header/shopping-cart.png}"></a>
+            <a href="#user"> <img height="35px" th:src="@{/img/header/user.png}"></a>
+
+        </div>
+
+    </header>
+
+    <h2 class = "center">Личный кабинет</h2>
+        <div id="form_myAcc" class="form_myAcc center">
+            
+            
+            <div class="form-group">
+                <label for="address">Имя:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="recipient">Фамилия:</label>
+                <input type="text" id="recipient" name="recipient" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            
+                
+                <div class="form-group">
+                    <label for="elevator">Город:</label>
+                    <select id="elevator" name="elevator">
+                        <option value="Ufa">Уфа</option>
+                        <option value="Salavat">Салават</option>
+                        <option value="Neftecamsk">Нефтекамск</option>
+                        <option value="Sterlitamak">Стерлитамак</option>
+                        <option value="Ishimbai">Ишимбай</option>
+                    </select>
+                </div>
+             <button class= "center" id="korzina">Реадктировать</button>
+        </div>
+
+
+        <div class="tabs center">
+            <div class="tab-buttons">
+                <button class="tab-button active" data-tab="tab1">ТЕКУЩИЕ ЗАКАЗЫ</button>
+                <button class="tab-button" data-tab="tab2">ЗАВЕРШЕННЫЕ</button>
+
+            </div>
+
+            <!-- Контент вкладок -->
+            <div class="tab-content">
+                <div id="tab1" class="tab-pane active" style="white-space: pre-line">
+                    <div class="magazine center">
+                        <div class="product">
+                            
+                                <div class="card">
+                                    <img th:src="@{img/body/forCatalog/sofa.jpg}">
+                                    <div class="name_and_price">
+                                        <a href="card"><h2>Диван "Лорд"</h2></a>
+                                        <p>2400*1000</p>
+                                        <h3>50.000 руб.</h3>
+                                        <div class="quantity-selector">
+                                            <button class="decrement">−</button>
+                                            <input type="number" value="1" min="1" class="quantity">
+                                            <button class="increment">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            <p>Описание товара</p>
+                            <div class="price">
+                                <button class="heart"><img height="30px" src="remove.png"></button>
+                            </div>
+                        </div>
+                        <div class="product">
+                            
+                            <div class="card">
+                                <img th:src="@{img/body/forCatalog/sofa.jpg}">
+                                <div class="name_and_price">
+                                    <a href="card"><h2>Диван "Лорд"</h2></a>
+                                    <p>2400*1000</p>
+                                    <h3>50.000 руб.</h3>
+                                    <div class="quantity-selector">
+                                        <button class="decrement">−</button>
+                                        <input type="number" value="1" min="1" class="quantity">
+                                        <button class="increment">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Описание товара</p>
+                            <div class="price">
+                                <button class="heart"><img height="30px" src="remove.png"></button>
+                            </div>
+                         </div>
+            
+                    </div>
+                </div>
+                <div id="tab2" class="tab-pane">
+                    <p>Гарантийное обсулживание производится при предъявлении гарантийного талона и документа о приобретении изделия. Гарантийное обслуживание включает в себя проведение ремонтных работ и замену дефектных частей изделия.<br>
+                        Гарнатийный срок эксплуатации состовляет 18 меясцев со дня доставки мебели покупателю. Мебель надлежащего качества возврату и обмену не подлежит.<br>
+                        В течении гарантийного срока все обнаруженные недостатки, возникшие по вине фабрики-изготовителя, устраняются бесплатно при наличии гарантийного талона.</p>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+
+    <footer>
+        <div class="clientFooterClass" id="clientFooter">
+            <div class="footerInf">
+                <div class="forClients">
+                    <h1>Клиентам</h1>
+                    <a href="#delevery">ДОСТАВКА</a>
+                    <a href="#garant">ГАРАНТИЯ</a>
+                    <a href="#shops">МАГАЗИНЫ</a>
+                    <a href="#sroki">CРОКИ ИЗГОТОВЛЕНИЯ</a>
+                    <a href="#status">СТАТУС ЗАКАЗА</a>
+                </div>
+                <div class="aboutCompany">
+                    <h1>О фабрике</h1>
+                    <a href="#about_us">О НАС</a>
+                    <a href="#pay">ПОЛИТИКА ОПЛАТЫ</a>
+                    <a href="#contacts">КОНТАКТЫ</a>
+                    <a href="#adress">АДРЕС ФАБРИКИ</a>
+                </div>
+                <div class="catalog">
+                    <h1>Каталог</h1>
+                    <a href="#sofas">ДИВАНЫ</a>
+                    <a href="#stulya">СТУЛЬЯ</a>
+                    <a href="#kresla">КРЕСЛА</a>
+                </div>
+                <div class="massage">
+                    <h1>+7 (494) 270-65-01</h1>
+                    <img height="30px" th:src="@{/img/footer/whatsapp.png}">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script th:src="@{/scripts/card.js}"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cardForMagazines.css"/>
+    <title>Магазин "Название магазина" - Официальная информация</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="logo-container">
+                <img height="100px" th:src="@{img/body/forLoginRegistration/germes.png}" alt="">
+            </div>
+
+            <div class="nav-and-search">
+                <nav>
+                    <a href="#catalog">КАТАЛОГ</a>
+                    <a href="#delevery">ДОСТАВКА</a>
+                    <a href="#garant">СТАТУС ЗАКАЗА</a>
+                    <a href="#shops">МАГАЗИНЫ</a>
+                    <a href="#about_us">О НАС</a>
+                </nav>
+                <div class="search-container">
+                    <input type="text" placeholder="Поиск...">
+                </div>
+            </div>
+            <div class="icons">
+                <a href="#heart"><img height="30px" th:src="@{img/header/heart.png}"></a>
+                <a href="#shopping"><img height="30px" th:src="@{img/header/shopping-cart.png}"></a>
+                <a href="#user"> <img height="35px" th:src="@{img/header/user.png}"></a>
+            </div>
+
+        </header>
+        <div class="container">
+            <div class="contact-info">
+                <h1>Магазин "Название магазина"</h1>
+                <p><strong>Адрес:</strong> г. Москва, ул. Примерная, д. 123, ТЦ "Галерея", 2 этаж</p>
+                <p><strong>Телефон:</strong> +7 (123) 456-78-90</p>
+                <p><strong>Email:</strong> info@magazin.ru</p>
+                
+                <!-- Координаты для карты (скрытые) -->
+                <div class="coordinates" id="shop-coordinates">55.751574,37.573856</div>
+                <div class="coordinates" id="shop-name">Название магазина</div>
+                <div class="coordinates" id="shop-address">г. Москва, ул. Примерная, д. 123</div>
+            </div>
+    
+            <div class="section">
+                <h2>О нашем магазине</h2>
+                <p>Магазин "Название магазина" работает на рынке с 2010 года. Мы предлагаем широкий ассортимент товаров высочайшего качества по доступным ценам.</p>
+                <p>В нашем магазине вы найдете:</p>
+                <ul>
+                    <li>Категория товаров 1</li>
+                    <li>Категория товаров 2</li>
+                    <li>Категория товаров 3</li>
+                    <li>Категория товаров 4</li>
+                </ul>
+            </div>
+    
+            <div class="section">
+                <h2>Режим работы</h2>
+                <div class="working-hours">
+                    <div class="working-day">
+                        <div class="day-name">Понедельник - Пятница</div>
+                        <div>10:00 - 20:00</div>
+                    </div>
+                    <div class="working-day">
+                        <div class="day-name">Суббота</div>
+                        <div>10:00 - 18:00</div>
+                    </div>
+                    <div class="working-day">
+                        <div class="day-name">Воскресенье</div>
+                        <div>11:00 - 16:00</div>
+                    </div>
+                </div>
+                <p>В праздничные дни режим работы может изменяться.</p>
+            </div>
+    
+            <div class="section">
+                <h2>Как нас найти</h2>
+                <div id="map" class="map-container"></div>
+            </div>
+    
+            <div class="section">
+                <h2>Дополнительная информация</h2>
+                <ul>
+                    <li>Бесплатная парковка для клиентов</li>
+                    <li>Возможность заказа товаров онлайн</li>
+                    <li>Доставка по городу</li>
+                    <li>Гарантия на все товары</li>
+                </ul>
+            </div>
+        </div>
+
+
+
+            <footer>
+                <div class="clientFooterClass" id="clientFooter">
+                <div class="footerInf">
+                    <div class="forClients">
+                        <h1 >Клиентам</h1>
+                        <a href="#delevery">ДОСТАВКА</a>
+                        <a href="#shops">МАГАЗИНЫ</a>
+                        <a href="#status">СТАТУС ЗАКАЗА</a>
+                    </div>
+                    <div class="aboutCompany">
+                        <h1 >О фабрике</h1>
+                        <a href="#about_us">О НАС</a>
+                        <a href="#contacts">КОНТАКТЫ</a>
+                        <a href="#adress">АДРЕС ФАБРИКИ</a>
+                    </div>
+                    <div class="catalog">
+                        <h1 >Каталог</h1>
+                        <a href="#sofas">ДИВАНЫ</a>
+                    </div>
+                    <div class="massage">
+                        <h1>+7 (494) 270-65-01</h1>
+                        <img height="30px" th:src="@{img/footer/whatsapp.png}">
+                    </div>
+                </div>
+            </footer>
+    </div>
+
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=bff7b351-d1e8-45d3-a920-587566731f5e&lang=ru_RU"></script>
+    <script type="text/javascript">
+        ymaps.ready(init);
+        
+        function init() {
+            // Получаем данные из скрытых элементов
+            const coordsText = document.getElementById('shop-coordinates').textContent;
+            const [latitude, longitude] = coordsText.split(',').map(Number);
+            const shopName = document.getElementById('shop-name').textContent;
+            const shopAddress = document.getElementById('shop-address').textContent;
+            
+            // Создаем карту
+            var myMap = new ymaps.Map("map", {
+                center: [latitude, longitude],
+                zoom: 15
+            });
+            
+            // Добавляем метку
+            var myPlacemark = new ymaps.Placemark([latitude, longitude], {
+                hintContent: shopName,
+                balloonContent: shopAddress
+            });
+            
+            myMap.geoObjects.add(myPlacemark);
+        }
+    </script>
+</body>
+</html>
