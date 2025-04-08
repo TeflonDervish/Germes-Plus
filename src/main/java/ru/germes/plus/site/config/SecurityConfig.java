@@ -21,6 +21,7 @@ public class SecurityConfig {
                         .requestMatchers("/register", "/register-individual",
                                 "/login", "/login-individual",
                                 "/catalog",
+                                "/swagger-ui/**",
                                 "/sofa/**",
                                 "/style/**", "/scripts/**", "/img/**").permitAll()
                         .anyRequest().authenticated()

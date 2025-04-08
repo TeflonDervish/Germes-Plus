@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import ru.germes.plus.site.model.persons.IndividualPerson;
 import ru.germes.plus.site.service.UserService;
 
-@Slf4j
 @Controller
 public class UserController {
 
@@ -36,7 +35,6 @@ public class UserController {
     public String registerUser(@ModelAttribute IndividualPerson individualPerson) {
         userService.registerIndividualPerson(individualPerson);
         System.out.println(individualPerson);
-        log.info(individualPerson.toString());
         return "redirect:/login";
     }
 

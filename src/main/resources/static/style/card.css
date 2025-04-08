@@ -354,16 +354,14 @@ position: relative;
 }
 
 .form-container label{
-grid-column: 1/2;
     font-size: 20px;
     color: #000000a8;
 }
 
-/*.aboutForSofa{
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-}*/
+.aboutForSofa{
+    display: grid;
+    grid-template-columns: 3fr 20px 4fr;
+}
 label.inputs{
 grid column:2/3;
     width: auto;
