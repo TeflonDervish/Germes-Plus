@@ -40,7 +40,7 @@
 
     </header>
 
-    <h2 class = "center">Личный кабинет</h2>
+    <h4 class = "center">Личный кабинет</h4>
         <div id="form_myAcc" class="form_myAcc center">
             
             
@@ -83,7 +83,7 @@
 
             <!-- Контент вкладок -->
             <div class="tab-content">
-                <div id="tab1" class="tab-pane active" style="white-space: pre-line">
+                <div id="tab1" class="tab-pane active" ">
                     <div class="magazine center">
                         <div class="product">
                             
@@ -92,46 +92,54 @@
                                     <div class="name_and_price">
                                         <a href="card"><h2>Диван "Лорд"</h2></a>
                                         <p>2400*1000</p>
+                                        <p>Артикул: 1242464</p>
+                                        <p>Количество: 1</p>
                                         <h3>50.000 руб.</h3>
-                                        <div class="quantity-selector">
-                                            <button class="decrement">−</button>
-                                            <input type="number" value="1" min="1" class="quantity">
-                                            <button class="increment">+</button>
-                                        </div>
                                     </div>
                                 </div>
-                            <p>Описание товара</p>
-                            <div class="price">
-                                <button class="heart"><img height="30px" src="remove.png"></button>
+                                <div class="name_and_price">
+                                    <p>ЗАКАЗ №320448</p>
+                                    <p>Сроки изготовления: до<span> 20.04.2025</span></p>
+                                    
+                                    <p>Cпособ получения: <span>самовывоз</span></p>
+                                </div>
+                            
+                            <div class="order-status">
+                                <span class="status-value processing">В обработке</span>
+                                
                             </div>
                         </div>
+
+            
+                    </div>
+                </div>
+                <div id="tab2" class="tab-pane">
+                    <div class="magazine center">
                         <div class="product">
-                            
+                                
                             <div class="card">
                                 <img th:src="@{img/body/forCatalog/sofa.jpg}">
                                 <div class="name_and_price">
                                     <a href="card"><h2>Диван "Лорд"</h2></a>
                                     <p>2400*1000</p>
+                                    <p>Артикул: 1242464</p>
+                                    <p>Количество: 1</p>
                                     <h3>50.000 руб.</h3>
-                                    <div class="quantity-selector">
-                                        <button class="decrement">−</button>
-                                        <input type="number" value="1" min="1" class="quantity">
-                                        <button class="increment">+</button>
-                                    </div>
                                 </div>
                             </div>
-                            <p>Описание товара</p>
-                            <div class="price">
-                                <button class="heart"><img height="30px" src="remove.png"></button>
+                            <div class="name_and_price">
+                                <p>ЗАКАЗ №320448</p>
+                                <p>Сроки изготовления: до<span> 20.04.2025</span></p>
+                                
+                                <p>Cпособ получения: <span>самовывоз</span></p>
                             </div>
-                         </div>
-            
+                        
+                            <div class="order-status">
+                                <span class="status-value processing">Завершен</span>
+                                
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div id="tab2" class="tab-pane">
-                    <p>Гарантийное обсулживание производится при предъявлении гарантийного талона и документа о приобретении изделия. Гарантийное обслуживание включает в себя проведение ремонтных работ и замену дефектных частей изделия.<br>
-                        Гарнатийный срок эксплуатации состовляет 18 меясцев со дня доставки мебели покупателю. Мебель надлежащего качества возврату и обмену не подлежит.<br>
-                        В течении гарантийного срока все обнаруженные недостатки, возникшие по вине фабрики-изготовителя, устраняются бесплатно при наличии гарантийного талона.</p>
                 </div>
             </div>
         </div>
@@ -170,6 +178,6 @@
         </div>
     </footer>
 
-    <script th:src="@{/scripts/card.js}"></script>
+    <script src="myAccount.js"></script>
 </body>
 </html>
