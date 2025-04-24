@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="korzina.css"/>
+    <link rel="stylesheet" th:href="@{/style/korzina.css}"/>
     <title>Document</title>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=bff7b351-d1e8-45d3-a920-587566731f5e&lang=ru_RU"></script>
 </head>
@@ -17,20 +17,20 @@
 
             <div class="nav-and-search">
                 <nav>
-                    <a href="#catalog">КАТАЛОГ</a>
-                    <a href="#delevery">ДОСТАВКА</a>
+                    <a th:href="@{/catalog}">КАТАЛОГ</a>
+                    <a th:href="@{/delivery}">ДОСТАВКА</a>
                     <a href="#garant">ГАРАНТИЯ</a>
-                    <a href="#shops">МАГАЗИНЫ</a>
-                    <a href="#about_us">О НАС</a>
+                    <a th:href="@{/magazine}">МАГАЗИНЫ</a>
+                    <a th:href="@{/fabric}">О НАС</a>
                 </nav>
                 <div class="search-container">
                     <input type="text" placeholder="Поиск...">
                 </div>
             </div>
             <div class="icons">
-                <a href="#heart"><img height="30px" th:src="@{img/header/heart.png}"></a>
-                <a href="#shopping"><img height="30px" th:src="@{img/header/shopping-cart.png}"></a>
-                <a href="#user"> <img height="35px" th:src="@{img/header/user.png}"></a>
+                <a th:href="@{/favorite}"><img height="30px" th:src="@{img/header/heart.png}"></a>
+                <a th:href="@{/korzina}"><img height="30px" th:src="@{img/header/shopping-cart.png}"></a>
+                <a th:href="@{/account}"> <img height="35px" th:src="@{img/header/user.png}"></a>
             </div>
 
         </header>
@@ -207,6 +207,6 @@
         </div>
     </footer>
 
-    <script src="korzina.js"></script>
+    <script th:src="@{scripts/korzina.js}"></script>
     </body>
 </html>

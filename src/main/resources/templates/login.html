@@ -33,10 +33,10 @@
         <div class="partnerHeaderClass hidden" id="partnerHeader">
             <nav>
                 <a th:href="@{/catalog}">КАТАЛОГ</a>
-                <a href="#delevery">ПУНКТЫ ВЫДАЧИ</a>
+                <a th:href="@{/delivery}">ДОСТАВКА</a>
                 <a href="#garant">ГАРАНТИЯ</a>
-                <a href="#shops">СРОКИ ПОСТАВКИ</a>
-                <a href="#about_us">О НАС</a>
+                <a th:href="@{/magazine}">МАГАЗИНЫ</a>
+                <a th:href="@{/fabric}">О НАС</a>
             </nav>
         </div>
         <div class="search-container">
@@ -44,9 +44,9 @@
         </div>
     </div>
     <div class="icons">
-        <a href="#heart"><img height="30px" th:src="@{img/header/heart.png}"/></a>
-        <a href="#shopping"><img height="30px" th:src="@{img/header/shopping-cart.png}"/></a>
-        <a href="#user"> <img height="35px" th:src="@{img/header/user.png}"/></a>
+        <a th:href="@{/favorite}"><img height="30px" th:src="@{img/header/heart.png}"></a>
+        <a th:href="@{/korzina}"><img height="30px" th:src="@{img/header/shopping-cart.png}"></a>
+        <a th:href="@{/account}"> <img height="35px" th:src="@{img/header/user.png}"></a>
     </div>
 </header>
 

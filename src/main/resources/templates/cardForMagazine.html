@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cardForMagazines.css"/>
+    <link rel="stylesheet" th:href="@{/style/cardForMagazines.css}"/>
     <title>Магазин "Название магазина" - Официальная информация</title>
 </head>
 <body>
@@ -15,34 +15,34 @@
 
             <div class="nav-and-search">
                 <nav>
-                    <a href="#catalog">КАТАЛОГ</a>
-                    <a href="#delevery">ДОСТАВКА</a>
-                    <a href="#garant">СТАТУС ЗАКАЗА</a>
-                    <a href="#shops">МАГАЗИНЫ</a>
-                    <a href="#about_us">О НАС</a>
+                    <a th:href="@{/catalog}">КАТАЛОГ</a>
+                    <a th:href="@{/delivery}">ДОСТАВКА</a>
+                    <a href="#garant">ГАРАНТИЯ</a>
+                    <a th:href="@{/magazine}">МАГАЗИНЫ</a>
+                    <a th:href="@{/fabric}">О НАС</a>
                 </nav>
                 <div class="search-container">
                     <input type="text" placeholder="Поиск...">
                 </div>
             </div>
             <div class="icons">
-                <a href="#heart"><img height="30px" th:src="@{img/header/heart.png}"></a>
-                <a href="#shopping"><img height="30px" th:src="@{img/header/shopping-cart.png}"></a>
-                <a href="#user"> <img height="35px" th:src="@{img/header/user.png}"></a>
+                <a th:href="@{/favorite}"><img height="30px" th:src="@{img/header/heart.png}"></a>
+                <a th:href="@{/korzina}"><img height="30px" th:src="@{img/header/shopping-cart.png}"></a>
+                <a th:href="@{/account}"> <img height="35px" th:src="@{img/header/user.png}"></a>
             </div>
 
         </header>
         <div class="center">
             <div class="contact-info">
                 <h1>Торговый центр "Парус"</h1>
-                <p><strong>Адрес:</strong> г. Уфа, ул. Трамвайная, д. 2, ТЦ "Парус", 1 этаж</p>
-                <p><strong>Телефон:</strong> +7 (123) 456-78-90</p>
-                <p><strong>Email:</strong> info@magazin.ru</p>
+                <p><strong>Адрес:</strong> <span th:text="${address}">г. Уфа, ул. Трамвайная, д. 2, ТЦ "Парус", 1 этаж</span></p>
+                <p><strong>Телефон:</strong> <span th:text="${phone_number}">+7 (123) 456-78-90</span></p>
+                <p><strong>Email:</strong> <span th:text="${email}">info@magazin.ru</span></p>
                 
                 <!-- Координаты для карты (скрытые) -->
-                <div class="coordinates" id="shop-coordinates">55.751574,37.573856</div>
-                <div class="coordinates" id="shop-name">Название магазина</div>
-                <div class="coordinates" id="shop-address">г. Москва, ул. Примерная, д. 123</div>
+                <div th:text="${point_on_the_map}" class="coordinates" id="shop-coordinates">55.751574, 37.573856</div>
+                <div th:text="${name}" class="coordinates" id="shop-name">Название магазина</div>
+                <div th:text="${address}" class="coordinates" id="shop-address">г. Москва, ул. Примерная, д. 123</div>
             </div>
     
             <div class="section">

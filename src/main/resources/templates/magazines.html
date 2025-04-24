@@ -3,76 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="magazines.css"/>
+    <link rel="stylesheet" th:href="@{/style/magazines.css}"/>
     <title>Document</title>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=bff7b351-d1e8-45d3-a920-587566731f5e&lang=ru_RU"></script>
 </head>
 
-   <body>
-    <div class="wrapper">
-        <header>
-            <div class="logo-container">
-                <img height="100px" th:src="@{img/body/forLoginRegistration/germes.png}" alt="">
-            </div>
-
-            <div class="nav-and-search">
-                <nav>
-                    <a href="#catalog">КАТАЛОГ</a>
-                    <a href="#delevery">ДОСТАВКА</a>
-                    <a href="#garant">СТАТУС ЗАКАЗА</a>
-                    <a href="#shops">МАГАЗИНЫ</a>
-                    <a href="#about_us">О НАС</a>
-                </nav>
-                <div class="search-container">
-                    <input type="text" placeholder="Поиск...">
-                </div>
-            </div>
-            <div class="icons">
-                <a href="#heart"><img height="30px" th:src="@{img/header/heart.png}"></a>
-                <a href="#shopping"><img height="30px" th:src="@{img/header/shopping-cart.png}"></a>
-                <a href="#user"> <img height="35px" th:src="@{img/header/user.png}"></a>
-            </div>
-
-        </header>
-
-        <h3 class="center">Наши магазины</h3>
-
-        <div class="magazine center">
-            <div class="product">
-                
-                    <div class="card">
-                        <img th:src="@{img/body/forCatalog/sofa.jpg}">
-                        <div class="name_and_price">
-                            <a href="card"><h2>Торговый центр "Парус"</h2></a>
-                            <p>г. Уфа</p>
-                            <p>ул. Трамвайная 2/3</p>
-                            <p>пн-вс, 10:00-20:00</p>
-                            <p>+7 (961) 046 94 81</p>
-                        </div>
-                    </div>
-            </div>
-
+<body>
+<div class="wrapper">
+    <header>
+        <div class="logo-container">
+            <img height="100px" th:src="@{img/body/forLoginRegistration/germes.png}" alt="">
         </div>
-        
+
+        <div class="nav-and-search">
+            <nav>
+                <a th:href="@{/catalog}">КАТАЛОГ</a>
+                <a th:href="@{/delivery}">ДОСТАВКА</a>
+                <a href="#garant">ГАРАНТИЯ</a>
+                <a th:href="@{/magazine}">МАГАЗИНЫ</a>
+                <a th:href="@{/fabric}">О НАС</a>
+            </nav>
+            <div class="search-container">
+                <input type="text" placeholder="Поиск...">
+            </div>
+        </div>
+        <div class="icons">
+            <a th:href="@{/favorite}"><img height="30px" th:src="@{img/header/heart.png}"></a>
+            <a th:href="@{/korzina}"><img height="30px" th:src="@{img/header/shopping-cart.png}"></a>
+            <a th:href="@{/account}"> <img height="35px" th:src="@{img/header/user.png}"></a>
+        </div>
+
+    </header>
+
+    <h3 class="center">Наши магазины</h3>
+
+    <div class="magazine center">
+        <div class="product">
+
+            <div class="card" th:each="magazines : ${magazines}">
+                <img th:src="@{img/body/forCatalog/sofa.jpg}">
+                <a th:href="@{/magazine/{id}(id=${magazines.id})}">
+                    <div class="name_and_price">
+                        <h2 th:text="${magazines.name}">Торговый центр "Парус"</h2>
+                        <p th:text="${magazines.address}">ул. Трамвайная 2/3</p>
+                        <p th:text="${magazines.openingHours}">пн-вс, 10:00-20:00</p>
+                        <p th:text="${magazines.phoneNumber}">+7 (961) 046 94 81</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
     </div>
 
-    <footer>
-        <div class="clientFooterClass" id="clientFooter">
+</div>
+
+<footer>
+    <div class="clientFooterClass" id="clientFooter">
         <div class="footerInf">
             <div class="forClients">
-                <h1 >Клиентам</h1>
+                <h1>Клиентам</h1>
                 <a href="#delevery">ДОСТАВКА</a>
                 <a href="#shops">МАГАЗИНЫ</a>
                 <a href="#status">СТАТУС ЗАКАЗА</a>
             </div>
             <div class="aboutCompany">
-                <h1 >О фабрике</h1>
+                <h1>О фабрике</h1>
                 <a href="#about_us">О НАС</a>
                 <a href="#contacts">КОНТАКТЫ</a>
                 <a href="#adress">АДРЕС ФАБРИКИ</a>
             </div>
             <div class="catalog">
-                <h1 >Каталог</h1>
+                <h1>Каталог</h1>
                 <a href="#sofas">ДИВАНЫ</a>
                 <a href="#stulya">СТУЛЬЯ</a>
                 <a href="#kresla">КРЕСЛА</a>
@@ -82,8 +83,9 @@
                 <img height="30px" th:src="@{img/footer/whatsapp.png}">
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <script src="korzina.js"></script>
-    </body>
+<script th:src="@{/scripts/korzina.js}"></script>
+</body>
 </html>
