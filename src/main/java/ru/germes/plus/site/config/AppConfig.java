@@ -24,6 +24,7 @@ public class AppConfig {
             initializeUserIfNotExists(
                     "admin@mail.ru",
                     "admin123",
+                    "admin",
                     Set.of(Role.ADMIN, Role.USER),
                     individualPeronRepository,
                     passwordEncoder
@@ -32,6 +33,7 @@ public class AppConfig {
             initializeUserIfNotExists(
                     "user@mail.ru",
                     "user123",
+                    "user",
                     Set.of(Role.USER),
                     individualPeronRepository,
                     passwordEncoder
@@ -41,11 +43,13 @@ public class AppConfig {
 
     private void initializeUserIfNotExists(String email,
                                            String rawPassword,
+                                           String name,
                                            Set<Role> roles,
                                            IndividualPeronRepository individualPeronRepository,
                                            PasswordEncoder passwordEncoder) {
         if (!individualPeronRepository.existsByEmail(email)) {
             IndividualPerson user = new IndividualPerson();
+            user.setName(name);
             user.setEmail(email);
             user.setPassword(passwordEncoder.encode(rawPassword));
             user.setRoles(roles);

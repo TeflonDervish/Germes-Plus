@@ -1,138 +1,142 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cardForMagazines.css"/>
+    <link rel="stylesheet" th:href="@{/style/cardForMagazines.css}"/>
     <title>Магазин "Название магазина" - Официальная информация</title>
 </head>
 <body>
-    <div class="wrapper">
-        <header>
-            <div class="logo-container">
-                <img height="100px" th:src="@{img/body/forLoginRegistration/germes.png}" alt="">
-            </div>
+<div class="wrapper">
+    <header>
+        <div class="logo-container">
+            <img height="100px" th:src="@{img/body/forLoginRegistration/germes.png}" alt="">
+        </div>
 
-            <div class="nav-and-search">
-                <nav>
-                    <a href="#catalog">КАТАЛОГ</a>
-                    <a href="#delevery">ДОСТАВКА</a>
-                    <a href="#garant">СТАТУС ЗАКАЗА</a>
-                    <a href="#shops">МАГАЗИНЫ</a>
-                    <a href="#about_us">О НАС</a>
-                </nav>
-                <div class="search-container">
-                    <input type="text" placeholder="Поиск...">
-                </div>
-            </div>
-            <div class="icons">
-                <a href="#heart"><img height="30px" th:src="@{img/header/heart.png}"></a>
-                <a href="#shopping"><img height="30px" th:src="@{img/header/shopping-cart.png}"></a>
-                <a href="#user"> <img height="35px" th:src="@{img/header/user.png}"></a>
-            </div>
-
-        </header>
-        <div class=" delivery center">
-            <h1>Доставка и сборка мебели</h1>
-    
-            <div class="delivery-section">
-                <h2>Доставка по России</h2>
-                <p>Мы осуществляем доставку мебели по территории Российской Федерации*, также Вы можете забрать свою мебель почти в 20 пунктах самовывоза**.</p>
-                
-                <div class="notice">
-                    <p>* Доставку осуществляет наша собственная транспортная компания, а также иные партнёрские транспортные компании, которым мы доверяем как профессионалам.</p>
-                </div>
-                <p>При возникновении вопросов по географии доставки, пожалуйста, свяжитесь с менеджером по телефону, указанному в шапке сайта.</p>
-            </div>
-            
-            <div class="assembly-section">
-                <h2>Стоимость доставки и сборки</h2>
-                
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Мебель</th>
-                            <th>Доставка «до подъезда» за единицу мебели</th>
-                            <th>На грузовом лифте</th>
-                            <th>Ручной подъем</th>
-                            <th>Сборка за единицу мебели</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Диван прямой с подлокотниками</td>
-                            <td>42 руб./км***</td>
-                            <td>800P</td>
-                            <td>400P за этаж</td>
-                            <td>Бесплатно</td>
-                        </tr>
-                        <tr>
-                            <td>Угловой диван с подлокотниками</td>
-                            <td>42 руб./км***</td>
-                            <td>900P</td>
-                            <td>450P за этаж</td>
-                            <td>Бесплатно</td>
-                        </tr>
-                        <tr>
-                            <td>Диван-книжка без подлокотников</td>
-                            <td>42 руб./км***</td>
-                            <td>600P</td>
-                            <td>300P за этаж</td>
-                            <td>Бесплатно</td>
-                        </tr>
-                        <tr>
-                            <td>Диван-книжка с подлокотниками</td>
-                            <td>42 руб./км***</td>
-                            <td>700P</td>
-                            <td>350P за этаж</td>
-                            <td>Бесплатно</td>
-                        </tr>
-                        <tr>
-                            <td>П-образный диван</td>
-                            <td>42 руб./км***</td>
-                            <td>900P</td>
-                            <td>450P за этаж</td>
-                            <td>Бесплатно</td>
-                        </tr>
-                        <tr>
-                            <td>Диван-аккордеон</td>
-                            <td>42 руб./км***</td>
-                            <td>700P</td>
-                            <td>350P за этаж</td>
-                            <td>Бесплатно</td>
-                        </tr>
-                        <tr>
-                            <td>Кресла</td>
-                            <td>42 руб./км***</td>
-                            <td>400P</td>
-                            <td>200P за этаж</td>
-                            <td>Бесплатно</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <div class="notice">
-                    <p>*** Точная стоимость доставки рассчитывается при оформлении заказа и зависит от габаритов мебели и удаленности адреса доставки.</p>
-                </div>
+        <div class="nav-and-search">
+            <nav>
+                <a th:href="@{/catalog}">КАТАЛОГ</a>
+                <a th:href="@{/delivery}">ДОСТАВКА</a>
+                <a href="#garant">ГАРАНТИЯ</a>
+                <a th:href="@{/magazine}">МАГАЗИНЫ</a>
+                <a th:href="@{/fabric}">О НАС</a>
+            </nav>
+            <div class="search-container">
+                <input type="text" placeholder="Поиск...">
             </div>
         </div>
-        <footer>
-            <div class="clientFooterClass" id="clientFooter">
+        <div class="icons">
+            <a th:href="@{/favorite}"><img height="30px" th:src="@{img/header/heart.png}"></a>
+            <a th:href="@{/korzina}"><img height="30px" th:src="@{img/header/shopping-cart.png}"></a>
+            <a th:href="@{/account}"> <img height="35px" th:src="@{img/header/user.png}"></a>
+        </div>
+
+    </header>
+    <div class=" delivery center">
+        <h1>Доставка и сборка мебели</h1>
+
+        <div class="delivery-section">
+            <h2>Доставка по России</h2>
+            <p>Мы осуществляем доставку мебели по территории Российской Федерации*, также Вы можете забрать свою мебель
+                почти в 20 пунктах самовывоза**.</p>
+
+            <div class="notice">
+                <p>* Доставку осуществляет наша собственная транспортная компания, а также иные партнёрские транспортные
+                    компании, которым мы доверяем как профессионалам.</p>
+            </div>
+            <p>При возникновении вопросов по географии доставки, пожалуйста, свяжитесь с менеджером по телефону,
+                указанному в шапке сайта.</p>
+        </div>
+
+        <div class="assembly-section">
+            <h2>Стоимость доставки и сборки</h2>
+
+            <table>
+                <thead>
+                <tr>
+                    <th>Мебель</th>
+                    <th>Доставка «до подъезда» за единицу мебели</th>
+                    <th>На грузовом лифте</th>
+                    <th>Ручной подъем</th>
+                    <th>Сборка за единицу мебели</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Диван прямой с подлокотниками</td>
+                    <td>42 руб./км***</td>
+                    <td>800P</td>
+                    <td>400P за этаж</td>
+                    <td>Бесплатно</td>
+                </tr>
+                <tr>
+                    <td>Угловой диван с подлокотниками</td>
+                    <td>42 руб./км***</td>
+                    <td>900P</td>
+                    <td>450P за этаж</td>
+                    <td>Бесплатно</td>
+                </tr>
+                <tr>
+                    <td>Диван-книжка без подлокотников</td>
+                    <td>42 руб./км***</td>
+                    <td>600P</td>
+                    <td>300P за этаж</td>
+                    <td>Бесплатно</td>
+                </tr>
+                <tr>
+                    <td>Диван-книжка с подлокотниками</td>
+                    <td>42 руб./км***</td>
+                    <td>700P</td>
+                    <td>350P за этаж</td>
+                    <td>Бесплатно</td>
+                </tr>
+                <tr>
+                    <td>П-образный диван</td>
+                    <td>42 руб./км***</td>
+                    <td>900P</td>
+                    <td>450P за этаж</td>
+                    <td>Бесплатно</td>
+                </tr>
+                <tr>
+                    <td>Диван-аккордеон</td>
+                    <td>42 руб./км***</td>
+                    <td>700P</td>
+                    <td>350P за этаж</td>
+                    <td>Бесплатно</td>
+                </tr>
+                <tr>
+                    <td>Кресла</td>
+                    <td>42 руб./км***</td>
+                    <td>400P</td>
+                    <td>200P за этаж</td>
+                    <td>Бесплатно</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="notice">
+                <p>*** Точная стоимость доставки рассчитывается при оформлении заказа и зависит от габаритов мебели и
+                    удаленности адреса доставки.</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="clientFooterClass" id="clientFooter">
             <div class="footerInf">
                 <div class="forClients">
-                    <h1 >Клиентам</h1>
+                    <h1>Клиентам</h1>
                     <a href="#delevery">ДОСТАВКА</a>
                     <a href="#shops">МАГАЗИНЫ</a>
                     <a href="#status">СТАТУС ЗАКАЗА</a>
                 </div>
                 <div class="aboutCompany">
-                    <h1 >О фабрике</h1>
+                    <h1>О фабрике</h1>
                     <a href="#about_us">О НАС</a>
                     <a href="#contacts">КОНТАКТЫ</a>
                     <a href="#adress">АДРЕС ФАБРИКИ</a>
                 </div>
                 <div class="catalog">
-                    <h1 >Каталог</h1>
+                    <h1>Каталог</h1>
                     <a href="#sofas">ДИВАНЫ</a>
                 </div>
                 <div class="massage">
@@ -140,9 +144,10 @@
                     <img height="30px" th:src="@{img/footer/whatsapp.png}">
                 </div>
             </div>
-        </footer>
-    </div>
+        </div>
+    </footer>
+</div>
 
-   
+
 </body>
 </html>

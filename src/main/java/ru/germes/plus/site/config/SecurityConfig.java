@@ -2,10 +2,8 @@ package ru.germes.plus.site.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -23,7 +21,10 @@ public class SecurityConfig {
                                 "/catalog",
                                 "/swagger-ui/**",
                                 "/sofa/**",
-                                "/style/**", "/scripts/**", "/img/**").permitAll()
+                                "/style/**", "/scripts/**", "/img/**",
+                                "/delivery/**",
+                                "/fabric/**",
+                                "/magazine/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
