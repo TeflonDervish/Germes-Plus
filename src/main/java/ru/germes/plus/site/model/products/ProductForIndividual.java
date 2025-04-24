@@ -59,12 +59,14 @@ public class ProductForIndividual {
 
     @Column(length = 60) // Спальное место
     private String sleepingSpace;
-
+  
     @Column(length = 60) // Глубина
     private String depth;
 
     @Column(length = 60) // Конфигурация
     private String configuration;
+
+
 
     @Lob
     private String description;
