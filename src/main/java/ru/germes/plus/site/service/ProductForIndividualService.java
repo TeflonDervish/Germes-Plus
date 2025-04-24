@@ -23,8 +23,7 @@ public class ProductForIndividualService {
     }
 
     public ProductForIndividual getById(Long id) {
-        return productForIndividualRepository.findById(id)
-                .orElseThrow(() -> new ProductForIndividualException("Продукт с таким id не найден"));
+        return productForIndividualRepository.findById(id).orElse(new ProductForIndividual());
     }
 
     public static Map<String, String> getCharacteristicFromJson(String json) {

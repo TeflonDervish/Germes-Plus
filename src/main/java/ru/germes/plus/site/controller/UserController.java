@@ -1,7 +1,5 @@
 package ru.germes.plus.site.controller;
 
-
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -31,7 +29,7 @@ public class UserController {
         return "registration.html";
     }
 
-    @PostMapping("/register-individual")
+    @PostMapping("/register")
     public String registerUser(@ModelAttribute IndividualPerson individualPerson) {
         userService.registerIndividualPerson(individualPerson);
         System.out.println(individualPerson);

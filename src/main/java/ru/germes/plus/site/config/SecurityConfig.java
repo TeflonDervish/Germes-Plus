@@ -19,7 +19,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/register", "/register-individual",
-                                "/login", "/login-individual",
+                                "/login",
                                 "/catalog",
                                 "/sofa/**",
                                 "/style/**", "/scripts/**", "/img/**").permitAll()
@@ -27,9 +27,9 @@ public class SecurityConfig {
                 )
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .loginProcessingUrl("/login-individual")
+                        .loginProcessingUrl("/login")
                         .defaultSuccessUrl("/catalog", true)
-                        .failureUrl("/login-individual?error=true")
+                        .failureUrl("/login")
                         .permitAll()
                 )
                 .logout(logout -> logout

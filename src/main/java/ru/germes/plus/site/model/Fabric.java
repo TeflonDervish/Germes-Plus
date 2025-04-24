@@ -18,6 +18,7 @@ public class Fabric {
     private Long id;
 
     private String name;
+    private String city;
     private String address;
 
     // ссылка на точку на Яндекс картах
