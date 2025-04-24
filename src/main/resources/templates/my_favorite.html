@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="my_favorite.css"/>
+    <title>Document</title>
+</head>
+
+   <body>
+    <div class="wrapper">
+    <header>
+        <div class="logo-container">
+            <img height="100px" th:src="@{img/body/forLoginRegistration/germes.png}" alt="">
+        </div>
+
+        <div class="nav-and-search">
+            <nav>
+                <a href="#catalog">КАТАЛОГ</a>
+                <a href="#delevery">ДОСТАВКА</a>
+                <a href="#garant">СТАТУС ЗАКАЗА</a>
+                <a href="#shops">МАГАЗИНЫ</a>
+                <a href="#about_us">О НАС</a>
+            </nav>
+            <div class="search-container">
+                <input type="text" placeholder="Поиск...">
+            </div>
+        </div>
+        <div class="icons">
+            <a href="#heart"><img height="30px" th:src="@{img/header/heart.png}"></a>
+            <a href="#shopping"><img height="30px" th:src="@{img/header/shopping-cart.png}"></a>
+            <a href="#user"> <img height="35px" th:src="@{img/header/user.png}"></a>
+        </div>
+
+    </header>
+
+   <h3 class="center" id="favorite">Отложенные</h3>
+
+    <div class="magazine center">
+        <div class="product">
+            <a href="card">
+                <img th:src="@{img/body/forCatalog/sofa.jpg}">
+                <h2>Диван "Лорд"</h2>
+                <p>2400*1000</p>
+                <h3>50.000 руб.</h3>
+            </a>
+            <div class="price">
+                <button id="korzina">Добавить в корзину</button>
+                <button class="heart"><img height="30px" src="remove.png"></button>
+            </div>
+        </div>
+        <div class="product">
+            <a href="card">
+                <img th:src="@{img/body/forCatalog/sofa.jpg}">
+                <h2>Диван "Лорд"</h2>
+                <p>2400*1000</p>
+                <h3>50.000 руб.</h3>
+            </a>
+            <div class="price">
+                <button id="korzina">Добавить в корзину</button>
+                <button class="heart"><img height="30px" src="remove.png"></button>
+            </div>
+        </div>
+        <div class="product">
+            <a href="card">
+                <img th:src="@{img/body/forCatalog/sofa.jpg}">
+                <h2>Диван "Лорд"</h2>
+                <p>2400*1000</p>
+                <h3>50.000 руб.</h3>
+            </a>
+            <div class="price">
+                <button id="korzina">Добавить в корзину</button>
+                <button class="heart"><img height="30px" src="remove.png"></button>
+            </div>
+        </div>
+        <div class="product">
+            <a href="card">
+                <img th:src="@{img/body/forCatalog/sofa.jpg}">
+                <h2>Диван "Лорд"</h2>
+                <p>2400*1000</p>
+                <h3>50.000 руб.</h3>
+            </a>
+            <div class="price">
+                <button id="korzina">Добавить в корзину</button>
+                <button class="heart"><img height="30px" src="remove.png"></button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="clientFooterClass" id="clientFooter">
+        <div class="footerInf">
+            <div class="forClients">
+                <h1 >Клиентам</h1>
+                <a href="#delevery">ДОСТАВКА</a>
+                <a href="#shops">МАГАЗИНЫ</a>
+                <a href="#status">СТАТУС ЗАКАЗА</a>
+            </div>
+            <div class="aboutCompany">
+                <h1 >О фабрике</h1>
+                <a href="#about_us">О НАС</a>
+                <a href="#contacts">КОНТАКТЫ</a>
+                <a href="#adress">АДРЕС ФАБРИКИ</a>
+            </div>
+            <div class="catalog">
+                <h1 >Каталог</h1>
+                <a href="#sofas">ДИВАНЫ</a>
+            </div>
+            <div class="massage">
+                <h1>+7 (494) 270-65-01</h1>
+                <img height="30px" th:src="@{img/footer/whatsapp.png}">
+            </div>
+        </div>
+    </footer>
+
+    <script src="my_favorite.js"></script>
+    </body>
+</html>
