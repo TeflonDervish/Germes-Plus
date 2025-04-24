@@ -31,9 +31,9 @@
             </div>
         </div>
         <div class="icons">
-            <a th:href="@{/favorite}"><img height="30px" th:src="@{img/header/heart.png}"></a>
-            <a th:href="@{/korzina}"><img height="30px" th:src="@{img/header/shopping-cart.png}"></a>
-            <a th:href="@{/account}"> <img height="35px" th:src="@{img/header/user.png}"></a>
+            <a th:href="@{/favorite}"><img height="30px" th:src="@{/img/header/heart.png}"></a>
+            <a th:href="@{/korzina}"><img height="30px" th:src="@{/img/header/shopping-cart.png}"></a>
+            <a th:href="@{/account}"> <img height="35px" th:src="@{/img/header/user.png}"></a>
         </div>
 
     </header>
@@ -43,8 +43,8 @@
             
             
             <div class="form-group">
-                <label for="address">Имя:</label>
-                <input type="text" id="address" name="address" required>
+                <label for="name">Имя:</label>
+                <input th:value="${name}" type="text" id="name" name="name" required>
             </div>
             
             <div class="form-group">
