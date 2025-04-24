@@ -67,10 +67,55 @@
             </div>
             <label id="character" style="margin-bottom: 10px">Характеристики модели</label><br>
             <div class="form-container">
-                <div class="aboutForSofa" th:each="map : ${map}">
-                    <label th:text="${map.key}"></label>
+                <div class="aboutForSofa">
+                    <label>Основа</label>
                     <label>|</label>
-                    <label th:text="${map.value}" class="inputs"></label>
+                    <label th:text="${basis}" class="inputs"></label>
+                </div>
+                <div class="aboutForSofa">
+                    <label>Наполнение</label>
+                    <label>|</label>
+                    <label th:text="${filling}" class="inputs"></label>
+                </div>
+                <div class="aboutForSofa">
+                    <label>Короб</label>
+                    <label>|</label>
+                    <label th:text="${box}" class="inputs"></label>
+                </div>
+                <div class="aboutForSofa">
+                    <label>Механизм</label>
+                    <label>|</label>
+                    <label th:text="${mechanism}" class="inputs"></label>
+                </div>
+                <div class="aboutForSofa">
+                    <label>Подлокотники</label>
+                    <label>|</label>
+                    <label th:text="${armrests}" class="inputs"></label>
+                </div>
+                <div class="aboutForSofa">
+                    <label>Глубина сидушки</label>
+                    <label>|</label>
+                    <label th:text="${seatDepth}" class="inputs"></label>
+                </div>
+                <div class="aboutForSofa">
+                    <label>Общий габарит</label>
+                    <label>|</label>
+                    <label th:text="${overallDimensions}" class="inputs"></label>
+                </div>
+                <div class="aboutForSofa">
+                    <label>Спальное место</label>
+                    <label>|</label>
+                    <label th:text="${sleepingSpace}" class="inputs"></label>
+                </div>
+                <div class="aboutForSofa">
+                    <label>Глубина</label>
+                    <label>|</label>
+                    <label th:text="${depth}" class="inputs"></label>
+                </div>
+                <div class="aboutForSofa">
+                    <label>Конфигурация</label>
+                    <label>|</label>
+                    <label th:text="${configuration}" class="inputs"></label>
                 </div>
 
             </div>
