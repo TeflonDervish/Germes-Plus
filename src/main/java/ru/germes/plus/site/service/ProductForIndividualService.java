@@ -7,6 +7,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import ru.germes.plus.site.exceptions.ProductForIndividualException;
 import ru.germes.plus.site.model.products.ProductForIndividual;
 import ru.germes.plus.site.repository.ProductForIndividualRepository;
 
@@ -28,9 +29,9 @@ public class ProductForIndividualService {
 
     public ProductForIndividual getById(Long id) {
         log.info("Получение продукта по " + id);
-        return productForIndividualRepository.findById(id).orElse(new ProductForIndividual());
+        return productForIndividualRepository.findById(id).orElseThrow(
+                () -> new ProductForIndividualException("Продукт не найден"));
     }
-
 
 
 }

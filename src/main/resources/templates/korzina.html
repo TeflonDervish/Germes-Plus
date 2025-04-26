@@ -8,179 +8,172 @@
     <script src="https://api-maps.yandex.ru/2.1/?apikey=bff7b351-d1e8-45d3-a920-587566731f5e&lang=ru_RU"></script>
 </head>
 
-   <body>
-    <div class="wrapper">
-        <header>
-            <div class="logo-container">
-                <img height="100px" th:src="@{/img/body/forLoginRegistration/germes.png}" alt="">
-            </div>
+<body>
+<div class="wrapper">
+    <header>
+        <div class="logo-container">
+            <img height="100px" th:src="@{/img/body/forLoginRegistration/germes.png}" alt="">
+        </div>
 
-            <div class="nav-and-search">
-                <nav>
-                    <a th:href="@{/catalog}">КАТАЛОГ</a>
-                    <a th:href="@{/delivery}">ДОСТАВКА</a>
-                    <a th:href="#garant">СТАТУС ЗАКАЗА</a>
-                    <a th:href="@{/magazine}">МАГАЗИНЫ</a>
-                    <a th:href="@{/fabric}">О НАС</a>
-                </nav>
-                <div class="search-container">
-                    <input type="text" placeholder="Поиск...">
-                </div>
+        <div class="nav-and-search">
+            <nav>
+                <a th:href="@{/catalog}">КАТАЛОГ</a>
+                <a th:href="@{/delivery}">ДОСТАВКА</a>
+                <a th:href="@{/account}">СТАТУС ЗАКАЗА</a>
+                <a th:href="@{/magazine}">МАГАЗИНЫ</a>
+                <a th:href="@{/fabric}">О НАС</a>
+            </nav>
+            <div class="search-container">
+                <input type="text" placeholder="Поиск...">
             </div>
-            <div class="icons">
-                <a th:href="@{/favorite}"><img height="30px" th:src="@{/img/header/heart.png}"></a>
-                <a th:href="@{/korzina}"><img height="30px" th:src="@{/img/header/shopping-cart.png}"></a>
-                <a th:href="@{/account}"> <img height="35px" th:src="@{/img/header/user.png}"></a>
-            </div>
+        </div>
+        <div class="icons">
+            <a th:href="@{/favorite}"><img height="30px" th:src="@{/img/header/heart.png}"></a>
+            <a th:href="@{/korzina}"><img height="30px" th:src="@{/img/header/shopping-cart.png}"></a>
+            <a th:href="@{/account}"> <img height="35px" th:src="@{/img/header/user.png}"></a>
+        </div>
 
-        </header>
+    </header>
 
-        <h3 class="center">Корзина</h3>
+    <h3 class="center">Корзина</h3>
 
-        <div class="magazine center">
-            <div class="product">
-                
-                    <div class="card">
-                        <img th:src="@{img/body/forCatalog/sofa.jpg}">
-                        <div class="name_and_price">
-                            <a href="card"><h2>Диван "Лорд"</h2></a>
-                            <p>2400*1000</p>
-			    <p>Артикул: 200448</p>
-                            <h3>50.000 руб.</h3>
-                            <div class="quantity-selector">
-                                <button class="decrement">−</button>
-                                <input type="number" value="1" min="1" class="quantity">
-                                <button class="increment">+</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="name_and_price"><br>
-                           <p>СРОКИ ИЗГОТОВЛЕНИЯ:</p>
-                           <p>до 20.04.2025</p>
-                     </div>
-                <div class="price">
-                    <button class="heart"><img height="30px" src="remove.png"></button>
-                </div>
-            </div>
-            <div class="product">
-                
-                <div class="card">
-                    <img th:src="@{img/body/forCatalog/sofa.jpg}">
-                    <div class="name_and_price">
-                        <a href="card"><h2>Диван "Лорд"</h2></a>
-                        <p>2400*1000</p>
-                        <h3>50.000 руб.</h3>
-                        <div class="quantity-selector">
-                            <button class="decrement">−</button>
-                            <input type="number" value="1" min="1" class="quantity">
-                            <button class="increment">+</button>
-                        </div>
+    <div class="magazine center">
+
+        <div class="product" th:each="product : ${products}">
+
+            <div class="card">
+                <img th:src="${product.urls[0]}">
+                <div class="name_and_price">
+                    <a th:href="@{/sofa/{id}(id=${product.id})}">
+                        <h2 th:text="${product.name}">Диван "Лорд"</h2>
+                        <p th:text="${product.size}">2400*1000</p>
+                        <h3 th:text="${product.price}">50.000 руб.</h3>
+                    </a>
+                    <div class="quantity-selector">
+                        <button class="decrement">−</button>
+                        <input type="number" value="1" min="1" class="quantity">
+                        <button class="increment">+</button>
                     </div>
                 </div>
-                <p>Описание товара</p>
-                <div class="price">
-                    <button class="heart"><img height="30px" src="remove.png"></button>
-                </div>
-             </div>
-
-        </div>
-
-        <h3 class="center">Товары (2):  400.000руб.</h3>
-        <div class="delevery center">
-            <label>Способ получения:</label>
-            <div class="delivery-switch">
-                <input type="radio" id="delivery" name="delivery" checked>
-                <label for="delivery">Доставка</label>
-                
-                <input type="radio" id="pickup" name="delivery">
-                <label for="pickup">Самовывоз</label>
-              </div>
-        </div>
-        
-        <!-- Форма для доставки -->
-        <div id="delivery-form" class="delivery-form center">
-            <h3>Данные для доставки</h3>
-            
-            <div class="form-group">
-                <label for="address">Адрес доставки:</label>
-                <input type="text" id="address" name="address" required>
             </div>
-            
-            <div class="form-group">
-                <label for="recipient">ФИО получателя:</label>
-                <input type="text" id="recipient" name="recipient" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="phone">Телефон:</label>
-                <input type="tel" id="phone" name="phone" required>
-            </div>
-            
-            <div class="form-group">
-                <div class = "checkboxForm">
-                    <input type="checkbox" id="lifting" name="lifting">
-                    <label for="lifting">Нужен подъем на этаж</label>
-                </div>
-            </div>
-            
-            <div id="lifting-details" class="lifting-details" style="display: none;">
-                <div class="form-group">
-                    <label for="floor">Этаж:</label>
-                    <input type="number" id="floor" name="floor" min="1">
-                </div>
-                
-                <div class="form-group">
-                    <label for="elevator">Грузовой лифт:</label>
-                    <select id="elevator" name="elevator">
-                        <option value="yes">Есть</option>
-                        <option value="no">Нет</option>
-                        <option value="small">Есть, но маленький</option>
-                    </select>
-                </div>
+            <p>Описание товара</p>
+            <p th:text="${product.description}">Описание товара</p>
+            <div class="price">
+                <button class="heart"><img height="30px" src="remove.png"></button>
             </div>
         </div>
 
-        <!-- Форма для самовывоза -->
-       <!-- Форма для самовывоза -->
-        <div id="pickup-form" class="pickup-form center" style="display: none;">
-            <h3>Выбор пункта самовывоза</h3>
-            
-            <div class="form-group">
-                <label for="pickup-point">Пункт самовывоза:</label>
-                <select id="pickup-point" name="pickup-point" required>
-                    <option value="">-- Выберите пункт --</option>
-                    <option value="point1" data-address="г.Уфа, ул. Трамвайная, д. 2/3 , ТЦ Парус" data-phone="+7 (123) 456-78-90" data-coords="54.796646, 56.074726">ул. Центральная, д. 1 (склад)</option>
-                    <option value="point2" data-address="ул. Торговая, д. 15" data-phone="+7 (123) 456-78-91" data-coords="55.761244,37.628423">ул. Торговая, д. 15 (магазин)</option>
-                    <option value="point3" data-address="ул. Промышленная, д. 8" data-phone="+7 (123) 456-78-92" data-coords="55.771244,37.638423">ул. Промышленная, д. 8 (терминал)</option>
-                    <option value="point4" data-address="ул. Центральная, д. 1" data-phone="+7 (123) 456-78-90" data-coords="55.751244,37.618423">ул. Центральная, д. 1 (склад)</option>
-                    <option value="point5" data-address="ул. Торговая, д. 15" data-phone="+7 (123) 456-78-91" data-coords="55.761244,37.628423">ул. Торговая, д. 15 (магазин)</option>
-                </select>
-            </div>
-            
-            <div id="pickup-info" class="pickup-info">
-                <h4>Информация о пункте:</h4>
-                <p><strong>Адрес:</strong> <span id="pickup-address"></span></p>
-                <p><strong>Телефон:</strong> <span id="pickup-phone"></span></p>
-                <div class="pickup-map" id="pickup-map"></div>
-            </div>
-            
-            <div class="form-group">
-                <label for="pickup-date">Дата самовывоза:</label>
-                <input type="date" id="pickup-date" name="pickup-date" required><br>
-                <p>Сроки бесплатного хранения изделия - не более двух недель с момента поступления изделия в пункт самовывоза. Далее 500 рублей в сутки.</p>
-            </div>
-        </div>
-
-        <h3 class="center">К оплате:  400.000руб.</h3>
-        <div class = "center"><button  id="korzina" >Заказать</button></div>
-        
     </div>
 
-    <footer>
-        <div class="clientFooterClass" id="clientFooter">
+    <h3 class="center">Товары (2): 400.000руб.</h3>
+    <div class="delevery center">
+        <label>Способ получения:</label>
+        <div class="delivery-switch">
+            <input type="radio" id="delivery" name="delivery" checked>
+            <label for="delivery">Доставка</label>
+
+            <input type="radio" id="pickup" name="delivery">
+            <label for="pickup">Самовывоз</label>
+        </div>
+    </div>
+
+    <!-- Форма для доставки -->
+    <div id="delivery-form" class="delivery-form center">
+        <h3>Данные для доставки</h3>
+
+        <div class="form-group">
+            <label for="address">Адрес доставки:</label>
+            <input type="text" id="address" name="address" required>
+        </div>
+
+        <div class="form-group">
+            <label for="recipient">ФИО получателя:</label>
+            <input type="text" id="recipient" name="recipient" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Телефон:</label>
+            <input type="tel" id="phone" name="phone" required>
+        </div>
+
+        <div class="form-group">
+            <div class="checkboxForm">
+                <input type="checkbox" id="lifting" name="lifting">
+                <label for="lifting">Нужен подъем на этаж</label>
+            </div>
+        </div>
+
+        <div id="lifting-details" class="lifting-details" style="display: none;">
+            <div class="form-group">
+                <label for="floor">Этаж:</label>
+                <input type="number" id="floor" name="floor" min="1">
+            </div>
+
+            <div class="form-group">
+                <label for="elevator">Грузовой лифт:</label>
+                <select id="elevator" name="elevator">
+                    <option value="yes">Есть</option>
+                    <option value="no">Нет</option>
+                    <option value="small">Есть, но маленький</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Форма для самовывоза -->
+    <!-- Форма для самовывоза -->
+    <div id="pickup-form" class="pickup-form center" style="display: none;">
+        <h3>Выбор пункта самовывоза</h3>
+
+        <div class="form-group">
+            <label for="pickup-point">Пункт самовывоза:</label>
+            <select id="pickup-point" name="pickup-point" required>
+                <option value="">-- Выберите пункт --</option>
+                <option value="point1" data-address="г.Уфа, ул. Трамвайная, д. 2/3 , ТЦ Парус"
+                        data-phone="+7 (123) 456-78-90" data-coords="54.796646, 56.074726">ул. Центральная, д. 1 (склад)
+                </option>
+                <option value="point2" data-address="ул. Торговая, д. 15" data-phone="+7 (123) 456-78-91"
+                        data-coords="55.761244,37.628423">ул. Торговая, д. 15 (магазин)
+                </option>
+                <option value="point3" data-address="ул. Промышленная, д. 8" data-phone="+7 (123) 456-78-92"
+                        data-coords="55.771244,37.638423">ул. Промышленная, д. 8 (терминал)
+                </option>
+                <option value="point4" data-address="ул. Центральная, д. 1" data-phone="+7 (123) 456-78-90"
+                        data-coords="55.751244,37.618423">ул. Центральная, д. 1 (склад)
+                </option>
+                <option value="point5" data-address="ул. Торговая, д. 15" data-phone="+7 (123) 456-78-91"
+                        data-coords="55.761244,37.628423">ул. Торговая, д. 15 (магазин)
+                </option>
+            </select>
+        </div>
+
+        <div id="pickup-info" class="pickup-info">
+            <h4>Информация о пункте:</h4>
+            <p><strong>Адрес:</strong> <span id="pickup-address"></span></p>
+            <p><strong>Телефон:</strong> <span id="pickup-phone"></span></p>
+            <div class="pickup-map" id="pickup-map"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="pickup-date">Дата самовывоза:</label>
+            <input type="date" id="pickup-date" name="pickup-date" required><br>
+            <p>Сроки бесплатного хранения изделия - не более двух недель с момента поступления изделия в пункт
+                самовывоза. Далее 500 рублей в сутки.</p>
+        </div>
+    </div>
+
+    <h3 class="center">К оплате: 400.000руб.</h3>
+    <div class="center">
+        <button id="korzina">Заказать</button>
+    </div>
+
+</div>
+
+<footer>
+    <div class="clientFooterClass" id="clientFooter">
         <div class="footerInf">
             <div class="forClients">
-                <h1 >Клиентам</h1>
+                <h1>Клиентам</h1>
                 <a th:href="@{/catalog}">КАТАЛОГ</a>
                 <a th:href="@{/delivery}">ДОСТАВКА</a>
                 <a href="@{/account}">СТАТУС ЗАКАЗА</a>
@@ -188,14 +181,14 @@
                 <a th:href="@{/fabric}">О НАС</a>
             </div>
             <div class="aboutCompany">
-                <h1 >О фабрике</h1>
+                <h1>О фабрике</h1>
                 <a href="#about_us">О НАС</a>
                 <a href="#pay">ПОЛИТИКА ОПЛАТЫ</a>
                 <a href="#contacts">КОНТАКТЫ</a>
                 <a href="#adress">АДРЕС ФАБРИКИ</a>
             </div>
             <div class="catalog">
-                <h1 >Каталог</h1>
+                <h1>Каталог</h1>
                 <a href="#sofas">ДИВАНЫ</a>
                 <a href="#stulya">СТУЛЬЯ</a>
                 <a href="#kresla">КРЕСЛА</a>
@@ -205,8 +198,8 @@
                 <img height="30px" th:src="@{img/footer/whatsapp.png}">
             </div>
         </div>
-    </footer>
+</footer>
 
-    <script th:src="@{scripts/korzina.js}"></script>
-    </body>
+<script th:src="@{scripts/korzina.js}"></script>
+</body>
 </html>

@@ -30,12 +30,10 @@ public class LikesService {
     @Autowired
     private LikesRepository likesRepository;
 
-    public Likes addLike(Long productId, Long userId) {
+    public Likes addLike(Long productId, IndividualPerson individualPerson) {
         log.info("Поставлен лайк");
         ProductForIndividual productForIndividual = productForIndividualRepository.findById(productId)
                 .orElseThrow(() -> new ProductForIndividualException("Не найден такой продукт"));
-        IndividualPerson individualPerson = individualPersonRepository.findById(userId)
-                .orElseThrow(() -> new UsernameNotFoundException("Не найден такой пользователь"));
 
         Likes like = new Likes();
         like.setIndividualPerson(individualPerson);
