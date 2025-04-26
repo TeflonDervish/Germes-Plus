@@ -1,26 +1,61 @@
 package ru.germes.plus.site.controller;
 
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
+import ru.germes.plus.site.model.Korzina;
+import ru.germes.plus.site.model.feedbacks.FeedbackOnProductForIndividual;
+import ru.germes.plus.site.model.persons.IndividualPerson;
 import ru.germes.plus.site.model.products.ProductForIndividual;
+import ru.germes.plus.site.service.FeedbackService;
+import ru.germes.plus.site.service.KorzinaService;
+import ru.germes.plus.site.service.LikesService;
 import ru.germes.plus.site.service.ProductForIndividualService;
-import ru.germes.plus.site.utils.Util;
+
+import java.util.List;
 
 @Controller
+@RequestMapping("/sofa")
 public class ProductController {
 
+    private static final Log log = LogFactory.getLog(ProductController.class);
     @Autowired
     private ProductForIndividualService productForIndividualService;
 
+    @Autowired
+    private LikesService likesService;
 
-    @GetMapping("/sofa/{id}")
-    public String getSofa(@PathVariable Long id,
-                          Model model) {
+    @Autowired
+    private FeedbackService feedbackService;
+
+    @Autowired
+    private KorzinaService korzinaService;
+
+
+    @GetMapping("/{id}")
+    public String getSofa(
+            @AuthenticationPrincipal IndividualPerson individualPerson,
+            @PathVariable Long id,
+            Model model) {
+        List<FeedbackOnProductForIndividual> feedbacks = feedbackService.getByProductForIndividual(id);
         ProductForIndividual productForIndividual = productForIndividualService.getById(id);
+
+        boolean isInKorzina = korzinaService.getKorzina(individualPerson)
+                .getProducts().contains(productForIndividual);
+
+        boolean isLiked = likesService.getLike(id, individualPerson.getId()).isPresent();
+
+        model.addAttribute("feedbacks", feedbacks);
+        model.addAttribute("is_liked", isLiked);
+
+        model.addAttribute("is_in_korzina", !isInKorzina);
+
+        model.addAttribute("product_id", productForIndividual.getId());
         model.addAttribute("urls", productForIndividual.getUrls());
         model.addAttribute("name", productForIndividual.getName());
         model.addAttribute("price", productForIndividual.getPrice());
@@ -41,4 +76,29 @@ public class ProductController {
         model.addAttribute("description", productForIndividual.getDescription());
         return "cardForSofa.html";
     }
+
+    @PostMapping("/{id}/like")
+    public String like(@AuthenticationPrincipal IndividualPerson individualPerson,
+                       @PathVariable Long id) {
+        likesService.addLike(id, individualPerson);
+
+        return "redirect:/sofa/" + id;
+    }
+
+    @PostMapping("/{id}/unlike")
+    public String unlike(@AuthenticationPrincipal IndividualPerson individualPerson,
+                         @PathVariable Long id) {
+        likesService.deleteLike(id, individualPerson.getId());
+
+        return "redirect:/sofa/" + id;
+    }
+
+    @PostMapping("{id}/feedback")
+    public String feedBack(@RequestParam("text") String text,
+                           @AuthenticationPrincipal IndividualPerson individualPerson,
+                           @PathVariable Long id) {
+        feedbackService.sendFeedback(id, individualPerson, text);
+        return "redirect:/sofa/" + id;
+    }
+
 }

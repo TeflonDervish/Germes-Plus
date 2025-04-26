@@ -17,8 +17,8 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/register", "/register-individual",
-                                "/login",
-                                "/catalog",
+                                "/login/**",
+                                "/catalog/**",
                                 "/swagger-ui/**",
                                 "/sofa/**",
                                 "/style/**", "/scripts/**", "/img/**",

@@ -9,6 +9,8 @@ import ru.germes.plus.site.model.PointOfSale;
 import ru.germes.plus.site.model.persons.IndividualPerson;
 import ru.germes.plus.site.model.products.ProductForIndividual;
 
+import java.time.LocalDate;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -32,5 +34,7 @@ public class FeedbackOnProductForIndividual {
     private String text;
 
     private double grade;
+
+    private LocalDate date;
 
 }

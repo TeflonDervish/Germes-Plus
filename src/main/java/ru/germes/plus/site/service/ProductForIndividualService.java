@@ -5,6 +5,7 @@ import com.google.gson.reflect.TypeToken;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import ru.germes.plus.site.exceptions.ProductForIndividualException;
 import ru.germes.plus.site.model.products.ProductForIndividual;
@@ -21,13 +22,16 @@ public class ProductForIndividualService {
     @Autowired
     private ProductForIndividualRepository productForIndividualRepository;
 
+
     public List<ProductForIndividual> getAll() {
         return productForIndividualRepository.findAll();
     }
 
     public ProductForIndividual getById(Long id) {
         log.info("Получение продукта по " + id);
-        return productForIndividualRepository.findById(id).orElse(new ProductForIndividual());
+        return productForIndividualRepository.findById(id).orElseThrow(
+                () -> new ProductForIndividualException("Продукт не найден"));
     }
+
 
 }

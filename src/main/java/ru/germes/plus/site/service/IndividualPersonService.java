@@ -1,6 +1,5 @@
 package ru.germes.plus.site.service;
 
-import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,28 +8,27 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import ru.germes.plus.site.model.persons.IndividualPerson;
-import ru.germes.plus.site.repository.IndividualPeronRepository;
+import ru.germes.plus.site.repository.IndividualPersonRepository;
 
 @Service
-public class UserService implements UserDetailsService  {
-    private static final Log log = LogFactory.getLog(UserService.class);
+public class IndividualPersonService implements UserDetailsService  {
+    private static final Log log = LogFactory.getLog(IndividualPersonService.class);
     @Autowired
-    private IndividualPeronRepository individualPeronRepository;
+    private IndividualPersonRepository individualPersonRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return individualPeronRepository.findByEmail(email)
+        return individualPersonRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("Пользователя с таким именем не существует"));
     }
 
-    public void registerIndividualPerson(IndividualPerson individualPerson) {
-        IndividualPerson newIndividualPerson = new IndividualPerson();
+    public void registerIndividualPerson(ru.germes.plus.site.model.persons.IndividualPerson individualPerson) {
+        ru.germes.plus.site.model.persons.IndividualPerson newIndividualPerson = new ru.germes.plus.site.model.persons.IndividualPerson();
         newIndividualPerson.setEmail(individualPerson.getEmail());
         newIndividualPerson.setPassword(passwordEncoder.encode(individualPerson.getPassword()));
-        individualPeronRepository.save(newIndividualPerson);
+        individualPersonRepository.save(newIndividualPerson);
     }
 }
