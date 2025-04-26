@@ -18,7 +18,7 @@
             <nav>
                 <a th:href="@{/catalog}">КАТАЛОГ</a>
                 <a th:href="@{/delivery}">ДОСТАВКА</a>
-                <a href="#garant">СТАТУС ЗАКАЗА</a>
+                <a th:href="@{/account}">СТАТУС ЗАКАЗА</a>
                 <a th:href="@{/magazine}">МАГАЗИНЫ</a>
                 <a th:href="@{/fabric}">О НАС</a>
             </nav>
@@ -118,7 +118,12 @@
         <div class="price">
             <label id="price" th:text="${price}">53 500 руб.</label>
             <button id="korzina">Добавить в корзину</button>
-            <button id="heart"><img height="30px" th:src="@{/img/header/heart.png}"></button>
+            <form th:if="${!is_liked}" th:action="@{/sofa/{id}/like (id=${product_id})}" method="post">
+                <button type="submit" id="heart"><img height="30px" th:src="@{/img/header/heart.png}"></button>
+            </form>
+            <form th:if="${is_liked}" th:action="@{/sofa/{id}/unlike (id=${product_id})}" method="post">
+                <button class="active" type="submit" id="heart"><img height="30px" th:src="@{/img/header/heart.png}"></button>
+            </form>
         </div>
 
         <div class="tabs">

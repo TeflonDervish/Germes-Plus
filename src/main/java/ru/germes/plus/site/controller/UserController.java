@@ -7,14 +7,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import ru.germes.plus.site.model.persons.IndividualPerson;
-import ru.germes.plus.site.service.UserService;
+import ru.germes.plus.site.service.IndividualPersonService;
 
 @Controller
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private IndividualPersonService individualPersonService;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -30,8 +29,8 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String registerUser(@ModelAttribute IndividualPerson individualPerson) {
-        userService.registerIndividualPerson(individualPerson);
+    public String registerUser(@ModelAttribute ru.germes.plus.site.model.persons.IndividualPerson individualPerson) {
+        this.individualPersonService.registerIndividualPerson(individualPerson);
         System.out.println(individualPerson);
         return "redirect:/login";
     }

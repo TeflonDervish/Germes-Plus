@@ -335,20 +335,35 @@ justify-content: center;
     transform: translateY(0);
 }
 
-.heart{
+.price #heart {
     padding: 8px;
     height: 45px;
     width: 45px;
     /* margin-top: 10px; */
-    background: #192042af; 
-    color: white; 
+    background: #192042af;
+    color: white;
     border: none;
-    border-radius: 50%; 
+    border-radius: 50%;
     font-size: 16px;
     font-weight: 500;
-    cursor: pointer; 
-    transition:  0.3s ease, transform 0.3s ease; 
+    cursor: pointer;
+    transition:  0.3s ease, transform 0.3s ease;
 }
+
+.price #heart:hover {
+    background: linear-gradient(135deg, #5616a0, #123081);
+    transform: translateY(-2px);
+}
+
+.price #heart:active {
+    transform: translateY(0);
+    background: #dd0202;
+}
+
+.price #heart.active {
+    background: #dd0202;
+}
+
 
 
 

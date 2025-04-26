@@ -19,7 +19,7 @@
             <nav>
                 <a th:href="@{/catalog}">КАТАЛОГ</a>
                 <a th:href="@{/delivery}">ДОСТАВКА</a>
-                <a href="#garant">СТАТУС ЗАКАЗА</a>
+                <a th:href="@{/account}">СТАТУС ЗАКАЗА</a>
                 <a th:href="@{/magazine}">МАГАЗИНЫ</a>
                 <a th:href="@{/fabric}">О НАС</a>
             </nav>
@@ -38,9 +38,8 @@
     <h3 class="center">Наши магазины</h3>
 
     <div class="magazine center">
-        <div class="product">
-
-            <div class="card" th:each="magazines : ${magazines}">
+        <div class="product" th:each="magazines : ${magazines}">
+            <div class="card" >
                 <img th:src="@{img/body/forCatalog/sofa.jpg}">
                 <a th:href="@{/magazine/{id}(id=${magazines.id})}">
                     <div class="name_and_price">

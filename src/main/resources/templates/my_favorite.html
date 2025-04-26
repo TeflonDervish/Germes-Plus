@@ -18,7 +18,7 @@
             <nav>
                 <a th:href="@{/catalog}">КАТАЛОГ</a>
                 <a th:href="@{/delivery}">ДОСТАВКА</a>
-                <a href="#garant">СТАТУС ЗАКАЗА</a>
+                <a th:href="@{/account}">СТАТУС ЗАКАЗА</a>
                 <a th:href="@{/magazine}">МАГАЗИНЫ</a>
                 <a th:href="@{/fabric}">О НАС</a>
             </nav>
@@ -37,52 +37,18 @@
     <h3 class="center" id="favorite">Отложенные</h3>
 
     <div class="magazine center">
-        <div class="product">
-            <a href="card">
-                <img th:src="@{img/body/forCatalog/sofa.jpg}">
-                <h2>Диван "Лорд"</h2>
-                <p>2400*1000</p>
-                <h3>50.000 руб.</h3>
+        <div class="product" th:each="products : ${products}">
+            <a th:href="@{/sofa/{id} (id=${products.id})}">
+                <img th:src="${products.urls[0]}">
+                <h2 th:text="${products.name}">Диван "Лорд"</h2>
+                <p th:text="${products.size}">2400*1000</p>
+                <h3 th:text="${products.price}">50.000 руб.</h3>
             </a>
             <div class="price">
                 <button id="korzina">Добавить в корзину</button>
-                <button class="heart"><img height="30px" src="remove.png"></button>
-            </div>
-        </div>
-        <div class="product">
-            <a href="card">
-                <img th:src="@{img/body/forCatalog/sofa.jpg}">
-                <h2>Диван "Лорд"</h2>
-                <p>2400*1000</p>
-                <h3>50.000 руб.</h3>
-            </a>
-            <div class="price">
-                <button id="korzina">Добавить в корзину</button>
-                <button class="heart"><img height="30px" src="remove.png"></button>
-            </div>
-        </div>
-        <div class="product">
-            <a href="card">
-                <img th:src="@{img/body/forCatalog/sofa.jpg}">
-                <h2>Диван "Лорд"</h2>
-                <p>2400*1000</p>
-                <h3>50.000 руб.</h3>
-            </a>
-            <div class="price">
-                <button id="korzina">Добавить в корзину</button>
-                <button class="heart"><img height="30px" src="remove.png"></button>
-            </div>
-        </div>
-        <div class="product">
-            <a href="card">
-                <img th:src="@{img/body/forCatalog/sofa.jpg}">
-                <h2>Диван "Лорд"</h2>
-                <p>2400*1000</p>
-                <h3>50.000 руб.</h3>
-            </a>
-            <div class="price">
-                <button id="korzina">Добавить в корзину</button>
-                <button class="heart"><img height="30px" src="remove.png"></button>
+                <form th:action="@{/favorite/{id}/unlike (id=${products.id})}" method="post">
+                    <button class="active" type="submit" id="heart"><img height="30px" th:src="@{/img/header/heart.png}"></button>
+                </form>
             </div>
         </div>
     </div>

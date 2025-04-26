@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import ru.germes.plus.site.enums.Role;
 import ru.germes.plus.site.model.persons.IndividualPerson;
-import ru.germes.plus.site.repository.IndividualPeronRepository;
+import ru.germes.plus.site.repository.IndividualPersonRepository;
 
 import java.util.Set;
 
@@ -15,10 +15,10 @@ import java.util.Set;
 public class AppConfig {
 
     @Autowired
-    private IndividualPeronRepository individualPeronRepository;
+    private IndividualPersonRepository individualPersonRepository;
 
     @Bean
-    public ApplicationRunner initializeUsers(IndividualPeronRepository individualPeronRepository,
+    public ApplicationRunner initializeUsers(IndividualPersonRepository individualPersonRepository,
                                              PasswordEncoder passwordEncoder) {
         return args -> {
             initializeUserIfNotExists(
@@ -26,7 +26,7 @@ public class AppConfig {
                     "admin123",
                     "admin",
                     Set.of(Role.ADMIN, Role.USER),
-                    individualPeronRepository,
+                    individualPersonRepository,
                     passwordEncoder
             );
 
@@ -35,7 +35,7 @@ public class AppConfig {
                     "user123",
                     "user",
                     Set.of(Role.USER),
-                    individualPeronRepository,
+                    individualPersonRepository,
                     passwordEncoder
             );
         };
@@ -45,15 +45,15 @@ public class AppConfig {
                                            String rawPassword,
                                            String name,
                                            Set<Role> roles,
-                                           IndividualPeronRepository individualPeronRepository,
+                                           IndividualPersonRepository individualPersonRepository,
                                            PasswordEncoder passwordEncoder) {
-        if (!individualPeronRepository.existsByEmail(email)) {
+        if (!individualPersonRepository.existsByEmail(email)) {
             IndividualPerson user = new IndividualPerson();
             user.setName(name);
             user.setEmail(email);
             user.setPassword(passwordEncoder.encode(rawPassword));
             user.setRoles(roles);
-            individualPeronRepository.save(user);
+            individualPersonRepository.save(user);
         }
     }
 
