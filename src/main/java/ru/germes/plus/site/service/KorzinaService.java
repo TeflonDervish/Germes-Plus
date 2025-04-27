@@ -55,4 +55,10 @@ public class KorzinaService {
         Korzina korzina = getKorzina(person);
         return korzina.isInKorzina(product);
     }
+
+    public Korzina clear(IndividualPerson person) {
+        Korzina korzina = getKorzina(person);
+        korzina.setProducts(new ArrayList<>());
+        return korzinaRepository.save(korzina);
+    }
 }

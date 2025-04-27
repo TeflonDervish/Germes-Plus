@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.thymeleaf.model.IModel;
 import ru.germes.plus.site.model.Korzina;
 import ru.germes.plus.site.model.persons.IndividualPerson;
 import ru.germes.plus.site.model.products.ProductForIndividual;
@@ -35,6 +36,9 @@ public class KorzinaController {
 
         model.addAttribute("product_count", korzina.getProducts().size());
 
+        model.addAttribute("phone_number", individualPerson.getPhone());
+        model.addAttribute("surname_name", individualPerson.getSurname() + " " + individualPerson.getName());
+
 
         return "korzina.html";
     }
@@ -52,6 +56,13 @@ public class KorzinaController {
                                     @PathVariable Long id) {
         korzinaService.deleteProduct(id, individualPerson);
         return "redirect:/korzina";
+    }
+
+    @PostMapping("/make-order")
+    public String makeOrder(@AuthenticationPrincipal IndividualPerson individualPerson) {
+
+
+        return "redirect:/account";
     }
 
 }
