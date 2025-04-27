@@ -33,5 +33,9 @@ public class ProductForIndividualService {
                 () -> new ProductForIndividualException("Продукт не найден"));
     }
 
+    public List<ProductForIndividual> getBySearch(String search) {
+        return productForIndividualRepository.findByNameContainingIgnoreCase(search);
+    }
+
 
 }
