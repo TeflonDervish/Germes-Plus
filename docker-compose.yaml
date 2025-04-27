@@ -3,6 +3,7 @@ version: '3.8'
 services:
   mysql:
     image: mysql:latest
+    container_name: mysql
     environment:
       MYSQL_ROOT_PASSWORD: admin
       MYSQL_DATABASE: germesplus
@@ -17,6 +18,7 @@ services:
 
   image-storage:
     image: teflondervish/image-storage
+    container_name: image-storage
     ports:
       - "8090:8090"  # Пример проброса портов
     volumes:
@@ -28,7 +30,8 @@ services:
       - network
 
   germes-plus:
-    image: teflondervish/germes-plus]
+    image: teflondervish/germes-plus
+    container_name: germes-plus
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/germesplus
       SPRING_DATASOURCE_USERNAME: server

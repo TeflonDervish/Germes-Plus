@@ -25,7 +25,7 @@ public class ProductForIndividual {
     private String name;
 
     @Column(length = 60)
-    private String price;
+    private Integer price;
 
     @Column(length = 60)
     private String size;

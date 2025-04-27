@@ -10,6 +10,7 @@ import ru.germes.plus.site.model.PointOfSale;
 import ru.germes.plus.site.model.ShippingInformation;
 import ru.germes.plus.site.model.persons.IndividualPerson;
 import ru.germes.plus.site.model.persons.LegalPerson;
+import ru.germes.plus.site.model.products.ProductForIndividual;
 import ru.germes.plus.site.model.summaries.SummaryForIndividual;
 import ru.germes.plus.site.model.summaries.SummaryForLegal;
 
@@ -24,9 +25,6 @@ public class OrderForIndividual {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "orderForIndividual")
-    private List<SummaryForIndividual> summaryForIndividuals;
-
     @ManyToOne
     @JoinColumn(name = "person_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
@@ -39,8 +37,14 @@ public class OrderForIndividual {
 
     @ManyToOne
     @JoinColumn(name = "shipping_id")
-    @OnDelete(action = OnDeleteAction.SET_NULL)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private ShippingInformation shippingInformation;
+
+    @ElementCollection
+    @CollectionTable(name = "orderForIndividualProduct", joinColumns = @JoinColumn(name = "id"))
+    @Column(name = "products")
+    private List<ProductForIndividual> products;
+
 
     private Integer price;
 

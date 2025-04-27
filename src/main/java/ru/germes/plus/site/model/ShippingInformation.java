@@ -18,6 +18,5 @@ public class ShippingInformation {
 
     private String address;
     private Integer floor;
-
     private Integer price;
 }

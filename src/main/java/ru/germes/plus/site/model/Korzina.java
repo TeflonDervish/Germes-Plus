@@ -22,11 +22,19 @@ public class Korzina {
     private IndividualPerson individualPerson;
 
     @ElementCollection
-    @CollectionTable(name="korzinaProduct", joinColumns = @JoinColumn(name="id"))
+    @CollectionTable(name = "korzinaProduct", joinColumns = @JoinColumn(name = "id"))
     @Column(name = "products")
     private List<ProductForIndividual> products;
 
     public void addProduct(ProductForIndividual product) {
         products.add(product);
+    }
+
+    public void deleteProduct(ProductForIndividual product) {
+        products.remove(product);
+    }
+
+    public boolean isInKorzina(ProductForIndividual product) {
+        return products.contains(product);
     }
 }

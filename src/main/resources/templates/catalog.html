@@ -22,9 +22,11 @@
                 <a th:href="@{/magazine}">МАГАЗИНЫ</a>
                 <a th:href="@{/fabric}">О НАС</a>
             </nav>
-            <div class="search-container">
-                <input type="text" placeholder="Поиск...">
-            </div>
+<!--            <div class="search-container">-->
+                <form class="search-container" th:action="@{/catalog/search}" method="post">
+                    <input name="search" type="text" placeholder="Поиск...">
+                </form>
+<!--            </div>-->
         </div>
         <div class="icons">
             <a th:href="@{/favorite}"><img height="30px" th:src="@{/img/header/heart.png}"></a>
@@ -268,7 +270,7 @@
                 <p th:text="${products.size}">2400*1000</p>
                 <h3 th:text="${products.price}">50.000 руб.</h3>
             </a>
-            <button>Добавить в корзину</button>
+            <!--            <button>Добавить в корзину</button>-->
         </div>
     </div>
 </div>
