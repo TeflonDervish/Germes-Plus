@@ -1,8 +1,8 @@
-document.querySelectorAll('.heart').forEach(button => {
-    button.addEventListener('click', function() {
-        this.closest('.product').remove();
-    });
-});
+//document.querySelectorAll('.heart').forEach(button => {
+//    button.addEventListener('click', function() {
+//        this.closest('.product').remove();
+//    });
+//});
 
 // Обработчики для кнопок увеличения количества
 document.querySelectorAll('.increment').forEach(button => {

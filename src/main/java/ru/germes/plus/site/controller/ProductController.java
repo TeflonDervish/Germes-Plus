@@ -45,15 +45,12 @@ public class ProductController {
         List<FeedbackOnProductForIndividual> feedbacks = feedbackService.getByProductForIndividual(id);
         ProductForIndividual productForIndividual = productForIndividualService.getById(id);
 
-        boolean isInKorzina = korzinaService.getKorzina(individualPerson)
-                .getProducts().contains(productForIndividual);
-
         boolean isLiked = likesService.getLike(id, individualPerson.getId()).isPresent();
 
         model.addAttribute("feedbacks", feedbacks);
         model.addAttribute("is_liked", isLiked);
 
-        model.addAttribute("is_in_korzina", !isInKorzina);
+        model.addAttribute("is_in_korzina", korzinaService.isInKorzina(id, individualPerson));
 
         model.addAttribute("product_id", productForIndividual.getId());
         model.addAttribute("urls", productForIndividual.getUrls());

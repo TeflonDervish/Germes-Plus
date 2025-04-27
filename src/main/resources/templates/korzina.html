@@ -49,23 +49,26 @@
                         <p th:text="${product.size}">2400*1000</p>
                         <h3 th:text="${product.price}">50.000 руб.</h3>
                     </a>
-                    <div class="quantity-selector">
-                        <button class="decrement">−</button>
-                        <input type="number" value="1" min="1" class="quantity">
-                        <button class="increment">+</button>
-                    </div>
+                    <!--                    <div class="quantity-selector">-->
+                    <!--                        <button class="decrement">−</button>-->
+                    <!--                        <input type="number" value="1" min="1" class="quantity">-->
+                    <!--                        <button class="increment">+</button>-->
+                    <!--                    </div>-->
                 </div>
             </div>
             <p>Описание товара</p>
             <p th:text="${product.description}">Описание товара</p>
             <div class="price">
-                <button class="heart"><img height="30px" src="remove.png"></button>
+                <form th:action="@{/korzina/{id}/delete_from_korzina (id=${product.id})}" method="post">
+                    <button class="heart"><img height="30px" th:src="@{/img/remove.png}"></button>
+                </form>
             </div>
         </div>
 
     </div>
 
-    <h3 class="center">Товары (2): 400.000руб.</h3>
+    <h3 class="center">Товары (<span th:text="${product_count}">2</span>): <span th:text="${total_price}">400.000</span>
+        руб.</h3>
     <div class="delevery center">
         <label>Способ получения:</label>
         <div class="delivery-switch">
@@ -162,7 +165,7 @@
         </div>
     </div>
 
-    <h3 class="center">К оплате: 400.000руб.</h3>
+    <h3 class="center">К оплате: <span th:text="${total_price}">400.000</span> руб.</h3>
     <div class="center">
         <button id="korzina">Заказать</button>
     </div>
@@ -198,6 +201,7 @@
                 <img height="30px" th:src="@{img/footer/whatsapp.png}">
             </div>
         </div>
+    </div>
 </footer>
 
 <script th:src="@{scripts/korzina.js}"></script>
