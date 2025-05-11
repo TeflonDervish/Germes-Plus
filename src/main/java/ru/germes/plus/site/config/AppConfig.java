@@ -44,6 +44,7 @@ public class AppConfig {
     private void initializeUserIfNotExists(String email,
                                            String rawPassword,
                                            String name,
+//                                           String
                                            Set<Role> roles,
                                            IndividualPersonRepository individualPersonRepository,
                                            PasswordEncoder passwordEncoder) {

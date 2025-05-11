@@ -17,13 +17,17 @@ import ru.germes.plus.site.service.ProductForIndividualService;
 public class CatalogController {
 
     private static final Log log = LogFactory.getLog(CatalogController.class);
-    @Autowired
-    private ProductForIndividualService productForIndividualService;
+    private final ProductForIndividualService productForIndividualService;
+
+    public CatalogController(ProductForIndividualService productForIndividualService) {
+        this.productForIndividualService = productForIndividualService;
+    }
 
 
     @GetMapping
     public String getCatalog(Model model) {
         log.info("Выдана страница каталога");
+        log.info(productForIndividualService.getAll().size());
         model.addAttribute("products", productForIndividualService.getAll());
         return "catalog.html";
     }

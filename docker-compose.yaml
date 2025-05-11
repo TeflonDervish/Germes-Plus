@@ -20,7 +20,7 @@ services:
     image: teflondervish/image-storage
     container_name: image-storage
     ports:
-      - "8090:8090"  # Пример проброса портов
+      - "8090:8090"
     volumes:
       - image-data:/storage
     environment:

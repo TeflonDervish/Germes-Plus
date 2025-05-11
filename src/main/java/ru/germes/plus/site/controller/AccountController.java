@@ -23,14 +23,21 @@ import java.util.List;
 public class AccountController {
 
     private static final Log log = LogFactory.getLog(AccountController.class);
-    @Autowired
-    private IndividualPersonService individualPersonService;
 
-    @Autowired
-    private ProductForIndividualService productForIndividualService;
+    private final IndividualPersonService individualPersonService;
 
-    @Autowired
-    private LikesService likesService;
+    private final ProductForIndividualService productForIndividualService;
+
+    private final LikesService likesService;
+
+    public AccountController(
+            IndividualPersonService individualPersonService,
+            ProductForIndividualService productForIndividualService,
+            LikesService likesService) {
+        this.individualPersonService = individualPersonService;
+        this.productForIndividualService = productForIndividualService;
+        this.likesService = likesService;
+    }
 
     @GetMapping
     public String getAccount(@AuthenticationPrincipal IndividualPerson individualPerson,
