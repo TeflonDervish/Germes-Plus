@@ -5,6 +5,208 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/style/catalog.css}"/>
     <title>Document</title>
+    <style>
+        .wrapper {
+            width: 100%;
+            max-width: none;
+        }
+        footer {
+
+            background-color: rgba(40, 49, 80, 0); /* Полупрозрачный фон */
+        }
+        @media (max-width: 1440px) {
+            .magazine {
+                grid-template-columns: repeat(3, 260px);
+                gap: 40px 80px;
+            }
+
+            .custom-dropdown {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .custom-dropdown_sort {
+                grid-column: 4;
+            }
+
+            .cleanFilt {
+                grid-column: 2/4;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .filt_all {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .magazine {
+                grid-template-columns: repeat(2, 260px);
+                gap: 30px 60px;
+            }
+
+            .custom-dropdown {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .custom-dropdown_sort {
+                grid-column: 3;
+            }
+
+            .cleanFilt {
+                grid-column: 2/3;
+            }
+
+            .filt_all {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            nav {
+                gap: 25px;
+            }
+
+            .icons {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+                padding: 15px 10px;
+            }
+
+            .nav-and-search {
+                width: 100%;
+                margin-top: 15px;
+            }
+
+            .icons {
+                margin-top: 15px;
+            }
+
+            .magazine {
+                grid-template-columns: repeat(2, 1fr);
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .product img {
+                width: 100%;
+                height: auto;
+            }
+
+            .custom-dropdown {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 20px 15px;
+                gap: 15px;
+            }
+
+            .custom-dropdown_filt {
+                grid-column: 1;
+            }
+
+            .custom-dropdown_sort {
+                grid-column: 2;
+            }
+
+            .cleanFilt {
+                grid-column: 1/3;
+            }
+
+            .filters {
+                width: 100%;
+            }
+
+            .filt_all {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footerInf {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .massage {
+                align-items: flex-start;
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .magazine {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .custom-dropdown {
+                grid-template-columns: 1fr;
+            }
+
+            .custom-dropdown_filt,
+            .custom-dropdown_sort {
+                grid-column: 1;
+            }
+
+            .cleanFilt {
+                grid-column: 1;
+            }
+
+            .filt_all {
+                grid-template-columns: 1fr;
+            }
+
+            .footerInf {
+                grid-template-columns: 1fr;
+            }
+
+            .search-container input {
+                font-size: 16px;
+            }
+
+            header nav a {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 375px) {
+            header {
+                width: 100%;
+            }
+
+            .cleanFilt {
+                grid-column: 1;
+            }
+
+            .filt_all {
+                grid-column: 1;
+            }
+
+            nav {
+                gap: 10px;
+            }
+
+            header nav a {
+                font-size: 14px;
+            }
+
+            .search-container input {
+                padding: 5px 10px;
+                font-size: 14px;
+            }
+
+            .product h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -22,11 +224,11 @@
                 <a th:href="@{/magazine}">МАГАЗИНЫ</a>
                 <a th:href="@{/fabric}">О НАС</a>
             </nav>
-<!--            <div class="search-container">-->
-                <form class="search-container" th:action="@{/catalog/search}" method="post">
-                    <input name="search" type="text" placeholder="Поиск...">
-                </form>
-<!--            </div>-->
+            <!--            <div class="search-container">-->
+            <form class="search-container" th:action="@{/catalog/search}" method="post">
+                <input name="search" type="text" placeholder="Поиск...">
+            </form>
+            <!--            </div>-->
         </div>
         <div class="icons">
             <a th:href="@{/favorite}"><img height="30px" th:src="@{/img/header/heart.png}"></a>
@@ -283,21 +485,17 @@
                 <a href="#delevery">ДОСТАВКА</a>
                 <a href="#garant">СТАТУС ЗАКАЗА</a>
                 <a href="#shops">МАГАЗИНЫ</a>
-                <a href="#sroki">CРОКИ ИЗГОТОВЛЕНИЯ</a>
                 <a href="#status">СТАТУС ЗАКАЗА</a>
             </div>
             <div class="aboutCompany">
                 <h1>О фабрике</h1>
                 <a href="#about_us">О НАС</a>
-                <a href="#pay">ПОЛИТИКА ОПЛАТЫ</a>
                 <a href="#contacts">КОНТАКТЫ</a>
                 <a href="#adress">АДРЕС ФАБРИКИ</a>
             </div>
             <div class="catalog">
                 <h1>Каталог</h1>
                 <a href="#sofas">ДИВАНЫ</a>
-                <a href="#stulya">СТУЛЬЯ</a>
-                <a href="#kresla">КРЕСЛА</a>
             </div>
             <div class="massage">
                 <h1>+7 (494) 270-65-01</h1>
