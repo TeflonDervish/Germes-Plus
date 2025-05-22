@@ -4,18 +4,18 @@
 }
 
 html, body {
-    height: 100%; 
+    height: 100%;
 }
 
 body {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     background-image: url(https://optim.tildacdn.com/tild3138-6365-4161-b337-663733303134/-/format/webp/IMG_6070.JPG);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; 
-    min-height: 100vh; 
+    background-attachment: fixed;
+    min-height: 100vh;
 }
 
 .t-cover__filter {
@@ -25,8 +25,8 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%; 
-    
+    height: 100%;
+
     z-index: -1;
 }
 
@@ -36,49 +36,46 @@ body {
 
     grid-template-columns: minmax(400px, 1fr) auto;
     align-items: start;
-    
+
 }
 
-.germes{
+.germes {
     color: white;
-    display: flex
-;
-padding: 20px;
+    display: flex;
+    padding: 20px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.germes h1{
+.germes h1 {
     font-size: 80px;
     font-weight: 200;
 }
 
-.germes h2{
+.germes h2 {
     font-size: 40px;
     font-weight: 25;
 }
 
 .bodyPage {
     /* background-color: rgba(53, 53, 59, 0.404); */
-    
-    
-    margin: 0 auto; 
-    padding: 20px 80px 20px 0px; 
-    box-sizing: border-box; 
-    position: relative; 
+
+
+    margin: 0 auto;
+    padding: 20px 80px 20px 0px;
+    box-sizing: border-box;
+    position: relative;
     min-height: calc(100vh - 140px);
     z-index: 1;
-    backdrop-filter: blur(2px); 
+    backdrop-filter: blur(2px);
 
 
     display: flex;
-        align-content: space-around;
-        justify-content: center;
-        align-items: center;
+    align-content: space-around;
+    justify-content: center;
+    align-items: center;
 }
-
-
 
 
 .form-container {
@@ -86,15 +83,15 @@ padding: 20px;
     /* padding-left: 150px;
     padding-right: 150px; */
     display: flex;
-    
+
     justify-content: center; /* Горизонтальное центрирование */
-    align-items: center; 
+    align-items: center;
     flex-direction: column;
     border-radius: 60px;
-    background-color:  rgba(44, 62, 80, 0); 
+    background-color: rgba(44, 62, 80, 0);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-image: -webkit-linear-gradient(top, rgba(9, 47, 51, 0.329), rgba(8, 29, 31, 0.281)); 
-   
+    background-image: -webkit-linear-gradient(top, rgba(9, 47, 51, 0.329), rgba(8, 29, 31, 0.281));
+
     border: solid 2px #fd880b71;
 }
 
@@ -104,34 +101,34 @@ form {
     flex-direction: column;
     /* max-width: 800px; 
     width: 100%; */
-    gap: 10px; 
-  
+    gap: 10px;
+
 }
 
 
 form img {
-    margin: 0 auto; 
+    margin: 0 auto;
     display: block;
 }
 
 
 form label {
     font-size: 25px;
-    color: white; 
+    color: white;
     font-weight: 400;
 }
 
-.redistr{
-    
+.redistr {
+
     display: flex;
     justify-content: center; /* Горизонтальное центрирование */
-    align-items: center; 
+    align-items: center;
     margin-bottom: 20px;
     width: 100%;
     flex-direction: column;
 }
 
-.redistr label{
+.redistr label {
     font-size: 40px;
     color: white;
     font-weight: 500;
@@ -143,45 +140,45 @@ form input {
     width: 400px;
     padding: 10px;
     margin-top: 5px;
-    border: 1px solid #cccccccc; 
+    border: 1px solid #cccccccc;
     padding-left: 10px;
-    border-radius: 25px; 
+    border-radius: 25px;
     font-size: 20px;
-    background: rgba(255, 255, 255, 0.651); 
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; 
-    
+    background: rgba(255, 255, 255, 0.651);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
 }
 
 
 form input:focus {
-    border-color: #FD880B; 
+    border-color: #FD880B;
     outline: none;
-    box-shadow: 0 0 8px rgba(26, 188, 156, 0.5); 
+    box-shadow: 0 0 8px rgba(26, 188, 156, 0.5);
 }
 
 
 form button {
     padding: 12px;
     margin-top: 10px;
-    background: #2ab89bb9; 
-    color: white; 
+    background: #2ab89bb9;
+    color: white;
     border: none;
-    border-radius: 25px; 
+    border-radius: 25px;
     font-size: 20px;
     font-weight: 600;
-    cursor: pointer; 
-    transition:  0.3s ease, transform 0.3s ease; 
+    cursor: pointer;
+    transition: 0.3s ease, transform 0.3s ease;
 }
 
-form input::placeholder{
-    color:#0000007a;
+form input::placeholder {
+    color: #0000007a;
     padding-left: 10px;
 }
 
 
 form button:hover {
-    background: linear-gradient(135deg, #16a085, #1abc9c); 
-    transform: translateY(-2px); 
+    background: linear-gradient(135deg, #16a085, #1abc9c);
+    transform: translateY(-2px);
 }
 
 
@@ -189,7 +186,7 @@ form button:active {
     transform: translateY(0);
 }
 
-.form-a{
+.form-a {
     font-size: 20px;
     display: flex;
     color: white;
@@ -212,31 +209,30 @@ form button:active {
 
 .hidden {
     display: none;
-  }
-
-
+}
 
 
 header {
     display: flex;
-    align-items:flex-end ; /* В￼
-    ыравнивает элементы по вертикали */
-    background-color: rgba(44, 62, 80, 0); 
+    align-items: flex-end;
+    /* В￼
+       ыравнивает элементы по вертикали */
+    background-color: rgba(44, 62, 80, 0);
     color: white;
     padding: 5px 20px 25px 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: calc(100% - 40px); 
+    width: calc(100% - 40px);
     background-image: -webkit-linear-gradient(top, rgba(9, 47, 51, 0.8), rgba(8, 29, 31, 0.7));
-    z-index: 2; 
+    z-index: 2;
 }
 
-.icons{
+.icons {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
 }
 
-.icons a:hover{
+.icons a:hover {
 
     color: #1abc9c;
     transform: scale(1.1);
@@ -258,7 +254,6 @@ header {
 }
 
 
-
 .nav-and-search {
     display: flex;
     flex-direction: column; /* Нав меню и строка поиска друг под другом */
@@ -270,7 +265,7 @@ header {
 
 nav {
     display: flex;
-    
+
     gap: 45px; /* Расстояние между ссылками */
 }
 
@@ -281,7 +276,7 @@ nav {
     width: 90%;
 }
 
-.search-container img{
+.search-container img {
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -296,15 +291,16 @@ nav {
     color: azure;
     height: 27px;
 }
+
 .search-container input:focus {
     border-color: #FD880B;
     padding-left: 20px;
     outline: none;
-  }
+}
 
-  .search-container input::placeholder{
+.search-container input::placeholder {
     /* padding-left: 10px; */
-    color:#f3eaea7a
+    color: #f3eaea7a
 }
 
 .search-container button {
@@ -319,7 +315,7 @@ nav {
 
 .search-container button:hover {
     background-color: #2980b9; /* Цвет фона кнопки при наведении */
-    
+
 }
 
 header .group1 {
@@ -362,23 +358,18 @@ header nav a:active {
 
 
 footer {
-    background-color: rgba(44, 62, 80, 0); /* Полупрозрачный фон */
+    /*background-color: rgba(44, 62, 80, 0); !* Полупрозрачный фон *!*/
     color: white;
-    
+
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
     width: 100%;
-    background-image: -webkit-linear-gradient(top, rgba(9, 47, 51, 0.8), rgba(8, 29, 31, 0.7)); 
-    height: 250px; 
+    /*background-image: -webkit-linear-gradient(top, rgba(9, 47, 51, 0.8), rgba(8, 29, 31, 0.7)); */
+    height: 250px;
 
-    margin-top: auto; 
-    flex-shrink: 0; 
+    margin-top: auto;
+    flex-shrink: 0;
 }
-
-
-
-
-
 
 
 /* Контейнер для переключателя */
@@ -387,18 +378,18 @@ footer {
     display: inline-block;
     width: 100%; /* Ширина переключателя */
     height: 40px; /* Высота переключателя */
-    
-  }
-  
-  /* Скрываем стандартный чекбокс */
-  .toggle-switch input {
+
+}
+
+/* Скрываем стандартный чекбокс */
+.toggle-switch input {
     opacity: 0;
     width: 0;
     height: 0;
-  }
-  
-  /* Стили для ползунка */
-  .slider {
+}
+
+/* Стили для ползунка */
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -408,10 +399,10 @@ footer {
     background-color: #cccccc8e; /* Фон по умолчанию */
     border-radius: 25px; /* Закругленные углы */
     transition: background-color 0.3s ease;
-  }
-  
-  /* бегунок */
-  .slider::before {
+}
+
+/* бегунок */
+.slider::before {
     content: "";
     position: absolute;
     height: 34px;
@@ -423,13 +414,12 @@ footer {
     border-radius: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
-    
-    
-  }
- 
 
 
-  .text {
+}
+
+
+.text {
     padding-left: 15%;
     padding-right: 15%;
     position: absolute;
@@ -440,48 +430,50 @@ footer {
     color: rgba(0, 0, 0, 0.7);
     pointer-events: none;
     transition: opacity 0.3s ease;
-  }
-  
-  .no {
+}
+
+.no {
     left: 10px; /* Позиция текста "NO" */
-  }
-  
-  .yes {
+}
+
+.yes {
     right: 10px; /* Позиция текста "YES" */
     opacity: 1; /* Скрываем "YES" по умолчанию */
-  }
-  
-  /* Анимация при включении */
-  input:checked + .slider {
+}
+
+/* Анимация при включении */
+input:checked + .slider {
     background-color: #cccccc8e; /* Зеленый фон при активации */
-  }
-  
-  input:checked + .slider::before {
+}
+
+input:checked + .slider::before {
     transform: translateX(100%); /* Ползунок сдвигается до конца */
     margin-left: -6px; /* Сдвигаем бегунок вправо */
-  }
-  
-  input:checked + .slider .no {
-    opacity: 1; /* Скрываем "NO" */
-  }
-  
-  input:checked + .slider .yes {
-    opacity: 1; /* Показываем "YES" */
-  }
+}
 
+input:checked + .slider .no {
+    opacity: 1; /* Скрываем "NO" */
+}
+
+input:checked + .slider .yes {
+    opacity: 1; /* Показываем "YES" */
+}
 
 
 .footerInf {
     display: grid;
     grid-template-columns: 20% 20% 20% auto;
-    padding: 20px ;
+    padding: 20px;
+    background-image: -webkit-linear-gradient(top, rgba(9, 47, 51, 0.8), rgba(8, 29, 31, 0.7));
+
 }
 
-footer h1{
+footer h1 {
     font-size: 20px;
     padding-bottom: 20px;
 }
-footer a{
+
+footer a {
     font-size: 15px;
     padding-bottom: 15px;
     color: white;
@@ -492,29 +484,27 @@ footer a{
 footer a:hover {
     color: #1abc9c;
 }
-.forClients{
+
+.forClients {
     display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.aboutCompany{
-    display: flex
-    ;
-        flex-direction: column;
-        align-items: flex-start;
+.aboutCompany {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.catalog{
-    display: flex
-    ;
-        flex-direction: column;
-        align-items: flex-start;
+.catalog {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.massage{
-    display: flex
-    ;
-        flex-direction: column;
-        align-items: flex-end;
+.massage {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }

@@ -5,6 +5,260 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/style/card.css}">
     <title>Document</title>
+
+    <style>
+        /* Основные стили остаются без изменений */
+
+        /* Адаптивные стили */
+        @media (max-width: 1440px) {
+            .center {
+                padding-left: calc(50% - 600px);
+                padding-right: calc(50% - 600px);
+            }
+
+            .cardForSofa {
+                gap: 25px 100px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .center {
+                padding-left: calc(50% - 500px);
+                padding-right: calc(50% - 500px);
+            }
+
+            .gallery-images img {
+                width: 450px;
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .center {
+                padding-left: calc(50% - 400px);
+                padding-right: calc(50% - 400px);
+            }
+
+            header {
+                flex-direction: column;
+                align-items: center;
+                padding: 15px 10px;
+            }
+
+            .nav-and-search {
+                width: 100%;
+                margin-top: 15px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 25px;
+            }
+
+            .icons {
+                margin-top: 15px;
+                gap: 20px;
+            }
+
+            .cardForSofa {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .gallery {
+                grid-column: 1;
+                max-width: 100%;
+            }
+
+            .bodyPage {
+                grid-column: 1;
+            }
+
+            .tabs, .reviews {
+                grid-column: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .center {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .footerInf {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .massage {
+                align-items: flex-start;
+                margin-top: 20px;
+            }
+
+            .gallery-images img {
+                width: 100%;
+                height: auto;
+                max-height: 400px;
+            }
+
+            .gallery-button {
+                width: 50px;
+                height: 50px;
+                font-size: 30px;
+            }
+
+            .cardForSofa #nameSofa {
+                font-size: 30px;
+            }
+
+            .aboutForSofa {
+                grid-template-columns: 2fr 20px 3fr;
+            }
+
+            label.inputs {
+                font-size: 17px;
+            }
+
+            .tab-buttons {
+                flex-wrap: wrap;
+                height: auto;
+            }
+
+            .tab-button {
+                padding: 12px 10px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            nav {
+                gap: 15px;
+            }
+
+            header nav a {
+                font-size: 16px;
+            }
+
+            .search-container input {
+                font-size: 16px;
+                height: 25px;
+            }
+
+
+
+            .footerInf {
+                grid-template-columns: 1fr;
+            }
+
+            .cardForSofa #nameSofa {
+                font-size: 26px;
+            }
+
+            .bodyPage #character {
+                font-size: 22px;
+            }
+
+            .form-container label {
+                font-size: 18px;
+            }
+
+            .price label {
+                font-size: 26px;
+            }
+
+            .price #korzina {
+                width: 180px;
+            }
+
+            .review-author {
+                font-size: 18px;
+            }
+
+            .review-text {
+                font-size: 16px;
+            }
+
+            .review-form button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            header nav a {
+                font-size: 16px;
+            }
+
+            .search-container input {
+                padding: 5px 10px;
+                font-size: 14px;
+            }
+
+            .aboutForSofa {
+                grid-template-columns: 1.5fr 15px 2fr;
+            }
+
+            .form-container label {
+                font-size: 16px;
+            }
+
+            label.inputs {
+                font-size: 15px;
+            }
+
+            .tab-button {
+                font-size: 13px;
+                padding: 10px 5px;
+            }
+
+            .tab-pane {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .cardForSofa #nameSofa {
+                font-size: 24px;
+            }
+
+            .bodyPage #character {
+                font-size: 20px;
+            }
+
+            .price label {
+                font-size: 24px;
+            }
+
+            .price #korzina {
+                width: 160px;
+                font-size: 14px;
+            }
+
+            .review-form textarea {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            header nav a {
+                font-size: 13px;
+            }
+
+            .search-container input {
+                font-size: 13px;
+            }
+
+            .tab-button {
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -225,21 +479,17 @@
                     <a href="#delevery">ДОСТАВКА</a>
                     <a href="#garant">СТАТУС ЗАКАЗА</a>
                     <a href="#shops">МАГАЗИНЫ</a>
-                    <a href="#sroki">CРОКИ ИЗГОТОВЛЕНИЯ</a>
-                    <a href="#status">СТАТУС ЗАКАЗА</a>
                 </div>
                 <div class="aboutCompany">
                     <h1>О фабрике</h1>
                     <a href="#about_us">О НАС</a>
-                    <a href="#pay">ПОЛИТИКА ОПЛАТЫ</a>
                     <a href="#contacts">КОНТАКТЫ</a>
                     <a href="#adress">АДРЕС ФАБРИКИ</a>
                 </div>
                 <div class="catalog">
                     <h1>Каталог</h1>
                     <a href="#sofas">ДИВАНЫ</a>
-                    <a href="#stulya">СТУЛЬЯ</a>
-                    <a href="#kresla">КРЕСЛА</a>
+
                 </div>
                 <div class="massage">
                     <h1>+7 (494) 270-65-01</h1>

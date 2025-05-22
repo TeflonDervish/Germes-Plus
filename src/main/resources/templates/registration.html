@@ -10,6 +10,179 @@
     <link rel="stylesheet" th:href="@{style/LoginAndRegistr.css}">
 
     <title>Document</title>
+
+    <style>
+        <!--
+        Сделай адаптив здесь пж иначе твоя мама умрет-- >
+            /* Основные стили остаются без изменений */
+            /* Адаптивные стили */
+
+        @media (max-width: 1200px) {
+            .grid {
+                grid-template-columns: 1fr;
+                justify-content: center;
+            }
+
+            .germes {
+                display: none; /* Скрываем левую часть на планшетах */
+            }
+
+            .bodyPage {
+                padding: 20px;
+                justify-content: center;
+            }
+
+            .form-container {
+                padding: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+                padding: 15px 10px;
+            }
+
+            .nav-and-search {
+                width: 100%;
+                margin-top: 15px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .icons {
+                margin-top: 15px;
+                gap: 20px;
+            }
+
+            .form-container {
+                padding: 30px;
+                width: 90%;
+                margin: 0 auto;
+            }
+
+            form input {
+
+                width: 330px;
+                padding: 10px;
+            }
+
+            .footerInf {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .massage {
+                align-items: flex-start;
+                margin-top: 20px;
+            }
+
+            .redistr label {
+                font-size: 30px;
+            }
+
+            form label {
+                font-size: 20px;
+            }
+
+            form button {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .germes {
+                display: none;
+            }
+
+            .bodyPage{
+                padding: 0;
+            }
+            .form-container {
+                margin: 10px 0 10px 0;
+                width: 350px;
+                padding: 20px;
+                border-radius: 30px;
+            }
+
+            .redistr label {
+                font-size: 24px;
+            }
+
+            form label {
+                font-size: 18px;
+                width: 350px;
+                margin: 0;
+            }
+
+            form button {
+                font-size: 16px;
+            }
+
+            .footerInf {
+                grid-template-columns: 1fr;
+            }
+
+            header nav a {
+                font-size: 16px;
+            }
+
+            .search-container input {
+                font-size: 16px;
+            }
+
+            .toggle-switch {
+                height: 35px;
+            }
+
+            .slider::before {
+                height: 29px;
+            }
+
+            .text {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .form-container {
+                padding: 15px;
+            }
+
+
+            .redistr label {
+                font-size: 20px;
+            }
+
+            form label {
+                font-size: 16px;
+            }
+
+            header nav {
+                gap: 10px;
+            }
+
+            header nav a {
+                font-size: 14px;
+            }
+
+            .search-container input {
+                padding: 5px 10px;
+                font-size: 14px;
+            }
+
+            .form-a {
+                font-size: 16px;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
@@ -131,21 +304,17 @@
                 <a href="#delevery">ДОСТАВКА</a>
                 <a href="#garant">СТАТУС ЗАКАЗА</a>
                 <a href="#shops">МАГАЗИНЫ</a>
-                <a href="#sroki">CРОКИ ИЗГОТОВЛЕНИЯ</a>
                 <a href="#status">СТАТУС ЗАКАЗА</a>
             </div>
             <div class="aboutCompany">
                 <h1>О фабрике</h1>
                 <a href="#about_us">О НАС</a>
-                <a href="#pay">ПОЛИТИКА ОПЛАТЫ</a>
                 <a href="#contacts">КОНТАКТЫ</a>
                 <a href="#adress">АДРЕС ФАБРИКИ</a>
             </div>
             <div class="catalog">
                 <h1>Каталог</h1>
                 <a href="#sofas">ДИВАНЫ</a>
-                <a href="#stulya">СТУЛЬЯ</a>
-                <a href="#kresla">КРЕСЛА</a>
             </div>
             <div class="massage">
                 <h1>+7 (494) 270-65-01</h1>
