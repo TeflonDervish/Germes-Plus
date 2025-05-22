@@ -1,9 +1,7 @@
 package ru.germes.plus.site.service;
 
-import jakarta.transaction.Transactional;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -15,11 +13,15 @@ import ru.germes.plus.site.repository.IndividualPersonRepository;
 @Service
 public class IndividualPersonService implements UserDetailsService {
     private static final Log log = LogFactory.getLog(IndividualPersonService.class);
-    @Autowired
-    private IndividualPersonRepository individualPersonRepository;
+    private final IndividualPersonRepository individualPersonRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
+
+    public IndividualPersonService(IndividualPersonRepository individualPersonRepository,
+                                   PasswordEncoder passwordEncoder) {
+        this.individualPersonRepository = individualPersonRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
@@ -34,7 +36,7 @@ public class IndividualPersonService implements UserDetailsService {
         individualPersonRepository.save(newIndividualPerson);
     }
 
-    public IndividualPerson save(IndividualPerson individualPerson) {
-        return individualPersonRepository.save(individualPerson);
+    public void save(IndividualPerson individualPerson) {
+        individualPersonRepository.save(individualPerson);
     }
 }

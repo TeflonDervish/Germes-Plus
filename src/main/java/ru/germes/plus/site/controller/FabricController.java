@@ -12,7 +12,7 @@ import ru.germes.plus.site.service.FabricService;
 @RequestMapping("/fabric")
 public class FabricController {
 
-    private FabricService fabricService;
+    private final FabricService fabricService;
 
     public FabricController(FabricService fabricService) {
         this.fabricService = fabricService;

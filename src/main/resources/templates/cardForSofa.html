@@ -116,7 +116,7 @@
         </div>
 
         <div class="price">
-            <label id="price" th:text="${price}">53 500 руб.</label>
+            <label id="price"><span th:text="${price}"></span> руб.</label>
             <form th:action="@{/korzina/{id}/add_to_korzina (id=${product_id})}" method="post">
                 <button type="submit" id="korzina" th:disabled="${is_in_korzina}">Добавить в корзину</button>
             </form>

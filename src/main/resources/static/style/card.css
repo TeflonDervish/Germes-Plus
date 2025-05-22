@@ -4,38 +4,41 @@
 }
 
 html, body {
-    height: 100%; 
+    height: 100%;
     min-height: 100vh;
 }
+
 .wrapper {
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Минимальная высота на весь экран */
-  }
+}
+
 main {
     flex: 1; /* Основной контент растягивается, чтобы занять оставшееся пространство */
-  }
+}
 
 header {
     display: flex;
-    align-items:flex-end ; /* В￼
-    ыравнивает элементы по вертикали */
+    align-items: flex-end;
+    /* В￼
+       ыравнивает элементы по вертикали */
     background-color: #283150;
     color: white;
     padding: 5px 20px 25px 20px;
     /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
-    width: calc(100% - 40px); 
+    width: calc(100% - 40px);
     /* background-image: -webkit-linear-gradient(top, rgba(9, 47, 51, 0.8), rgba(8, 29, 31, 0.7)); */
-    z-index: 2; 
+    z-index: 2;
 }
 
-.icons{
+.icons {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
 }
 
-.icons a:hover{
+.icons a:hover {
 
     color: #1abc9c;
     transform: scale(1.1);
@@ -53,23 +56,22 @@ header {
     display: flex;
     flex-direction: column; /* Картинка и текст друг под другом */
     align-items: center; /* Центрирование по горизонтали */
-    gap: 10px; 
+    gap: 10px;
 }
-
 
 
 .nav-and-search {
     display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    gap: 20px; 
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
     width: 100%;
 }
 
 
 nav {
     display: flex;
-    
+
     gap: 45px; /* Расстояние между ссылками */
 }
 
@@ -80,7 +82,7 @@ nav {
     width: 90%;
 }
 
-.search-container img{
+.search-container img {
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -95,28 +97,29 @@ nav {
     color: azure;
     height: 27px;
 }
+
 .search-container input:focus {
     border-color: #FD880B;
     padding-left: 20px;
     outline: none;
-  }
+}
 
-  .search-container input::placeholder{
-    color:#f3eaea7a
+.search-container input::placeholder {
+    color: #f3eaea7a
 }
 
 .search-container button {
-    padding: 5px 10px; 
+    padding: 5px 10px;
     border: none; /* Убираем границу */
-    background-color: #3498db; 
-    color: white; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    font-size: 14px; 
+    background-color: #3498db;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
 }
 
 .search-container button:hover {
-    background-color: #2980b9; 
+    background-color: #2980b9;
 }
 
 header .group1 {
@@ -160,12 +163,12 @@ header nav a:active {
 
 footer {
     background-color: #28315077; /* Полупрозрачный фон */
-    color: white;    
+    color: white;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
     /* background-image: -webkit-linear-gradient(top, rgba(9, 47, 51, 0.8), rgba(8, 29, 31, 0.7));  */
-    height: 250px; 
+    height: 250px;
     margin-top: auto;
     flex-shrink: 0;
 }
@@ -174,14 +177,15 @@ footer {
 .footerInf {
     display: grid;
     grid-template-columns: 20% 20% 20% auto;
-    padding: 20px ;
+    padding: 20px;
 }
 
-footer h1{
+footer h1 {
     font-size: 20px;
     padding-bottom: 20px;
 }
-footer a{
+
+footer a {
     font-size: 15px;
     padding-bottom: 15px;
     color: white;
@@ -192,49 +196,44 @@ footer a{
 footer a:hover {
     color: #0d5042;
 }
-.forClients{
+
+.forClients {
     display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.aboutCompany{
-    display: flex
-    ;
-        flex-direction: column;
-        align-items: flex-start;
+.aboutCompany {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.catalog{
-    display: flex
-    ;
-        flex-direction: column;
-        align-items: flex-start;
+.catalog {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.massage{
-    display: flex
-    ;
-        flex-direction: column;
-        align-items: flex-end;
+.massage {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 
-
-.center{
+.center {
     padding-left: calc(50% - 600px);
     padding-right: calc(50% - 600px);
 }
 
 
-
-
-.cardForSofa{
-position: relative;
+.cardForSofa {
+    position: relative;
     padding-top: 100px;
     padding-bottom: 50px;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     justify-items: start;
     justify-content: start;
     align-content: center;
@@ -242,26 +241,22 @@ position: relative;
 }
 
 
-
-.cardForSofa #nameSofa{
+.cardForSofa #nameSofa {
     font-size: 35px;
     font-weight: 700;
 }
 
-.articul-rating{
+.articul-rating {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 35px;
 }
 
-.articul #articul{
+.articul #articul {
     font-size: 16px;
     color: #000000a8;
 }
-
-
-
 
 
 .gallery {
@@ -281,7 +276,7 @@ position: relative;
 }
 
 .gallery-images img {
-    
+
     width: 500px;
     height: 400px;
     display: none;
@@ -291,18 +286,18 @@ position: relative;
     display: block;
 }
 
-.tab-pane{
-    font-size:18px;
+.tab-pane {
+    font-size: 18px;
     margin-bottom: 5px;
     display: none;
-     line-height: 1.5;
-     text-indent: 2em;
+    line-height: 1.5;
+    text-indent: 2em;
 }
 
 .gallery-button {
     position: absolute;
     top: 50%;
-    
+
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.281);
     border-color: #0d504200;
@@ -316,6 +311,7 @@ position: relative;
     transition: opacity 0.3s ease, background-color 0.3s ease;
     opacity: 0; /* Кнопки скрыты по умолчанию */
 }
+
 .gallery-button:hover {
     background-color: rgba(0, 0, 0, 0.589);
 }
@@ -325,7 +321,7 @@ position: relative;
 }
 
 .prev-button {
-    
+
     left: 0px;
 }
 
@@ -333,75 +329,75 @@ position: relative;
     right: 0px;
 }
 
-.bodyPage{
+.bodyPage {
     display: flex;
     flex-direction: column;
 }
-.bodyPage #character{
+
+.bodyPage #character {
     padding-top: 15px;
     font-size: 25px;
     font-weight: 300;
     color: #000000ef;
-    
-
 }
 
 .form-container {
     display: grid;
-    grid-template-column: repeat(2,1fr);
+    grid-template-column: repeat(2, 1fr);
 
-        gap: 10px;
+    gap: 10px;
 }
 
-.form-container label{
+.form-container label {
     font-size: 20px;
     color: #000000a8;
 }
 
-.aboutForSofa{
+.aboutForSofa {
     display: grid;
     grid-template-columns: 3fr 20px 4fr;
 }
-label.inputs{
-grid column:2/3;
+
+label.inputs {
+    /*grid-column: 2/3;*/
     width: auto;
     color: #000000;
     font-size: 19px;
 }
 
-.price{
+.price {
     display: flex;
     flex-direction: row;
     align-content: center;
-    gap:15px;
+    gap: 15px;
     align-items: center;
 }
 
-.price label{
+.price label {
     font-size: 30px;
     font-weight: 600;
 }
 
-.price  #korzina {
+.price #korzina {
     padding: 10px;
     height: 45px;
     width: 200px;
-    background: #192042af; 
-    color: white; 
+    background: #192042af;
+    color: white;
     border: none;
-    border-radius: 25px; 
+    border-radius: 25px;
     font-size: 16px;
     font-weight: 500;
-    cursor: pointer; 
-    transition:  0.3s ease, transform 0.3s ease; 
+    cursor: pointer;
+    transition: 0.3s ease, transform 0.3s ease;
 }
 
-.price  #korzina:hover {
-    background: linear-gradient(135deg, #5616a0, #123081); 
-    transform: translateY(-2px); 
+.price #korzina:hover {
+    background: linear-gradient(135deg, #5616a0, #123081);
+    transform: translateY(-2px);
 }
 
-.price  #korzina:active {
+.price #korzina:active {
     transform: translateY(0);
 }
 
@@ -410,19 +406,19 @@ grid column:2/3;
     height: 45px;
     width: 45px;
     /* margin-top: 10px; */
-    background: #192042af; 
-    color: white; 
+    background: #192042af;
+    color: white;
     border: none;
-    border-radius: 50%; 
+    border-radius: 50%;
     font-size: 16px;
     font-weight: 500;
-    cursor: pointer; 
-    transition:  0.3s ease, transform 0.3s ease; 
+    cursor: pointer;
+    transition: 0.3s ease, transform 0.3s ease;
 }
 
 .price #heart:hover {
-    background: linear-gradient(135deg, #5616a0, #123081); 
-    transform: translateY(-2px); 
+    background: linear-gradient(135deg, #5616a0, #123081);
+    transform: translateY(-2px);
 }
 
 .price #heart:active {
@@ -431,14 +427,8 @@ grid column:2/3;
 }
 
 .price #heart.active {
-    background: #dd0202; 
+    background: #dd0202;
 }
-
-
-
-
-
-
 
 
 .tabs {
@@ -471,14 +461,14 @@ grid column:2/3;
 }
 
 .tab-button.active {
-    background:    #192042af; 
-    ;
+    background: #192042af;;
     color: white;
 }
 
 .tab-button:hover {
     background: #f0f0f0;
 }
+
 .tab-content {
     padding: 20px;
     /* border: 1px solid #ccc; */
@@ -486,22 +476,9 @@ grid column:2/3;
 }
 
 
-
 .tab-pane.active {
     display: block;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* Основные стили для блока отзывов */
@@ -526,7 +503,7 @@ grid column:2/3;
     padding: 10px;
     border-bottom: 1px solid #6e6e6e;
     margin-bottom: 10px;
-    
+
 }
 
 .review:last-child {
@@ -543,7 +520,7 @@ grid column:2/3;
 
 .review-text {
     margin-bottom: 5px;
-    font-size:18px;
+    font-size: 18px;
 }
 
 .review-photo img {
@@ -583,24 +560,23 @@ grid column:2/3;
 }
 
 
-
 .review-form button {
     padding: 10px;
     height: 90%;
     width: 250px;
-    background: #192042af; 
-    color: white; 
+    background: #192042af;
+    color: white;
     border: none;
-    border-radius: 25px; 
+    border-radius: 25px;
     font-size: 20px;
     font-weight: 500;
-    cursor: pointer; 
-    transition:  0.3s ease, transform 0.3s ease; 
+    cursor: pointer;
+    transition: 0.3s ease, transform 0.3s ease;
 }
 
 .review-form button:hover {
-    background: linear-gradient(135deg, #5616a0, #123081); 
-    transform: translateY(-2px); 
+    background: linear-gradient(135deg, #5616a0, #123081);
+    transform: translateY(-2px);
 }
 
 .review-form button:active {
