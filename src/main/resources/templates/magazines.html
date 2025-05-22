@@ -6,6 +6,171 @@
     <link rel="stylesheet" th:href="@{/style/magazines.css}"/>
     <title>Document</title>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=bff7b351-d1e8-45d3-a920-587566731f5e&lang=ru_RU"></script>
+    <style>
+        /* Основные стили остаются без изменений */
+
+        /* Адаптивные стили */
+        @media (max-width: 1440px) {
+            .center {
+                padding-left: calc(50% - 600px);
+                padding-right: calc(50% - 600px);
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .center {
+                padding-left: calc(50% - 500px);
+                padding-right: calc(50% - 500px);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .center {
+                padding-left: calc(50% - 400px);
+                padding-right: calc(50% - 400px);
+            }
+
+            header {
+                flex-direction: column;
+                align-items: center;
+                padding: 15px 10px;
+            }
+
+            .nav-and-search {
+                width: 100%;
+                margin-top: 15px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 25px;
+            }
+
+            .icons {
+                margin-top: 15px;
+                gap: 20px;
+            }
+
+            .product img {
+                height: 180px;
+                width: 240px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .center {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .footerInf {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .massage {
+                align-items: flex-start;
+                margin-top: 20px;
+            }
+
+            .product {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .card {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .product img {
+                width: 100%;
+                height: auto;
+                max-width: 400px;
+            }
+
+            h3 {
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            nav {
+                gap: 15px;
+            }
+
+            header nav a {
+                font-size: 16px;
+            }
+
+            .search-container input {
+                font-size: 16px;
+                height: 25px;
+            }
+
+
+
+            .footerInf {
+                grid-template-columns: 1fr;
+            }
+
+            .name_and_price p,
+            .name_and_price h2 {
+                font-size: 16px;
+            }
+
+            h3 {
+                font-size: 24px;
+                padding: 15px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            header nav a {
+                font-size: 14px;
+            }
+
+            .search-container input {
+                padding: 5px 10px;
+                font-size: 14px;
+            }
+
+            .name_and_price {
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 375px) {
+            h3 {
+                font-size: 22px;
+            }
+
+            .product {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            header nav a {
+                font-size: 13px;
+            }
+
+            .search-container input {
+                font-size: 13px;
+            }
+
+            .name_and_price p {
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -74,8 +239,7 @@
             <div class="catalog">
                 <h1>Каталог</h1>
                 <a href="#sofas">ДИВАНЫ</a>
-                <a href="#stulya">СТУЛЬЯ</a>
-                <a href="#kresla">КРЕСЛА</a>
+
             </div>
             <div class="massage">
                 <h1>+7 (494) 270-65-01</h1>
