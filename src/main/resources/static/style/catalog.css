@@ -27,7 +27,7 @@ header {
     color: white;
     padding: 5px 20px 25px 20px;
     /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
-    width: calc(100% - 40px);
+    /*width: calc(100% - 40px);*/
     /* background-image: -webkit-linear-gradient(top, rgba(9, 47, 51, 0.8), rgba(8, 29, 31, 0.7)); */
     z-index: 2;
 }
@@ -162,10 +162,10 @@ header nav a:active {
 
 
 footer {
-    background-color: #28315077; /* Полупрозрачный фон */
+    /*background-color: #28315077; !* Полупрозрачный фон *!*/
     color: white;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
     width: 100%;
     /* background-image: -webkit-linear-gradient(top, rgba(9, 47, 51, 0.8), rgba(8, 29, 31, 0.7));  */
     height: 250px;
@@ -175,6 +175,7 @@ footer {
 
 
 .footerInf {
+    background-color: #28315077; /* Полупрозрачный фон */
     display: grid;
     grid-template-columns: 20% 20% 20% auto;
     padding: 20px;
