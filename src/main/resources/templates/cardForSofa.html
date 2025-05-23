@@ -68,7 +68,7 @@
 
             .gallery {
                 grid-column: 1;
-                max-width: 100%;
+                width: 350px;
             }
 
             .bodyPage {
@@ -82,8 +82,8 @@
 
         @media (max-width: 768px) {
             .center {
-                padding-left: 20px;
-                padding-right: 20px;
+                padding-left: 10px;
+                padding-right: 10px;
             }
 
             .footerInf {
@@ -227,6 +227,11 @@
                 font-size: 24px;
             }
 
+            .cardForSofa {
+                grid-template-columns: 355px;
+                gap: 30px;
+            }
+
             .bodyPage #character {
                 font-size: 20px;
             }
@@ -243,6 +248,10 @@
             .review-form textarea {
                 font-size: 14px;
             }
+            .gallery {
+                grid-column: 1;
+                width: 315px;
+            }
         }
 
         @media (max-width: 320px) {
@@ -256,6 +265,14 @@
 
             .tab-button {
                 font-size: 12px;
+            }.cardForSofa {
+                 grid-template-columns: 300px;
+                 gap: 30px;
+             }
+
+            .gallery {
+                grid-column: 1;
+                width: 235px;
             }
         }
     </style>
