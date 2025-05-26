@@ -168,7 +168,7 @@ footer {
 
     width: 100%;
     /* background-image: -webkit-linear-gradient(top, rgba(9, 47, 51, 0.8), rgba(8, 29, 31, 0.7));  */
-    height: 250px;
+    
     margin-top: auto;
     flex-shrink: 0;
 }

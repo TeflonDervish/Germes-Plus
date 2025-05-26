@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" th:href="@{style/myAccount.css}">
+    <link rel="stylesheet" href="../../static/style/myAccount.css">
 
 
     <title>Document</title>
@@ -275,13 +275,8 @@
         <form th:action="@{account/edit}" method="post">
 
             <div class="form-group">
-                <label for="name">Имя:</label>
+                <label for="name">Организация:</label>
                 <input th:value="${name}" type="text" id="name" name="name" required>
-            </div>
-
-            <div class="form-group">
-                <label for="recipient">Фамилия:</label>
-                <input th:value="${surname}" type="text" id="recipient" name="surname" required>
             </div>
             <div class="form-group">
                 <label for="email">Почта:</label>
