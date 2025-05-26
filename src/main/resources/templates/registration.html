@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet">
-    <link rel="stylesheet" th:href="@{style/LoginAndRegistr.css}">
+    <link rel="stylesheet" th:href="@{/style/LoginAndRegistr.css}">
 
     <title>Document</title>
 
@@ -200,13 +200,23 @@
         <img height="100px" th:src="@{/img/body/forLoginRegistration/germes.png}" alt="">
     </div>
     <div class="nav-and-search">
-        <nav>
-            <a th:href="@{/catalog}">КАТАЛОГ</a>
-            <a th:href="@{/delivery}">ДОСТАВКА</a>
-            <a th:href="@{/account}">СТАТУС ЗАКАЗА</a>
-            <a th:href="@{/magazine}">МАГАЗИНЫ</a>
-            <a th:href="@{/fabric}">О НАС</a>
-        </nav>
+        <div class="clientHeaderClass" id="clientHeader">
+            <nav>
+                <a th:href="@{/catalog}">КАТАЛОГ</a>
+                <a th:href="@{/delivery}">ДОСТАВКА</a>
+                <a th:href="@{/account}">СТАТУС ЗАКАЗА</a>
+                <a th:href="@{/magazine}">МАГАЗИНЫ</a>
+                <a th:href="@{/fabric}">О НАС</a>
+            </nav>
+        </div>
+        <div class="partnerHeaderClass hidden" id="partnerHeader">
+            <nav>
+                <a th:href="@{/catalog}">КАТАЛОГ</a>
+                <a th:href="@{/account}">СТАТУС ЗАКАЗА</a>
+                <a th:href="@{/magazine}">МАГАЗИНЫ</a>
+                <a th:href="@{/fabric}">О НАС</a>
+            </nav>
+        </div>
         <div class="search-container">
             <input type="text" placeholder="Поиск...">
 
@@ -324,7 +334,7 @@
             </div>
             <div class="massage">
                 <h1>+7 (494) 270-65-01</h1>
-                <img height="30px" th:src="@{img/footer/whatsapp.png}">
+                <img height="30px" th:src="@{/img/footer/whatsapp.png}">
             </div>
         </div>
     </div>
@@ -335,13 +345,10 @@
                 <h1>Партнерам</h1>
                 <a href="#delevery">ПУНКТЫ ВЫДАЧИ ЗАКАЗОВ</a>
                 <a href="#garant">СТАТУС ЗАКАЗА</a>
-                <a href="#sroki">CРОКИ ПОСТАВКИ</a>
-                <a href="#status">СТАТУС ЗАКАЗА</a>
             </div>
             <div class="aboutCompany">
                 <h1>О фабрике</h1>
                 <a href="#about_us">О НАС</a>
-                <a href="#pay">ПОЛИТИКА ОПЛАТЫ</a>
                 <a href="#contacts">КОНТАКТЫ</a>
                 <a href="#adress">АДРЕС ФАБРИКИ</a>
 
@@ -351,16 +358,15 @@
                 <a href="#tkani">ТКАНИ</a>
                 <a href="#karkasi">КАРКАСЫ</a>
                 <a href="#napolnitely">НАПОЛНИТЕЛИ</a>
-                <a href="#mechanismy">МЕХАНИЗМЫ</a>
             </div>
             <div class="massage">
 
                 <h1>+7 (494) 270-65-01</h1>
-                <img height="30px" th:src="@{img/footer/whatsapp.png}">
+                <img height="30px" th:src="@{/img/footer/whatsapp.png}">
             </div>
         </div>
     </div>
 </footer>
-<script th:src="@{scripts/registration.js}"></script>
+<script th:src="@{/scripts/registration.js}"></script>
 </body>
 </html>
