@@ -325,19 +325,19 @@
                     <div class="product" th:each="order : ${orders}">
 
                         <div class="card">
-                            <img th:src="${url}">
+                            <img th:src="${order.products[0].urls[0]}">
                             <div class="name_and_price">
                                 <h2 th:text="${order.products[0].name}">Диван "Лорд"</h2>
                                 <p th:text="${order.products[0].size}">2400*1000</p>
                                 <p th:text="${order.products[0].article}">Артикул: 1242464</p>
                                 <p>Количество: 1</p>
-                                <h3 th:text="${order.products[0].price}">50.000 руб.</h3>
+<!--                                <h3 th:text="${order.products[0].price}">50.000 руб.</h3>-->
                             </div>
                         </div>
                         <div class="name_and_price">
-                            <p>ЗАКАЗ №<span th:text="${order.id}">320448</span></p>
+                            <p>ЗАКАЗ № <span th:text="${order.id}">320448</span></p>
+                            <p>Стоимость <span th:text="${order.totalPrice}">320448</span></p>
                             <p>Сроки изготовления: до <span th:text="${order.orderDate}">20.04.2025</span></p>
-
                             <p>Cпособ получения: <span th:text="${order.deliveryType}">самовывоз</span></p>
                         </div>
 
