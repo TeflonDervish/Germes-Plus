@@ -1,5 +1,6 @@
 package ru.germes.plus.site.service;
 
+import lombok.AllArgsConstructor;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,16 +19,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class LikesService {
 
     private static final Log log = LogFactory.getLog(LikesService.class);
-    @Autowired
     private ProductForIndividualRepository productForIndividualRepository;
 
-    @Autowired
     private IndividualPersonRepository individualPersonRepository;
 
-    @Autowired
     private LikesRepository likesRepository;
 
     public Likes addLike(Long productId, IndividualPerson individualPerson) {
@@ -51,11 +50,13 @@ public class LikesService {
     }
 
     public Optional<Likes> getLike(Long productId, Long userId){
+        log.info("Получение лайков");
         return likesRepository.checkIsLiked(productId, userId);
     }
 
     @Query
     public List<ProductForIndividual> getProductForIndividuals(IndividualPerson individualPerson) {
+        log.info("Получение продукта пользователя");
         return likesRepository.findByIndividualPerson(individualPerson)
                 .stream()
                 .map(Likes::getProductForIndividual)

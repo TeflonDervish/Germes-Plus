@@ -1,6 +1,7 @@
 package ru.germes.plus.site.controller;
 
 
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -22,7 +23,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/sofa")
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class ProductController {
 
     private static final Log log = LogFactory.getLog(ProductController.class);

@@ -322,23 +322,23 @@
         <div class="tab-content">
             <div id="tab1" class="tab-pane active">
                 <div class="magazine center">
-                    <div class="product">
+                    <div class="product" th:each="order : ${orders}">
 
                         <div class="card">
-                            <img th:src="@{img/body/forCatalog/sofa.jpg}">
+                            <img th:src="${url}">
                             <div class="name_and_price">
-                                <a href="card"><h2>Диван "Лорд"</h2></a>
-                                <p>2400*1000</p>
-                                <p>Артикул: 1242464</p>
+                                <h2 th:text="${order.products[0].name}">Диван "Лорд"</h2>
+                                <p th:text="${order.products[0].size}">2400*1000</p>
+                                <p th:text="${order.products[0].article}">Артикул: 1242464</p>
                                 <p>Количество: 1</p>
-                                <h3>50.000 руб.</h3>
+                                <h3 th:text="${order.products[0].price}">50.000 руб.</h3>
                             </div>
                         </div>
                         <div class="name_and_price">
-                            <p>ЗАКАЗ №320448</p>
-                            <p>Сроки изготовления: до<span> 20.04.2025</span></p>
+                            <p>ЗАКАЗ №<span th:text="${order.id}">320448</span></p>
+                            <p>Сроки изготовления: до <span th:text="${order.orderDate}">20.04.2025</span></p>
 
-                            <p>Cпособ получения: <span>самовывоз</span></p>
+                            <p>Cпособ получения: <span th:text="${order.deliveryType}">самовывоз</span></p>
                         </div>
 
                         <div class="order-status">

@@ -1,5 +1,6 @@
 package ru.germes.plus.site.controller;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -10,12 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import ru.germes.plus.site.service.IndividualPersonService;
 
 @Controller
+@AllArgsConstructor
 public class UserController {
 
-    @Autowired
     private IndividualPersonService individualPersonService;
 
-    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @GetMapping("/login")

@@ -2,27 +2,40 @@ package ru.germes.plus.site.controller;
 
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.thymeleaf.model.IModel;
+import ru.germes.plus.site.dto.DeliveryDetailsDto;
+import ru.germes.plus.site.dto.OrderDto;
+import ru.germes.plus.site.dto.PickupDetailsDto;
 import ru.germes.plus.site.model.Korzina;
+import ru.germes.plus.site.model.PointOfSale;
+import ru.germes.plus.site.model.orders.OrderForIndividual;
 import ru.germes.plus.site.model.persons.IndividualPerson;
 import ru.germes.plus.site.model.products.ProductForIndividual;
 import ru.germes.plus.site.service.KorzinaService;
+import ru.germes.plus.site.service.OrderForIndividualService;
+import ru.germes.plus.site.service.PointOfSaleService;
+
+import java.security.Principal;
 
 @Controller
+@RequestMapping("/korzina")
 @AllArgsConstructor
 public class KorzinaController {
 
-    private KorzinaService korzinaService;
+    private static final Log log = LogFactory.getLog(KorzinaController.class);
+    private final KorzinaService korzinaService;
+    private final OrderForIndividualService orderForIndividualService;
+    private final PointOfSaleService pointOfSaleService;
 
-    @GetMapping("/korzina")
+    @GetMapping
     public String getKorzina(Model model,
                              @AuthenticationPrincipal IndividualPerson individualPerson) {
 
@@ -41,11 +54,13 @@ public class KorzinaController {
         model.addAttribute("phone_number", individualPerson.getPhone());
         model.addAttribute("surname_name", individualPerson.getSurname() + " " + individualPerson.getName());
 
+        model.addAttribute("points", pointOfSaleService.getAll());
+
 
         return "korzina";
     }
 
-    @PostMapping("/korzina/{id}/add_to_korzina")
+    @PostMapping("/{id}/add_to_korzina")
     public String addToKorzina(@AuthenticationPrincipal IndividualPerson individualPerson,
                                @PathVariable Long id) {
         korzinaService.addProduct(id, individualPerson);
@@ -53,17 +68,31 @@ public class KorzinaController {
         return "redirect:/korzina";
     }
 
-    @PostMapping("/korzina/{id}/delete_from_korzina")
+    @PostMapping("/{id}/delete_from_korzina")
     public String removeFromKorzina(@AuthenticationPrincipal IndividualPerson individualPerson,
                                     @PathVariable Long id) {
         korzinaService.deleteProduct(id, individualPerson);
         return "redirect:/korzina";
     }
 
-    @PostMapping("/korzina/make-order")
-    public String makeOrder(@AuthenticationPrincipal IndividualPerson individualPerson) {
+    @PostMapping("/make-order")
+    public String processOrder(@ModelAttribute OrderDto orderDto,
+                               @ModelAttribute DeliveryDetailsDto deliveryDetailsDto,
+                               @ModelAttribute PickupDetailsDto pickupDetailsDto,
+                               @AuthenticationPrincipal IndividualPerson individualPerson,
+                               RedirectAttributes redirectAttributes) {
+        orderDto.setDeliveryDetails(deliveryDetailsDto);
+        orderDto.setPickupDetails(pickupDetailsDto);
+        try {
+            OrderForIndividual order = orderForIndividualService.createOrder(individualPerson, orderDto);
 
-        return "redirect:/account";
+            redirectAttributes.addFlashAttribute("success",
+                    "Заказ №" + order.getId() + " успешно оформлен!");
+            return "redirect:/account";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "redirect:/korzina";
+        }
     }
 
 }

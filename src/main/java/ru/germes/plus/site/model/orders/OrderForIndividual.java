@@ -1,10 +1,10 @@
 package ru.germes.plus.site.model.orders;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import ru.germes.plus.site.enums.DeliveryType;
 import ru.germes.plus.site.enums.OrderStatus;
 import ru.germes.plus.site.model.PointOfSale;
 import ru.germes.plus.site.model.ShippingInformation;
@@ -14,11 +14,16 @@ import ru.germes.plus.site.model.products.ProductForIndividual;
 import ru.germes.plus.site.model.summaries.SummaryForIndividual;
 import ru.germes.plus.site.model.summaries.SummaryForLegal;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Data
+@AllArgsConstructor
+@Getter
+@Setter
+@Builder
 @NoArgsConstructor
+@ToString
 public class OrderForIndividual {
 
     @Id
@@ -45,9 +50,15 @@ public class OrderForIndividual {
     @Column(name = "products")
     private List<ProductForIndividual> products;
 
+    private LocalDate orderDate;
 
-    private Integer price;
+    private Integer totalPrice;
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
+
+    @Enumerated(EnumType.STRING)
+    private DeliveryType deliveryType;
+
+    private String deliveryAddress;
 }

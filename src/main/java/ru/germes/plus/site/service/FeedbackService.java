@@ -1,5 +1,6 @@
 package ru.germes.plus.site.service;
 
+import lombok.AllArgsConstructor;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,18 +14,15 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class FeedbackService {
 
     private static final Log log = LogFactory.getLog(FeedbackService.class);
-    @Autowired
     private FeedbackRepository feedbackRepository;
-
-    @Autowired
     private ProductForIndividualService productForIndividualService;
 
     public FeedbackOnProductForIndividual sendFeedback(Long productId, IndividualPerson individualPerson, String text) {
-
-        log.info(productId);
+        log.info("Оставление отзыва");
 
         ProductForIndividual productForIndividual = productForIndividualService.getById(productId);
 
@@ -39,6 +37,7 @@ public class FeedbackService {
     }
 
     public List<FeedbackOnProductForIndividual> getByProductForIndividual(Long productId) {
+        log.info("Получение продуктов " + productId);
         ProductForIndividual product = productForIndividualService.getById(productId);
         return feedbackRepository.findByProductForIndividual(product);
     }

@@ -1,6 +1,7 @@
 package ru.germes.plus.site.controller;
 
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -15,9 +16,9 @@ import ru.germes.plus.site.service.LikesService;
 
 @Controller
 @RequestMapping("/favorite")
+@AllArgsConstructor
 public class FavoriteController {
 
-    @Autowired
     private LikesService likesService;
 
     @GetMapping

@@ -1,5 +1,7 @@
 package ru.germes.plus.site.controller;
 
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,13 +12,10 @@ import ru.germes.plus.site.service.FabricService;
 
 @Controller
 @RequestMapping("/fabric")
+@AllArgsConstructor
 public class FabricController {
 
     private final FabricService fabricService;
-
-    public FabricController(FabricService fabricService) {
-        this.fabricService = fabricService;
-    }
 
     @GetMapping
     public String getFabric(Model model) {
