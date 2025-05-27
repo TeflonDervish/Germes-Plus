@@ -338,11 +338,11 @@
                             <p>ЗАКАЗ № <span th:text="${order.id}">320448</span></p>
                             <p>Стоимость <span th:text="${order.totalPrice}">320448</span></p>
                             <p>Сроки изготовления: до <span th:text="${order.orderDate}">20.04.2025</span></p>
-                            <p>Cпособ получения: <span th:text="${order.deliveryType}">самовывоз</span></p>
+                            <p>Cпособ получения: <span th:text="${order.deliveryType.title}">самовывоз</span></p>
                         </div>
 
                         <div class="order-status">
-                            <span class="status-value processing">В обработке</span>
+                            <span class="status-value processing" th:text="${order.status.title}">В обработке</span>
 
                         </div>
                     </div>

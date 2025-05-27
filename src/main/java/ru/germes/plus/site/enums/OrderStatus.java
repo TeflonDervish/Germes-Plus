@@ -1,11 +1,21 @@
 package ru.germes.plus.site.enums;
 
+
+import lombok.Getter;
+
+@Getter
 public enum OrderStatus {
-    WAITING_ACCESS,
-    IN_PROGRESS,
-    ON_THE_WAY,
-    WAITING,
-    COMPLETED,
-    CANCELLED,
-    REFUND
+    WAITING_ACCESS("Ожидает подтверждения"),
+    IN_PROGRESS("В работе"),
+    ON_THE_WAY("В пути"),
+    WAITING("Ожидает"),
+    COMPLETED("Завершен"),
+    CANCELLED("Отменен"),
+    REFUND("Возврат");
+
+    private String title;
+
+    OrderStatus(String title) {
+        this.title = title;
+    }
 }
