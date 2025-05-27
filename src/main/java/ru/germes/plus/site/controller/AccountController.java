@@ -1,15 +1,13 @@
 package ru.germes.plus.site.controller;
 
+import lombok.AllArgsConstructor;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import ru.germes.plus.site.model.persons.IndividualPerson;
 import ru.germes.plus.site.model.products.ProductForIndividual;
 import ru.germes.plus.site.service.IndividualPersonService;
@@ -40,30 +38,26 @@ public class AccountController {
     }
 
     @GetMapping
-    public String getAccount(@AuthenticationPrincipal IndividualPerson individualPerson,
+    public String getAccount(@AuthenticationPrincipal IndividualPerson account,
                              Model model) {
 
+        IndividualPerson individualPerson = individualPersonService.getById(account.getId());
+
         model.addAttribute("name", individualPerson.getName());
+        model.addAttribute("email", individualPerson.getEmail());
         model.addAttribute("surname", individualPerson.getSurname());
         model.addAttribute("phone", individualPerson.getPhone());
         model.addAttribute("city", individualPerson.getCity());
 
         log.info(individualPerson);
 
-        return "myAccount.html";
+        return "myAccount";
     }
 
     @PostMapping("/edit")
     public String edit(@AuthenticationPrincipal IndividualPerson individualPerson,
-                       @RequestParam String name,
-                       @RequestParam String surname,
-                       @RequestParam String phone,
-                       @RequestParam String city) {
-        individualPerson.setName(name);
-        individualPerson.setSurname(surname);
-        individualPerson.setPhone(phone);
-        individualPerson.setCity(city);
-        individualPersonService.save(individualPerson);
+                       @ModelAttribute IndividualPerson newData) {
+        individualPersonService.save(individualPerson. getId(), newData);
         return "redirect:/account";
     }
 

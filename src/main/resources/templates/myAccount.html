@@ -254,9 +254,9 @@
                 <a th:href="@{/magazine}">МАГАЗИНЫ</a>
                 <a th:href="@{/fabric}">О НАС</a>
             </nav>
-            <div class="search-container">
-                <input type="text" placeholder="Поиск...">
-            </div>
+            <form class="search-container" th:action="@{/catalog/search}" method="post">
+                <input name="search" type="text" placeholder="Поиск...">
+            </form>
         </div>
         <div class="icons">
             <a th:href="@{/favorite}"><img height="30px" th:src="@{/img/header/heart.png}"></a>
@@ -267,7 +267,9 @@
     </header>
     <div class="forLogout center">
         <h4 class="center">Личный кабинет</h4>
-        <button id="korzina">Выйти</button>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit" id="korzina">Выйти</button>
+        </form>
     </div>
 
     <div id="form_myAcc" class="form_myAcc center">
@@ -285,7 +287,7 @@
             </div>
             <div class="form-group">
                 <label for="email">Почта:</label>
-                <input th:value="${phone}" type="email" id="email" name="email" required>
+                <input th:value="${email}" type="email" id="email" name="email" required>
             </div>
 
             <div class="form-group">

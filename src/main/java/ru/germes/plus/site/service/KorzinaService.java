@@ -1,6 +1,8 @@
 package ru.germes.plus.site.service;
 
 import jakarta.persistence.criteria.CriteriaBuilder;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.germes.plus.site.model.Korzina;
@@ -12,12 +14,10 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class KorzinaService {
 
-    @Autowired
     private KorzinaRepository korzinaRepository;
-
-    @Autowired
     private ProductForIndividualService productService;
 
     public Korzina getKorzina(IndividualPerson individualPerson) {

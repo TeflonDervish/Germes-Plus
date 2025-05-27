@@ -29,6 +29,6 @@ public class FabricController {
         model.addAttribute("phone_number", fabric.getPhoneNumber());
         model.addAttribute("address", fabric.getAddress());
 
-        return "cardForFabric.html";
+        return "cardForFabric";
     }
 }

@@ -26,7 +26,7 @@ public class FavoriteController {
             Model model) {
 
         model.addAttribute("products", likesService.getProductForIndividuals(individualPerson));
-        return "my_favorite.html";
+        return "my_favorite";
     }
 
     @PostMapping("/{id}/unlike")

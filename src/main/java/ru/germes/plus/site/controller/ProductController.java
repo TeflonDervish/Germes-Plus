@@ -1,6 +1,7 @@
 package ru.germes.plus.site.controller;
 
 
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,19 +22,16 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/sofa")
+@RequiredArgsConstructor
 public class ProductController {
 
     private static final Log log = LogFactory.getLog(ProductController.class);
-    @Autowired
     private ProductForIndividualService productForIndividualService;
 
-    @Autowired
     private LikesService likesService;
 
-    @Autowired
     private FeedbackService feedbackService;
 
-    @Autowired
     private KorzinaService korzinaService;
 
 
@@ -71,7 +69,7 @@ public class ProductController {
 
         model.addAttribute("article", productForIndividual.getArticle());
         model.addAttribute("description", productForIndividual.getDescription());
-        return "cardForSofa.html";
+        return "cardForSofa";
     }
 
     @PostMapping("/{id}/like")

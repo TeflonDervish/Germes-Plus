@@ -29,13 +29,13 @@ public class CatalogController {
         log.info("Выдана страница каталога");
         log.info(productForIndividualService.getAll().size());
         model.addAttribute("products", productForIndividualService.getAll());
-        return "catalog.html";
+        return "catalog";
     }
 
     @PostMapping("/search")
     public String getCatalogByText(Model model,
                                    @RequestParam("search") String search) {
         model.addAttribute("products", productForIndividualService.getBySearch(search));
-        return "catalog.html";
+        return "catalog";
     }
 }

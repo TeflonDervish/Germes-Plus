@@ -1,5 +1,7 @@
 package ru.germes.plus.site.controller;
 
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -15,15 +17,15 @@ import ru.germes.plus.site.model.products.ProductForIndividual;
 import ru.germes.plus.site.service.KorzinaService;
 
 @Controller
-@RequestMapping("/korzina")
+@AllArgsConstructor
 public class KorzinaController {
 
-    @Autowired
     private KorzinaService korzinaService;
 
-    @GetMapping
+    @GetMapping("/korzina")
     public String getKorzina(Model model,
                              @AuthenticationPrincipal IndividualPerson individualPerson) {
+
         Korzina korzina = korzinaService.getKorzina(individualPerson);
 
         double totalPrice = 0;
@@ -40,10 +42,10 @@ public class KorzinaController {
         model.addAttribute("surname_name", individualPerson.getSurname() + " " + individualPerson.getName());
 
 
-        return "korzina.html";
+        return "korzina";
     }
 
-    @PostMapping("{id}/add_to_korzina")
+    @PostMapping("/korzina/{id}/add_to_korzina")
     public String addToKorzina(@AuthenticationPrincipal IndividualPerson individualPerson,
                                @PathVariable Long id) {
         korzinaService.addProduct(id, individualPerson);
@@ -51,16 +53,15 @@ public class KorzinaController {
         return "redirect:/korzina";
     }
 
-    @PostMapping("{id}/delete_from_korzina")
+    @PostMapping("/korzina/{id}/delete_from_korzina")
     public String removeFromKorzina(@AuthenticationPrincipal IndividualPerson individualPerson,
                                     @PathVariable Long id) {
         korzinaService.deleteProduct(id, individualPerson);
         return "redirect:/korzina";
     }
 
-    @PostMapping("/make-order")
+    @PostMapping("/korzina/make-order")
     public String makeOrder(@AuthenticationPrincipal IndividualPerson individualPerson) {
-
 
         return "redirect:/account";
     }

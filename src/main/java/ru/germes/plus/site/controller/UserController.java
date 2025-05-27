@@ -20,12 +20,12 @@ public class UserController {
 
     @GetMapping("/login")
     public String getLogin(Model model) {
-        return "login.html";
+        return "login";
     }
 
     @GetMapping("/register")
     public String getRegistration(Model model) {
-        return "registration.html";
+        return "registration";
     }
 
     @PostMapping("/register")
