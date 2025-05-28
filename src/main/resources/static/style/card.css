@@ -634,3 +634,7 @@ label.inputs {
 .rating .star:hover {
     color: #ffc107; /* Золотой цвет для активных звезд */
 }
+
+* {
+    color: #5e5e5e;
+}

@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.germes.plus.site.dto.DeliveryDetailsDto;
 import ru.germes.plus.site.dto.OrderDto;
 import ru.germes.plus.site.dto.PickupDetailsDto;
@@ -30,7 +31,7 @@ public class OrderForIndividualService {
     private final KorzinaService korzinaService;
     private final PointOfSaleService pointOfSaleService;
 
-
+    @Transactional
     public OrderForIndividual createOrder(IndividualPerson user, OrderDto orderDto) {
         log.info("Создание заказа для " + user.getEmail());
 

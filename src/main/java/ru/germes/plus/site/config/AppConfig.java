@@ -1,5 +1,6 @@
 package ru.germes.plus.site.config;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
@@ -12,9 +13,9 @@ import ru.germes.plus.site.repository.IndividualPersonRepository;
 import java.util.Set;
 
 @Configuration
+@AllArgsConstructor
 public class AppConfig {
 
-    @Autowired
     private IndividualPersonRepository individualPersonRepository;
 
     @Bean

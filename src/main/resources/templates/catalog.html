@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/style/catalog.css}"/>
-    <title>Document</title>
+    <title>Каталог</title>
     <style>
         .wrapper {
             width: 100%;
@@ -136,7 +136,7 @@
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 425px) {
             nav {
                 flex-wrap: wrap;
                 justify-content: center;
@@ -163,7 +163,9 @@
 
             .filt_all {
                 grid-template-columns: 1fr;
+                grid-column: 1;
             }
+
 
             .footerInf {
                 grid-template-columns: 1fr;
@@ -184,10 +186,6 @@
             }
 
             .cleanFilt {
-                grid-column: 1;
-            }
-
-            .filt_all {
                 grid-column: 1;
             }
 
@@ -240,8 +238,8 @@
 
     </header>
 
+    <form th:action="@{/catalog/filter}" method="post">
     <div class="custom-dropdown center">
-        <form th:action="@{/catalog/filter}" method="post">
             <div class="filters">
                 <div class="dropdown-header">
                     <span>Цена, руб.</span>
@@ -456,7 +454,6 @@
                     <button type="submit" id="cleanFilt">Очистить фильтры</button>
                 </form>
             </div>
-        </form>
         <div class="custom-dropdown_sort">
             <div class="filters">
                 <div class="dropdown-header">
@@ -476,6 +473,8 @@
             </div>
         </div>
     </div>
+    </form>
+
 
     <div class="magazine center">
         <div class="product" th:each="products : ${products}">

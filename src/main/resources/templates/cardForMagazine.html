@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/style/cardForMagazines.css}"/>
-    <title>Магазин "Название магазина" - Официальная информация</title>
+    <title>Магазин</title>
 
     <style>
         /* Основные стили остаются без изменений */
@@ -219,7 +219,7 @@
     </header>
     <div class="center">
         <div class="contact-info">
-            <h1>Торговый центр "Парус"</h1>
+            <h1 th:text="${name}">Торговый центр "Парус"</h1>
             <p><strong>Адрес:</strong> <span
                     th:text="${address}">г. Уфа, ул. Трамвайная, д. 2, ТЦ "Парус", 1 этаж</span></p>
             <p><strong>Телефон:</strong> <span th:text="${phone_number}">+7 (123) 456-78-90</span></p>
