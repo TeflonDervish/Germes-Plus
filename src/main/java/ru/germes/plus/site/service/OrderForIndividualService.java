@@ -48,6 +48,7 @@ public class OrderForIndividualService {
             totalPrice += product.getPrice();
 
         order.setTotalPrice(totalPrice);
+        order.setOrderDate(LocalDate.now());
 
         if (orderDto.getDeliveryType().equals("delivery")) {
             processDelivery(order, orderDto.getDeliveryDetails());
@@ -75,7 +76,6 @@ public class OrderForIndividualService {
         PointOfSale pointOfSale = pointOfSaleService.getById(details.getPickupPointId());
 
         order.setPointOfSale(pointOfSale);
-        order.setOrderDate(details.getPickupDate());
     }
 
     public List<OrderForIndividual> getOrderForIndividual(IndividualPerson user) {
