@@ -7,6 +7,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import ru.germes.plus.site.enums.OrderStatus;
 import ru.germes.plus.site.model.Fabric;
 import ru.germes.plus.site.model.PointOfSale;
+import ru.germes.plus.site.model.persons.FabricManager;
 import ru.germes.plus.site.model.products.ProductForIndividual;
 
 import java.util.List;
@@ -39,6 +40,11 @@ public class OrderForFabric {
     @JoinColumn(name = "fabric_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Fabric fabric;
+
+    @ManyToOne
+    @JoinColumn(name = "fabric_manager_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private FabricManager fabricManager;
 
     private Integer price;
 

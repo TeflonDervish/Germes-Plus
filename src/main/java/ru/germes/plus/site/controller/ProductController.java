@@ -2,15 +2,12 @@ package ru.germes.plus.site.controller;
 
 
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import ru.germes.plus.site.model.Korzina;
 import ru.germes.plus.site.model.feedbacks.FeedbackOnProductForIndividual;
 import ru.germes.plus.site.model.persons.IndividualPerson;
 import ru.germes.plus.site.model.products.ProductForIndividual;
@@ -63,7 +60,7 @@ public class ProductController {
         model.addAttribute("armrests", productForIndividual.getArmrests());
         model.addAttribute("seatDepth", productForIndividual.getDepth());
         model.addAttribute("planting", productForIndividual.getPlanting());
-        model.addAttribute("overallDimensions", productForIndividual.getOverallDimensions());
+        model.addAttribute("overallDimensions", productForIndividual.getSize());
         model.addAttribute("sleepingSpace", productForIndividual.getSleepingSpace());
         model.addAttribute("depth", productForIndividual.getSeatDepth());
         model.addAttribute("configuration", productForIndividual.getConfiguration());

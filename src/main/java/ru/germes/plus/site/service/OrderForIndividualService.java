@@ -10,7 +10,7 @@ import ru.germes.plus.site.dto.OrderDto;
 import ru.germes.plus.site.dto.PickupDetailsDto;
 import ru.germes.plus.site.enums.DeliveryType;
 import ru.germes.plus.site.enums.OrderStatus;
-import ru.germes.plus.site.model.Korzina;
+import ru.germes.plus.site.model.korzina.KorzinaForIndividual;
 import ru.germes.plus.site.model.PointOfSale;
 import ru.germes.plus.site.model.orders.OrderForIndividual;
 import ru.germes.plus.site.model.persons.IndividualPerson;
@@ -35,16 +35,16 @@ public class OrderForIndividualService {
     public OrderForIndividual createOrder(IndividualPerson user, OrderDto orderDto) {
         log.info("Создание заказа для " + user.getEmail());
 
-        Korzina korzina = korzinaService.getKorzina(user);
+        KorzinaForIndividual korzinaForIndividual = korzinaService.getKorzina(user);
 
         OrderForIndividual order = new OrderForIndividual();
         order.setIndividualPerson(user);
-        order.setProducts(new ArrayList<>(korzina.getProducts()));
+        order.setProducts(new ArrayList<>(korzinaForIndividual.getProducts()));
         order.setOrderDate(LocalDate.now());
         order.setStatus(OrderStatus.WAITING_ACCESS);
 
         Integer totalPrice = 0;
-        for (ProductForIndividual product : korzina.getProducts())
+        for (ProductForIndividual product : korzinaForIndividual.getProducts())
             totalPrice += product.getPrice();
 
         order.setTotalPrice(totalPrice);

@@ -28,7 +28,7 @@ public class OtchetForPoint {
     private LocalDate endDate;
 
     @ElementCollection
-    @CollectionTable(name = "otchetsForPoint", joinColumns = @JoinColumn(name = "id"))
+    @CollectionTable(name = "otchetsForPointProducts", joinColumns = @JoinColumn(name = "id"))
     @Column(name = "products")
     private List<ProductForIndividual> products;
 

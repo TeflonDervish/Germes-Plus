@@ -1,29 +1,23 @@
 package ru.germes.plus.site.controller;
 
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.thymeleaf.model.IModel;
 import ru.germes.plus.site.dto.DeliveryDetailsDto;
 import ru.germes.plus.site.dto.OrderDto;
 import ru.germes.plus.site.dto.PickupDetailsDto;
-import ru.germes.plus.site.model.Korzina;
-import ru.germes.plus.site.model.PointOfSale;
+import ru.germes.plus.site.model.korzina.KorzinaForIndividual;
 import ru.germes.plus.site.model.orders.OrderForIndividual;
 import ru.germes.plus.site.model.persons.IndividualPerson;
 import ru.germes.plus.site.model.products.ProductForIndividual;
 import ru.germes.plus.site.service.KorzinaService;
 import ru.germes.plus.site.service.OrderForIndividualService;
 import ru.germes.plus.site.service.PointOfSaleService;
-
-import java.security.Principal;
 
 @Controller
 @RequestMapping("/korzina")
@@ -39,17 +33,17 @@ public class KorzinaController {
     public String getKorzina(Model model,
                              @AuthenticationPrincipal IndividualPerson individualPerson) {
 
-        Korzina korzina = korzinaService.getKorzina(individualPerson);
+        KorzinaForIndividual korzinaForIndividual = korzinaService.getKorzina(individualPerson);
 
         double totalPrice = 0;
-        for (ProductForIndividual product : korzina.getProducts())
+        for (ProductForIndividual product : korzinaForIndividual.getProducts())
             totalPrice += product.getPrice();
 
-        model.addAttribute("products", korzina.getProducts());
+        model.addAttribute("products", korzinaForIndividual.getProducts());
 
         model.addAttribute("total_price", totalPrice);
 
-        model.addAttribute("product_count", korzina.getProducts().size());
+        model.addAttribute("product_count", korzinaForIndividual.getProducts().size());
 
         model.addAttribute("phone_number", individualPerson.getPhone());
         model.addAttribute("surname_name", individualPerson.getSurname() + " " + individualPerson.getName());

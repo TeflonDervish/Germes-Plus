@@ -6,9 +6,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import ru.germes.plus.site.model.Fabric;
 import ru.germes.plus.site.model.PointOfSale;
+import ru.germes.plus.site.model.persons.FabricManager;
 import ru.germes.plus.site.model.products.ProductForIndividual;
 import ru.germes.plus.site.model.persons.LegalPerson;
+import ru.germes.plus.site.model.products.ProductForLegal;
 
 import java.util.List;
 
@@ -21,20 +24,25 @@ public class OrderForLegal {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "person_id")
+    @JoinColumn(name = "legal_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private LegalPerson legalPerson;
 
     @ElementCollection
-    @CollectionTable(name = "orderForIndividualProduct", joinColumns = @JoinColumn(name = "id"))
+    @CollectionTable(name = "orderForLegalProduct", joinColumns = @JoinColumn(name = "id"))
     @Column(name = "products")
-    private List<ProductForIndividual> products;
+    private List<ProductForLegal> products;
 
     private Integer totalPrice;
 
     @ManyToOne
-    @JoinColumn(name = "point_id")
+    @JoinColumn(name = "fabric_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private PointOfSale pointOfSale;
+    private Fabric fabric;
+
+    @ManyToOne
+    @JoinColumn(name = "fabric_manager_order_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private FabricManager fabricManager;
 
 }

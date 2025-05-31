@@ -54,9 +54,6 @@ public class ProductForIndividual {
     @Column(length = 100) // Посадка
     private String planting;
 
-    @Column(length = 100) // Общий габарит
-    private String overallDimensions;
-
     @Column(length = 100) // Спальное место
     private String sleepingSpace;
   
@@ -66,13 +63,8 @@ public class ProductForIndividual {
     @Column(length = 100) // Конфигурация
     private String configuration;
 
-
-
     @Lob
     private String description;
-
-    @Column(columnDefinition = "json")
-    private String characteristics;
 
     @ElementCollection
     @CollectionTable(name="urls", joinColumns = @JoinColumn(name="id"))
