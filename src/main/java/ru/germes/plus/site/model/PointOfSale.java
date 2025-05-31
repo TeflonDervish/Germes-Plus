@@ -2,10 +2,16 @@ package ru.germes.plus.site.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+import ru.germes.plus.site.model.persons.PointManager;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 public class PointOfSale {
 
@@ -31,6 +37,11 @@ public class PointOfSale {
     private String openingHours;
 
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "point_manager_id")
+    @OnDelete(action = OnDeleteAction.SET_NULL)
+    private PointManager pointManager;
 
 
 }

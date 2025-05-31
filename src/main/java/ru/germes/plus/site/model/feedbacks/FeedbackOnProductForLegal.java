@@ -23,7 +23,7 @@ public class FeedbackOnProductForLegal {
 
     @ManyToOne
     @JoinColumn(name = "product_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OnDelete(action = OnDeleteAction.SET_NULL)
     private ProductForLegal productForLegal;
 
     @ManyToOne

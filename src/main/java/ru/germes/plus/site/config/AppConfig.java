@@ -26,7 +26,6 @@ public class AppConfig {
                     "admin@mail.ru",
                     "admin123",
                     "admin",
-                    Set.of(Role.ADMIN, Role.USER),
                     individualPersonRepository,
                     passwordEncoder
             );
@@ -35,7 +34,6 @@ public class AppConfig {
                     "user@mail.ru",
                     "user123",
                     "user",
-                    Set.of(Role.USER),
                     individualPersonRepository,
                     passwordEncoder
             );
@@ -46,7 +44,6 @@ public class AppConfig {
                                            String rawPassword,
                                            String name,
 //                                           String
-                                           Set<Role> roles,
                                            IndividualPersonRepository individualPersonRepository,
                                            PasswordEncoder passwordEncoder) {
         if (!individualPersonRepository.existsByEmail(email)) {
@@ -54,7 +51,6 @@ public class AppConfig {
             user.setName(name);
             user.setEmail(email);
             user.setPassword(passwordEncoder.encode(rawPassword));
-            user.setRoles(roles);
             individualPersonRepository.save(user);
         }
     }

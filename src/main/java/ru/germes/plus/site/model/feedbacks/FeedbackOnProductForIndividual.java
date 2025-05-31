@@ -24,7 +24,7 @@ public class FeedbackOnProductForIndividual {
 
     @ManyToOne
     @JoinColumn(name = "product_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OnDelete(action = OnDeleteAction.SET_NULL)
     private ProductForIndividual productForIndividual;
 
     @ManyToOne

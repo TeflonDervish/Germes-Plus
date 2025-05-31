@@ -2,10 +2,15 @@ package ru.germes.plus.site.model;
 
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+import ru.germes.plus.site.model.persons.FabricManager;
+import ru.germes.plus.site.model.persons.PointManager;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
 @Entity
 @NoArgsConstructor
 public class Fabric {
@@ -34,5 +39,10 @@ public class Fabric {
     private String openingHours;
 
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "fabric_manager_id")
+    @OnDelete(action = OnDeleteAction.SET_NULL)
+    private FabricManager fabricManager;
 
 }
