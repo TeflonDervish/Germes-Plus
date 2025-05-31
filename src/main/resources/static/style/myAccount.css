@@ -589,8 +589,8 @@ h3{
     padding: 8px 0px;
     border-radius: 25px;
     min-width: 200px;
-    padding-left: 2em;
-    /* text-align:justify; */
+    /* padding-left: 2em; */
+    text-align: center;
 }
 
 .processing {

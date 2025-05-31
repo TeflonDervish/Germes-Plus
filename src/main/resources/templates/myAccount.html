@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" th:href="@{style/myAccount.css}">
-
-
-    <title>Document</title>
+    <title>Аккаунт</title>
     <style>
         /* Основные стили остаются без изменений */
 
@@ -254,9 +251,9 @@
                 <a th:href="@{/magazine}">МАГАЗИНЫ</a>
                 <a th:href="@{/fabric}">О НАС</a>
             </nav>
-            <div class="search-container">
-                <input type="text" placeholder="Поиск...">
-            </div>
+            <form class="search-container" th:action="@{/catalog/search}" method="post">
+                <input name="search" type="text" placeholder="Поиск...">
+            </form>
         </div>
         <div class="icons">
             <a th:href="@{/favorite}"><img height="30px" th:src="@{/img/header/heart.png}"></a>
@@ -267,7 +264,9 @@
     </header>
     <div class="forLogout center">
         <h4 class="center">Личный кабинет</h4>
-        <button id="korzina">Выйти</button>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit" id="korzina">Выйти</button>
+        </form>
     </div>
 
     <div id="form_myAcc" class="form_myAcc center">
@@ -285,7 +284,7 @@
             </div>
             <div class="form-group">
                 <label for="email">Почта:</label>
-                <input th:value="${phone}" type="email" id="email" name="email" required>
+                <input th:value="${email}" type="email" id="email" name="email" required>
             </div>
 
             <div class="form-group">
@@ -320,27 +319,28 @@
         <div class="tab-content">
             <div id="tab1" class="tab-pane active">
                 <div class="magazine center">
-                    <div class="product">
+                    <div class="product" th:each="order : ${orders}">
 
                         <div class="card">
-                            <img th:src="@{img/body/forCatalog/sofa.jpg}">
+                            <img th:src="${order.products[0].urls[0]}">
                             <div class="name_and_price">
-                                <a href="card"><h2>Диван "Лорд"</h2></a>
-                                <p>2400*1000</p>
-                                <p>Артикул: 1242464</p>
+                                <h2 th:text="${order.products[0].name}">Диван "Лорд"</h2>
+                                <p th:text="${order.products[0].size}">2400*1000</p>
+                                <p th:text="${order.products[0].article}">Артикул: 1242464</p>
                                 <p>Количество: 1</p>
-                                <h3>50.000 руб.</h3>
+<!--                                <h3 th:text="${order.products[0].price}">50.000 руб.</h3>-->
                             </div>
                         </div>
                         <div class="name_and_price">
-                            <p>ЗАКАЗ №320448</p>
-                            <p>Сроки изготовления: до<span> 20.04.2025</span></p>
-
-                            <p>Cпособ получения: <span>самовывоз</span></p>
+                            <p>ЗАКАЗ № <span th:text="${order.id}">320448</span></p>
+                            <p>Стоимость <span th:text="${order.totalPrice}">320448</span></p>
+                            <p>Сроки изготовления: до <span th:text="${order.orderDate}">20.04.2025</span></p>
+                            <p>Cпособ получения: <span th:text="${order.deliveryType.title}">самовывоз</span></p>
                         </div>
 
-                        <div class="order-status">
-                            <span class="status-value processing">В обработке</span>
+                        <div class="order-status" th:style="'color :' + ${order.status.color}">
+                            <span class="status-value processing" th:text="${order.status.title}"
+                                  th:style="'background-color :' + ${order.status.color} + ';color : ' + ${order.status.textColor}">В обработке</span>
 
                         </div>
                     </div>
@@ -350,27 +350,28 @@
             </div>
             <div id="tab2" class="tab-pane">
                 <div class="magazine center">
-                    <div class="product">
+                    <div class="product" th:each="order : ${ordersComplete}">
 
                         <div class="card">
-                            <img th:src="@{img/body/forCatalog/sofa.jpg}">
+                            <img th:src="${order.products[0].urls[0]}">
                             <div class="name_and_price">
-                                <a href="card"><h2>Диван "Лорд"</h2></a>
-                                <p>2400*1000</p>
-                                <p>Артикул: 1242464</p>
+                                <h2 th:text="${order.products[0].name}">Диван "Лорд"</h2>
+                                <p th:text="${order.products[0].size}">2400*1000</p>
+                                <p th:text="${order.products[0].article}">Артикул: 1242464</p>
                                 <p>Количество: 1</p>
-                                <h3>50.000 руб.</h3>
+                                <!--                                <h3 th:text="${order.products[0].price}">50.000 руб.</h3>-->
                             </div>
                         </div>
                         <div class="name_and_price">
-                            <p>ЗАКАЗ №320448</p>
-                            <p>Сроки изготовления: до<span> 20.04.2025</span></p>
-
-                            <p>Cпособ получения: <span>самовывоз</span></p>
+                            <p>ЗАКАЗ № <span th:text="${order.id}">320448</span></p>
+                            <p>Стоимость <span th:text="${order.totalPrice}">320448</span></p>
+                            <p>Сроки изготовления: до <span th:text="${order.orderDate}">20.04.2025</span></p>
+                            <p>Cпособ получения: <span th:text="${order.deliveryType.title}">самовывоз</span></p>
                         </div>
 
-                        <div class="order-status">
-                            <span class="status-value processing">Завершен</span>
+                        <div class="order-status" >
+                            <span class="status-value processing" th:text="${order.status.title}"
+                                  th:style="'background-color :' + ${order.status.color} + ';color : ' + ${order.status.textColor}">В обработке</span>
 
                         </div>
                     </div>

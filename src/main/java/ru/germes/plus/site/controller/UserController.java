@@ -1,31 +1,30 @@
 package ru.germes.plus.site.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import ru.germes.plus.site.service.IndividualPersonService;
+import ru.germes.plus.site.service.UserService;
 
 @Controller
+@AllArgsConstructor
 public class UserController {
 
-    @Autowired
-    private IndividualPersonService individualPersonService;
+    private UserService individualPersonService;
 
-    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @GetMapping("/login")
     public String getLogin(Model model) {
-        return "login.html";
+        return "login";
     }
 
     @GetMapping("/register")
     public String getRegistration(Model model) {
-        return "registration.html";
+        return "registration";
     }
 
     @PostMapping("/register")

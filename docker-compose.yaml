@@ -25,13 +25,15 @@ services:
       - image-data:/storage
     environment:
       - FILE_STORAGE=/storage
-      - URL=image-storage
+      - URL=212.192.217.207
     networks:
       - network
 
   germes-plus:
     image: teflondervish/germes-plus
     container_name: germes-plus
+    depends_on:
+      - mysql
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/germesplus
       SPRING_DATASOURCE_USERNAME: server

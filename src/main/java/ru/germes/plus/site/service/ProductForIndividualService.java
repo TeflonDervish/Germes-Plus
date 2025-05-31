@@ -1,29 +1,26 @@
 package ru.germes.plus.site.service;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import lombok.AllArgsConstructor;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import ru.germes.plus.site.dto.FilterProductForIndividual;
 import ru.germes.plus.site.exceptions.ProductForIndividualException;
 import ru.germes.plus.site.model.products.ProductForIndividual;
 import ru.germes.plus.site.repository.ProductForIndividualRepository;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
+@AllArgsConstructor
 public class ProductForIndividualService {
 
     private static final Log log = LogFactory.getLog(ProductForIndividualService.class);
-    @Autowired
     private ProductForIndividualRepository productForIndividualRepository;
 
 
     public List<ProductForIndividual> getAll() {
+        log.info("Получение списка всех товаров");
         return productForIndividualRepository.findAll();
     }
 
@@ -34,8 +31,31 @@ public class ProductForIndividualService {
     }
 
     public List<ProductForIndividual> getBySearch(String search) {
+        log.info("Поиск по имени");
         return productForIndividualRepository.findByNameContainingIgnoreCase(search);
     }
 
+    public List<ProductForIndividual> getFilteredProducts(FilterProductForIndividual filter) {
+        log.info("Фильтрация продуктов");
+        log.info(filter.toString());
+        return productForIndividualRepository.findWithFilters(
+                filter.getMinPrice(),
+                filter.getMaxPrice(),
+                filter.getConfigurations(),
+                filter.getMechanisms(),
+                filter.getFillings()
+        );
+    }
 
+
+    public List<ProductForIndividual> getBySort(String sort) {
+        log.info("Сортировка продуктов по цене");
+        List<ProductForIndividual> productForIndividuals;
+        if (sort.equals("price_asc")) {
+            productForIndividuals = productForIndividualRepository.findAllByOrderByPriceAsc();
+        } else {
+            productForIndividuals = productForIndividualRepository.findAllByOrderByPriceDesc();
+        }
+        return productForIndividuals;
+    }
 }

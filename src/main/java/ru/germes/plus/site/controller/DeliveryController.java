@@ -11,6 +11,6 @@ public class DeliveryController {
 
     @GetMapping
     public String getDelivery(Model model) {
-        return "delivery.html";
+        return "delivery";
     }
 }

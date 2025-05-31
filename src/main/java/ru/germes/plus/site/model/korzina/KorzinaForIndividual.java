@@ -1,17 +1,18 @@
-package ru.germes.plus.site.model;
+package ru.germes.plus.site.model.korzina;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import ru.germes.plus.site.model.persons.IndividualPerson;
 import ru.germes.plus.site.model.products.ProductForIndividual;
 
 import java.util.List;
 
-@Data
+@Setter
+@Getter
+@AllArgsConstructor
 @Entity
 @NoArgsConstructor
-public class Korzina {
+public class KorzinaForIndividual {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

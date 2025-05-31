@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/style/cardForMagazines.css}"/>
-    <title>Магазин "Название магазина" - Официальная информация</title>
+    <title>Информация о доставке</title>
     <style>
         /* Основные стили остаются без изменений */
         .wrapper {
@@ -218,9 +218,9 @@
                 <a th:href="@{/magazine}">МАГАЗИНЫ</a>
                 <a th:href="@{/fabric}">О НАС</a>
             </nav>
-            <div class="search-container">
-                <input type="text" placeholder="Поиск...">
-            </div>
+            <form class="search-container" th:action="@{/catalog/search}" method="post">
+                <input name="search" type="text" placeholder="Поиск...">
+            </form>
         </div>
         <div class="icons">
             <a th:href="@{/favorite}"><img height="30px" th:src="@{img/header/heart.png}"></a>

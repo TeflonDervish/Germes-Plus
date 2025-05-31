@@ -1,8 +1,7 @@
 package ru.germes.plus.site.model.feedbacks;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import ru.germes.plus.site.model.PointOfSale;
@@ -12,7 +11,9 @@ import ru.germes.plus.site.model.products.ProductForIndividual;
 import java.time.LocalDate;
 
 @Entity
-@Data
+@Setter
+@Getter
+@AllArgsConstructor
 @NoArgsConstructor
 public class FeedbackOnProductForIndividual {
 
@@ -33,7 +34,7 @@ public class FeedbackOnProductForIndividual {
     @Column(columnDefinition = "TEXT")
     private String text;
 
-    private double grade;
+    private Double grade;
 
     private LocalDate date;
 

@@ -368,6 +368,7 @@ footer a:hover {
 .sort {
     display: flex;
 
+    justify-content: space-around;
 
 }
 

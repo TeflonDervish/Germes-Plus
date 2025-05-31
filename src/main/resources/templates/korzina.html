@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/style/korzina.css}"/>
-    <title>Document</title>
+    <title>Корзина</title>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=bff7b351-d1e8-45d3-a920-587566731f5e&lang=ru_RU"></script>
     <style>
         /* Основные стили остаются без изменений */
@@ -72,9 +72,10 @@
 
         @media (max-width: 768px) {
 
-            .product a{
+            .product a {
                 flex-direction: column;
             }
+
             .center {
                 padding-left: 20px;
                 padding-right: 20px;
@@ -149,7 +150,6 @@
             }
 
 
-
             .footerInf {
                 grid-template-columns: 1fr;
             }
@@ -180,6 +180,7 @@
                 padding: 8px 15px;
                 width: 300px;
             }
+
             .form-group select {
 
                 width: 332px;
@@ -280,9 +281,9 @@
                 <a th:href="@{/magazine}">МАГАЗИНЫ</a>
                 <a th:href="@{/fabric}">О НАС</a>
             </nav>
-            <div class="search-container">
-                <input type="text" placeholder="Поиск...">
-            </div>
+            <form class="search-container" th:action="@{/catalog/search}" method="post">
+                <input name="search" type="text" placeholder="Поиск...">
+            </form>
         </div>
         <div class="icons">
             <a th:href="@{/favorite}"><img height="30px" th:src="@{/img/header/heart.png}"></a>
@@ -300,20 +301,19 @@
 
             <div class="card">
                 <a th:href="@{/sofa/{id}(id=${product.id})}">
-                <img th:src="${product.urls[0]}">
-                <div class="name_and_price">
-                    
+                    <img th:src="${product.urls[0]}">
+                    <div class="name_and_price">
+
                         <h2 th:text="${product.name}">Диван "Лорд"</h2>
                         <p th:text="${product.size}">2400*1000</p>
                         <h3 th:text="${product.price}">50.000 руб.</h3>
-                    </a>
-                    <!--                    <div class="quantity-selector">-->
-                    <!--                        <button class="decrement">−</button>-->
-                    <!--                        <input type="number" value="1" min="1" class="quantity">-->
-                    <!--                        <button class="increment">+</button>-->
-                    <!--                    </div>-->
-                </div>
-            </a>
+                        <!--                    <div class="quantity-selector">-->
+                        <!--                        <button class="decrement">−</button>-->
+                        <!--                        <input type="number" value="1" min="1" class="quantity">-->
+                        <!--                        <button class="increment">+</button>-->
+                        <!--                    </div>-->
+                    </div>
+                </a>
             </div>
             <p>Описание товара</p>
             <p th:text="${product.description}">Описание товара</p>
@@ -325,16 +325,17 @@
         </div>
 
     </div>
-    <form th:action="@{/make_order}" method="post">
-        <h3 class="center">Товары (<span th:text="${product_count}">2</span>): <span th:text="${total_price}">400.000</span>
+    <form th:action="@{/korzina/make-order}" method="post">
+        <h3 class="center">Товары (<span th:text="${product_count}">2</span>): <span
+                th:text="${total_price}">400.000</span>
             руб.</h3>
         <div class="delevery center">
             <label>Способ получения:</label>
             <div class="delivery-switch">
-                <input type="radio" id="delivery" name="delivery" checked>
+                <input type="radio" id="delivery" name="deliveryType" value="delivery" checked>
                 <label for="delivery">Доставка</label>
 
-                <input type="radio" id="pickup" name="delivery">
+                <input type="radio" id="pickup" name="deliveryType" value="pickup">
                 <label for="pickup">Самовывоз</label>
             </div>
         </div>
@@ -345,17 +346,17 @@
 
             <div class="form-group">
                 <label for="address">Адрес доставки:</label>
-                <input type="text" id="address" name="address" required>
+                <input type="text" id="address" name="address">
             </div>
 
             <div class="form-group">
                 <label for="recipient">Ф.И. получателя:</label>
-                <input type="text" id="recipient" name="recipient" th:value="${surname_name}" required>
+                <input type="text" id="recipient" name="recipient" th:value="${surname_name}">
             </div>
 
             <div class="form-group">
                 <label for="phone">Телефон:</label>
-                <input type="tel" id="phone" name="phone" th:value="${phone_number}" required>
+                <input type="tel" id="phone" name="phone" th:value="${phone_number}">
             </div>
 
             <div class="form-group">
@@ -389,37 +390,29 @@
 
             <div class="form-group">
                 <label for="pickup-point">Пункт самовывоза:</label>
-                <select id="pickup-point" name="pickup-point" required>
+                <select id="pickup-point" name="pickupPointId" >
                     <option value="">-- Выберите пункт --</option>
-                    <option th:each="point : ${points}" value="point1" data-address="г.Уфа, ул. Трамвайная, д. 2/3 , ТЦ Парус"
-                            data-phone="+7 (123) 456-78-90" data-coords="54.796646, 56.074726">ул. Центральная, д. 1
-                        (склад)
-                    </option>
-                    <option value="point2" data-address="ул. Торговая, д. 15" data-phone="+7 (123) 456-78-91"
-                            data-coords="55.761244,37.628423">ул. Торговая, д. 15 (магазин)
-                    </option>
-                    <option value="point3" data-address="ул. Промышленная, д. 8" data-phone="+7 (123) 456-78-92"
-                            data-coords="55.771244,37.638423">ул. Промышленная, д. 8 (терминал)
-                    </option>
-                    <option value="point4" data-address="ул. Центральная, д. 1" data-phone="+7 (123) 456-78-90"
-                            data-coords="55.751244,37.618423">ул. Центральная, д. 1 (склад)
-                    </option>
-                    <option value="point5" data-address="ул. Торговая, д. 15" data-phone="+7 (123) 456-78-91"
-                            data-coords="55.761244,37.628423">ул. Торговая, д. 15 (магазин)
+                    <option
+                            th:each="point : ${points}"
+                            th:value="${point.id}"
+                            th:data-address="${point.address}"
+                            th:data-phone="${point.phoneNumber}"
+                            th:data-coords="${point.pointOnTheMap}"
+                            th:text="${point.name}">
                     </option>
                 </select>
             </div>
 
-            <div id="pickup-info" class="pickup-info">
+            <div id="pickup-info" class="pickup-info" style="display:none;">
                 <h4>Информация о пункте:</h4>
-                <p><strong>Адрес:</strong> <span id="pickup-address"></span></p>
-                <p><strong>Телефон:</strong> <span id="pickup-phone"></span></p>
+                <p><strong>Адрес:</strong> <span id="pickupAddress"></span></p>
+                <p><strong>Телефон:</strong> <span id="pickupPhone"></span></p>
                 <div class="pickup-map" id="pickup-map"></div>
             </div>
 
             <div class="form-group">
                 <label for="pickup-date">Дата самовывоза:</label>
-                <input type="date" id="pickup-date" name="pickup-date" required><br>
+                <input type="date" id="pickup-date" name="pickupDate"><br>
                 <p>Сроки бесплатного хранения изделия - не более двух недель с момента поступления изделия в пункт
                     самовывоза. Далее 500 рублей в сутки.</p>
             </div>

@@ -1,5 +1,7 @@
 package ru.germes.plus.site.controller;
 
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.logging.Log;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,13 +15,10 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/magazine")
+@AllArgsConstructor
 public class MagazineController {
 
     private PointOfSaleService pointOfSaleService;
-
-    public MagazineController(PointOfSaleService pointOfSaleService) {
-        this.pointOfSaleService = pointOfSaleService;
-    }
 
     @GetMapping
     public String getMagazines(Model model) {
@@ -28,7 +27,7 @@ public class MagazineController {
 
         model.addAttribute("magazines", pointOfSales);
 
-        return "magazines.html";
+        return "magazines";
     }
 
     @GetMapping("/{id}")
@@ -42,6 +41,6 @@ public class MagazineController {
         model.addAttribute("phone_number", pointOfSale.getPhoneNumber());
         model.addAttribute("email", pointOfSale.getEmail());
 
-        return "cardForMagazine.html";
+        return "cardForMagazine";
     }
 }
