@@ -24,7 +24,7 @@ public class OrderForFabric {
     private Long id;
 
     @ElementCollection
-    @CollectionTable(name = "orderForFabric", joinColumns = @JoinColumn(name = "id"))
+    @CollectionTable(name = "orderForFabricProducts", joinColumns = @JoinColumn(name = "id"))
     @Column(name = "products")
     private List<ProductForIndividual> products;
 
