@@ -57,3 +57,23 @@ opening_hours) values
 '+7 (123) 456-78-90',
 'info@magazin.ru',
 'пн-вс, 10:00-20:00');
+
+
+INSERT INTO germesplus.product_for_individual (armrests, article, basis, box, characteristics, configuration, depth,
+                                               description, filling, mechanism, name, overall_dimensions, planting,
+                                               price, seat_depth, size, sleeping_space)
+VALUES (null, '238790', 'Металлокаркас', 'Есть', null, 'Прямой', '1000 мм', 'Диван крутой тралалеро тралала', 'НБП',
+        'Тройной выкатной', 'Диван Габидул', '2200 мм', '650 мм', 50000, '670 мм', '2200 мм', '1900');
+
+
+INSERT INTO germesplus.product_for_individual (armrests, article, basis, box, characteristics, configuration, depth,
+                                               description, filling, mechanism, name, overall_dimensions, planting,
+                                               price, seat_depth, size, sleeping_space)
+VALUES (null, '999098', 'Металлокаркас', 'Отсутсвует', null, 'Угловой', '900 мм', 'Диван для балерины Капучины', 'ППУ',
+        'Еврокнижка', 'Диван Глорбо Фрутодрило', '2350 мм', '700 мм', 123000, '900 мм', '123', '1900 мм');
+
+INSERT INTO germesplus.product_for_individual (armrests, article, basis, box, characteristics, configuration, depth,
+                                               description, filling, mechanism, name, overall_dimensions, planting,
+                                               price, seat_depth, size, sleeping_space)
+VALUES (null, '48574363', 'Металлокаркас', 'Есть', null, 'Прямой', '950 мм', 'Диван для Бобардиро Крокодило', 'ППУ',
+        'Аккордеон', 'Диван Аккордоен', '1650 мм', '90 мм', 123498, '899 мм', null, '2000 мм');
