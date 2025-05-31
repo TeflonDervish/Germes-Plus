@@ -32,6 +32,6 @@ public class FeedbackOnProductForLegal {
     @Column(columnDefinition = "TEXT")
     private String text;
 
-    private double grade;
+    private Double grade;
 
 }

@@ -7,7 +7,6 @@ import org.hibernate.annotations.OnDeleteAction;
 import ru.germes.plus.site.enums.DeliveryType;
 import ru.germes.plus.site.enums.OrderStatus;
 import ru.germes.plus.site.model.PointOfSale;
-import ru.germes.plus.site.model.ShippingInformation;
 import ru.germes.plus.site.model.persons.IndividualPerson;
 import ru.germes.plus.site.model.persons.PointManager;
 import ru.germes.plus.site.model.products.ProductForIndividual;
@@ -43,11 +42,6 @@ public class OrderForIndividual {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private PointManager pointManager;
 
-    @ManyToOne
-    @JoinColumn(name = "shipping_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private ShippingInformation shippingInformation;
-
     @ElementCollection
     @CollectionTable(name = "orderForIndividualProduct", joinColumns = @JoinColumn(name = "id"))
     @Column(name = "products")
@@ -63,5 +57,6 @@ public class OrderForIndividual {
     @Enumerated(EnumType.STRING)
     private DeliveryType deliveryType;
 
+    @Column(length = 100)
     private String deliveryAddress;
 }

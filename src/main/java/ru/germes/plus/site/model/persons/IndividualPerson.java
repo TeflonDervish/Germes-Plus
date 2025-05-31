@@ -22,14 +22,20 @@ public class IndividualPerson implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(length = 100)
     private String surname;
+    @Column(length = 100)
     private String name;
+    @Column(length = 100)
     private String middleName;
 
+    @Column(length = 20)
     private String phone;
+    @Column(length = 100)
     private String email;
     private String password;
 
+    @Column(length = 20)
     private String city;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)

@@ -22,14 +22,21 @@ public class ProductForLegal {
     @Enumerated(EnumType.STRING)
     private LegalProductType type;
 
+    @Column(length = 100)
     private String typeCloth;
+    @Column(length = 100)
     private Integer durability;
+    @Column(length = 100)
     private String color;
 
-    private String configuration; // не знаю какое слово
+    @Column(length = 100)
+    private String configuration;
+    @Column(length = 100)
     private String gabarit;
 
+    @Column(length = 100)
     private String typeFill;
+    @Column(length = 100)
     private String density;
 
 

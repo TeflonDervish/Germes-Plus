@@ -33,10 +33,10 @@ public class PointManager implements UserDetails {
     @Column(nullable = false, unique = true, length = 100)
     private String email;
 
-    @Column(nullable = false, length = 60)
+    @Column(nullable = false, length = 100)
     private String surname;
 
-    @Column(nullable = false, length = 60)
+    @Column(nullable = false, length = 100)
     private String name;
 
     @Column(nullable = false)

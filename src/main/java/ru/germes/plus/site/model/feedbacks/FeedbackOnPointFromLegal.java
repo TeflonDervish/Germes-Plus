@@ -31,6 +31,6 @@ public class FeedbackOnPointFromLegal {
     @Column(columnDefinition = "TEXT")
     private String text;
 
-    private double grade;
+    private Double grade;
 
 }

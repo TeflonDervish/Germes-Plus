@@ -39,6 +39,7 @@ public class OtchetForFabric {
     @Column(name = "products")
     private List<ProductForLegal> productsForLegals;
 
+    @Column(length = 100)
     private String name;
     private String description;
 
