@@ -10,6 +10,8 @@ import ru.germes.plus.site.model.persons.LegalPerson;
 import ru.germes.plus.site.model.products.ProductForIndividual;
 import ru.germes.plus.site.model.products.ProductForLegal;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -33,5 +35,10 @@ public class FeedbackOnProductForLegal {
     private String text;
 
     private Double grade;
+
+    @ElementCollection
+    @CollectionTable(name="urlsFeedbackForProductForLegal", joinColumns = @JoinColumn(name="id"))
+    @Column(name = "urls")
+    private List<String> urls;
 
 }

@@ -9,6 +9,7 @@ import ru.germes.plus.site.model.persons.IndividualPerson;
 import ru.germes.plus.site.model.products.ProductForIndividual;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Setter
@@ -37,5 +38,10 @@ public class FeedbackOnProductForIndividual {
     private Double grade;
 
     private LocalDate date;
+
+    @ElementCollection
+    @CollectionTable(name="urlsForFeedbackProductForIndividuals", joinColumns = @JoinColumn(name="id"))
+    @Column(name = "urls")
+    private List<String> urls;
 
 }
