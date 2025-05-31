@@ -1,33 +1,37 @@
 package ru.germes.plus.site.model.orders;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import ru.germes.plus.site.enums.OrderStatus;
 import ru.germes.plus.site.model.Fabric;
 import ru.germes.plus.site.model.PointOfSale;
-import ru.germes.plus.site.model.persons.LegalPerson;
-import ru.germes.plus.site.model.summaries.SummaryForFabric;
-import ru.germes.plus.site.model.summaries.SummaryForLegal;
+import ru.germes.plus.site.model.products.ProductForIndividual;
 
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 public class OrderForFabric {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private Long id;
 
-    @OneToMany(mappedBy = "orderForFabric")
-    private List<SummaryForFabric> summaryForFabrics;
+    @ElementCollection
+    @CollectionTable(name = "orderForFabric", joinColumns = @JoinColumn(name = "id"))
+    @Column(name = "products")
+    private List<ProductForIndividual> products;
+
+    private Integer totalPrice;
 
     @ManyToOne
-    @JoinColumn(name = "person_id")
+    @JoinColumn(name = "point_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private PointOfSale pointOfSale;
 

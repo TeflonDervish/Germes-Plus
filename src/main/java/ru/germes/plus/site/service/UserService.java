@@ -1,5 +1,6 @@
 package ru.germes.plus.site.service;
 
+import lombok.AllArgsConstructor;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,17 +12,13 @@ import ru.germes.plus.site.model.persons.IndividualPerson;
 import ru.germes.plus.site.repository.IndividualPersonRepository;
 
 @Service
-public class IndividualPersonService implements UserDetailsService {
-    private static final Log log = LogFactory.getLog(IndividualPersonService.class);
+@AllArgsConstructor
+public class UserService implements UserDetailsService {
+    
+    private static final Log log = LogFactory.getLog(UserService.class);
+
     private final IndividualPersonRepository individualPersonRepository;
-
     private final PasswordEncoder passwordEncoder;
-
-    public IndividualPersonService(IndividualPersonRepository individualPersonRepository,
-                                   PasswordEncoder passwordEncoder) {
-        this.individualPersonRepository = individualPersonRepository;
-        this.passwordEncoder = passwordEncoder;
-    }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {

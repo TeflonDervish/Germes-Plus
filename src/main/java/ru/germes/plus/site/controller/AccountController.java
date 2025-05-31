@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import ru.germes.plus.site.enums.OrderStatus;
 import ru.germes.plus.site.model.orders.OrderForIndividual;
 import ru.germes.plus.site.model.persons.IndividualPerson;
-import ru.germes.plus.site.service.IndividualPersonService;
+import ru.germes.plus.site.service.UserService;
 import ru.germes.plus.site.service.OrderForIndividualService;
 
 import java.util.List;
@@ -25,7 +25,7 @@ public class AccountController {
 
     private static final Log log = LogFactory.getLog(AccountController.class);
 
-    private final IndividualPersonService individualPersonService;
+    private final UserService individualPersonService;
     private final OrderForIndividualService orderForIndividualService;
 
 

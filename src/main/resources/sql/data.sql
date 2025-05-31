@@ -1,9 +1,9 @@
 
 insert into product_for_individual (name, size, price) values ('name1', '123', '123');
 insert into urls (id, urls) values
-(1, "http://212.192.217.207:8090/api/images/99433a72-7eab-4e87-975c-1acbd093354a_2025-05-11 23.01.34.jpg");
+(1, "http://212.192.217.207:8090/api/images/fcab1070-16b4-4d69-8294-7b89aa0aa88e_01.jpg");
 insert into urls (id, urls) values
-    (1, "http://212.192.217.207:8090/api/images/885aad6e-7ab5-43a3-a60c-c6f2c1d9616d_2025-05-11 23.01.44.jpg");
+    (1, "http://212.192.217.207:8090/api/images/fcab1070-16b4-4d69-8294-7b89aa0aa88e_01.jpg");
 
 insert into product_for_individual (name, size, price) values ('name2', '123', '123');
 insert into urls (id, urls) values

@@ -25,7 +25,7 @@ services:
       - image-data:/storage
     environment:
       - FILE_STORAGE=/storage
-      - URL=image-storage
+      - URL=212.192.217.207
     networks:
       - network
 

@@ -1,16 +1,15 @@
 package ru.germes.plus.site.model.products;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
+import ru.germes.plus.site.enums.LegalProductType;
 
-//TODO: Сделать в формате nosql добавить поля документации (гарантия, инструкция)
 
 @Entity
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@Builder
 @NoArgsConstructor
 public class ProductForLegal {
 
@@ -19,4 +18,21 @@ public class ProductForLegal {
     private Long id;
 
     private String name;
+
+    @Enumerated(EnumType.STRING)
+    private LegalProductType type;
+
+    private String typeCloth;
+    private Integer durability;
+    private String color;
+
+    private String configuration; // не знаю какое слово
+    private String gabarit;
+
+    private String typeFill;
+    private String density;
+
+
+
+
 }

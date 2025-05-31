@@ -9,10 +9,8 @@ import ru.germes.plus.site.enums.OrderStatus;
 import ru.germes.plus.site.model.PointOfSale;
 import ru.germes.plus.site.model.ShippingInformation;
 import ru.germes.plus.site.model.persons.IndividualPerson;
-import ru.germes.plus.site.model.persons.LegalPerson;
+import ru.germes.plus.site.model.persons.PointManager;
 import ru.germes.plus.site.model.products.ProductForIndividual;
-import ru.germes.plus.site.model.summaries.SummaryForIndividual;
-import ru.germes.plus.site.model.summaries.SummaryForLegal;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -39,6 +37,11 @@ public class OrderForIndividual {
     @JoinColumn(name = "point_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private PointOfSale pointOfSale;
+
+    @ManyToOne
+    @JoinColumn(name = "point_manager_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private PointManager pointManager;
 
     @ManyToOne
     @JoinColumn(name = "shipping_id")

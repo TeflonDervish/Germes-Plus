@@ -4,8 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import ru.germes.plus.site.model.Likes;
 import ru.germes.plus.site.model.persons.IndividualPerson;
-import ru.germes.plus.site.model.products.ProductForIndividual;
-import ru.germes.plus.site.service.IndividualPersonService;
 
 import java.util.List;
 import java.util.Optional;
