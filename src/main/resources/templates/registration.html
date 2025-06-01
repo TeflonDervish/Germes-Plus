@@ -285,16 +285,16 @@
                 <a class="form-a" th:href="@{/login}">Войти</a>
             </form>
 
-            <form id="partnerForm" class="hidden" th:action="@{/register}" method="post">
+            <form id="partnerForm" class="hidden" th:action="@{/register-legal}" method="post">
                 <label>Номер телефона:<br>
-                    <input type="tel" id="phone" name="phone" placeholder="+7 (XXX) XXX-XX-XX" required>
+                    <input type="tel" id="phone" name="phoneNumber" placeholder="+7 (XXX) XXX-XX-XX" required>
                 </label>
                 <label>Почта:<br>
                     <input type="email" id="email" name="email" placeholder="example@example.com" required>
                 </label>
 
                 <label>Наименование организации:<br>
-                    <input type="text" id="first-name" name="first-name" placeholder="Введите наименование организации"
+                    <input type="text" id="first-name" name="name" placeholder="Введите наименование организации"
                            required>
                 </label>
 

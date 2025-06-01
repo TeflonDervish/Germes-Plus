@@ -9,7 +9,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.germes.plus.site.model.persons.IndividualPerson;
+import ru.germes.plus.site.model.persons.LegalPerson;
+import ru.germes.plus.site.repository.LegalPersonRepository;
 import ru.germes.plus.site.repository.IndividualPersonRepository;
+
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -18,13 +22,16 @@ public class UserService implements UserDetailsService {
     private static final Log log = LogFactory.getLog(UserService.class);
 
     private final IndividualPersonRepository individualPersonRepository;
+    private final LegalPersonRepository legalPersonRepository;
     private final PasswordEncoder passwordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         log.info("Получение пользователя по имени");
-        return individualPersonRepository.findByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("Пользователя с таким именем не существует"));
+        IndividualPerson individualPerson = individualPersonRepository.findByEmail(email).orElse(null);
+        LegalPerson legalPerson = legalPersonRepository.findByEmail(email).orElse(null);
+        if (individualPerson == null) return legalPerson;
+        else return individualPerson;
     }
 
     public void registerIndividualPerson(ru.germes.plus.site.model.persons.IndividualPerson individualPerson) {
@@ -57,5 +64,16 @@ public class UserService implements UserDetailsService {
     public IndividualPerson getById(Long id) {
         log.info("Получение пользователя по id");
         return individualPersonRepository.findById(id).orElse(null);
+    }
+
+    public LegalPerson registerLegalPerson(LegalPerson legalPerson) {
+        log.info("Создать пользователя юр лиц");
+        LegalPerson newLegalPerson = LegalPerson.builder()
+                .name(legalPerson.getName())
+                .phoneNumber(legalPerson.getPhoneNumber())
+                .email(legalPerson.getEmail())
+                .password(passwordEncoder.encode(legalPerson.getPassword()))
+                .build();
+        return legalPersonRepository.save(newLegalPerson);
     }
 }
