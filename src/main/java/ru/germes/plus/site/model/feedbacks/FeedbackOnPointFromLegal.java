@@ -20,7 +20,7 @@ public class FeedbackOnPointFromLegal {
 
     @ManyToOne
     @JoinColumn(name = "point_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OnDelete(action = OnDeleteAction.SET_NULL)
     private PointOfSale pointOfSale;
 
     @ManyToOne

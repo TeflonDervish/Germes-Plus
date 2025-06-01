@@ -48,25 +48,8 @@ public class ProductController {
 
         model.addAttribute("is_in_korzina", korzinaService.isInKorzina(id, individualPerson));
 
-        model.addAttribute("product_id", productForIndividual.getId());
-        model.addAttribute("urls", productForIndividual.getUrls());
-        model.addAttribute("name", productForIndividual.getName());
-        model.addAttribute("price", productForIndividual.getPrice());
+        model.addAttribute("product", productForIndividual);
 
-        model.addAttribute("basis", productForIndividual.getBasis());
-        model.addAttribute("filling", productForIndividual.getFilling());
-        model.addAttribute("box", productForIndividual.getBox());
-        model.addAttribute("mechanism", productForIndividual.getMechanism());
-        model.addAttribute("armrests", productForIndividual.getArmrests());
-        model.addAttribute("seatDepth", productForIndividual.getDepth());
-        model.addAttribute("planting", productForIndividual.getPlanting());
-        model.addAttribute("overallDimensions", productForIndividual.getSize());
-        model.addAttribute("sleepingSpace", productForIndividual.getSleepingSpace());
-        model.addAttribute("depth", productForIndividual.getSeatDepth());
-        model.addAttribute("configuration", productForIndividual.getConfiguration());
-
-        model.addAttribute("article", productForIndividual.getArticle());
-        model.addAttribute("description", productForIndividual.getDescription());
         return "cardForSofa";
     }
 

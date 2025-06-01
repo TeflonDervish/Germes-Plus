@@ -310,7 +310,7 @@
 
         <div class="gallery">
             <div class="gallery-images">
-                <img class="active" th:each="url : ${urls}" th:src="${url}" alt="Image 1">
+                <img class="active" th:each="url : ${product.urls}" th:src="${url}" alt="Image 1">
 
             </div>
 
@@ -324,7 +324,7 @@
             <div class="articul-rating">
                 <div class="articul">
                     <label id="articul">Артикул:</label>
-                    <label id="articul-nubmer" th:text="${article}">2340565</label>
+                    <label id="articul-nubmer" th:text="${product.article}">2340565</label>
                 </div>
 
                 <div class="review-rating">★★★★★</div>
@@ -335,67 +335,67 @@
                 <div class="aboutForSofa">
                     <label>Основа</label>
                     <label>|</label>
-                    <label th:text="${basis}" class="inputs"></label>
+                    <label th:text="${product.basis}" class="inputs"></label>
                 </div>
                 <div class="aboutForSofa">
                     <label>Наполнение</label>
                     <label>|</label>
-                    <label th:text="${filling}" class="inputs"></label>
+                    <label th:text="${product.filling}" class="inputs"></label>
                 </div>
                 <div class="aboutForSofa">
                     <label>Короб</label>
                     <label>|</label>
-                    <label th:text="${box}" class="inputs"></label>
+                    <label th:text="${product.box}" class="inputs"></label>
                 </div>
                 <div class="aboutForSofa">
                     <label>Механизм</label>
                     <label>|</label>
-                    <label th:text="${mechanism}" class="inputs"></label>
+                    <label th:text="${product.mechanism}" class="inputs"></label>
                 </div>
                 <div class="aboutForSofa">
                     <label>Подлокотники</label>
                     <label>|</label>
-                    <label th:text="${armrests}" class="inputs"></label>
+                    <label th:text="${product.armrests}" class="inputs"></label>
                 </div>
                 <div class="aboutForSofa">
                     <label>Глубина сидушки</label>
                     <label>|</label>
-                    <label th:text="${seatDepth}" class="inputs"></label>
+                    <label th:text="${product.seatDepth}" class="inputs"></label>
                 </div>
                 <div class="aboutForSofa">
                     <label>Общий габарит</label>
                     <label>|</label>
-                    <label th:text="${overallDimensions}" class="inputs"></label>
+                    <label th:text="${product.size}" class="inputs"></label>
                 </div>
                 <div class="aboutForSofa">
                     <label>Спальное место</label>
                     <label>|</label>
-                    <label th:text="${sleepingSpace}" class="inputs"></label>
+                    <label th:text="${product.sleepingSpace}" class="inputs"></label>
                 </div>
                 <div class="aboutForSofa">
                     <label>Глубина</label>
                     <label>|</label>
-                    <label th:text="${depth}" class="inputs"></label>
+                    <label th:text="${product.depth}" class="inputs"></label>
                 </div>
                 <div class="aboutForSofa">
                     <label>Конфигурация</label>
                     <label>|</label>
-                    <label th:text="${configuration}" class="inputs"></label>
+                    <label th:text="${product.configuration}" class="inputs"></label>
                 </div>
 
             </div>
         </div>
 
         <div class="price">
-            <label id="price"><span th:text="${price}"></span> руб.</label>
-            <form th:action="@{/korzina/{id}/add_to_korzina (id=${product_id})}" method="post">
+            <label id="price"><span th:text="${product.price}"></span> руб.</label>
+            <form th:action="@{/korzina/{id}/add_to_korzina (id=${product.id})}" method="post">
                 <button type="submit" id="korzina" th:disabled="${is_in_korzina}">Добавить в корзину</button>
             </form>
 
-            <form th:if="${!is_liked}" th:action="@{/sofa/{id}/like (id=${product_id})}" method="post">
+            <form th:if="${!is_liked}" th:action="@{/sofa/{id}/like (id=${product.id})}" method="post">
                 <button type="submit" id="heart"><img height="30px" th:src="@{/img/header/heart.png}"></button>
             </form>
-            <form th:if="${is_liked}" th:action="@{/sofa/{id}/unlike (id=${product_id})}" method="post">
+            <form th:if="${is_liked}" th:action="@{/sofa/{id}/unlike (id=${product.id})}" method="post">
                 <button class="active" type="submit" id="heart"><img height="30px" th:src="@{/img/header/heart.png}"></button>
             </form>
         </div>
@@ -411,7 +411,7 @@
             <!-- Контент вкладок -->
             <div class="tab-content">
                 <div id="tab1" class="tab-pane active" style="white-space: pre-line">
-                    <span th:text="${description}"></span>
+                    <span th:text="${product.description}"></span>
                 </div>
                 <div id="tab2" class="tab-pane">
                     <p>Гарантийное обсулживание производится при предъявлении гарантийного талона и документа о

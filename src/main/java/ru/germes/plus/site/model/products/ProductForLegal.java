@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import ru.germes.plus.site.enums.LegalProductType;
 
+import java.util.List;
+
 
 @Entity
 @Getter
@@ -39,6 +41,10 @@ public class ProductForLegal {
     @Column(length = 100)
     private String density;
 
+    @ElementCollection
+    @CollectionTable(name="urlsForProductForLegal", joinColumns = @JoinColumn(name="id"))
+    @Column(name = "urls")
+    private List<String> urls;
 
 
 

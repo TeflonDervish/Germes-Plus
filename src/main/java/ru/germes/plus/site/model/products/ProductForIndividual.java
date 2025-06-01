@@ -67,7 +67,7 @@ public class ProductForIndividual {
     private String description;
 
     @ElementCollection
-    @CollectionTable(name="urls", joinColumns = @JoinColumn(name="id"))
+    @CollectionTable(name="urlsForProductForIndividuals", joinColumns = @JoinColumn(name="id"))
     @Column(name = "urls")
     private List<String> urls;
 
