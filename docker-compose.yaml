@@ -43,6 +43,33 @@ services:
     networks:
       - network
 
+  germes-plus-manager:
+    image: teflondervish/germes-plus
+    container_name: germes-plus-manager
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/germesplus
+      SPRING_DATASOURCE_USERNAME: server_manager
+      SPRING_DATASOURCE_PASSWORD: server_manager
+    ports:
+      - "8081:8081"
+    networks:
+      - network
+      -
+  germes-plus-fabric:
+    image: teflondervish/germes-plus
+    container_name: germes-plus-fabric
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/germesplus
+      SPRING_DATASOURCE_USERNAME: server_fabric
+      SPRING_DATASOURCE_PASSWORD: server_fabric
+    ports:
+      - "8081:8081"
+    networks:
+      - network
 
 volumes:
   mysql-data:
