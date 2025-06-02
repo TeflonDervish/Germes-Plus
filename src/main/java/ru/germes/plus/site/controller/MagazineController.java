@@ -35,11 +35,7 @@ public class MagazineController {
 
         PointOfSale pointOfSale = pointOfSaleService.getById(id);
 
-        model.addAttribute("name", pointOfSale.getName());
-        model.addAttribute("address", pointOfSale.getAddress());
-        model.addAttribute("point_on_the_map", pointOfSale.getPointOnTheMap());
-        model.addAttribute("phone_number", pointOfSale.getPhoneNumber());
-        model.addAttribute("email", pointOfSale.getEmail());
+        model.addAttribute("point", pointOfSale);
 
         return "cardForMagazine";
     }

@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/style/magazines.css}"/>
-    <title>Магазины</title>
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=bff7b351-d1e8-45d3-a920-587566731f5e&lang=ru_RU"></script>
+    <link rel="stylesheet" th:href="@{/style/my_favorite.css}"/>
+    <title>Отложенные</title>
     <style>
         /* Основные стили остаются без изменений */
 
@@ -14,6 +13,11 @@
             .center {
                 padding-left: calc(50% - 600px);
                 padding-right: calc(50% - 600px);
+            }
+
+            .magazine {
+                grid-template-columns: repeat(3, 260px);
+                gap: 40px 80px;
             }
         }
 
@@ -52,9 +56,9 @@
                 gap: 20px;
             }
 
-            .product img {
-                height: 180px;
-                width: 240px;
+            .magazine {
+                grid-template-columns: repeat(2, 260px);
+                gap: 30px 60px;
             }
         }
 
@@ -74,24 +78,9 @@
                 margin-top: 20px;
             }
 
-            .product {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .card {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .product img {
-                width: 100%;
-                height: auto;
-                max-width: 400px;
-            }
-
-            h3 {
-                font-size: 26px;
+            #favorite {
+                padding: 25px 20px;
+                font-size: 28px;
             }
         }
 
@@ -110,19 +99,32 @@
             }
 
 
-
             .footerInf {
                 grid-template-columns: 1fr;
             }
 
-            .name_and_price p,
-            .name_and_price h2 {
-                font-size: 16px;
+            .magazine {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
 
-            h3 {
-                font-size: 24px;
-                padding: 15px 0;
+            .product {
+                align-items: flex-start;
+            }
+
+            .product img {
+                width: 100%;
+                height: auto;
+            }
+
+            .price {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            #favorite {
+                font-size: 26px;
+                padding: 20px;
             }
         }
 
@@ -142,18 +144,19 @@
                 font-size: 14px;
             }
 
-            .name_and_price {
-                gap: 8px;
+            .price #korzina {
+                width: 180px;
+                font-size: 15px;
             }
         }
 
         @media (max-width: 375px) {
-            h3 {
-                font-size: 22px;
+            #favorite {
+                font-size: 24px;
             }
 
-            .product {
-                padding: 15px;
+            .price #korzina {
+                width: 160px;
             }
         }
 
@@ -166,8 +169,8 @@
                 font-size: 13px;
             }
 
-            .name_and_price p {
-                font-size: 14px;
+            #favorite {
+                font-size: 22px;
             }
         }
     </style>
@@ -200,55 +203,54 @@
 
     </header>
 
-    <h3 class="center">Наши магазины</h3>
+    <h3 class="center" id="favorite">Отложенные</h3>
 
     <div class="magazine center">
-        <div class="product" th:each="magazines : ${magazines}">
-            <div class="card" >
-                <img th:src="${magazines.url}">
-                <a th:href="@{/magazine/{id}(id=${magazines.id})}">
-                    <div class="name_and_price">
-                        <h2 th:text="${magazines.name}">Торговый центр "Парус"</h2>
-                        <p th:text="${magazines.address}">ул. Трамвайная 2/3</p>
-                        <p th:text="${magazines.openingHours}">пн-вс, 10:00-20:00</p>
-                        <p th:text="${magazines.phoneNumber}">+7 (961) 046 94 81</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-    </div>
-
-</div>
-
-<footer>
-    <div class="clientFooterClass" id="clientFooter">
-        <div class="footerInf">
-            <div class="forClients">
-                <h1>Клиентам</h1>
-                <a href="#delevery">ДОСТАВКА</a>
-                <a href="#shops">МАГАЗИНЫ</a>
-                <a href="#status">СТАТУС ЗАКАЗА</a>
-            </div>
-            <div class="aboutCompany">
-                <h1>О фабрике</h1>
-                <a href="#about_us">О НАС</a>
-                <a href="#contacts">КОНТАКТЫ</a>
-                <a href="#adress">АДРЕС ФАБРИКИ</a>
-            </div>
-            <div class="catalog">
-                <h1>Каталог</h1>
-                <a href="#sofas">ДИВАНЫ</a>
-
-            </div>
-            <div class="massage">
-                <h1>+7 (494) 270-65-01</h1>
-                <img height="30px" th:src="@{img/footer/whatsapp.png}">
+        <div class="product" th:each="product : ${products}">
+            <a th:href="@{/sofa/{id} (id=${product.id})}">
+                <img th:src="${product.urls[0]}">
+                <h2 th:text="${product.name}">Диван "Лорд"</h2>
+                <p th:text="${product.type.type}">2400*1000</p>
+                <h3 th:text="${product.price}">50.000 руб.</h3>
+            </a>
+            <div class="price">
+                <form th:action="@{/korzina/{id}/add_to_korzina (id=${product.id})}" method="post">
+                    <button type="submit" id="korzina" th:disabled="${is_in_korzina}">Добавить в корзину</button>
+                </form>
+                <form th:action="@{/favorite/{id}/unlike (id=${product.id})}" method="post">
+                    <button class="active" type="submit" id="heart"><img height="30px" th:src="@{/img/header/heart.png}"></button>
+                </form>
             </div>
         </div>
     </div>
-</footer>
 
-<script th:src="@{/scripts/korzina.js}"></script>
+    <footer>
+        <div class="clientFooterClass" id="clientFooter">
+            <div class="footerInf">
+                <div class="forClients">
+                    <h1>Клиентам</h1>
+                    <a href="#delevery">ДОСТАВКА</a>
+                    <a href="#shops">МАГАЗИНЫ</a>
+                    <a href="#status">СТАТУС ЗАКАЗА</a>
+                </div>
+                <div class="aboutCompany">
+                    <h1>О фабрике</h1>
+                    <a href="#about_us">О НАС</a>
+                    <a href="#contacts">КОНТАКТЫ</a>
+                    <a href="#adress">АДРЕС ФАБРИКИ</a>
+                </div>
+                <div class="catalog">
+                    <h1>Каталог</h1>
+                    <a href="#sofas">ДИВАНЫ</a>
+                </div>
+                <div class="massage">
+                    <h1>+7 (494) 270-65-01</h1>
+                    <img height="30px" th:src="@{img/footer/whatsapp.png}">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script th:src="@{/scripts/my_favorite.js}"></script>
 </body>
 </html>

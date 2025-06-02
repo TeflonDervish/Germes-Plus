@@ -22,4 +22,12 @@ public class FabricService {
         log.info("Получение информации о фабрике");
         return fabricRepository.findAll().get(0);
     }
+
+    public Fabric getById(Long id) {
+        return fabricRepository.findById(id).orElse(null);
+    }
+
+    public List<Fabric> getAll() {
+        return fabricRepository.findAll();
+    }
 }

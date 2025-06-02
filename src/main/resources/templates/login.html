@@ -262,17 +262,17 @@
                 <a class="form-a" th:href="@{/register}">Зарегистрироваться</a>
             </form>
 
-            <form id="partnerForm" class="hidden" action="/login" method="post">
+            <form id="partnerForm" class="hidden" th:action="@{/login}" method="post">
 
                 <label>Почта:<br>
-                    <input type="email" id="email" name="email" placeholder="example@example.com" required>
+                    <input type="email" id="email" name="username" placeholder="example@example.com" required>
                 </label>
 
                 <label>Пароль:<br>
                     <input type="password" id="password" name="password" placeholder="Введите пароль" required>
                 </label>
 
-                <button>Войти</button>
+                <button type="submit">Войти</button>
                 <a  class="form-a" th:href="@{/register}">Зарегестрироваться</a>
             </form>
         </div>

@@ -13,8 +13,6 @@ import ru.germes.plus.site.model.persons.LegalPerson;
 import ru.germes.plus.site.repository.LegalPersonRepository;
 import ru.germes.plus.site.repository.IndividualPersonRepository;
 
-import java.util.Optional;
-
 @Service
 @AllArgsConstructor
 public class UserService implements UserDetailsService {
@@ -30,6 +28,7 @@ public class UserService implements UserDetailsService {
         log.info("Получение пользователя по имени");
         IndividualPerson individualPerson = individualPersonRepository.findByEmail(email).orElse(null);
         LegalPerson legalPerson = legalPersonRepository.findByEmail(email).orElse(null);
+        log.info(email);
         if (individualPerson == null) return legalPerson;
         else return individualPerson;
     }
@@ -59,6 +58,15 @@ public class UserService implements UserDetailsService {
         individualPerson.setSurname(newData.getSurname());
         individualPerson.setName(newData.getName());
         individualPersonRepository.save(individualPerson);
+    }
+
+    public void save(Long id, LegalPerson newData) {
+        log.info("Сохранение данных пользователя");
+        LegalPerson legalPerson = legalPersonRepository.findById(id).orElse(null);
+        legalPerson.setEmail(newData.getEmail());
+        legalPerson.setPhoneNumber(newData.getPhoneNumber());
+        legalPerson.setName(newData.getName());
+        legalPersonRepository.save(legalPerson);
     }
 
     public IndividualPerson getById(Long id) {

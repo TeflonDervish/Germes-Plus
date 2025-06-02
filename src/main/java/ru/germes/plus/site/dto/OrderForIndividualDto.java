@@ -11,7 +11,7 @@ import java.util.List;
 @Setter
 @Getter
 @ToString
-public class OrderDto {
+public class OrderForIndividualDto {
     private List<Long> productIds;
     private String deliveryType; // "delivery" или "pickup"
     private DeliveryDetailsDto deliveryDetails;

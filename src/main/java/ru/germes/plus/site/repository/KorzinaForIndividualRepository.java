@@ -6,7 +6,7 @@ import ru.germes.plus.site.model.korzina.KorzinaForIndividual;
 import ru.germes.plus.site.model.persons.IndividualPerson;
 
 @Repository
-public interface KorzinaRepository extends JpaRepository<KorzinaForIndividual, Long> {
+public interface KorzinaForIndividualRepository extends JpaRepository<KorzinaForIndividual, Long> {
 
     KorzinaForIndividual findByIndividualPerson(IndividualPerson individualPerson);
 }

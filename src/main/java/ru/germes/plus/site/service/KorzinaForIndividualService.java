@@ -7,20 +7,20 @@ import org.springframework.stereotype.Service;
 import ru.germes.plus.site.model.korzina.KorzinaForIndividual;
 import ru.germes.plus.site.model.persons.IndividualPerson;
 import ru.germes.plus.site.model.products.ProductForIndividual;
-import ru.germes.plus.site.repository.KorzinaRepository;
+import ru.germes.plus.site.repository.KorzinaForIndividualRepository;
 
 import java.util.ArrayList;
 
 @Service
 @AllArgsConstructor
-public class KorzinaService {
+public class KorzinaForIndividualService {
 
-    private static final Log log = LogFactory.getLog(KorzinaService.class);
-    private KorzinaRepository korzinaRepository;
+    private static final Log log = LogFactory.getLog(KorzinaForIndividualService.class);
+    private KorzinaForIndividualRepository korzinaForIndividualRepository;
     private ProductForIndividualService productService;
 
     public KorzinaForIndividual getKorzina(IndividualPerson individualPerson) {
-        KorzinaForIndividual korzinaForIndividual = korzinaRepository.findByIndividualPerson(individualPerson);
+        KorzinaForIndividual korzinaForIndividual = korzinaForIndividualRepository.findByIndividualPerson(individualPerson);
 
         if (korzinaForIndividual == null)
             korzinaForIndividual = createKorzina(individualPerson);
@@ -33,7 +33,7 @@ public class KorzinaService {
         KorzinaForIndividual korzinaForIndividual = new KorzinaForIndividual();
         korzinaForIndividual.setIndividualPerson(individualPerson);
         korzinaForIndividual.setProducts(new ArrayList<>());
-        return korzinaRepository.save(korzinaForIndividual);
+        return korzinaForIndividualRepository.save(korzinaForIndividual);
     }
 
     public KorzinaForIndividual addProduct(Long productId, IndividualPerson individualPerson) {
@@ -41,7 +41,7 @@ public class KorzinaService {
         ProductForIndividual product = productService.getById(productId);
         KorzinaForIndividual korzinaForIndividual = getKorzina(individualPerson);
         korzinaForIndividual.addProduct(product);
-        return korzinaRepository.save(korzinaForIndividual);
+        return korzinaForIndividualRepository.save(korzinaForIndividual);
     }
 
     public KorzinaForIndividual deleteProduct(Long productId, IndividualPerson individualPerson) {
@@ -49,7 +49,7 @@ public class KorzinaService {
         ProductForIndividual product = productService.getById(productId);
         KorzinaForIndividual korzinaForIndividual = getKorzina(individualPerson);
         korzinaForIndividual.deleteProduct(product);
-        return korzinaRepository.save(korzinaForIndividual);
+        return korzinaForIndividualRepository.save(korzinaForIndividual);
     }
 
     public boolean isInKorzina(Long productId, IndividualPerson person) {
@@ -62,6 +62,6 @@ public class KorzinaService {
     public KorzinaForIndividual clear(IndividualPerson person) {
         KorzinaForIndividual korzinaForIndividual = getKorzina(person);
         korzinaForIndividual.getProducts().clear();
-        return korzinaRepository.save(korzinaForIndividual);
+        return korzinaForIndividualRepository.save(korzinaForIndividual);
     }
 }

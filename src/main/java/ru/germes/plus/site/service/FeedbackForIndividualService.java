@@ -7,17 +7,17 @@ import org.springframework.stereotype.Service;
 import ru.germes.plus.site.model.feedbacks.FeedbackOnProductForIndividual;
 import ru.germes.plus.site.model.persons.IndividualPerson;
 import ru.germes.plus.site.model.products.ProductForIndividual;
-import ru.germes.plus.site.repository.FeedbackRepository;
+import ru.germes.plus.site.repository.FeedbackForIndividualRepository;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class FeedbackService {
+public class FeedbackForIndividualService {
 
-    private static final Log log = LogFactory.getLog(FeedbackService.class);
-    private FeedbackRepository feedbackRepository;
+    private static final Log log = LogFactory.getLog(FeedbackForIndividualService.class);
+    private FeedbackForIndividualRepository feedbackForIndividualRepository;
     private ProductForIndividualService productForIndividualService;
 
     public FeedbackOnProductForIndividual sendFeedback(Long productId, IndividualPerson individualPerson, String text) {
@@ -32,12 +32,12 @@ public class FeedbackService {
         feedbackOnProductForIndividual.setGrade(5.0);
         feedbackOnProductForIndividual.setDate(LocalDate.now());
 
-        return feedbackRepository.save(feedbackOnProductForIndividual);
+        return feedbackForIndividualRepository.save(feedbackOnProductForIndividual);
     }
 
     public List<FeedbackOnProductForIndividual> getByProductForIndividual(Long productId) {
         log.info("Получение продуктов " + productId);
         ProductForIndividual product = productForIndividualService.getById(productId);
-        return feedbackRepository.findByProductForIndividual(product);
+        return feedbackForIndividualRepository.findByProductForIndividual(product);
     }
 }

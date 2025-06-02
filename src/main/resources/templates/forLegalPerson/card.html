@@ -3,24 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../static/style/card.css">
+    <link rel="stylesheet" th:href="@{/style/card.css}">
     <title>Товар</title>
 
     <style>
         /* Основные стили остаются без изменений */
 
-        .tab-button :hover{
+        .tab-button :hover {
             background: none;
         }
-        .tab-button{
+
+        .tab-button {
             background: #192042af;
             color: white;
 
         }
-        .tab-button.active{
+
+        .tab-button.active {
             background: #192042af;
             color: white;
         }
+
         /* Адаптивные стили */
         @media (max-width: 1440px) {
             .center {
@@ -158,7 +161,6 @@
             }
 
 
-
             .footerInf {
                 grid-template-columns: 1fr;
             }
@@ -260,6 +262,7 @@
             .review-form textarea {
                 font-size: 14px;
             }
+
             .gallery {
                 grid-column: 1;
                 width: 315px;
@@ -277,10 +280,12 @@
 
             .tab-button {
                 font-size: 12px;
-            }.cardForSofa {
-                 grid-template-columns: 300px;
-                 gap: 30px;
-             }
+            }
+
+            .cardForSofa {
+                grid-template-columns: 300px;
+                gap: 30px;
+            }
 
             .gallery {
                 grid-column: 1;
@@ -321,7 +326,7 @@
 
         <div class="gallery">
             <div class="gallery-images">
-                <img class="active" th:each="url : ${urls}" th:src="${url}" alt="Image 1">
+                <img class="active" th:each="url : ${product.urls}" th:src="${url}" alt="Image 1">
 
             </div>
 
@@ -342,79 +347,78 @@
 
             </div>
             <label id="character" style="margin-bottom: 10px">Характеристики</label><br>
-            <div class="form-container">
+            <div class="form-container" th:switch="${product.type.type}">
                 <div class="aboutForSofa">
-                    <label>Основа</label>
+                    <label>Тип</label>
                     <label>|</label>
-                    <label th:text="${basis}" class="inputs"></label>
+                    <label th:text="${product.type.type}" class="inputs"></label>
                 </div>
-                <div class="aboutForSofa">
-                    <label>Наполнение</label>
-                    <label>|</label>
-                    <label th:text="${filling}" class="inputs"></label>
+                <div th:case="'Ткань'">
+                    <div class="aboutForSofa">
+                        <label>Тип ткани</label>
+                        <label>|</label>
+                        <label th:text="${product.typeCloth}" class="inputs"></label>
+                    </div>
+                    <div class="aboutForSofa">
+                        <label>Износостойкость</label>
+                        <label>|</label>
+                        <label th:text="${product.density}" class="inputs"></label>
+                    </div>
+                    <div class="aboutForSofa">
+                        <label>Цвет</label>
+                        <label>|</label>
+                        <label th:text="${product.color}" class="inputs"></label>
+                    </div>
                 </div>
-                <div class="aboutForSofa">
-                    <label>Короб</label>
-                    <label>|</label>
-                    <label th:text="${box}" class="inputs"></label>
+                <div th:case="'Каркас'">
+                    <div class="aboutForSofa">
+                        <label>Конфигурация</label>
+                        <label>|</label>
+                        <label th:text="${product.configuration}" class="inputs"></label>
+                    </div>
+                    <div class="aboutForSofa">
+                        <label>Износостойкость</label>
+                        <label>|</label>
+                        <label th:text="${product.gabarit}" class="inputs"></label>
+                    </div>
                 </div>
-                <div class="aboutForSofa">
-                    <label>Механизм</label>
-                    <label>|</label>
-                    <label th:text="${mechanism}" class="inputs"></label>
+                <div th:case="'Наполнитель'">
+                    <div class="aboutForSofa">
+                        <label>Тип наполнителя</label>
+                        <label>|</label>
+                        <label th:text="${product.typeFill}" class="inputs"></label>
+                    </div>
+                    <div class="aboutForSofa">
+                        <label>Износостойкость</label>
+                        <label>|</label>
+                        <label th:text="${product.density}" class="inputs"></label>
+                    </div>
+                </div> <!-- Дополнительно: случай по умолчанию -->
+                <div th:case="*">
+                    <p class="no-product-info">Информация о данном типе продукта отсутствует</p>
                 </div>
-                <div class="aboutForSofa">
-                    <label>Подлокотники</label>
-                    <label>|</label>
-                    <label th:text="${armrests}" class="inputs"></label>
-                </div>
-                <div class="aboutForSofa">
-                    <label>Глубина сидушки</label>
-                    <label>|</label>
-                    <label th:text="${seatDepth}" class="inputs"></label>
-                </div>
-                <div class="aboutForSofa">
-                    <label>Общий габарит</label>
-                    <label>|</label>
-                    <label th:text="${overallDimensions}" class="inputs"></label>
-                </div>
-                <div class="aboutForSofa">
-                    <label>Спальное место</label>
-                    <label>|</label>
-                    <label th:text="${sleepingSpace}" class="inputs"></label>
-                </div>
-                <div class="aboutForSofa">
-                    <label>Глубина</label>
-                    <label>|</label>
-                    <label th:text="${depth}" class="inputs"></label>
-                </div>
-                <div class="aboutForSofa">
-                    <label>Конфигурация</label>
-                    <label>|</label>
-                    <label th:text="${configuration}" class="inputs"></label>
-                </div>
-
             </div>
         </div>
 
         <div class="price">
-            <label id="price"><span th:text="${price}"></span> руб.</label>
-            <form th:action="@{/korzina/{id}/add_to_korzina (id=${product_id})}" method="post">
+            <label id="price"><span th:text="${product.price}"></span> руб.</label>
+            <form th:action="@{/korzina/{id}/add_to_korzina (id=${product.id})}" method="post">
                 <button type="submit" id="korzina" th:disabled="${is_in_korzina}">Добавить в корзину</button>
             </form>
 
-            <form th:if="${!is_liked}" th:action="@{/sofa/{id}/like (id=${product_id})}" method="post">
+            <form th:if="${!is_liked}" th:action="@{/sofa/{id}/like (id=${product.id})}" method="post">
                 <button type="submit" id="heart"><img height="30px" th:src="@{/img/header/heart.png}"></button>
             </form>
-            <form th:if="${is_liked}" th:action="@{/sofa/{id}/unlike (id=${product_id})}" method="post">
-                <button class="active" type="submit" id="heart"><img height="30px" th:src="@{/img/header/heart.png}"></button>
+            <form th:if="${is_liked}" th:action="@{/sofa/{id}/unlike (id=${product.id})}" method="post">
+                <button class="active" type="submit" id="heart"><img height="30px" th:src="@{/img/header/heart.png}">
+                </button>
             </form>
         </div>
 
         <div class="tabs">
             <div class="tab-buttons">
                 <button class="tab-button active" data-tab="tab1">ОПИСАНИЕ ТОВАРА</button>
-            
+
             </div>
 
             <!-- Контент вкладок -->
@@ -436,18 +440,18 @@
 
             <div class="reviews-list">
                 <div class="review" th:each="feedback : ${feedbacks}">
-                    <div class="review-author" th:text="${feedback.individualPerson.name}">Иван Иванов</div>
+                    <div class="review-author" th:text="${feedback.legalPerson.name}">Иван Иванов</div>
                     <div class="review-rating">★★★★★</div>
                     <div class="review-text" th:text="${feedback.text}">Отличный продукт! Всё работает как надо.</div>
-<!--                    <div class="review-photo">-->
-<!--                        <img class="active" th:each="url : ${urls}" th:src="${url}" alt="Image 1">-->
-<!--                    </div>-->
+                    <!--                    <div class="review-photo">-->
+                    <!--                        <img class="active" th:each="url : ${urls}" th:src="${url}" alt="Image 1">-->
+                    <!--                    </div>-->
                     <div class="review-date" th:text="${feedback.date}">09.02.2025</div>
                 </div>
 
             </div>
 
-            <form class="review-form" th:action="@{/sofa/{id}/feedback(id=${product_id})}" method="post">
+            <form class="review-form" th:action="@{/sofa/{id}/feedback(id=${product.id})}" method="post">
                 <h3>Оставить отзыв</h3>
                 <textarea id="review" placeholder="Ваш отзыв" name="text" required></textarea>
                 <input type="file" id="photo" accept="image/*">
@@ -499,25 +503,25 @@
 </div>
 <script th:src="@{/scripts/card.js}"></script>
 <script>
-    
 
-// Находим все кнопки и контент вкладок
-const tabButtons = document.querySelectorAll('.tab-button');
-const tabPanes = document.querySelectorAll('.tab-pane');
 
-// Добавляем обработчик событий для каждой кнопки
-tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        // // Убираем активный класс у всех кнопок и контента
-        // tabButtons.forEach(btn => btn.classList.remove('active'));
-        // tabPanes.forEach(pane => pane.classList.remove('active'));
+    // Находим все кнопки и контент вкладок
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabPanes = document.querySelectorAll('.tab-pane');
 
-        // // Добавляем активный класс к выбранной кнопке и соответствующему контенту
-        // button.classList.add('active');
-        // const tabId = button.getAttribute('data-tab');
-        // document.getElementById(tabId).classList.add('active');
+    // Добавляем обработчик событий для каждой кнопки
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // // Убираем активный класс у всех кнопок и контента
+            // tabButtons.forEach(btn => btn.classList.remove('active'));
+            // tabPanes.forEach(pane => pane.classList.remove('active'));
+
+            // // Добавляем активный класс к выбранной кнопке и соответствующему контенту
+            // button.classList.add('active');
+            // const tabId = button.getAttribute('data-tab');
+            // document.getElementById(tabId).classList.add('active');
+        });
     });
-});
 
 </script>
 </body>

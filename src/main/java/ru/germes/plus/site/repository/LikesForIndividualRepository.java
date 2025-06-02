@@ -8,7 +8,7 @@ import ru.germes.plus.site.model.persons.IndividualPerson;
 import java.util.List;
 import java.util.Optional;
 
-public interface LikesRepository extends JpaRepository<LikesForIndividual, Long> {
+public interface LikesForIndividualRepository extends JpaRepository<LikesForIndividual, Long> {
 
     @Query("SELECT l " +
             "FROM LikesForIndividual l " +

@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.germes.plus.site.model.persons.IndividualPerson;
+import ru.germes.plus.site.model.persons.LegalPerson;
 import ru.germes.plus.site.model.products.ProductForIndividual;
 import ru.germes.plus.site.model.products.ProductForLegal;
 
@@ -25,7 +26,7 @@ public class KorzinaForLegal {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false, unique = true)
-    private IndividualPerson individualPerson;
+    private LegalPerson legalPerson;
 
     @ElementCollection
     @CollectionTable(name = "korzinaProductForLegal", joinColumns = @JoinColumn(name = "id"))

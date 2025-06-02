@@ -41,6 +41,10 @@ public class ProductForLegal {
     @Column(length = 100)
     private String density;
 
+    private Long price;
+
+    private String description;
+
     @ElementCollection
     @CollectionTable(name="urlsForProductForLegal", joinColumns = @JoinColumn(name="id"))
     @Column(name = "urls")

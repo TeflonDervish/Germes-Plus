@@ -4,12 +4,16 @@ package ru.germes.plus.site.controller;
 import lombok.AllArgsConstructor;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.germes.plus.site.dto.FilterProductForIndividual;
+import ru.germes.plus.site.model.persons.IndividualPerson;
 import ru.germes.plus.site.model.products.ProductForIndividual;
 import ru.germes.plus.site.service.ProductForIndividualService;
+import ru.germes.plus.site.service.ProductForLegalService;
 
 import java.util.List;
 
@@ -20,14 +24,24 @@ public class CatalogController {
 
     private static final Log log = LogFactory.getLog(CatalogController.class);
     private final ProductForIndividualService productForIndividualService;
+    private final ProductForLegalService productForLegalService;
 
 
     @GetMapping
-    public String getCatalog(Model model) {
+    public String getCatalog(
+            Model model,
+            @AuthenticationPrincipal UserDetails user
+    ) {
         log.info("Выдана страница каталога");
-        model.addAttribute("products", productForIndividualService.getAll());
-        model.addAttribute("filter", new FilterProductForIndividual());
-        return "catalog";
+
+        if (user instanceof IndividualPerson) {
+            model.addAttribute("products", productForIndividualService.getAll());
+            model.addAttribute("filter", new FilterProductForIndividual());
+            return "catalog";
+        } else {
+            model.addAttribute("products", productForLegalService.getAll());
+            return "forLegalPerson/catalog";
+        }
     }
 
     @PostMapping("/search")

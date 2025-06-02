@@ -5,11 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-import ru.germes.plus.site.model.persons.IndividualPerson;
 import ru.germes.plus.site.model.persons.LegalPerson;
-import ru.germes.plus.site.model.products.ProductForIndividual;
 import ru.germes.plus.site.model.products.ProductForLegal;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -35,9 +34,10 @@ public class FeedbackOnProductForLegal {
     private String text;
 
     private Double grade;
+    private LocalDate date;
 
     @ElementCollection
-    @CollectionTable(name="urlsFeedbackForProductForLegal", joinColumns = @JoinColumn(name="id"))
+    @CollectionTable(name = "urlsFeedbackForProductForLegal", joinColumns = @JoinColumn(name = "id"))
     @Column(name = "urls")
     private List<String> urls;
 
