@@ -54,7 +54,7 @@ services:
       - image-data:/storage
     environment:
       - FILE_STORAGE=/storage
-      - URL=hermes-plus.ru
+      - URL=image.hermes-plus.ru
     networks:
       - network
 

@@ -270,6 +270,42 @@
             <h2>Как нас найти</h2>
             <div id="map" class="map-container"></div>
         </div>
+        <div class="reviews">
+            <h2>Отзывы</h2>
+            <div class="average-rating">
+                Рейтинг: <span id="averageRating">5</span>/5
+            </div>
+
+            <div class="reviews-list">
+                <div class="review" th:each="feedback : ${feedbacks}">
+                    <div class="review-author" th:text="${feedback.individualPerson.name}">Иван Иванов</div>
+                    <div class="review-rating">★★★★★</div>
+                    <div class="review-text" th:text="${feedback.text}">Отличный продукт! Всё работает как надо.</div>
+                    <!--                    <div class="review-photo">-->
+                    <!--                        <img class="active" th:each="url : ${urls}" th:src="${url}" alt="Image 1">-->
+                    <!--                    </div>-->
+                    <div class="review-date" th:text="${feedback.date}">09.02.2025</div>
+                </div>
+
+            </div>
+
+            <form class="review-form" th:action="@{/sofa/{id}/feedback(id=${product_id})}" method="post">
+                <h3>Оставить отзыв</h3>
+                <textarea id="review" placeholder="Ваш отзыв" name="text" required></textarea>
+                <div class="rating">
+                    <label>Оценка:</label>
+                    <div class="stars">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <input type="hidden" id="rating" name="rating" value="0" required>
+                </div>
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
     </div>
 
 

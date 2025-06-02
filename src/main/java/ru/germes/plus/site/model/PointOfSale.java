@@ -43,5 +43,7 @@ public class PointOfSale {
     @OnDelete(action = OnDeleteAction.SET_NULL)
     private PointManager pointManager;
 
+    private String url;
+
 
 }

@@ -45,4 +45,6 @@ public class Fabric {
     @OnDelete(action = OnDeleteAction.SET_NULL)
     private FabricManager fabricManager;
 
+    private String url;
+
 }

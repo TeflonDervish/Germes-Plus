@@ -340,3 +340,125 @@ footer a:hover {
 .delivery h2{
     padding-bottom: 10px;
 }
+
+/* Стили для списка отзывов */
+.reviews-list {
+    margin-bottom: 20px;
+}
+
+.review {
+    padding: 10px;
+    border-bottom: 1px solid #6e6e6e;
+    margin-bottom: 10px;
+
+}
+
+.review:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.review-author {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+
+.review-text {
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.review-photo img {
+    max-width: 25%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.review-date {
+    font-size: 1.2em;
+    color: #777;
+}
+
+/* Стили для формы */
+.review-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+.review-form h3 {
+    margin-bottom: 10px;
+}
+
+.review-form input,
+.review-form textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 1.2em;
+}
+
+.review-form textarea {
+    resize: vertical;
+    min-height: 50px;
+}
+
+
+.review-form button {
+    padding: 10px;
+    height: 90%;
+    width: 250px;
+    background: #192042af;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s ease, transform 0.3s ease;
+}
+
+.review-form button:hover {
+    background: linear-gradient(135deg, #5616a0, #123081);
+    transform: translateY(-2px);
+}
+
+.review-form button:active {
+    transform: translateY(0);
+}
+
+.average-rating {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.review-rating {
+    color: #ffc107; /* Золотой цвет для звезд */
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+.rating .stars {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+
+}
+
+.rating .star {
+    font-size: 30px;
+    color: #ccc; /* Серый цвет для неактивных звезд */
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.rating .star.active,
+.rating .star:hover {
+    color: #ffc107; /* Золотой цвет для активных звезд */
+}
