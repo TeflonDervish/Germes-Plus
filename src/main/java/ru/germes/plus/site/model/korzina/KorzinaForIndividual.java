@@ -23,7 +23,7 @@ public class KorzinaForIndividual {
     private IndividualPerson individualPerson;
 
     @ElementCollection
-    @CollectionTable(name = "korzinaProduct", joinColumns = @JoinColumn(name = "id"))
+    @CollectionTable(name = "korzinaProductForIndividual", joinColumns = @JoinColumn(name = "id"))
     @Column(name = "products")
     private List<ProductForIndividual> products;
 
