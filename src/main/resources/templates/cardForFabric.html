@@ -217,14 +217,14 @@
     <div class="center">
         <div class="contact-info">
             <h1 th:text="${name}">Мебельная фабрика "Гермес-Плюс"</h1>
-            <p><strong>Адрес:</strong> <span th:text="${address}">г. Салават, ул. Якутова, д. 2А</span></p>
-            <p><strong>Телефон:</strong> <span th:text="${phone_number}">+7 (917) 342-93-80</span></p>
-            <p><strong>Email:</strong> <span th:text="${email}">germes_plus@gmail.com</span></p>
+            <p><strong>Адрес:</strong> <span th:text="${fabric.address}">г. Салават, ул. Якутова, д. 2А</span></p>
+            <p><strong>Телефон:</strong> <span th:text="${fabric.phoneNumber}">+7 (917) 342-93-80</span></p>
+            <p><strong>Email:</strong> <span th:text="${fabric.email}">germes_plus@gmail.com</span></p>
 
             <!-- Координаты для карты (скрытые) -->
-            <div th:text="${pointOnTheMap}" class="coordinates" id="shop-coordinates">53.385670, 55.906382</div>
-            <div th:text="${name}" class="coordinates" id="shop-name">Мебельная фабрика "Гермес-Плюс"</div>
-            <div th:text="${address}" class="coordinates" id="shop-address">г. Салават, ул. Якутова, д. 2А</div>
+            <div th:text="${fabric.pointOnTheMap}" class="coordinates" id="shop-coordinates">53.385670, 55.906382</div>
+            <div th:text="${fabric.name}" class="coordinates" id="shop-name">Мебельная фабрика "Гермес-Плюс"</div>
+            <div th:text="${fabric.address}" class="coordinates" id="shop-address">г. Салават, ул. Якутова, д. 2А</div>
         </div>
 
         <div class="section">
@@ -278,7 +278,7 @@
 
             <div class="reviews-list">
                 <div class="review" th:each="feedback : ${feedbacks}">
-                    <div class="review-author" th:text="${feedback.individualPerson.name}">Иван Иванов</div>
+                    <div class="review-author" th:text="${feedback.name}">Иван Иванов</div>
                     <div class="review-rating">★★★★★</div>
                     <div class="review-text" th:text="${feedback.text}">Отличный продукт! Всё работает как надо.</div>
                     <!--                    <div class="review-photo">-->
@@ -289,7 +289,7 @@
 
             </div>
 
-            <form class="review-form" th:action="@{/sofa/{id}/feedback(id=${product_id})}" method="post">
+            <form class="review-form" th:action="@{/fabric/{id}/feedback(id=${fabric.id})}" method="post">
                 <h3>Оставить отзыв</h3>
                 <textarea id="review" placeholder="Ваш отзыв" name="text" required></textarea>
                 <div class="rating">

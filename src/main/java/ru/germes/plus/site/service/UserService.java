@@ -49,7 +49,7 @@ public class UserService implements UserDetailsService {
         }
     }
 
-    public void save(Long id, IndividualPerson newData) {
+    public IndividualPerson save(Long id, IndividualPerson newData) {
         log.info("Сохранение данных пользователя");
         IndividualPerson individualPerson = individualPersonRepository.findById(id).orElse(null);
         individualPerson.setEmail(newData.getEmail());
@@ -57,21 +57,26 @@ public class UserService implements UserDetailsService {
         individualPerson.setPhone(newData.getPhone());
         individualPerson.setSurname(newData.getSurname());
         individualPerson.setName(newData.getName());
-        individualPersonRepository.save(individualPerson);
+        return individualPersonRepository.save(individualPerson);
     }
 
-    public void save(Long id, LegalPerson newData) {
+    public LegalPerson save(Long id, LegalPerson newData) {
         log.info("Сохранение данных пользователя");
         LegalPerson legalPerson = legalPersonRepository.findById(id).orElse(null);
         legalPerson.setEmail(newData.getEmail());
         legalPerson.setPhoneNumber(newData.getPhoneNumber());
         legalPerson.setName(newData.getName());
-        legalPersonRepository.save(legalPerson);
+        return legalPersonRepository.save(legalPerson);
     }
 
-    public IndividualPerson getById(Long id) {
+    public IndividualPerson getIndividualById(Long id) {
         log.info("Получение пользователя по id");
         return individualPersonRepository.findById(id).orElse(null);
+    }
+
+    public LegalPerson getLegalById(Long id) {
+        log.info("Получение пользователя по id");
+        return legalPersonRepository.findById(id).orElse(null);
     }
 
     public LegalPerson registerLegalPerson(LegalPerson legalPerson) {

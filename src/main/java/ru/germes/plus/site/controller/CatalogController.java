@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.germes.plus.site.dto.FilterProductForIndividual;
 import ru.germes.plus.site.model.persons.IndividualPerson;
+import ru.germes.plus.site.model.persons.LegalPerson;
 import ru.germes.plus.site.model.products.ProductForIndividual;
 import ru.germes.plus.site.service.ProductForIndividualService;
 import ru.germes.plus.site.service.ProductForLegalService;
@@ -34,14 +35,15 @@ public class CatalogController {
     ) {
         log.info("Выдана страница каталога");
 
+        model.addAttribute("products", productForIndividualService.getAll());
         if (user instanceof IndividualPerson) {
-            model.addAttribute("products", productForIndividualService.getAll());
             model.addAttribute("filter", new FilterProductForIndividual());
             return "catalog";
-        } else {
+        } else if (user instanceof LegalPerson){
             model.addAttribute("products", productForLegalService.getAll());
             return "forLegalPerson/catalog";
         }
+        return "catalog";
     }
 
     @PostMapping("/search")

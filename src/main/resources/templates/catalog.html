@@ -477,12 +477,12 @@
 
 
     <div class="magazine center">
-        <div class="product" th:each="products : ${products}">
-            <a th:href="@{/sofa/{id}(id=${products.id})}">
-                <img th:src="${products.urls[0]}">
-                <h2 th:text="${products.name}">Диван "Лорд"</h2>
-                <p th:text="${products.size}">2400*1000</p>
-                <h3><span th:text="${products.price}"></span> руб.</h3>
+        <div class="product" th:each="product : ${products}">
+            <a th:href="@{/sofa/{id}(id=${product.id})}">
+                <img th:src="${product.urls[0]}">
+                <h2 th:text="${product.name}">Диван "Лорд"</h2>
+                <p th:text="${product.size}">2400*1000</p>
+                <h3><span th:text="${product.price}"></span> руб.</h3>
             </a>
             <!--            <button>Добавить в корзину</button>-->
         </div>
@@ -516,7 +516,6 @@
         </div>
     </div>
 </footer>
-
 <script th:src="@{/scripts/catalog.js}"></script>
 </body>
 </html>

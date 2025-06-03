@@ -4,12 +4,8 @@ import lombok.AllArgsConstructor;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
-import ru.germes.plus.site.model.feedbacks.FeedbackOnPointFromLegal;
-import ru.germes.plus.site.model.feedbacks.FeedbackOnProductForIndividual;
 import ru.germes.plus.site.model.feedbacks.FeedbackOnProductForLegal;
-import ru.germes.plus.site.model.persons.IndividualPerson;
 import ru.germes.plus.site.model.persons.LegalPerson;
-import ru.germes.plus.site.model.products.ProductForIndividual;
 import ru.germes.plus.site.model.products.ProductForLegal;
 import ru.germes.plus.site.repository.FeedbackForLegalRepository;
 
@@ -39,7 +35,7 @@ public class FeedbackForLegalService {
         return feedbackForLegalRepository.save(feedbackOnProductForIndividual);
     }
 
-    public List<FeedbackOnProductForLegal> getByProductForIndividual(Long productId) {
+    public List<FeedbackOnProductForLegal> getByProductForLegalId(Long productId) {
         log.info("Получение продуктов " + productId);
         ProductForLegal product = productForLegalService.getById(productId);
         return feedbackForLegalRepository.findByProductForLegal(product);

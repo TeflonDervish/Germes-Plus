@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.thymeleaf.extras.springsecurity6.util.SpringSecurityContextUtils;
 import ru.germes.plus.site.enums.OrderStatus;
 import ru.germes.plus.site.model.orders.OrderForIndividual;
 import ru.germes.plus.site.model.orders.OrderForLegal;
@@ -49,6 +48,7 @@ public class AccountController {
     public String getAccount(@AuthenticationPrincipal UserDetails user,
                              Model model) {
         if (user instanceof IndividualPerson individualPerson) {
+            individualPerson = userService.getIndividualById(individualPerson.getId());
             List<OrderForIndividual> orders = orderForIndividualService.getOrderForIndividual(individualPerson);
             model.addAttribute("account", individualPerson);
             model.addAttribute("orders", orders.stream()
@@ -57,6 +57,7 @@ public class AccountController {
                     .filter(x -> x.getStatus().equals(OrderStatus.COMPLETED)));
             return "myAccount";
         } else if (user instanceof LegalPerson legalPerson) {
+            legalPerson = userService.getLegalById(legalPerson.getId());
             List<OrderForLegal> orders = orderForLegalService.getOrderForLegal(legalPerson);
             model.addAttribute("account", legalPerson);
             model.addAttribute("orders", orders.stream()

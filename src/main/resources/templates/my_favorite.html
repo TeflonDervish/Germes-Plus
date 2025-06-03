@@ -206,17 +206,20 @@
     <h3 class="center" id="favorite">Отложенные</h3>
 
     <div class="magazine center">
-        <div class="product" th:each="products : ${products}">
-            <a th:href="@{/sofa/{id} (id=${products.id})}">
-                <img th:src="${products.urls[0]}">
-                <h2 th:text="${products.name}">Диван "Лорд"</h2>
-                <p th:text="${products.size}">2400*1000</p>
-                <h3 th:text="${products.price}">50.000 руб.</h3>
+        <div class="product" th:each="product : ${products}">
+            <a th:href="@{/sofa/{id} (id=${product.id})}">
+                <img th:src="${product.urls[0]}">
+                <h2 th:text="${product.name}">Диван "Лорд"</h2>
+                <p th:text="${product.size}">2400*1000</p>
+                <h3 th:text="${product.price}">50.000 руб.</h3>
             </a>
             <div class="price">
-                <button id="korzina">Добавить в корзину</button>
-                <form th:action="@{/favorite/{id}/unlike (id=${products.id})}" method="post">
-                    <button class="active" type="submit" id="heart"><img height="30px" th:src="@{/img/header/heart.png}"></button>
+                <form th:action="@{/korzina/{id}/add_to_korzina (id=${product.id})}" method="post">
+                    <button type="submit" id="korzina" th:disabled="${is_in_korzina}">Добавить в корзину</button>
+                </form>
+                <form th:action="@{/favorite/{id}/unlike (id=${product.id})}" method="post">
+                    <button class="active" type="submit" id="heart"><img height="30px"
+                                                                         th:src="@{/img/header/heart.png}"></button>
                 </form>
             </div>
         </div>

@@ -342,18 +342,16 @@
                     <label id="articul">Артикул:</label>
                     <label id="articul-nubmer" th:text="${article}">2340565</label>
                 </div>
-
                 <div class="review-rating">★★★★★</div>
-
             </div>
             <label id="character" style="margin-bottom: 10px">Характеристики</label><br>
             <div class="form-container" th:switch="${product.type.type}">
-                <div class="aboutForSofa">
-                    <label>Тип</label>
-                    <label>|</label>
-                    <label th:text="${product.type.type}" class="inputs"></label>
-                </div>
                 <div th:case="'Ткань'">
+                    <div class="aboutForSofa">
+                        <label>Тип</label>
+                        <label>|</label>
+                        <label th:text="${product.type.type}" class="inputs"></label>
+                    </div>
                     <div class="aboutForSofa">
                         <label>Тип ткани</label>
                         <label>|</label>
@@ -372,6 +370,11 @@
                 </div>
                 <div th:case="'Каркас'">
                     <div class="aboutForSofa">
+                        <label>Тип</label>
+                        <label>|</label>
+                        <label th:text="${product.type.type}" class="inputs"></label>
+                    </div>
+                    <div class="aboutForSofa">
                         <label>Конфигурация</label>
                         <label>|</label>
                         <label th:text="${product.configuration}" class="inputs"></label>
@@ -383,6 +386,11 @@
                     </div>
                 </div>
                 <div th:case="'Наполнитель'">
+                    <div class="aboutForSofa">
+                        <label>Тип</label>
+                        <label>|</label>
+                        <label th:text="${product.type.type}" class="inputs"></label>
+                    </div>
                     <div class="aboutForSofa">
                         <label>Тип наполнителя</label>
                         <label>|</label>
@@ -451,7 +459,7 @@
 
             </div>
 
-            <form class="review-form" th:action="@{/sofa/{id}/feedback(id=${product.id})}" method="post">
+            <form class="review-form" th:action="@{/sofa/{id}/feedback-for-legal (id=${product.id})}" method="post">
                 <h3>Оставить отзыв</h3>
                 <textarea id="review" placeholder="Ваш отзыв" name="text" required></textarea>
                 <input type="file" id="photo" accept="image/*">

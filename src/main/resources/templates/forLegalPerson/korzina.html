@@ -336,14 +336,22 @@
         <div id="pickup-form" class="pickup-form center">
                 <div class="form-group">
                 <select id="pickup-point" name="fabricId" required>
-                    <option th:each="fabric : ${fabrics}" th:value="${fabric.id}" th:text="${fabric.name}">-- Выберите пункт --</option>
+                    <option value="">-- Выберите пункт --</option>
+                    <option
+                            th:each="fabric : ${fabrics}"
+                            th:value="${fabric.id}"
+                            th:data-address="${fabric.address}"
+                            th:data-phone="${fabric.phoneNumber}"
+                            th:data-coords="${fabric.pointOnTheMap}"
+                            th:text="${fabric.name}">
+                    </option>
                 </select>
             </div>
 
-            <div id="pickup-info" class="pickup-info">
+            <div id="pickup-info" class="pickup-info" style="display:none;">
                 <h4>Информация о пункте:</h4>
-                <p><strong>Адрес:</strong> <span id="pickup-address"></span></p>
-                <p><strong>Телефон:</strong> <span id="pickup-phone"></span></p>
+                <p><strong>Адрес:</strong> <span id="pickupAddress"></span></p>
+                <p><strong>Телефон:</strong> <span id="pickupPhone"></span></p>
                 <div class="pickup-map" id="pickup-map"></div>
             </div>
 
@@ -392,6 +400,45 @@
     </div>
 </footer>
 
-<script th:src="@{scripts/korzina.js}"></script>
+<!--<script th:src="@{scripts/korzina.js}"></script>-->
+<script>
+    const pickupSelect = document.getElementById('pickup-point');
+    const pickupInfo = document.getElementById('pickup-info');
+    const pickupAddress = document.getElementById('pickupAddress');
+    const pickupPhone = document.getElementById('pickupPhone');
+    const pickupMap = document.getElementById('pickup-map');
+    let map;
+
+    pickupSelect.addEventListener('change', function () {
+        const selected = this.options[this.selectedIndex];
+
+        if (selected.value) {
+            // Отображение информации
+            pickupInfo.style.display = 'block';
+            pickupAddress.textContent = selected.dataset.address || 'Нет данных';
+            pickupPhone.textContent = selected.dataset.phone || 'Нет данных';
+
+            const coords = selected.dataset.coords;
+            if (coords) {
+                const [lat, lon] = coords.split(',');
+                ymaps.ready(() => {
+                    pickupMap.innerHTML = ''; // Очищаем предыдущую карту
+                    map = new ymaps.Map("pickup-map", {
+                        center: [lat, lon],
+                        zoom: 15
+                    });
+                    const placemark = new ymaps.Placemark([lat, lon], {
+                        hintContent: selected.text,
+                        balloonContent: selected.dataset.address
+                    });
+                    map.geoObjects.add(placemark);
+                });
+            }
+        } else {
+            pickupInfo.style.display = 'none';
+            pickupMap.innerHTML = '';
+        }
+    });
+</script>
 </body>
 </html>

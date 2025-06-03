@@ -1,18 +1,22 @@
 package ru.germes.plus.site.model.feedbacks;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import ru.germes.plus.site.model.PointOfSale;
 import ru.germes.plus.site.model.persons.IndividualPerson;
 import ru.germes.plus.site.model.persons.LegalPerson;
 
+import java.time.LocalDate;
+
 @Entity
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@Builder
 @NoArgsConstructor
-public class FeedbackOnPointFromLegal {
+public class FeedbackOnPoint {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,14 +27,13 @@ public class FeedbackOnPointFromLegal {
     @OnDelete(action = OnDeleteAction.SET_NULL)
     private PointOfSale pointOfSale;
 
-    @ManyToOne
-    @JoinColumn(name = "person_id")
-    @OnDelete(action = OnDeleteAction.SET_NULL)
-    private LegalPerson legalPerson;
+    private String name;
 
     @Column(columnDefinition = "TEXT")
     private String text;
 
     private Double grade;
+
+    private LocalDate date;
 
 }

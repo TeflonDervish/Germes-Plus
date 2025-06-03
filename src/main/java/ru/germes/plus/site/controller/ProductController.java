@@ -59,7 +59,7 @@ public class ProductController {
 
             return "cardForSofa";
         } else if (user instanceof LegalPerson legalPerson) {
-            List<FeedbackOnProductForLegal> feedbacks = feedbackForLegalService.getByProductForIndividual(id);
+            List<FeedbackOnProductForLegal> feedbacks = feedbackForLegalService.getByProductForLegalId(id);
             ProductForLegal product = productForLegalService.getById(id);
 
             boolean isLiked = likesForLegalService.getLike(id, legalPerson.getId()).isPresent();
@@ -106,6 +106,16 @@ public class ProductController {
                            @AuthenticationPrincipal IndividualPerson individualPerson,
                            @PathVariable Long id) {
         feedbackForIndividualService.sendFeedback(id, individualPerson, text);
+        return "redirect:/sofa/" + id;
+    }
+
+    @PostMapping("{id}/feedback-for-legal")
+    public String feedbackForLegal(
+            @RequestParam String text,
+            @AuthenticationPrincipal LegalPerson legalPerson,
+            @PathVariable Long id
+    ) {
+        feedbackForLegalService.sendFeedback(id, legalPerson, text);
         return "redirect:/sofa/" + id;
     }
 

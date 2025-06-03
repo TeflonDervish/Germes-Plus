@@ -9,6 +9,12 @@
     <style>
         /* Основные стили остаются без изменений */
 
+        footer h1 {
+            font-size: 20px;
+            padding-bottom: 20px;
+            color: white;
+        }
+
         /* Адаптивные стили */
         @media (max-width: 1440px) {
             .center {
@@ -320,7 +326,7 @@
 
 
         <div class="bodyPage">
-            <label id="nameSofa" th:text="${name}">Диван "Лорд"</label>
+            <label id="nameSofa" th:text="${product.name}">Диван "Лорд"</label>
             <div class="articul-rating">
                 <div class="articul">
                     <label id="articul">Артикул:</label>
