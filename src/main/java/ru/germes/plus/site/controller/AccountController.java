@@ -52,9 +52,12 @@ public class AccountController {
             List<OrderForIndividual> orders = orderForIndividualService.getOrderForIndividual(individualPerson);
             model.addAttribute("account", individualPerson);
             model.addAttribute("orders", orders.stream()
-                    .filter(x -> !x.getStatus().equals(OrderStatus.COMPLETED)));
+                    .filter(x -> !x.getStatus().equals(OrderStatus.COMPLETED) &&
+                            !x.getStatus().equals(OrderStatus.CANCELLED)
+                    ));
             model.addAttribute("ordersComplete", orders.stream()
-                    .filter(x -> x.getStatus().equals(OrderStatus.COMPLETED)));
+                    .filter(x -> x.getStatus().equals(OrderStatus.COMPLETED) ||
+                            x.getStatus().equals(OrderStatus.CANCELLED)));
             return "myAccount";
         } else if (user instanceof LegalPerson legalPerson) {
             legalPerson = userService.getLegalById(legalPerson.getId());
