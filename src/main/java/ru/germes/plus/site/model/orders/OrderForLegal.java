@@ -31,9 +31,12 @@ public class OrderForLegal {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private LegalPerson legalPerson;
 
-    @ElementCollection
-    @CollectionTable(name = "orderForLegalProduct", joinColumns = @JoinColumn(name = "id"))
-    @Column(name = "products")
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "order_for_legal_product",
+            joinColumns = @JoinColumn(name = "order_ir"),
+            inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
     private List<ProductForLegal> products;
 
     @ManyToOne

@@ -28,9 +28,12 @@ public class KorzinaForLegal {
     @JoinColumn(name = "user_id", nullable = false, unique = true)
     private LegalPerson legalPerson;
 
-    @ElementCollection
-    @CollectionTable(name = "korzinaProductForLegal", joinColumns = @JoinColumn(name = "id"))
-    @Column(name = "products")
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "korzina_product_for_legal",
+            joinColumns = @JoinColumn(name = "korzina_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
     private List<ProductForLegal> products;
 
     public void addProduct(ProductForLegal product) {

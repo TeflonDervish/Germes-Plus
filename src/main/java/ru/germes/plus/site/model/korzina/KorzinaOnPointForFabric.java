@@ -5,7 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import ru.germes.plus.site.model.persons.IndividualPerson;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+import ru.germes.plus.site.model.persons.PointManager;
 import ru.germes.plus.site.model.products.ProductForIndividual;
 
 import java.util.List;
@@ -15,33 +17,23 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @NoArgsConstructor
-public class KorzinaForIndividual {
+public class KorzinaOnPointForFabric {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false, unique = true)
-    private IndividualPerson individualPerson;
-
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
-            name = "korzina_product_for_individual",
+            name = "korzina_product_on_point",
             joinColumns = @JoinColumn(name = "korzina_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id")
     )
     private List<ProductForIndividual> products;
 
-    public void addProduct(ProductForIndividual product) {
-        products.add(product);
-    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "point_manager_id")
+    @OnDelete(action = OnDeleteAction.SET_NULL)
+    private PointManager pointManager;
 
-    public void deleteProduct(ProductForIndividual product) {
-        products.remove(product);
-    }
-
-    public boolean isInKorzina(ProductForIndividual product) {
-        return products.contains(product);
-    }
 }

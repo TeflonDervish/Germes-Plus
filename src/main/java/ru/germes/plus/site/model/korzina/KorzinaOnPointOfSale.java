@@ -23,9 +23,12 @@ public class KorzinaOnPointOfSale {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ElementCollection
-    @CollectionTable(name = "korzinaProductOnPoint", joinColumns = @JoinColumn(name = "id"))
-    @Column(name = "products")
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "korzina_product_on_point",
+            joinColumns = @JoinColumn(name = "korzina_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
     private List<ProductForIndividual> products;
 
     @ManyToOne(fetch = FetchType.LAZY)

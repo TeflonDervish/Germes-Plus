@@ -24,9 +24,12 @@ public class OrderForFabric {
     @Column(nullable = false)
     private Long id;
 
-    @ElementCollection
-    @CollectionTable(name = "orderForFabricProducts", joinColumns = @JoinColumn(name = "id"))
-    @Column(name = "products")
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "order_for_fabric_product",
+            joinColumns = @JoinColumn(name = "order_ir"),
+            inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
     private List<ProductForIndividual> products;
 
     private Integer totalPrice;
