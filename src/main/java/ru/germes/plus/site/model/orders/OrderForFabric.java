@@ -10,6 +10,7 @@ import ru.germes.plus.site.model.PointOfSale;
 import ru.germes.plus.site.model.persons.FabricManager;
 import ru.germes.plus.site.model.products.ProductForIndividual;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -49,8 +50,9 @@ public class OrderForFabric {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private FabricManager fabricManager;
 
-    private Integer price;
-
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
+
+    private LocalDate orderDate;
 }
+
