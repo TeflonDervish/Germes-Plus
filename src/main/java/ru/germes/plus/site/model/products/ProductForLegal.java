@@ -45,6 +45,9 @@ public class ProductForLegal {
 
     private String description;
 
+    @Column
+    private String article;
+
     @ElementCollection
     @CollectionTable(name="urlsForProductForLegal", joinColumns = @JoinColumn(name="id"))
     @Column(name = "urls")

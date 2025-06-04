@@ -336,22 +336,17 @@
 
 
         <div class="bodyPage">
-            <label id="nameSofa" th:text="${name}">Диван "Лорд"</label>
+            <label id="nameSofa" th:text="${product.name}">Диван "Лорд"</label>
             <div class="articul-rating">
                 <div class="articul">
                     <label id="articul">Артикул:</label>
-                    <label id="articul-nubmer" th:text="${article}">2340565</label>
+                    <label id="articul-nubmer" th:text="${product.article}">2340565</label>
                 </div>
                 <div class="review-rating">★★★★★</div>
             </div>
             <label id="character" style="margin-bottom: 10px">Характеристики</label><br>
-            <div class="form-container" th:switch="${product.type.type}">
-                <div th:case="'Ткань'">
-                    <div class="aboutForSofa">
-                        <label>Тип</label>
-                        <label>|</label>
-                        <label th:text="${product.type.type}" class="inputs"></label>
-                    </div>
+            <div th:switch="${product.type.type}">
+                <div class="form-container" th:case="'Ткань'">
                     <div class="aboutForSofa">
                         <label>Тип ткани</label>
                         <label>|</label>
@@ -368,36 +363,26 @@
                         <label th:text="${product.color}" class="inputs"></label>
                     </div>
                 </div>
-                <div th:case="'Каркас'">
-                    <div class="aboutForSofa">
-                        <label>Тип</label>
-                        <label>|</label>
-                        <label th:text="${product.type.type}" class="inputs"></label>
-                    </div>
+                <div  class="form-container" th:case="'Каркас'">
                     <div class="aboutForSofa">
                         <label>Конфигурация</label>
                         <label>|</label>
                         <label th:text="${product.configuration}" class="inputs"></label>
                     </div>
                     <div class="aboutForSofa">
-                        <label>Износостойкость</label>
+                        <label>Габарит</label>
                         <label>|</label>
                         <label th:text="${product.gabarit}" class="inputs"></label>
                     </div>
                 </div>
-                <div th:case="'Наполнитель'">
-                    <div class="aboutForSofa">
-                        <label>Тип</label>
-                        <label>|</label>
-                        <label th:text="${product.type.type}" class="inputs"></label>
-                    </div>
+                <div  class="form-container" th:case="'Наполнитель'">
                     <div class="aboutForSofa">
                         <label>Тип наполнителя</label>
                         <label>|</label>
                         <label th:text="${product.typeFill}" class="inputs"></label>
                     </div>
                     <div class="aboutForSofa">
-                        <label>Износостойкость</label>
+                        <label>Плотность</label>
                         <label>|</label>
                         <label th:text="${product.density}" class="inputs"></label>
                     </div>
@@ -432,7 +417,7 @@
             <!-- Контент вкладок -->
             <div class="tab-content">
                 <div id="tab1" class="tab-pane active" style="white-space: pre-line">
-                    <span th:text="${description}"></span>
+                    <p th:text="${product.description}"></p>
                 </div>
 
 

@@ -501,6 +501,13 @@ footer a:hover {
     width: 260px;
 }
 
+.product h2 {
+    font-size: 20px;
+}
+
+.product h2, h3, p {
+    padding-left: 5px;
+}
 
 
 

@@ -326,14 +326,14 @@
                             <div class="name_and_price">
                                 <h2 th:text="${order.products[0].name}">Диван "Лорд"</h2>
                                 <p th:text="${order.products[0].size}">2400*1000</p>
-                                <p th:text="${order.products[0].article}">Артикул: 1242464</p>
+                                <p th:text="'Артикул: ' + ${order.products[0].article}">Артикул: 1242464</p>
                                 <p>Количество: 1</p>
 <!--                                <h3 th:text="${order.products[0].price}">50.000 руб.</h3>-->
                             </div>
                         </div>
                         <div class="name_and_price">
                             <p>ЗАКАЗ № <span th:text="${order.id}">320448</span></p>
-                            <p>Стоимость <span th:text="${order.totalPrice}">320448</span></p>
+                            <p>Стоимость <span th:text="${order.totalPrice} + ' руб.'">320448</span></p>
                             <p>Сроки изготовления: до <span th:text="${order.orderDate}">20.04.2025</span></p>
                             <p>Cпособ получения: <span th:text="${order.deliveryType.title}">самовывоз</span></p>
                         </div>
@@ -356,14 +356,14 @@
                             <div class="name_and_price">
                                 <h2 th:text="${order.products[0].name}">Диван "Лорд"</h2>
                                 <p th:text="${order.products[0].size}">2400*1000</p>
-                                <p th:text="${order.products[0].article}">Артикул: 1242464</p>
+                                <p th:text="'Артикул: ' + ${order.products[0].article}">Артикул: 1242464</p>
                                 <p>Количество: 1</p>
                                 <!--                                <h3 th:text="${order.products[0].price}">50.000 руб.</h3>-->
                             </div>
                         </div>
                         <div class="name_and_price">
                             <p>ЗАКАЗ № <span th:text="${order.id}">320448</span></p>
-                            <p>Стоимость <span th:text="${order.totalPrice}">320448</span></p>
+                            <p>Стоимость <span th:text="${order.totalPrice} + ' руб.'">320448</span></p>
                             <p>Сроки изготовления: до <span th:text="${order.orderDate}">20.04.2025</span></p>
                             <p>Cпособ получения: <span th:text="${order.deliveryType.title}">самовывоз</span></p>
                         </div>

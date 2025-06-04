@@ -302,11 +302,14 @@
             <div class="card">
                 <a th:href="@{/sofa/{id}(id=${product.id})}">
                     <img th:src="${product.urls[0]}">
+                </a>
+            </div>
+            <div class="card">
+                <a th:href="@{/sofa/{id}(id=${product.id})}">
                     <div class="name_and_price">
-
                         <h2 th:text="${product.name}">Диван "Лорд"</h2>
                         <p th:text="${product.size}">2400*1000</p>
-                        <h3 th:text="${product.price}">50.000 руб.</h3>
+                        <h3 th:text="${product.price} + ' руб.'">50.000 руб.</h3>
                         <!--                    <div class="quantity-selector">-->
                         <!--                        <button class="decrement">−</button>-->
                         <!--                        <input type="number" value="1" min="1" class="quantity">-->
@@ -315,7 +318,7 @@
                     </div>
                 </a>
             </div>
-            <p>Описание товара</p>
+<!--            <p>Описание товара</p>-->
             <p th:text="${product.description}">Описание товара</p>
             <div class="price">
                 <form th:action="@{/korzina/{id}/delete_from_korzina (id=${product.id})}" method="post">
@@ -398,7 +401,7 @@
                             th:data-address="${point.address}"
                             th:data-phone="${point.phoneNumber}"
                             th:data-coords="${point.pointOnTheMap}"
-                            th:text="${point.name}">
+                            th:text="${point.address}">
                     </option>
                 </select>
             </div>

@@ -247,7 +247,7 @@ justify-content: center;
 }
 
 .product {
-    display: flex;
+    display: grid;
     flex-direction: row;
     align-items: flex-start;
     gap: 20px;
@@ -257,6 +257,7 @@ justify-content: center;
     padding: 20px;
     background: white;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    grid-template-columns: 1fr 1fr 3fr 50px;
 }
 
 .product:hover {
@@ -297,7 +298,8 @@ justify-content: center;
 }
 
 .product p{
-    font-size: 20px;
+    font-size: inherit;
+    margin-top: 0;
     color: #000000a2;
 }
 
