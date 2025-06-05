@@ -56,5 +56,7 @@ public class OtchetForFabric {
     private String description;
 
     private Integer totalPrice;
+    private Integer count;
+    private Integer meanPrice;
     
 }

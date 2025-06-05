@@ -47,9 +47,9 @@ public class OrderForLegalService {
         order.setOrderDate(LocalDate.now());
         order.setStatus(OrderStatus.WAITING_ACCESS);
 
-        Long totalPrice = 0L;
+        Integer totalPrice = 0;
         for (ProductForLegal product : korzina.getProducts())
-            totalPrice += product.getPrice();
+            totalPrice += Math.toIntExact(product.getPrice());
 
         order.setTotalPrice(totalPrice);
         order.setOrderDate(LocalDate.now());

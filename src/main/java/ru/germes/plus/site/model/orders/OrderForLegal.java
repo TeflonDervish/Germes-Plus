@@ -51,7 +51,7 @@ public class OrderForLegal {
 
     private LocalDate orderDate;
 
-    private Long totalPrice;
+    private Integer totalPrice;
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
