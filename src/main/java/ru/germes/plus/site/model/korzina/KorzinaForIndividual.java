@@ -8,6 +8,7 @@ import lombok.Setter;
 import ru.germes.plus.site.model.persons.IndividualPerson;
 import ru.germes.plus.site.model.products.ProductForIndividual;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Setter
@@ -31,7 +32,7 @@ public class KorzinaForIndividual {
             joinColumns = @JoinColumn(name = "korzina_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id")
     )
-    private List<ProductForIndividual> products;
+    private List<ProductForIndividual> products = new ArrayList<>();
 
     public void addProduct(ProductForIndividual product) {
         products.add(product);

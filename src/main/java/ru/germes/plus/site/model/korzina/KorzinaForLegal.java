@@ -11,6 +11,7 @@ import ru.germes.plus.site.model.persons.LegalPerson;
 import ru.germes.plus.site.model.products.ProductForIndividual;
 import ru.germes.plus.site.model.products.ProductForLegal;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Setter
@@ -34,7 +35,7 @@ public class KorzinaForLegal {
             joinColumns = @JoinColumn(name = "korzina_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id")
     )
-    private List<ProductForLegal> products;
+    private List<ProductForLegal> products = new ArrayList<>();
 
     public void addProduct(ProductForLegal product) {
         products.add(product);

@@ -12,6 +12,7 @@ import ru.germes.plus.site.model.products.ProductForIndividual;
 import ru.germes.plus.site.model.products.ProductForLegal;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -36,7 +37,7 @@ public class OtchetForFabric {
             joinColumns = @JoinColumn(name = "otchet_id"),
             inverseJoinColumns = @JoinColumn(name = "order_id")
     )
-    private List<ProductForIndividual> productsForIndividuals;
+    private List<ProductForIndividual> productsForIndividuals = new ArrayList<>();
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
@@ -44,7 +45,7 @@ public class OtchetForFabric {
             joinColumns = @JoinColumn(name = "otchet_id"),
             inverseJoinColumns = @JoinColumn(name = "order_id")
     )
-    private List<ProductForLegal> productsForLegals;
+    private List<ProductForLegal> productsForLegals = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "fabric_otchet_id")
