@@ -43,6 +43,7 @@ public class ProductForLegal {
 
     private Long price;
 
+    @Lob
     private String description;
 
     @Column
