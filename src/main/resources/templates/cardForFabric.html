@@ -104,7 +104,6 @@
             }
 
 
-
             .footerInf {
                 grid-template-columns: 1fr;
             }
@@ -314,28 +313,28 @@
             <div class="footerInf">
                 <div class="forClients">
                     <h1>Клиентам</h1>
-                    <a href="#delevery">ДОСТАВКА</a>
-                    <a href="#shops">МАГАЗИНЫ</a>
-                    <a href="#status">СТАТУС ЗАКАЗА</a>
+                    <a th:href="@{/delivery}">ДОСТАВКА</a>
+                    <a th:href="@{/magazine}">МАГАЗИНЫ</a>
+                    <a th:href="@{/account}">СТАТУС ЗАКАЗА</a>
                 </div>
                 <div class="aboutCompany">
                     <h1>О фабрике</h1>
-                    <a href="#about_us">О НАС</a>
-                    <a href="#contacts">КОНТАКТЫ</a>
-                    <a href="#adress">АДРЕС ФАБРИКИ</a>
+                    <a th:href="@{/fabric}">О НАС</a>
+                    <a th:href="@{/fabric}">КОНТАКТЫ</a>
+                    <a th:href="@{/fabric}">АДРЕС ФАБРИКИ</a>
                 </div>
                 <div class="catalog">
                     <h1>Каталог</h1>
-                    <a href="#sofas">ДИВАНЫ</a>
+                    <a th:href="@{/catalog}">ДИВАНЫ</a>
                 </div>
                 <div class="massage">
                     <h1>+7 (494) 270-65-01</h1>
                     <img height="30px" th:src="@{img/footer/whatsapp.png}">
                 </div>
             </div>
+        </div>
     </footer>
 </div>
-
 <script src="https://api-maps.yandex.ru/2.1/?apikey=bff7b351-d1e8-45d3-a920-587566731f5e&lang=ru_RU"></script>
 <script type="text/javascript">
     ymaps.ready(init);
