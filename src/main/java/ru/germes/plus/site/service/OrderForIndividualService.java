@@ -56,6 +56,7 @@ public class OrderForIndividualService {
             processPickup(order, orderForIndividualDto.getPickupDetails());
         }
 
+
         OrderForIndividual savedOrder = orderForIndividualRepository.save(order);
 
         korzinaForIndividualService.clear(user);
@@ -65,6 +66,7 @@ public class OrderForIndividualService {
 
     private void processDelivery(OrderForIndividual order, DeliveryDetailsDto details) {
         log.info("Заказ с доставкой");
+        order.setDeliveryPrice(500);
         order.setDeliveryType(DeliveryType.DELIVERY);
         order.setDeliveryAddress(details.getAddress());
     }
@@ -73,6 +75,7 @@ public class OrderForIndividualService {
         log.info("Самовывоз");
         order.setDeliveryType(DeliveryType.PICKUP);
 
+        order.setDeliveryPrice(0);
         PointOfSale pointOfSale = pointOfSaleService.getById(details.getPickupPointId());
 
         order.setPointOfSale(pointOfSale);

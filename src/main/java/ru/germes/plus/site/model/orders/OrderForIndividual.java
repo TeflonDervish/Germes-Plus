@@ -21,7 +21,6 @@ import java.util.List;
 @Setter
 @Builder
 @NoArgsConstructor
-@ToString
 public class OrderForIndividual {
 
     @Id
@@ -63,4 +62,6 @@ public class OrderForIndividual {
 
     @Column(length = 100)
     private String deliveryAddress;
+
+    private Integer deliveryPrice;
 }
