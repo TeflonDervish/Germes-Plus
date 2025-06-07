@@ -7,5 +7,7 @@ import java.util.Optional;
 
 public interface LegalPersonRepository extends JpaRepository<LegalPerson, Long> {
 
-  Optional<LegalPerson> findByEmail(String email);
+    Optional<LegalPerson> findByEmail(String email);
+
+    boolean existsByEmail(String email);
 }

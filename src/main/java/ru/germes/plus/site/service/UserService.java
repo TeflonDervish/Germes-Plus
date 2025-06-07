@@ -25,15 +25,22 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        log.info("Получение пользователя по имени");
-        IndividualPerson individualPerson = individualPersonRepository.findByEmail(email).orElse(null);
+        log.info("Получение пользователя по имени: " + email);
         LegalPerson legalPerson = legalPersonRepository.findByEmail(email).orElse(null);
-        log.info(email);
-        if (individualPerson == null) return legalPerson;
-        else return individualPerson;
+        if (legalPerson != null) {
+            log.info("Сравнение вручную: " + passwordEncoder.matches("legal", legalPerson.getPassword()));
+            log.info("Найден пользователь legal person: " + email);
+            return legalPerson;
+        }
+        IndividualPerson individualPerson = individualPersonRepository.findByEmail(email).orElse(null);
+        if (individualPerson != null) {
+            log.info("Найдет пользователь individual person: " + email);
+            return individualPerson;
+        }
+        throw new UsernameNotFoundException(email);
     }
 
-    public void registerIndividualPerson(ru.germes.plus.site.model.persons.IndividualPerson individualPerson) {
+    public void registerIndividualPerson(IndividualPerson individualPerson) {
         log.info("Регистрация пользователя");
         if (!individualPersonRepository.existsByEmail(individualPerson.getEmail())) {
             ru.germes.plus.site.model.persons.IndividualPerson newIndividualPerson = new ru.germes.plus.site.model.persons.IndividualPerson();
@@ -81,6 +88,10 @@ public class UserService implements UserDetailsService {
 
     public LegalPerson registerLegalPerson(LegalPerson legalPerson) {
         log.info("Создать пользователя юр лиц");
+        if (legalPersonRepository.existsByEmail(legalPerson.getEmail())) {
+            log.info("Польователь с таким email уже существует");
+            return null;
+        }
         LegalPerson newLegalPerson = LegalPerson.builder()
                 .name(legalPerson.getName())
                 .phoneNumber(legalPerson.getPhoneNumber())

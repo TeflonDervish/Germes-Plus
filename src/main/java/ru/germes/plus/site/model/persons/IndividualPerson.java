@@ -15,6 +15,8 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
 @ToString
 public class IndividualPerson implements UserDetails {
 
