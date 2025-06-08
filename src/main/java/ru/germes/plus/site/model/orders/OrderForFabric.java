@@ -38,17 +38,17 @@ public class OrderForFabric {
 
     @ManyToOne
     @JoinColumn(name = "point_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OnDelete(action = OnDeleteAction.SET_NULL)
     private PointOfSale pointOfSale;
 
     @ManyToOne
     @JoinColumn(name = "fabric_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OnDelete(action = OnDeleteAction.SET_NULL)
     private Fabric fabric;
 
     @ManyToOne
     @JoinColumn(name = "fabric_manager_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OnDelete(action = OnDeleteAction.SET_NULL)
     private FabricManager fabricManager;
 
     @Enumerated(EnumType.STRING)

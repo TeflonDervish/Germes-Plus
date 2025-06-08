@@ -29,17 +29,17 @@ public class OrderForIndividual {
 
     @ManyToOne
     @JoinColumn(name = "person_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OnDelete(action = OnDeleteAction.SET_NULL)
     private IndividualPerson individualPerson;
 
     @ManyToOne
     @JoinColumn(name = "point_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OnDelete(action = OnDeleteAction.SET_NULL)
     private PointOfSale pointOfSale;
 
     @ManyToOne
     @JoinColumn(name = "point_manager_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OnDelete(action = OnDeleteAction.SET_NULL)
     private PointManager pointManager;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})

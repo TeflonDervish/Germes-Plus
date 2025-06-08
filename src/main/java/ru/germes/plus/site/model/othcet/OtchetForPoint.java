@@ -39,7 +39,7 @@ public class OtchetForPoint {
 
     @ManyToOne
     @JoinColumn(name = "point_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OnDelete(action = OnDeleteAction.SET_NULL)
     private PointOfSale pointOfSale;
 
     private String name;

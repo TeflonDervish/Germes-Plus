@@ -29,7 +29,7 @@ public class OrderForLegal {
 
     @ManyToOne
     @JoinColumn(name = "legal_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OnDelete(action = OnDeleteAction.SET_NULL)
     private LegalPerson legalPerson;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
@@ -42,12 +42,12 @@ public class OrderForLegal {
 
     @ManyToOne
     @JoinColumn(name = "fabric_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OnDelete(action = OnDeleteAction.SET_NULL)
     private Fabric fabric;
 
     @ManyToOne
     @JoinColumn(name = "fabric_manager_order_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OnDelete(action = OnDeleteAction.SET_NULL)
     private FabricManager fabricManager;
 
     private LocalDate orderDate;

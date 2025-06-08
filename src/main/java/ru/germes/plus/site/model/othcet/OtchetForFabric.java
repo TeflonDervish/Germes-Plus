@@ -49,7 +49,7 @@ public class OtchetForFabric {
 
     @ManyToOne
     @JoinColumn(name = "fabric_otchet_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OnDelete(action = OnDeleteAction.SET_NULL)
     private Fabric fabric;
 
     @Column(length = 100)
