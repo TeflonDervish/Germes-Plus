@@ -10,9 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.germes.plus.site.dto.FilterProductForIndividual;
+import ru.germes.plus.site.dto.FilterProductForLegal;
 import ru.germes.plus.site.model.persons.IndividualPerson;
 import ru.germes.plus.site.model.persons.LegalPerson;
 import ru.germes.plus.site.model.products.ProductForIndividual;
+import ru.germes.plus.site.model.products.ProductForLegal;
 import ru.germes.plus.site.service.ProductForIndividualService;
 import ru.germes.plus.site.service.ProductForLegalService;
 
@@ -39,7 +41,7 @@ public class CatalogController {
         if (user instanceof IndividualPerson) {
             model.addAttribute("filter", new FilterProductForIndividual());
             return "catalog";
-        } else if (user instanceof LegalPerson){
+        } else if (user instanceof LegalPerson) {
             model.addAttribute("products", productForLegalService.getAll());
             return "forLegalPerson/catalog";
         }
@@ -54,16 +56,41 @@ public class CatalogController {
     }
 
     @PostMapping("/filter")
-    public String filter(@ModelAttribute FilterProductForIndividual filter, Model model) {
+    public String filter(
+            @ModelAttribute FilterProductForIndividual filter,
+            Model model
+    ) {
         List<ProductForIndividual> productForIndividuals = productForIndividualService.getFilteredProducts(filter);
         model.addAttribute("products", productForIndividuals);
         return "catalog";
     }
 
     @PostMapping("/sort")
-    public String sort(@RequestParam String sort, Model model) {
-        List<ProductForIndividual> productForIndividuals = productForIndividualService.getBySort(sort);
-        model.addAttribute("products", productForIndividuals);
+    public String sort(
+            @RequestParam String sort,
+            Model model,
+            @AuthenticationPrincipal UserDetails user
+    ) {
+        if (user instanceof IndividualPerson) {
+            List<ProductForIndividual> productForIndividuals = productForIndividualService.getBySort(sort);
+            model.addAttribute("products", productForIndividuals);
+            return "catalog";
+        } else if (user instanceof LegalPerson) {
+            List<ProductForLegal> products = productForLegalService.getBySort(sort);
+            model.addAttribute("products", products);
+            return "forLegalPerson/catalog";
+        }
         return "catalog";
+    }
+
+    @PostMapping("/legal/filter")
+    public String filterLegal(
+            @ModelAttribute FilterProductForLegal filter,
+            Model model
+    ) {
+        log.info(filter);
+        List<ProductForLegal> productForLegals = productForLegalService.getFilteredProducts(filter);
+        model.addAttribute("products", productForLegals);
+        return "forLegalPerson/catalog";
     }
 }

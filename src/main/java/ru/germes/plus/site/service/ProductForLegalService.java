@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
+import ru.germes.plus.site.dto.FilterProductForLegal;
 import ru.germes.plus.site.exceptions.ProductForIndividualException;
 import ru.germes.plus.site.model.products.ProductForLegal;
 import ru.germes.plus.site.repository.ProductForLegalRepository;
@@ -34,10 +35,10 @@ public class ProductForLegalService {
         return productForLegalRepository.findByNameContainingIgnoreCase(search);
     }
 
-//    public List<ProductForIndividual> getFilteredProducts(FilterProductForLegal filter) {
+//    public List<ProductForLegal> getFilteredProducts(FilterProductForLegal filter) {
 //        log.info("Фильтрация продуктов");
 //        log.info(filter.toString());
-//        return productForIndividualRepository.findWithFilters(
+//        return productForLegalRepository.findWithFilters(
 //                filter.getMinPrice(),
 //                filter.getMaxPrice(),
 //                filter.getConfigurations(),
@@ -56,5 +57,14 @@ public class ProductForLegalService {
             product = productForLegalRepository.findAllByOrderByPriceDesc();
         }
         return product;
+    }
+
+    public List<ProductForLegal> getFilteredProducts(FilterProductForLegal filter) {
+        log.info("Фильтрация продуктов");
+        log.info(filter.toString());
+        return productForLegalRepository.findWithFilters(
+                filter.getMinPrice(),
+                filter.getMaxPrice(),
+                filter.getConfigurations());
     }
 }

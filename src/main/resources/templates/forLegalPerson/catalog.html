@@ -10,21 +10,26 @@
             width: 100%;
             max-width: none;
         }
+
         footer {
 
             background-color: rgba(40, 49, 80, 0); /* Полупрозрачный фон */
         }
 
-        .cleanFilt{
+
+        .cleanFilt {
             grid-column: 3/4;
             width: 280px;
         }
-        .custom-dropdown{
-            grid-template-columns: repeat(4,1fr);
+
+        .custom-dropdown {
+            grid-template-columns: repeat(4, 1fr);
         }
-        .custom-dropdown_sort{
+
+        .custom-dropdown_sort {
             grid-column: 4;
         }
+
         @media (max-width: 1440px) {
             .magazine {
                 grid-template-columns: repeat(3, 260px);
@@ -32,14 +37,14 @@
             }
 
             .custom-dropdown {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: 2fr 1fr;
             }
 
             .custom-dropdown_sort {
                 grid-column: 4;
             }
 
-    
+
         }
 
         @media (max-width: 1200px) {
@@ -65,7 +70,6 @@
             /* .cleanFilt {
                 grid-column: 2/3;
             } */
-
             .filt_all {
                 grid-template-columns: repeat(3, 1fr);
             }
@@ -246,60 +250,70 @@
 
     </header>
 
-    <div class="custom-dropdown center">
+    <form th:action="@{/catalog/legal/filter}" method="post">
 
-        <div class="filters">
-            <div class="dropdown-header">
-                <span>Цена, руб.</span>
-                <img height="20px" th:src="@{/img/body/forCatalog/angle-down.svg}" class="arrow">
-            </div>
-            <div class="dropdown-content">
-                <div class="price-range">
-                    <input type="number" id="min-price" placeholder="От">
-                    <input type="number" id="max-price" placeholder="До">
-                </div>
+        <div class="custom-dropdown center">
 
-            </div>
-        </div>
-
-        <div class="filters">
-            <div class="dropdown-header">
-                <span>Конфигурация</span>
-                <img height="20px" th:src="@{/img/body/forCatalog/angle-down.svg}" class="arrow">
-            </div>
-            <div class="dropdown-content">
-                <div class="checkboxForFilters">
-                    <input type="checkbox" id="sofas">
-                    <label for="sofas">Ткани</label>
-
-                    <input type="checkbox" id="sofas">
-                    <label for="sofas">Каркасы</label>
-
-                    <input type="checkbox" id="sofas">
-                    <label for="sofas">Наполнители</label>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="cleanFilt">
-            <button id="cleanFilt">Отчистить фильтры</button>
-        </div>
-        <div class="custom-dropdown_sort">
             <div class="filters">
                 <div class="dropdown-header">
-                    <span>Сортировка</span>
+                    <span>Цена, руб.</span>
                     <img height="20px" th:src="@{/img/body/forCatalog/angle-down.svg}" class="arrow">
                 </div>
                 <div class="dropdown-content">
-                    <div class="sort">
-                        <button>Сначала дешевле</button>
-                        <button>Сначала дороже</button>
+                    <div class="price-range">
+                        <input type="number" name="minPrice" placeholder="Мин. цена">
+                        <input type="number" name="maxPrice" placeholder="Макс. цена">
                     </div>
                 </div>
             </div>
+
+            <div class="filters">
+                <div class="dropdown-header">
+                    <span>Конфигурация</span>
+                    <img height="20px" th:src="@{/img/body/forCatalog/angle-down.svg}" class="arrow">
+                </div>
+                <div class="dropdown-content">
+                    <div class="checkboxForFilters">
+                        <input type="checkbox" id="sofas" name="configurations" value="CLOTH">
+                        <label for="sofas">Ткани</label>
+
+                        <input type="checkbox" id="sofas" name="configurations" value="CARCASS">
+                        <label for="sofas">Каркасы</label>
+
+                        <input type="checkbox" id="sofas" name="configurations" value="FILL">
+                        <label for="sofas">Наполнители</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cleanFilt">
+                <form th:action="@{/catalog}" method="get">
+                    <button type="submit" id="cleanFilt">Очистить фильтры</button>
+                </form>
+            </div>
+            <div class="custom-dropdown_sort">
+                <div class="filters">
+                    <div class="dropdown-header">
+                        <span>Сортировка</span>
+                        <img height="20px" th:src="@{/img/body/forCatalog/angle-down.svg}" class="arrow">
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="sort">
+                            <form th:action="@{/catalog/sort(sort='price_asc')}" method="post">
+                                <button type="submit">Сначала дешевле</button>
+                            </form>
+                            <form th:action="@{/catalog/sort(sort='price_desc')}" method="post">
+                                <button type="submit">Сначала дороже</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </div>
+
+    </form>
+
 
     <div class="magazine center">
         <div class="product" th:each="product : ${products}">
@@ -312,6 +326,7 @@
             <!--            <button>Добавить в корзину</button>-->
         </div>
     </div>
+
 </div>
 
 <footer>
