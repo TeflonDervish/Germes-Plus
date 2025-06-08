@@ -8,6 +8,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import ru.germes.plus.site.enums.LegalProductType;
 import ru.germes.plus.site.model.Fabric;
 import ru.germes.plus.site.model.PointOfSale;
+import ru.germes.plus.site.model.orders.OrderForIndividual;
 import ru.germes.plus.site.model.products.ProductForIndividual;
 import ru.germes.plus.site.model.products.ProductForLegal;
 
@@ -37,7 +38,7 @@ public class OtchetForFabric {
             joinColumns = @JoinColumn(name = "otchet_id"),
             inverseJoinColumns = @JoinColumn(name = "order_id")
     )
-    private List<ProductForIndividual> productsForIndividuals = new ArrayList<>();
+    private List<OrderForIndividual> productsForIndividuals = new ArrayList<>();
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
@@ -45,7 +46,7 @@ public class OtchetForFabric {
             joinColumns = @JoinColumn(name = "otchet_id"),
             inverseJoinColumns = @JoinColumn(name = "order_id")
     )
-    private List<ProductForLegal> productsForLegals = new ArrayList<>();
+    private List<OrderForIndividual> productsForLegals = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "fabric_otchet_id")
