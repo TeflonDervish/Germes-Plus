@@ -318,7 +318,8 @@
     <div class="magazine center">
         <div class="product" th:each="product : ${products}">
             <a th:href="@{/sofa/{id}(id=${product.id})}">
-                <img th:src="${product.urls[0]}">
+                <img th:if="${product?.urls.empty}" th:src="@{/img/no_image.jpg}">
+                <img th:if="${!product?.urls.empty}" th:src="${product?.urls[0]}">
                 <h2 th:text="${product.name}">Диван "Лорд"</h2>
                 <p th:text="${product.type.type}">Ткань, наполнитель, каркас</p>
                 <h3><span th:text="${product.price}"></span> руб.</h3>

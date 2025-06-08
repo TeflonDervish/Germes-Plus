@@ -301,7 +301,8 @@
 
             <div class="card">
                 <a th:href="@{/sofa/{id}(id=${product.id})}">
-                    <img th:src="${product.urls[0]}">
+                    <img th:if="${product?.urls.empty}" th:src="@{/img/no_image.jpg}">
+                    <img th:if="${!product?.urls.empty}" th:src="${product?.urls[0]}">
                 </a>
             </div>
             <div class="card">
