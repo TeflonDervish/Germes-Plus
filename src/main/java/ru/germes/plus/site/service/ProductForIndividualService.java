@@ -44,7 +44,8 @@ public class ProductForIndividualService {
                 filter.getConfigurations(),
                 filter.getMechanisms(),
                 filter.getFillings(),
-                filter.getArmrests()
+                filter.getArmrests(),
+                filter.getBox()
         );
     }
 

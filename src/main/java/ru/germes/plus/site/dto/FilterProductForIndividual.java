@@ -20,4 +20,5 @@ public class FilterProductForIndividual {
     private Integer maxSleepingWidth;
     private List<String> fillings;
     private List<String> armrests;
+    private List<String> box;
 }
