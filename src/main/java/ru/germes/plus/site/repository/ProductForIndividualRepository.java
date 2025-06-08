@@ -16,6 +16,22 @@ public interface ProductForIndividualRepository extends JpaRepository<ProductFor
     @Query("SELECT p FROM ProductForIndividual p WHERE " +
             "(:minPrice IS NULL OR p.price >= :minPrice) AND " +
             "(:maxPrice IS NULL OR p.price <= :maxPrice) AND " +
+
+            "(:depthMin IS NULL OR p.depthInt >= :depthMin) AND " +
+            "(:depthMax IS NULL OR p.depthInt <= :depthMax) AND " +
+
+            "(:plantingMin IS NULL OR p.plantingInt >= :plantingMin) AND " +
+            "(:plantingMax IS NULL OR p.plantingInt <= :plantingMax) AND " +
+
+            "(:seatDepthMin IS NULL OR p.seatDepthInt >= :seatDepthMin) AND " +
+            "(:seatDepthMax IS NULL OR p.seatDepthInt <= :seatDepthMax) AND " +
+
+            "(:sizeMin IS NULL OR p.sizeInt >= :sizeMin) AND " +
+            "(:sizeMax IS NULL OR p.sizeInt <= :sizeMax) AND " +
+
+            "(:sleepingSpaceMin IS NULL OR p.sleepingSpaceInt >= :sleepingSpaceMin) AND " +
+            "(:sleepingSpaceMax IS NULL OR p.sleepingSpaceInt <= :sleepingSpaceMax) AND " +
+
             "(:configurations IS NULL OR p.configuration IN :configurations) AND " +
             "(:mechanisms IS NULL OR p.mechanism IN :mechanisms) AND " +
             "(:fillings IS NULL OR p.filling IN :fillings) AND " +
@@ -24,6 +40,22 @@ public interface ProductForIndividualRepository extends JpaRepository<ProductFor
     List<ProductForIndividual> findWithFilters(
             @Param("minPrice") Integer minPrice,
             @Param("maxPrice") Integer maxPrice,
+
+            @Param("depthMin") Integer depthMin,
+            @Param("depthMax") Integer depthMax,
+
+            @Param("plantingMin") Integer plantingMin,
+            @Param("plantingMax") Integer plantingMax,
+
+            @Param("seatDepthMin") Integer seatDepthMin,
+            @Param("seatDepthMax") Integer seatDepthMax,
+
+            @Param("sizeMin") Integer sizeMin,
+            @Param("sizeMax") Integer sizeMax,
+
+            @Param("sleepingSpaceMin") Integer sleepingSpaceMin,
+            @Param("sleepingSpaceMax") Integer sleepingSpaceMax,
+
             @Param("configurations") List<String> configurations,
             @Param("mechanisms") List<String> mechanisms,
             @Param("fillings") List<String> fillings,

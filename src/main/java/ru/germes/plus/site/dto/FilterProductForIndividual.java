@@ -12,13 +12,29 @@ import java.util.List;
 public class FilterProductForIndividual {
     private Integer minPrice;
     private Integer maxPrice;
+
+    private Integer depthMin;
+    private Integer depthMax;
+
+    private Integer plantingMin;
+    private Integer plantingMax;
+
+    private Integer seatDepthMin;
+    private Integer seatDepthMax;
+
+    private Integer sizeMin;
+    private Integer sizeMax;
+
+    private Integer sleepingSpaceMin;
+    private Integer sleepingSpaceMax;
+
     private List<String> configurations;
+
     private List<String> mechanisms;
-    private Integer minSleepingLength;
-    private Integer maxSleepingLength;
-    private Integer minSleepingWidth;
-    private Integer maxSleepingWidth;
+
     private List<String> fillings;
+
     private List<String> armrests;
+
     private List<String> box;
 }

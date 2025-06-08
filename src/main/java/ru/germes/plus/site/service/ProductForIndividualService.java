@@ -41,6 +41,22 @@ public class ProductForIndividualService {
         return productForIndividualRepository.findWithFilters(
                 filter.getMinPrice(),
                 filter.getMaxPrice(),
+
+                filter.getDepthMin(),
+                filter.getDepthMax(),
+
+                filter.getPlantingMin(),
+                filter.getPlantingMax(),
+
+                filter.getSeatDepthMin(),
+                filter.getSeatDepthMax(),
+
+                filter.getSizeMin(),
+                filter.getSizeMax(),
+
+                filter.getSleepingSpaceMin(),
+                filter.getSleepingSpaceMax(),
+
                 filter.getConfigurations(),
                 filter.getMechanisms(),
                 filter.getFillings(),

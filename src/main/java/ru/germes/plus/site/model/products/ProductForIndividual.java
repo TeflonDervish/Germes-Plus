@@ -29,6 +29,7 @@ public class ProductForIndividual {
 
     @Column(length = 100)
     private String size;
+    private Integer sizeInt;
 
     @Column(length = 100)
     private String article;
@@ -50,15 +51,19 @@ public class ProductForIndividual {
 
     @Column(length = 100) // Глубина сидушки
     private String seatDepth;
+    private Integer seatDepthInt;
 
     @Column(length = 100) // Посадка
     private String planting;
+    private Integer plantingInt;
 
     @Column(length = 100) // Спальное место
     private String sleepingSpace;
-  
+    private Integer sleepingSpaceInt;
+
     @Column(length = 100) // Глубина
     private String depth;
+    private Integer depthInt;
 
     @Column(length = 100) // Конфигурация
     private String configuration;
