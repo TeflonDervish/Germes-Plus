@@ -261,16 +261,13 @@
                 </div>
                 <div class="dropdown-content">
                     <div class="checkboxForFilters">
-                        <input type="checkbox" id="sofas" name="configurations"
-                               th:checked="${filter?.configurations?.contains('Угловой')}">
+                        <input type="checkbox" id="sofas" name="configurations" value="Угловой">
                         <label for="sofas">Угловой</label>
 
-                        <input type="checkbox" id="sofas" name="configurations"
-                               th:checked="${filter?.configurations?.contains('П-образный')}">
+                        <input type="checkbox" id="sofas" name="configurations" value="П-образный">
                         <label for="sofas">П-образный</label>
 
-                        <input type="checkbox" id="sofas" name="configurations"
-                               th:checked="${filter?.configurations?.contains('Прямой')}">
+                        <input type="checkbox" id="sofas" name="configurations" value="Прямой">
                         <label for="sofas">Прямой</label>
                     </div>
                 </div>
@@ -282,28 +279,28 @@
                 </div>
                 <div class="dropdown-content">
                     <div class="checkboxForFilters">
-                        <input type="checkbox" id="sofas">
+                        <input type="checkbox" id="sofas" name="mechanisms" value="Трансформер">
                         <label for="sofas">Трансформер</label>
 
-                        <input type="checkbox" id="sofas">
+                        <input type="checkbox" id="sofas" name="mechanisms" value="Еврокнижка">
                         <label for="sofas">Еврокнижка</label>
 
-                        <input type="checkbox" id="sofas">
+                        <input type="checkbox" id="sofas" name="mechanisms" value="Книжка">
                         <label for="sofas">Книжка</label>
 
-                        <input type="checkbox" id="sofas">
+                        <input type="checkbox" id="sofas" name="mechanisms" value="Тройной-выкатной">
                         <label for="sofas">Тройной-выкатной</label>
 
-                        <input type="checkbox" id="sofas">
+                        <input type="checkbox" id="sofas" name="mechanisms" value="Аккордеон">
                         <label for="sofas">Аккордеон</label>
 
-                        <input type="checkbox" id="sofas">
+                        <input type="checkbox" id="sofas" name="mechanisms" value="Дельфин">
                         <label for="sofas">Дельфин</label>
 
-                        <input type="checkbox" id="sofas">
+                        <input type="checkbox" id="sofas" name="mechanisms" value="Тик-так">
                         <label for="sofas">Тик-так</label>
 
-                        <input type="checkbox" id="sofas">
+                        <input type="checkbox" id="sofas" name="mechanisms" value="Клик-кляк">
                         <label for="sofas">Клик-кляк</label>
                     </div>
                 </div>
@@ -369,16 +366,16 @@
                     </div>
                     <div class="dropdown-content">
                         <div class="checkboxForFilters">
-                            <input type="checkbox" id="sofas">
+                            <input type="checkbox" id="sofas" name="fillings" value="Независимый пружинный блок">
                             <label for="sofas">Независимый пружинный блок</label>
 
-                            <input type="checkbox" id="sofas">
+                            <input type="checkbox" id="sofas" name="fillings" value="ППУ">
                             <label for="sofas">ППУ</label>
 
-                            <input type="checkbox" id="sofas">
+                            <input type="checkbox" id="sofas" name="fillings" value="Пружина - змейка">
                             <label for="sofas">Пружина - змейка</label>
 
-                            <input type="checkbox" id="sofas">
+                            <input type="checkbox" id="sofas" name="fillings" value="Премиум наполнитель ELAX">
                             <label for="sofas">Премиум наполнитель ELAX</label>
                         </div>
                     </div>
@@ -390,11 +387,17 @@
                     </div>
                     <div class="dropdown-content">
                         <div class="checkboxForFilters">
-                            <input type="checkbox" id="sofas">
-                            <label for="sofas">С подлокотниками</label>
+                            <input type="checkbox" id="sofas" name="armrests" value="Есть">
+                            <label for="sofas">Есть</label>
 
-                            <input type="checkbox" id="sofas">
-                            <label for="sofas">Без подлокотников</label>
+                            <input type="checkbox" id="sofas" name="armrests" value="Есть, с баром">
+                            <label for="sofas">Есть, с баром</label>
+
+                            <input type="checkbox" id="sofas" name="armrests" value="Есть, с ящиками">
+                            <label for="sofas">Есть, с ящиками</label>
+
+                            <input type="checkbox" id="sofas" name="armrests" value="Отсутствуют">
+                            <label for="sofas">Отсутствуют</label>
 
                         </div>
                     </div>

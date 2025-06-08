@@ -18,13 +18,15 @@ public interface ProductForIndividualRepository extends JpaRepository<ProductFor
             "(:maxPrice IS NULL OR p.price <= :maxPrice) AND " +
             "(:configurations IS NULL OR p.configuration IN :configurations) AND " +
             "(:mechanisms IS NULL OR p.mechanism IN :mechanisms) AND " +
-            "(:fillings IS NULL OR p.filling IN :fillings)")
+            "(:fillings IS NULL OR p.filling IN :fillings) AND " +
+            "(:armrests IS NULL OR p.armrests IN :armrests)")
     List<ProductForIndividual> findWithFilters(
             @Param("minPrice") Integer minPrice,
             @Param("maxPrice") Integer maxPrice,
             @Param("configurations") List<String> configurations,
             @Param("mechanisms") List<String> mechanisms,
-            @Param("fillings") List<String> fillings);
+            @Param("fillings") List<String> fillings,
+            @Param("armrests") List<String> armrests);
 
     List<ProductForIndividual> findAllByOrderByPriceAsc();
     List<ProductForIndividual> findAllByOrderByPriceDesc();

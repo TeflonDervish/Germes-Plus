@@ -43,7 +43,8 @@ public class ProductForIndividualService {
                 filter.getMaxPrice(),
                 filter.getConfigurations(),
                 filter.getMechanisms(),
-                filter.getFillings()
+                filter.getFillings(),
+                filter.getArmrests()
         );
     }
 

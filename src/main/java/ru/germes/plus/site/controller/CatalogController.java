@@ -60,6 +60,7 @@ public class CatalogController {
             @ModelAttribute FilterProductForIndividual filter,
             Model model
     ) {
+        log.info(filter);
         List<ProductForIndividual> productForIndividuals = productForIndividualService.getFilteredProducts(filter);
         model.addAttribute("products", productForIndividuals);
         return "catalog";
